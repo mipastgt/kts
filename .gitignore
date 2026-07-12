@@ -1,0 +1,25 @@
+# Gradle
+.gradle/
+build/
+
+# Kotlin
+.kotlin/
+
+# IDE / tooling
+.idea/
+*.iml
+.claude/
+
+# Build / run output
+*.class
+*.log
+hs_err_pid*
+
+# JARs are build output — but the Gradle wrapper jar MUST be committed so `gradlew` works.
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# OS
+.DS_Store
+
+# Note: kotlin-js-store/yarn.lock is intentionally committed (reproducible JS/Wasm builds).

@@ -1,0 +1,176 @@
+/*
+ * Copyright (c) 2021 Martin Davis.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+package org.locationtech.jts.operation.valid
+
+import org.locationtech.jts.algorithm.locate.IndexedPointInAreaLocator
+import org.locationtech.jts.geom.Coordinate
+import org.locationtech.jts.geom.LinearRing
+import org.locationtech.jts.geom.Location
+import org.locationtech.jts.geom.MultiPolygon
+import org.locationtech.jts.geom.Polygon
+import org.locationtech.jts.index.SpatialIndex
+import org.locationtech.jts.index.strtree.STRtree
+
+/**
+ * Tests whether a MultiPolygon has any element polygon
+ * improperly nested inside another polygon, using a spatial
+ * index to speed up the comparisons.
+ */
+internal class IndexedNestedPolygonTester(private val multiPoly: MultiPolygon) {
+
+    private lateinit var index: SpatialIndex
+    private var locators: Array<IndexedPointInAreaLocator?>? = null
+    private var nestedPt: Coordinate? = null
+
+    init {
+        loadIndex()
+    }
+
+    private fun loadIndex() {
+        index = STRtree()
+
+        for (i in 0 until multiPoly.getNumGeometries()) {
+            val poly = multiPoly.getGeometryN(i) as Polygon
+            val env = poly.getEnvelopeInternal()
+            index.insert(env, i)
+        }
+    }
+
+    private fun getLocator(polyIndex: Int): IndexedPointInAreaLocator {
+        if (locators == null) {
+            locators = arrayOfNulls(multiPoly.getNumGeometries())
+        }
+        var locator = locators!![polyIndex]
+        if (locator == null) {
+            locator = IndexedPointInAreaLocator(multiPoly.getGeometryN(polyIndex))
+            locators!![polyIndex] = locator
+        }
+        return locator
+    }
+
+    /**
+     * Gets a point on a nested polygon, if one exists.
+     *
+     * @return a point on a nested polygon, or null if none are nested
+     */
+    fun getNestedPoint(): Coordinate? {
+        return nestedPt
+    }
+
+    /**
+     * Tests if any polygon is improperly nested (contained) within another polygon.
+     * This is invalid.
+     * The nested point will be set to reflect this.
+     * @return true if some polygon is nested
+     */
+    fun isNested(): Boolean {
+        for (i in 0 until multiPoly.getNumGeometries()) {
+            val poly = multiPoly.getGeometryN(i) as Polygon
+            val shell = poly.getExteriorRing()
+
+            @Suppress("UNCHECKED_CAST")
+            val results = index.query(poly.getEnvelopeInternal()) as List<Int>
+            for (polyIndex in results) {
+                val possibleOuterPoly = multiPoly.getGeometryN(polyIndex) as Polygon
+
+                if (poly === possibleOuterPoly)
+                    continue
+                /**
+                 * If polygon is not fully covered by candidate polygon it cannot be nested
+                 */
+                if (!possibleOuterPoly.getEnvelopeInternal().covers(poly.getEnvelopeInternal()))
+                    continue
+
+                nestedPt = findNestedPoint(shell, possibleOuterPoly, getLocator(polyIndex))
+                if (nestedPt != null)
+                    return true
+            }
+        }
+        return false
+    }
+
+    /**
+     * Finds an improperly nested point, if one exists.
+     *
+     * @param shell the test polygon shell
+     * @param possibleOuterPoly a polygon which may contain it
+     * @param locator the locator for the outer polygon
+     * @return a nested point, if one exists, or null
+     */
+    private fun findNestedPoint(
+        shell: LinearRing,
+        possibleOuterPoly: Polygon,
+        locator: IndexedPointInAreaLocator
+    ): Coordinate? {
+        /**
+         * Try checking two points, since checking point location is fast.
+         */
+        val shellPt0 = shell.getCoordinateN(0)
+        val loc0 = locator.locate(shellPt0)
+        if (loc0 == Location.EXTERIOR) return null
+        if (loc0 == Location.INTERIOR) {
+            return shellPt0
+        }
+
+        val shellPt1 = shell.getCoordinateN(1)
+        val loc1 = locator.locate(shellPt1)
+        if (loc1 == Location.EXTERIOR) return null
+        if (loc1 == Location.INTERIOR) {
+            return shellPt1
+        }
+
+        /**
+         * The shell points both lie on the boundary of
+         * the polygon.
+         * Nesting can be checked via the topology of the incident edges.
+         */
+        return findIncidentSegmentNestedPoint(shell, possibleOuterPoly)
+    }
+
+    companion object {
+        /**
+         * Finds a point of a shell segment which lies inside a polygon, if any.
+         * The shell is assumed to touch the polygon only at shell vertices,
+         * and does not cross the polygon.
+         *
+         * @param shell the shell to test
+         * @param poly the polygon to test against
+         * @return an interior segment point, or null if the shell is nested correctly
+         */
+        private fun findIncidentSegmentNestedPoint(shell: LinearRing, poly: Polygon): Coordinate? {
+            val polyShell = poly.getExteriorRing()
+            if (polyShell.isEmpty()) return null
+
+            if (!PolygonTopologyAnalyzer.isRingNested(shell, polyShell))
+                return null
+
+            /**
+             * Check if the shell is inside a hole (if there are any).
+             * If so this is valid.
+             */
+            for (i in 0 until poly.getNumInteriorRing()) {
+                val hole = poly.getInteriorRingN(i)
+                if (hole.getEnvelopeInternal().covers(shell.getEnvelopeInternal()) &&
+                    PolygonTopologyAnalyzer.isRingNested(shell, hole)
+                ) {
+                    return null
+                }
+            }
+
+            /**
+             * The shell is contained in the polygon, but is not contained in a hole.
+             * This is invalid.
+             */
+            return shell.getCoordinateN(0)
+        }
+    }
+}
