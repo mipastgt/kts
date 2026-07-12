@@ -63,10 +63,15 @@ import org.locationtech.jts.io.WKTWriter
 
 val geom = WKTReader().read("POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))")
 
-// Note: JTS accessors are explicit getters (getArea(), getCentroid(), …), not Kotlin properties.
+// The ported types keep JTS's explicit Java getters (getArea(), getCentroid(), …):
 println(geom.getArea())                              // 1.0
 println(WKTWriter().write(geom.getCentroid()))       // POINT (0.5 0.5)
 println(WKTWriter().write(geom.buffer(0.25)))        // POLYGON ((...))
+
+// …and an additive extension-property layer restores the Kotlin `.property` idiom you'd get from the
+// Java JTS artifacts. Import it (`import org.locationtech.jts.geom.*`) and write:
+println(geom.area)                                   // 1.0
+println(WKTWriter().write(geom.centroid))            // POINT (0.5 0.5)
 ```
 
 ## Deviations from the original API

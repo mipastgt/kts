@@ -604,3 +604,34 @@ them as it could against Java JTS.
   members were newly opened in this step.
 - **Compatibility.** Source- and binary-compatible (only widens what is permitted); the unmodified
   Java guardrail suite (`:kts-core:jvmTest`) and the JVM + `macosArm64` compiles remain green.
+
+## 21. Kotlin property-style accessors (additive extension layer)
+
+**[DONE]** Additive, non-breaking, opt-in. The port keeps upstream JTS's explicit Java getters
+(`getArea()`, `getCentroid()`, …) — a faithful-conversion decision, so the ported body stays
+byte-identical to upstream Java (which matters for re-porting from upstream). The cost was
+ergonomic: when Kotlin calls the *Java* JTS artifacts, the compiler synthesizes `geom.area` from
+`getArea()`; but Kotlin does **not** synthesize properties from *Kotlin*-declared `getX()` functions,
+so against this port callers had to write `geom.getArea()`.
+
+`geom/PropertyAccessors.kt` restores the `.property` idiom as a thin layer of **extension
+properties** that delegate to the underlying (virtual) getters — e.g. `val Geometry.area get() =
+getArea()`. Chosen over converting the getters to real Kotlin properties because that would have
+forced hundreds of internal getter→property call-site edits and permanently diverged the ported code
+from upstream's getter-call style; the extension layer keeps the port faithful and touches nothing
+existing.
+
+- **Surface covered:** the public no-arg accessors of `Geometry` (and thus every subtype),
+  `Point`, `LineString`, `Polygon`, `MultiLineString`, `Coordinate` (`m`, `isValid`), `Envelope`,
+  `LineSegment`, `PrecisionModel`, `Triangle`. Names match what Kotlin-on-Java-JTS synthesizes
+  (`area`, `centroid`, `numGeometries`, `isEmpty`, `SRID`, …). Parameterized getters
+  (`getGeometryN(i)`, `getCoordinateN(i)`, …) are unaffected — they stay functions, as in Java.
+- **Opt-in by import** (`import org.locationtech.jts.geom.*`), and **invisible to Java** (extension
+  properties compile to static helpers) — the Java getter API is untouched.
+- **Deliberate omissions:** `Coordinate.x/y/z` (already public fields); `Geometry.envelope` (the
+  protected `envelope: Envelope?` field would shadow it inside a consumer subclass and denote a
+  different type than the bounding-box `Geometry` the getter returns — use `envelopeInternal`, or
+  `getEnvelope()`). `factory`/`SRID` are provided: the extension resolves for ordinary callers and,
+  inside a consumer subclass, the identical protected field resolves instead — same value and type.
+- **Validated** by `commonTest` `PropertyAccessorTest` (asserts the accessors equal their getters,
+  from a different package so field/member shadowing would surface), green on `jvm` + `macosArm64`.
