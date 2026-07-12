@@ -45,6 +45,7 @@ val moduleTitles = mapOf(
     "kts-io-wkt" to "JTS Kotlin Multiplatform — WKT/WKB IO",
     "kts-io-gml" to "JTS Kotlin Multiplatform — GML IO",
     "kts-io-kml" to "JTS Kotlin Multiplatform — KML IO",
+    "kts-io-geojson" to "JTS Kotlin Multiplatform — GeoJSON IO",
     "kts-io-files" to "JTS Kotlin Multiplatform — File IO",
 )
 val moduleDescriptions = mapOf(
@@ -52,6 +53,7 @@ val moduleDescriptions = mapOf(
     "kts-io-wkt" to "WKT and WKB readers and writers for the JTS Kotlin Multiplatform port.",
     "kts-io-gml" to "GML 2 reader and writer for the JTS Kotlin Multiplatform port.",
     "kts-io-kml" to "KML reader and writer for the JTS Kotlin Multiplatform port.",
+    "kts-io-geojson" to "GeoJSON reader and writer (kotlinx-serialization) for the JTS Kotlin Multiplatform port.",
     "kts-io-files" to "File-based WKT/WKB geometry readers (kotlinx-io) for the JTS Kotlin Multiplatform port.",
 )
 

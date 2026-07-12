@@ -27,7 +27,7 @@ import kotlin.reflect.KClass
  *
  * @version 1.7
  */
-class GeometryFactory(
+open class GeometryFactory(
   precisionModel: PrecisionModel,
   SRID: Int,
   coordinateSequenceFactory: CoordinateSequenceFactory

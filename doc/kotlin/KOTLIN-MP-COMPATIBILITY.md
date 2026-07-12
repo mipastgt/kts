@@ -32,8 +32,9 @@ replacement is owed.
     (multiplatform, kotlinx-io backed). See §14.
   - **`jts-io-gml`** (`kts-io-gml`): the `gml2.*` package.
   - **`jts-io-kml`** (`kts-io-kml`): the `kml.*` package.
+  - **`jts-io-geojson`** (`kts-io-geojson`): the `io.geojson.*` package. See §19.
 
-  **Impact:** users of WKB / GML / KML / WKT-*reading* must add the corresponding module
+  **Impact:** users of WKB / GML / KML / GeoJSON / WKT-*reading* must add the corresponding module
   dependency; a WKT-writing / geometry-only user depends on core alone. Their **production
   dependency is core only** — the shared `io.ParseException` lives in **core** (its natural home,
   matching upstream JTS, where the whole `org.locationtech.jts.io` package is in `jts-core`), so a
@@ -41,9 +42,11 @@ replacement is owed.
   dependency of gml/kml (the shared `GeometryTestCase` harness, and `KMLReaderTest`, parse WKT via
   `WKTReader`). **core has zero external dependencies and zero Java source.** The satellite modules
   do pull one external dependency each where they need multiplatform I/O: `jts-io-files` uses
-  **kotlinx-io** (§14) and `jts-io-gml`/`jts-io-kml` use **xmlutil** (§15, §16) — attached only to
-  those satellites. **`jts-io-kml` (§15) and `jts-io-gml` (§16) are now Kotlin Multiplatform**, converted from the
-  JVM-only Java (JDK StAX/SAX). **All five modules build for the full target matrix (§17): `jvm`,
+  **kotlinx-io** (§14), `jts-io-gml`/`jts-io-kml` use **xmlutil** (§15, §16), and `jts-io-geojson`
+  uses **kotlinx-serialization-json** (§19) — attached only to those satellites. **`jts-io-kml`
+  (§15) and `jts-io-gml` (§16) are now Kotlin Multiplatform**, converted from the JVM-only Java (JDK
+  StAX/SAX); **`jts-io-geojson` (§19)** replaces upstream's JVM-only `org.json.simple`. **All six
+  modules build for the full target matrix (§17): `jvm`,
   `js`, `wasmJs`, and 7 native targets** (macosArm64, iosArm64/iosSimulatorArm64/iosX64,
   linuxX64/linuxArm64, mingwX64). (`macosX64` was dropped 2026-07-12 — the Kotlin toolchain is
   sunsetting the Intel-mac native target.)
@@ -302,8 +305,8 @@ target (`macosArm64`) surfaced JVM-only constructs that had to change for `commo
   they have no replacement in the KMP core (AWT is inherently JVM-desktop-only).
 - **[DONE] Multi-project Gradle build.** The root is a Gradle build (`settings.gradle.kts` +
   `build.gradle.kts` at the repo top) including `:kts-core`, `:kts-io-wkt`, `:kts-io-gml`,
-  `:kts-io-kml`, `:kts-io-files` (directory names match project names). The io modules and their
-  tests moved out of core (§1).
+  `:kts-io-kml`, `:kts-io-geojson`, `:kts-io-files` (directory names match project names). The io
+  modules and their tests moved out of core (§1).
 - **[DONE] io reader split** — see §1.
 - **[DONE] Toolchain updated to latest stable:** Gradle **9.6.1** (via the wrapper, `./gradlew`),
   Kotlin **2.4.0**, Dokka **2.1.0**, on JDK **25**. Dokka 2.1.0 (K2 analysis) is required — Dokka
@@ -457,7 +460,7 @@ multiplatform reader — GML's reader was built directly on `org.xml.sax`).
 
 ## 17. Full KMP target matrix
 
-**[DONE]** All five modules (core + the four io satellites) build for the same target set:
+**[DONE]** All six modules (core + the five io satellites) build for the same target set:
 
 - **`jvm`** — the reference target; the untouched Java test suite runs here (guardrail: 2131 green).
 - **`js`** (IR, `nodejs()` + `browser()`).
@@ -467,8 +470,8 @@ multiplatform reader — GML's reader was built directly on `org.xml.sax`).
   toolchain is sunsetting the Intel-mac target — `fun macosX64()` is deprecated for removal in a
   future Kotlin release. Apple-silicon Macs are covered by `macosArm64`.)
 
-Both external dependencies publish for this whole matrix (kotlinx-io `0.9.1`, xmlutil `1.0.1`), so
-the satellites resolve on every target.
+All three external dependencies publish for this whole matrix (kotlinx-io `0.9.1`, xmlutil `1.0.1`,
+kotlinx-serialization-json `1.9.0`), so the satellites resolve on every target.
 
 **Source-set layout.** The platform `actual`s that are pure Kotlin (not JVM-specific) are shared
 across native + js + wasmJs via an intermediate **`nonJvmMain`** source set (`dependsOn(commonMain)`,
@@ -507,12 +510,55 @@ target's test task, so passing on the JVM (the reference) and on native/js/wasm 
 - **io-wkt `commonTest`** (4 tests, `org.locationtech.jts.io.kmptest`): WKT string roundtrips (the
   hand-rolled `WktStreamTokenizer` + parser + format path) and WKB binary/hex roundtrips in both byte
   orders.
+- **io-geojson `commonTest`** (5 tests, `org.locationtech.jts.io.geojson`): read→write→read
+  roundtrips over all GeoJSON geometry types plus empty geometries (compared structurally via
+  `equalsExact`, since whole-number ordinate rendering differs off-JVM — see §19), CRS/SRID parsing,
+  a factory-built write path, and the two parse-failure cases.
 
 **Where it actually runs.** On the macOS/arm64 dev host the suite executes on **jvm + macosArm64
 (real native) + jsNode + wasmJsNode** — all green. Kotlin auto-disables the test tasks for targets
 that cannot run on the host (`linuxX64`/`linuxArm64`/`mingwX64`/`iosArm64`/`iosX64`), so those are
-validated by cross-compilation of the test binary only. The JVM guardrail is now **2154** (2131 Java
-+ 19 core-common + 4 io-wkt-common).
+validated by cross-compilation of the test binary only. The JVM guardrail is now **2159** (2131 Java
++ 19 core-common + 4 io-wkt-common + 5 io-geojson-common). The io-geojson JVM target additionally
+runs the 41 ported Java tests (`GeoJsonReaderTest`, `GeoJsonWriterTest`, `GeoJsonTest`), which cover
+exact-string writer parity with upstream JTS.
 
 Run: `./gradlew :kts-core:macosArm64Test :kts-core:jsNodeTest :kts-core:wasmJsNodeTest
 :kts-io-wkt:macosArm64Test :kts-io-wkt:jsNodeTest :kts-io-wkt:wasmJsNodeTest` (add `:*:jvmTest`).
+
+## 19. `jts-io-geojson` common conversion (kotlinx-serialization)
+
+**[DONE]** `jts-io-geojson` is the GeoJSON reader/writer, converted from upstream JTS's JVM-only
+`org.locationtech.jts.io.geojson` (in the `jts-io-common` Java module) to **Kotlin Multiplatform**
+(`jvm` + `js` + `wasmJs` + 7 native). Class FQNs and the **public API are unchanged**
+(`GeoJsonReader`, `GeoJsonWriter`, `GeoJsonConstants`, `OrientationTransformer`); Java callers use
+them exactly as before.
+
+- **JSON backend — `org.json.simple` → kotlinx-serialization-json.** Upstream's only external
+  dependency here was the JVM-only `json.simple`. The reader now parses with
+  `Json.parseToJsonElement` and walks the `JsonElement` tree (`JsonObject`/`JsonArray`); the writer
+  builds a `JsonObject` tree and serialises it with `Json.encodeToString`. The upstream reader
+  performed unchecked casts on `java.util.Map`/`List`, so the tree-walk is a near-mechanical
+  translation; the null-handling (absent key or JSON `null` → empty geometry) is preserved by
+  typed accessors (`GeoJsonElements.kt`) that read both as Kotlin `null`.
+- **Exception semantics preserved.** The `create*` helpers keep upstream's catch-only-
+  `RuntimeException` behaviour (so a nested `ParseException` propagates rather than being
+  re-wrapped), and all `ParseException` messages are byte-identical. `read(String)` is annotated
+  `@Throws(ParseException::class)` so Java still sees the checked exception.
+- **Exact writer output on the JVM.** `GeoJsonWriter.getJsonString`/`formatOrdinate` are ported
+  verbatim (the custom scale-rounding + "emit `long` when integral" rendering), and the pre-formatted
+  coordinate arrays are injected as raw JSON via **`JsonUnquotedLiteral`** — the kotlinx analog of
+  json.simple's `JSONAware`. With compact, insertion-ordered `Json` output this reproduces upstream's
+  `JSONObject.writeJSONString` byte layout, validated by the unchanged `GeoJsonWriterTest` (18 exact-
+  string assertions). **Caveat:** `formatOrdinate` falls back to `Double.toString`, whose whole-number
+  rendering differs on JS/native (e.g. `0` vs `0.0`), so byte-exact output parity is guaranteed on the
+  JVM only; the `commonTest` roundtrips therefore compare geometries structurally, not by string.
+- **`isEncodeCRS` / `isForceCCW`.** The two boolean setters become Kotlin `var`s; the `is`-prefixed
+  names make Kotlin emit the original Java setter names (`setEncodeCRS`/`setForceCCW`), so the ported
+  Java tests call them unchanged.
+- **Stream (`java.io`) overloads are JVM-only extensions.** `GeoJsonReader.read(java.io.Reader)` and
+  `GeoJsonWriter.write(Geometry, java.io.Writer)` live in `GeoJsonExtensions` (`@file:JvmName`), same
+  precedent as `WKTReader.read(Reader)` (§13) and the GML/KML writers (§15, §16); the common entry
+  points `read(String)` / `write(Geometry): String` are unchanged.
+- Behaviour is validated by the unchanged `GeoJsonReaderTest`/`GeoJsonWriterTest`/`GeoJsonTest` on the
+  JVM plus the multiplatform `GeoJsonRoundtripTest` (§18) on native/js/wasm.

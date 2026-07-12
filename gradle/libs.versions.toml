@@ -6,13 +6,16 @@ kotlin = "2.4.0"
 dokka = "2.1.0"
 junit = "4.13.1"
 kotlinx-io = "0.9.1"
+kotlinx-serialization = "1.9.0"
 xmlutil = "1.0.1"
 
 [libraries]
 junit = { module = "junit:junit", version.ref = "junit" }
 kotlinx-io-core = { module = "org.jetbrains.kotlinx:kotlinx-io-core", version.ref = "kotlinx-io" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 xmlutil-core = { module = "io.github.pdvrieze.xmlutil:core", version.ref = "xmlutil" }
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }

@@ -37,6 +37,7 @@ the port revision against JTS `1.20.0`). The library is modular — depend only 
 | WKT/WKB IO | `kts-io-wkt` | `WKTReader`, `WKBReader`, `WKBWriter` |
 | GML IO | `kts-io-gml` | `GMLReader`, `GMLWriter` |
 | KML IO | `kts-io-kml` | `KMLReader`, `KMLWriter` |
+| GeoJSON IO | `kts-io-geojson` | `GeoJsonReader`, `GeoJsonWriter` (via kotlinx-serialization) |
 | File IO | `kts-io-files` | `WKTFileReader`, `WKBHexFileReader` (via kotlinx-io) |
 
 **Kotlin Multiplatform / Gradle** — depend on the root artifact; Gradle Module Metadata resolves the
@@ -85,6 +86,10 @@ small number of deliberate, documented changes. The notable ones for consumers:
   (e.g. `WKTReaderExtensions.read(reader)`), since `java.io` types cannot exist in common code.
 - **GML: breaking SAX API change.** `GMLHandler` is no longer a SAX `DefaultHandler`, and
   `GMLReader.read` throws `ParseException` instead of `SAXException`/`ParserConfigurationException`.
+- **GeoJSON: JSON backend swapped.** The reader/writer are built on `kotlinx-serialization-json`
+  instead of the JVM-only `org.json.simple`. The public API (`GeoJsonReader`/`GeoJsonWriter`) is
+  unchanged; exact JSON output matches upstream on the JVM, where `GeoJsonWriter.formatOrdinate`
+  renders ordinates via `Double.toString` (whole-number rendering can differ on JS/native).
 - **Dropped, JVM-desktop-only pieces:** the `org.locationtech.jts.awt` package (AWT `Shape`
   conversion) and the internal dev/debug helpers (`Debug`, `TestBuilderProxy`).
 - **Removed configuration hooks:** the `jts.overlay` / `jts.relate` system-property switches

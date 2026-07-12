@@ -19,5 +19,6 @@ include(
     ":kts-io-wkt",
     ":kts-io-gml",
     ":kts-io-kml",
+    ":kts-io-geojson",
     ":kts-io-files",
 )
