@@ -24,7 +24,7 @@ import org.locationtech.jts.geom.Point
  * @version 1.7
  * @see GeometryExtracter
  */
-class PointExtracter(private val pts: MutableList<in Point>) : GeometryFilter {
+open class PointExtracter(private val pts: MutableList<in Point>) : GeometryFilter {
 
   override fun filter(geom: Geometry) {
     if (geom is Point) pts.add(geom)

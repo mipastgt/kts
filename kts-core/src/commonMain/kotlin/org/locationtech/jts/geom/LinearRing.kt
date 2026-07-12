@@ -22,7 +22,7 @@ package org.locationtech.jts.geom
  *
  * @version 1.7
  */
-class LinearRing : LineString {
+open class LinearRing : LineString {
 
   /**
    * Constructs a <code>LinearRing</code> with the given points.

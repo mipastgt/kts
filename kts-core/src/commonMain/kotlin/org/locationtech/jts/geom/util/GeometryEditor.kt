@@ -35,7 +35,7 @@ import org.locationtech.jts.util.Assert
  *
  * @version 1.7
  */
-class GeometryEditor {
+open class GeometryEditor {
   /**
    * The factory used to create the modified Geometry.
    * If <tt>null</tt> the GeometryFactory of the input is used.

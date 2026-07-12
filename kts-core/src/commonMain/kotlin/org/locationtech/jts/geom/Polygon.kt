@@ -21,7 +21,7 @@ import org.locationtech.jts.algorithm.Orientation
  *
  * @version 1.7
  */
-class Polygon : Geometry, Polygonal {
+open class Polygon : Geometry, Polygonal {
 
   /**
    *  The exterior boundary,

@@ -34,7 +34,7 @@ import org.locationtech.jts.triangulate.quadedge.QuadEdgeSubdivision
  *
  * @author Martin Davis
  */
-class VoronoiDiagramBuilder {
+open class VoronoiDiagramBuilder {
 
     private var siteCoords: Collection<Coordinate>? = null
     private var tolerance = 0.0

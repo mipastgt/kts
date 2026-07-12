@@ -30,7 +30,7 @@ import org.locationtech.jts.shape.GeometricShapeBuilder
  *
  * @author mbdavis
  */
-class RandomPointsInGridBuilder : GeometricShapeBuilder {
+open class RandomPointsInGridBuilder : GeometricShapeBuilder {
 
   private var isConstrainedToCircle = false
   private var gutterFraction = 0.0

@@ -24,7 +24,7 @@ import org.locationtech.jts.geom.LineString
  * @version 1.7
  * @see GeometryExtracter
  */
-class LineStringExtracter(private val comps: MutableList<in LineString>) : GeometryFilter {
+open class LineStringExtracter(private val comps: MutableList<in LineString>) : GeometryFilter {
 
   override fun filter(geom: Geometry) {
     if (geom is LineString) comps.add(geom)

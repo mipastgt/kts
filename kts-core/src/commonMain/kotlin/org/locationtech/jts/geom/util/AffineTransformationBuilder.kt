@@ -22,7 +22,7 @@ import org.locationtech.jts.math.Matrix
  *
  * @author Martin Davis
  */
-class AffineTransformationBuilder(
+open class AffineTransformationBuilder(
   private val src0: Coordinate,
   private val src1: Coordinate,
   private val src2: Coordinate,

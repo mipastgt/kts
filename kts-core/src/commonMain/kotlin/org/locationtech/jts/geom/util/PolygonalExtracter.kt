@@ -21,7 +21,7 @@ import org.locationtech.jts.geom.Polygon
 /**
  * Extracts the [Polygon] and [MultiPolygon] elements from a [Geometry].
  */
-class PolygonalExtracter {
+open class PolygonalExtracter {
   companion object {
     /**
      * Extracts the [Polygon] and [MultiPolygon] elements from a [Geometry]

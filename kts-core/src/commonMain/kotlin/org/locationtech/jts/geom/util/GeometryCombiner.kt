@@ -31,7 +31,7 @@ import org.locationtech.jts.geom.Polygonal
  * @author mbdavis
  * @see GeometryFactory.buildGeometry
  */
-class GeometryCombiner
+open class GeometryCombiner
 /**
  * Creates a new combiner for a collection of geometries
  *

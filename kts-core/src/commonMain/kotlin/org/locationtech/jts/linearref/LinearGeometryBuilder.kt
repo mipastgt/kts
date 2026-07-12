@@ -25,7 +25,7 @@ import org.locationtech.jts.geom.MultiLineString
  *
  * @version 1.7
  */
-class LinearGeometryBuilder(private val geomFact: GeometryFactory) {
+open class LinearGeometryBuilder(private val geomFact: GeometryFactory) {
   private val lines: MutableList<Any?> = ArrayList()
   private var coordList: CoordinateList? = null
 

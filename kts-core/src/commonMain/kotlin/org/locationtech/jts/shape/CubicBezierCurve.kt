@@ -31,7 +31,7 @@ import org.locationtech.jts.geom.util.GeometryMapper
  * Creates a curved geometry by replacing the segments
  * of the input with Cubic Bezier Curves.
  */
-class CubicBezierCurve {
+open class CubicBezierCurve {
 
   private var minSegmentLength = 0.0
   private var numVerticesPerSegment = 16

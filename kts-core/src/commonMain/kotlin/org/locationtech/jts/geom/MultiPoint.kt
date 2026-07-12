@@ -18,7 +18,7 @@ package org.locationtech.jts.geom
  *
  * @version 1.7
  */
-class MultiPoint : GeometryCollection, Puntal {
+open class MultiPoint : GeometryCollection, Puntal {
 
   /**
    *  Constructs a <code>MultiPoint</code>.

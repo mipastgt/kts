@@ -40,7 +40,7 @@ import org.locationtech.jts.operation.overlayng.OverlayNGRobust
  *
  * @see Geometry.isValid
  */
-class GeometryFixer(private val geom: Geometry) {
+open class GeometryFixer(private val geom: Geometry) {
 
   private val factory: GeometryFactory = geom.getFactory()
 

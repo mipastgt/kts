@@ -20,7 +20,7 @@ package org.locationtech.jts.geom
  *
  * @version 1.7
  */
-class MultiPolygon : GeometryCollection, Polygonal {
+open class MultiPolygon : GeometryCollection, Polygonal {
 
   /**
    *  Constructs a <code>MultiPolygon</code>.

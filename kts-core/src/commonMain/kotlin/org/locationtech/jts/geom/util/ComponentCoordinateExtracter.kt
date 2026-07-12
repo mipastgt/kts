@@ -25,7 +25,7 @@ import org.locationtech.jts.geom.Point
  *
  * @version 1.9
  */
-class ComponentCoordinateExtracter(private val coords: MutableList<in Coordinate>) : GeometryComponentFilter {
+open class ComponentCoordinateExtracter(private val coords: MutableList<in Coordinate>) : GeometryComponentFilter {
 
   override fun filter(geom: Geometry) {
     if (geom.isEmpty()) return

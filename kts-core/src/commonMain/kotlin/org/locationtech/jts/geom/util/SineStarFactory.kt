@@ -33,7 +33,7 @@ import org.locationtech.jts.util.GeometricShapeFactory
  * @author Martin Davis
  *
  */
-class SineStarFactory : GeometricShapeFactory {
+open class SineStarFactory : GeometricShapeFactory {
 
   @JvmField
   protected var numArms = 8

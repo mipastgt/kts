@@ -30,7 +30,7 @@ import kotlin.reflect.KClass
  *
  * @version 1.7
  */
-class GeometryExtracter : GeometryFilter {
+open class GeometryExtracter : GeometryFilter {
 
   private val geometryType: String?
   private val comps: MutableList<Any?>

@@ -68,7 +68,7 @@ import kotlin.math.roundToLong
  *
  * @version 1.7
  */
-class PrecisionModel : Comparable<Any?> {
+open class PrecisionModel : Comparable<Any?> {
 
   /**
    * The type of PrecisionModel this represents.

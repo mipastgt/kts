@@ -29,7 +29,7 @@ import org.locationtech.jts.triangulate.quadedge.Vertex
  *
  * @author Martin Davis
  */
-class DelaunayTriangulationBuilder {
+open class DelaunayTriangulationBuilder {
 
     private var siteCoords: Collection<Coordinate>? = null
     private var tolerance = 0.0

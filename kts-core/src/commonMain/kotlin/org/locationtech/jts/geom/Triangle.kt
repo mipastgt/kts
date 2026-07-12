@@ -27,7 +27,7 @@ import org.locationtech.jts.math.DD
  *
  * @version 1.7
  */
-class Triangle(
+open class Triangle(
   /**
    * The coordinates of the vertices of the triangle
    */

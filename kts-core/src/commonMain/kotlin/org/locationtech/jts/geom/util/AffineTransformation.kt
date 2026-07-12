@@ -41,7 +41,7 @@ import org.locationtech.jts.util.Assert
  * @author Martin Davis
  *
  */
-class AffineTransformation : CoordinateSequenceFilter {
+open class AffineTransformation : CoordinateSequenceFilter {
 
   // affine matrix entries
   // (bottom row is always [ 0 0 1 ])

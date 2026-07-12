@@ -31,7 +31,7 @@ import org.locationtech.jts.operation.predicate.RectangleIntersects
  * @author mbdavis
  *
  */
-class PreparedPolygon(poly: Polygonal) : BasicPreparedGeometry(poly as Geometry) {
+open class PreparedPolygon(poly: Polygonal) : BasicPreparedGeometry(poly as Geometry) {
 
   private val isRectangle: Boolean = getGeometry().isRectangle()
   // create these lazily, since they are expensive

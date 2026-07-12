@@ -26,7 +26,7 @@ import org.locationtech.jts.shape.GeometricShapeBuilder
  * @author Martin Davis
  * @see MortonCode
  */
-class MortonCurveBuilder(geomFactory: GeometryFactory) : GeometricShapeBuilder(geomFactory) {
+open class MortonCurveBuilder(geomFactory: GeometryFactory) : GeometricShapeBuilder(geomFactory) {
 
   init {
     // use a null extent to indicate no transformation

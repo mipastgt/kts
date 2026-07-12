@@ -24,7 +24,7 @@ import kotlin.math.sqrt
  * geometry, the octagon may be degenerate to any extreme
  * (e.g. it may be a rectangle, a line, or a point).
  */
-class OctagonalEnvelope {
+open class OctagonalEnvelope {
 
   // initialize in the null state
   private var minX = Double.NaN

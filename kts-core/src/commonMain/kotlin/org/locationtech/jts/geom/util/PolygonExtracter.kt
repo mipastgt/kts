@@ -24,7 +24,7 @@ import org.locationtech.jts.geom.Polygon
  * @version 1.7
  * @see GeometryExtracter
  */
-class PolygonExtracter(private val comps: MutableList<in Polygon>) : GeometryFilter {
+open class PolygonExtracter(private val comps: MutableList<in Polygon>) : GeometryFilter {
 
   override fun filter(geom: Geometry) {
     if (geom is Polygon) comps.add(geom)

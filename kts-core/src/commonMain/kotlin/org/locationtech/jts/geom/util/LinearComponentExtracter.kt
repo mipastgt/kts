@@ -25,7 +25,7 @@ import org.locationtech.jts.geom.LinearRing
  *
  * @version 1.7
  */
-class LinearComponentExtracter : GeometryComponentFilter {
+open class LinearComponentExtracter : GeometryComponentFilter {
 
   private val lines: MutableCollection<in LineString>
   private var isForcedToLineString = false

@@ -28,7 +28,7 @@ import org.locationtech.jts.geom.Puntal
  * @author Martin Davis
  *
  */
-class PreparedGeometryFactory {
+open class PreparedGeometryFactory {
 
   /**
    * Creates a new [PreparedGeometry] appropriate for the argument [Geometry].

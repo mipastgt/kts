@@ -24,7 +24,7 @@ import org.locationtech.jts.geom.Coordinate
  * @author Martin Davis
  *
  */
-class AffineTransformationFactory {
+open class AffineTransformationFactory {
   companion object {
     /**
      * Creates a transformation from a set of three control vectors. A control

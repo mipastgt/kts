@@ -20,7 +20,7 @@ import org.locationtech.jts.operation.BoundaryOp
  *
  * @version 1.7
  */
-class MultiLineString : GeometryCollection, Lineal {
+open class MultiLineString : GeometryCollection, Lineal {
 
   /**
    *  Constructs a <code>MultiLineString</code>.

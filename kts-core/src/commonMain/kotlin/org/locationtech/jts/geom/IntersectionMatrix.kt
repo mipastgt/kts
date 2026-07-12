@@ -56,7 +56,7 @@ import kotlin.jvm.JvmStatic
  *
  * @version 1.7
  */
-class IntersectionMatrix {
+open class IntersectionMatrix {
   /**
    *  Internal representation of this <code>IntersectionMatrix</code>.
    */

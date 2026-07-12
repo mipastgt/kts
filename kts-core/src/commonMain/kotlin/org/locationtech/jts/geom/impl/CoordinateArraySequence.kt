@@ -32,7 +32,7 @@ import org.locationtech.jts.geom.Geometry
  *
  * @version 1.7
  */
-class CoordinateArraySequence : CoordinateSequence {
+open class CoordinateArraySequence : CoordinateSequence {
   //With contributions from Markus Schaber [schabios@logi-track.com] 2004-03-26
 
   /**

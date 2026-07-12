@@ -23,7 +23,7 @@ import org.locationtech.jts.geom.LinearRing
 import org.locationtech.jts.geom.Polygon
 import org.locationtech.jts.shape.GeometricShapeBuilder
 
-class SierpinskiCarpetBuilder(geomFactory: GeometryFactory) : GeometricShapeBuilder(geomFactory) {
+open class SierpinskiCarpetBuilder(geomFactory: GeometryFactory) : GeometricShapeBuilder(geomFactory) {
 
   override fun getGeometry(): Geometry {
     val level = recursionLevelForSize(numPts)

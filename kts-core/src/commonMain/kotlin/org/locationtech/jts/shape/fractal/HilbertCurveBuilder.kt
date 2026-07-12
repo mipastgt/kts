@@ -26,7 +26,7 @@ import org.locationtech.jts.shape.GeometricShapeBuilder
  * @author Martin Davis
  * @see HilbertCode
  */
-class HilbertCurveBuilder(geomFactory: GeometryFactory) : GeometricShapeBuilder(geomFactory) {
+open class HilbertCurveBuilder(geomFactory: GeometryFactory) : GeometricShapeBuilder(geomFactory) {
 
   private var order = -1
 

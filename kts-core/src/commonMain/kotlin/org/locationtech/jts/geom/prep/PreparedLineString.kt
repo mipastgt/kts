@@ -24,7 +24,7 @@ import org.locationtech.jts.noding.SegmentStringUtil
  * @author mbdavis
  *
  */
-class PreparedLineString(line: Lineal) : BasicPreparedGeometry(line as Geometry) {
+open class PreparedLineString(line: Lineal) : BasicPreparedGeometry(line as Geometry) {
 
   private var segIntFinder: FastSegmentSetIntersectionFinder? = null
 

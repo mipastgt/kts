@@ -24,7 +24,7 @@ import org.locationtech.jts.geom.GeometryCollection
  * @author Martin Davis
  *
  */
-class GeometryMapper {
+open class GeometryMapper {
   /**
    * An interface for geometry functions that map a geometry input to a geometry output.
    * The output may be <tt>null</tt> if there is no valid output value for

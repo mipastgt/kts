@@ -562,3 +562,45 @@ them exactly as before.
   points `read(String)` / `write(Geometry): String` are unchanged.
 - Behaviour is validated by the unchanged `GeoJsonReaderTest`/`GeoJsonWriterTest`/`GeoJsonTest` on the
   JVM plus the multiplatform `GeoJsonRoundtripTest` (§18) on native/js/wasm.
+
+## 20. Public geometry / builder / factory classes made `open`
+
+**[DONE]** Additive, non-breaking. In upstream Java JTS these classes are not `final` (Java classes
+are open by default), so they can be subclassed — a supported extension pattern (e.g. deriving a
+custom builder or a specialised geometry type). The Kotlin conversion made them `final` only by
+accident of Kotlin's `class`-is-final-by-default rule: the pass added `open` **only where the port's
+own hierarchy required it** (e.g. `LineString` ← `LinearRing`, `GeometryCollection` ← the `Multi*`
+types). Leaf classes with no in-tree subclass were left final. This restores upstream openness for
+the public geometry model and the public builder/factory surface, so downstream code can subclass
+them as it could against Java JTS.
+
+- **Classes marked `open` (43):**
+  - `geom`: `Point`, `Polygon`, `LinearRing`, `MultiPoint`, `MultiLineString`, `MultiPolygon`,
+    `Envelope`, `PrecisionModel`, `Triangle`, `IntersectionMatrix`, `OctagonalEnvelope`.
+  - `geom.impl`: `CoordinateArraySequence`, `PackedCoordinateSequenceFactory`.
+  - `geom.util`: `GeometryEditor`, `GeometryFixer`, `GeometryCombiner`, `GeometryExtracter`,
+    `LineStringExtracter`, `PointExtracter`, `PolygonExtracter`, `LinearComponentExtracter`,
+    `ComponentCoordinateExtracter`, `PolygonalExtracter`, `AffineTransformation`,
+    `AffineTransformationBuilder`, `AffineTransformationFactory`, `GeometryMapper`,
+    `GeometryCollectionMapper`, `SineStarFactory`. (`GeometryTransformer` was already `open`.)
+  - `geom.prep`: `PreparedGeometryFactory`, `PreparedPoint`, `PreparedLineString`, `PreparedPolygon`.
+  - `shape`: `CubicBezierCurve`; `shape.fractal`: `HilbertCurveBuilder`, `KochSnowflakeBuilder`,
+    `MortonCurveBuilder`, `SierpinskiCarpetBuilder`; `shape.random`: `RandomPointsInGridBuilder`
+    (`RandomPointsBuilder` was already `open`).
+  - `linearref`: `LinearGeometryBuilder`.
+  - `triangulate`: `VoronoiDiagramBuilder`, `ConformingDelaunayTriangulationBuilder`,
+    `DelaunayTriangulationBuilder`.
+- **Deliberately *not* opened (this step):** internal engine builders widened to `public` only for
+  the same-package Java test suite (§5) — the `operation.overlay*` / `geomgraph` / `edgegraph` /
+  `noding` / `index` / buffer / polygonize builders; static-utility holders with only companion
+  members (`Quadrant`, `Dimension`, `Position`, `Location`, `Coordinates`, `CoordinateSequences`,
+  `CoordinateArrays`, `GeometryOverlay`); private-constructor singletons/builders
+  (`CoordinateArraySequenceFactory`, `TriangulationBuilder`); the `geom.prep` predicate-evaluator
+  helpers; and the exception types. These are not part of the geometry/builder/factory extension
+  surface; they can be opened later if a concrete need arises.
+- **Scope of "open".** Opening a class enables subclassing and adding members. *Overriding* existing
+  behaviour additionally requires the specific member to be `open`; members that already `override` a
+  base declaration are open by Kotlin's rules, but non-overriding leaf methods remain final. No
+  members were newly opened in this step.
+- **Compatibility.** Source- and binary-compatible (only widens what is permitted); the unmodified
+  Java guardrail suite (`:kts-core:jvmTest`) and the JVM + `macosArm64` compiles remain green.

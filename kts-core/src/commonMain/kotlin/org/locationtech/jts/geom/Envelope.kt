@@ -31,7 +31,7 @@ import kotlin.math.min
  *
  * @version 1.7
  */
-class Envelope : Comparable<Any?> {
+open class Envelope : Comparable<Any?> {
 
   /**
    *  the minimum x-coordinate

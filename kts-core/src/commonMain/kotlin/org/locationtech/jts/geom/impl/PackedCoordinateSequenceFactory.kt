@@ -26,7 +26,7 @@ import org.locationtech.jts.geom.Coordinates
  * `double` or `float`,
  * and defaults to `double`.
  */
-class PackedCoordinateSequenceFactory(
+open class PackedCoordinateSequenceFactory(
   /**
    * Gets the type of packed coordinate sequence this factory builds, either
    * [PackedCoordinateSequenceFactory.FLOAT] or

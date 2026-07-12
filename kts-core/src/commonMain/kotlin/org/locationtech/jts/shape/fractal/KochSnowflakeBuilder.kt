@@ -25,7 +25,7 @@ import org.locationtech.jts.geom.LineSegment
 import org.locationtech.jts.math.Vector2D
 import org.locationtech.jts.shape.GeometricShapeBuilder
 
-class KochSnowflakeBuilder(geomFactory: GeometryFactory) : GeometricShapeBuilder(geomFactory) {
+open class KochSnowflakeBuilder(geomFactory: GeometryFactory) : GeometricShapeBuilder(geomFactory) {
 
   private val coordList = CoordinateList()
 

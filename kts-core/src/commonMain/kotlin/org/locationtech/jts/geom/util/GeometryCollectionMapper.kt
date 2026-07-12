@@ -27,7 +27,7 @@ import org.locationtech.jts.geom.util.GeometryMapper.MapOp
  * @author Martin Davis
  *
  */
-class GeometryCollectionMapper(private val mapOp: MapOp) {
+open class GeometryCollectionMapper(private val mapOp: MapOp) {
 
   fun map(gc: GeometryCollection): GeometryCollection {
     val mapped = ArrayList<Geometry>()
