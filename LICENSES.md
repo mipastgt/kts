@@ -18,3 +18,13 @@ SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
 
 (The Eclipse Distribution License v1.0 is a BSD-3-Clause license; `BSD-3-Clause`
 is its registered SPDX identifier.)
+
+## Note on `OSGEO_LICENSE.txt`
+
+[`OSGEO_LICENSE.txt`](OSGEO_LICENSE.txt) contains the BSD-3-Clause grant carried
+over from the upstream JTS Topology Suite (covering the original computational
+geometry code this project is ported from). It is also the canonical BSD-3-Clause
+text that GitHub's license detector recognizes, so the repository is correctly
+identified as `EPL-2.0, BSD-3-Clause` — matching upstream JTS. GitHub does not
+recognize `LICENSE_EDLv1.txt` on its own because its heading is not a registered
+SPDX identifier, even though the EDL-1.0 is itself a BSD-3-Clause license.
