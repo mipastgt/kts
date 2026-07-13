@@ -27,3 +27,7 @@ val AffineTransformation.matrixEntries: DoubleArray get() = getMatrixEntries()
 val AffineTransformation.determinant: Double get() = getDeterminant()
 val AffineTransformation.inverse: AffineTransformation get() = getInverse()
 val AffineTransformation.isIdentity: Boolean get() = isIdentity()
+
+// ---- AffineTransformationBuilder -------------------------------------------------------------------
+
+val AffineTransformationBuilder.transformation: AffineTransformation? get() = getTransformation()
