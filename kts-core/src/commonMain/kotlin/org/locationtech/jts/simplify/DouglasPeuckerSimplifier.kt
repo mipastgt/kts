@@ -26,7 +26,6 @@ import org.locationtech.jts.geom.util.GeometryTransformer
  * Simplifies a [Geometry] using the Douglas-Peucker algorithm.
  * Ensures that any polygonal geometries returned are valid.
  *
- * @version 1.7
  * @see TopologyPreservingSimplifier
  */
 class DouglasPeuckerSimplifier(private val inputGeom: Geometry) {

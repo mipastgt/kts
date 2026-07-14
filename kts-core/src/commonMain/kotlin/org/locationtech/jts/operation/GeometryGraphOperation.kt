@@ -21,7 +21,6 @@ import org.locationtech.jts.geomgraph.GeometryGraph
 /**
  * The base class for operations that require [GeometryGraph]s.
  *
- * @version 1.7
  */
 open class GeometryGraphOperation {
   protected val li: LineIntersector = RobustLineIntersector()

@@ -28,7 +28,7 @@ class Intersection {
     /**
      * Computes the intersection point of two lines.
      * If the lines are parallel or collinear this case is detected
-     * and <code>null</code> is returned.
+     * and `null` is returned.
      *
      * @param p1 an endpoint of line 1
      * @param p2 an endpoint of line 1

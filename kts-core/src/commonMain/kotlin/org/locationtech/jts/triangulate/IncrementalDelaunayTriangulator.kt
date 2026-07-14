@@ -23,7 +23,6 @@ import org.locationtech.jts.triangulate.quadedge.Vertex
  * incremental insertion algorithm.
  *
  * @author Martin Davis
- * @version 1.0
  */
 /**
  * Creates a new triangulator using the given [QuadEdgeSubdivision].

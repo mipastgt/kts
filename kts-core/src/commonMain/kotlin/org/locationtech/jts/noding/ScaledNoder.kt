@@ -29,7 +29,6 @@ import org.locationtech.jts.geom.CoordinateArrays
  * These in turn can cause problems when used to build a planar graph.
  * This situation should be checked for and collapsed segments removed if necessary.
  *
- * @version 1.7
  */
 class ScaledNoder(
   private val noder: Noder,

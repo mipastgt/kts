@@ -18,7 +18,6 @@ import org.locationtech.jts.geomgraph.Edge
  * using the straightforward method of
  * comparing all segments.
  * This algorithm is too slow for production use, but is useful for testing purposes.
- * @version 1.7
  */
 class SimpleEdgeSetIntersector : EdgeSetIntersector() {
   // statistics information

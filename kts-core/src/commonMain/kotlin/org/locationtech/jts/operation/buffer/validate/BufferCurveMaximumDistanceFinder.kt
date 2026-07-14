@@ -22,7 +22,7 @@ import org.locationtech.jts.geom.Geometry
  * the originating geometry.
  * This is similar to the Discrete Oriented Hausdorff distance
  * from the buffer curve to the input.
- * <p>
+ * 
  * The approximate maximum distance is determined by testing
  * all vertices in the buffer curve, as well
  * as midpoints of the curve segments.

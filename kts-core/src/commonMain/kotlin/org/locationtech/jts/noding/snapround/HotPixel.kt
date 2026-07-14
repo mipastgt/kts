@@ -42,7 +42,6 @@ import org.locationtech.jts.io.WKTWriter
  * This is used to prevent introducing nodes at line vertices
  * which do not have other lines snapped to them.
  *
- * @version 1.7
  */
 class HotPixel
 /**
@@ -50,7 +49,7 @@ class HotPixel
  * The scale factor must be strictly positive (non-zero).
  *
  * @param pt the coordinate at the centre of the pixel (already rounded)
- * @param scaleFactor the scaleFactor determining the pixel size.  Must be &gt; 0
+ * @param scaleFactor the scaleFactor determining the pixel size.  Must be > 0
  */
   (pt: Coordinate, private val scaleFactor: Double) {
 

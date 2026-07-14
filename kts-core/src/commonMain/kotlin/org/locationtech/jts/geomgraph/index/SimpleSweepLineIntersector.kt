@@ -19,7 +19,6 @@ import org.locationtech.jts.geomgraph.Edge
  * While still O(n^2) in the worst case, this algorithm
  * drastically improves the average-case time.
  *
- * @version 1.7
  */
 class SimpleSweepLineIntersector : EdgeSetIntersector() {
 

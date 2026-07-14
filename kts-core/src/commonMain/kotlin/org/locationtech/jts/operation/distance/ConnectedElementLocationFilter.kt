@@ -27,7 +27,6 @@ import org.locationtech.jts.geom.Polygon
  * [GeometryLocation]s.
  * Empty geometries do not provide a location item.
  *
- * @version 1.7
  */
 class ConnectedElementLocationFilter private constructor(
   private val locations: MutableList<GeometryLocation>

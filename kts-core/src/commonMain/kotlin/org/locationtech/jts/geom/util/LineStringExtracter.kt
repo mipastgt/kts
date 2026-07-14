@@ -21,7 +21,6 @@ import org.locationtech.jts.geom.LineString
 /**
  * Extracts all the [LineString] elements from a [Geometry].
  *
- * @version 1.7
  * @see GeometryExtracter
  */
 open class LineStringExtracter(private val comps: MutableList<in LineString>) : GeometryFilter {

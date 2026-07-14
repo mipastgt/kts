@@ -24,7 +24,6 @@ import org.locationtech.jts.geom.Coordinate
  * (in which case this point is the start of the line segment)
  * The intersection point must be precise.
  *
- * @version 1.7
  */
 class EdgeIntersection
 /**

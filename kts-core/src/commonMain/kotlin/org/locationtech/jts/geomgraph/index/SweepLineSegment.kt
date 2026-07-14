@@ -15,7 +15,6 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geomgraph.Edge
 
 /**
- * @version 1.7
  */
 class SweepLineSegment(private val edge: Edge, private val ptIndex: Int) {
 

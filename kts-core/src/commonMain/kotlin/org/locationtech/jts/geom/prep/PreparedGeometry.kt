@@ -19,7 +19,7 @@ import org.locationtech.jts.geom.GeometryCollection
  * in order to optimize the performance
  * of repeated calls to specific geometric operations.
  *
- * Subclasses are intended to be thread-safe, to allow <code>PreparedGeometry</code>
+ * Subclasses are intended to be thread-safe, to allow `PreparedGeometry`
  * to be used in a multi-threaded context.
  *
  * @author Martin Davis

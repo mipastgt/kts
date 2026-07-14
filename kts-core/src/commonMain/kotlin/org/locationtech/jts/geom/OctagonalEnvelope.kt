@@ -15,7 +15,7 @@ import kotlin.jvm.JvmStatic
 import kotlin.math.sqrt
 
 /**
- * A bounding container for a {@link Geometry} which is in the shape of a general octagon.
+ * A bounding container for a [Geometry] which is in the shape of a general octagon.
  * The OctagonalEnvelope of a geometric object
  * is a geometry which is a tight bound
  * along the (up to) four extremal rectilinear parallels
@@ -42,7 +42,7 @@ open class OctagonalEnvelope {
   constructor()
 
   /**
-   * Creates a new null bounding octagon bounding a {@link Coordinate}
+   * Creates a new null bounding octagon bounding a [Coordinate]
    *
    * @param p the coordinate to bound
    */
@@ -51,7 +51,7 @@ open class OctagonalEnvelope {
   }
 
   /**
-   * Creates a new null bounding octagon bounding a pair of {@link Coordinate}s
+   * Creates a new null bounding octagon bounding a pair of [Coordinate]s
    *
    * @param p0 a coordinate to bound
    * @param p1 a coordinate to bound
@@ -62,14 +62,14 @@ open class OctagonalEnvelope {
   }
 
   /**
-   * Creates a new null bounding octagon bounding an {@link Envelope}
+   * Creates a new null bounding octagon bounding an [Envelope]
    */
   constructor(env: Envelope) {
     expandToInclude(env)
   }
 
   /**
-   * Creates a new null bounding octagon bounding an {@link OctagonalEnvelope}
+   * Creates a new null bounding octagon bounding an [OctagonalEnvelope]
    * (the copy constructor).
    */
   constructor(oct: OctagonalEnvelope) {
@@ -77,7 +77,7 @@ open class OctagonalEnvelope {
   }
 
   /**
-   * Creates a new null bounding octagon bounding a {@link Geometry}
+   * Creates a new null bounding octagon bounding a [Geometry]
    */
   constructor(geom: Geometry) {
     expandToInclude(geom)
@@ -224,7 +224,7 @@ open class OctagonalEnvelope {
   /**
    * Tests if the extremal values for this octagon are valid.
    *
-   * @return <code>true</code> if this object has valid values
+   * @return `true` if this object has valid values
    */
   private fun isValid(): Boolean {
     if (isNull()) return true

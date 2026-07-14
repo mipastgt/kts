@@ -17,7 +17,6 @@ package org.locationtech.jts.triangulate.quadedge
  * A framework to visit sets of edge-connected [QuadEdgeTriangle]s in breadth-first order
  *
  * @author Martin Davis
- * @version 1.0
  */
 class EdgeConnectedTriangleTraversal {
     private val triQueue = ArrayDeque<QuadEdgeTriangle>()

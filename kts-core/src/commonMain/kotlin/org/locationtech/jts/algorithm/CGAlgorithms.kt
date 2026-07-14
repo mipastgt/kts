@@ -26,7 +26,6 @@ import org.locationtech.jts.math.MathUtil
  * Specifies and implements various fundamental Computational Geometric
  * algorithms.
  *
- * @version 1.7
  * @deprecated See [Length], [Area], [Distance], [Orientation], [PointLocation]
  */
 class CGAlgorithms {
@@ -62,8 +61,8 @@ class CGAlgorithms {
     const val STRAIGHT = COLLINEAR
 
     /**
-     * Returns the index of the direction of the point {@code q} relative to
-     * a vector specified by {@code p1-p2}.
+     * Returns the index of the direction of the point `q` relative to
+     * a vector specified by `p1-p2`.
      *
      * @deprecated Use [Orientation.index] instead.
      */

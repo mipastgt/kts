@@ -14,7 +14,6 @@ package org.locationtech.jts.index.strtree
 /**
  * A spatial object in an AbstractSTRtree.
  *
- * @version 1.7
  */
 interface Boundable {
   /**

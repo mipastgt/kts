@@ -16,7 +16,6 @@ import org.locationtech.jts.geom.Coordinate
 /**
  * Represents a directed graph which is embeddable in a planar surface.
  *
- * @version 1.7
  */
 abstract class PlanarGraph {
   protected val edges: MutableSet<Edge> = HashSet()

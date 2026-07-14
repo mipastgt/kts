@@ -22,7 +22,6 @@ import org.locationtech.jts.geom.Coordinate
  * of computing intersections between line segments.
  *
  * @author David Skea
- * @version 1.7
  */
 class HCoordinate {
 

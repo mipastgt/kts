@@ -18,7 +18,6 @@ import org.locationtech.jts.geom.Position
 import org.locationtech.jts.geom.TopologyException
 
 /**
- * @version 1.7
  */
 open class DirectedEdge(edge: Edge, isForward: Boolean) : EdgeEnd(edge) {
 

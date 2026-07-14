@@ -31,23 +31,22 @@ import org.locationtech.jts.util.Assert
  * A representation of a planar, linear vector geometry.
  * (See the original Javadoc for the full contract description.)
  *
- * @version 1.7
  */
 abstract class Geometry(
   /**
-   * The {@link GeometryFactory} used to create this Geometry
+   * The [GeometryFactory] used to create this Geometry
    */
   @JvmField protected val factory: GeometryFactory
 ) : Comparable<Any?> {
 
   /**
-   *  The bounding box of this <code>Geometry</code>.
+   *  The bounding box of this `Geometry`.
    */
   @JvmField
   protected var envelope: Envelope? = null
 
   /**
-   *  The ID of the Spatial Reference System used by this <code>Geometry</code>
+   *  The ID of the Spatial Reference System used by this `Geometry`
    */
   @JvmField
   protected var SRID: Int = factory.getSRID()
@@ -61,14 +60,14 @@ abstract class Geometry(
   /**
    * Returns the name of this Geometry's actual class.
    *
-   * @return the name of this <code>Geometry</code>s actual class
+   * @return the name of this `Geometry`s actual class
    */
   abstract fun getGeometryType(): String
 
   /**
-   *  Returns the ID of the Spatial Reference System used by the <code>Geometry</code>.
+   *  Returns the ID of the Spatial Reference System used by the `Geometry`.
    *
-   * @return    the ID of the coordinate space in which the <code>Geometry</code>
+   * @return    the ID of the coordinate space in which the `Geometry`
    *      is defined.
    */
   open fun getSRID(): Int {
@@ -76,7 +75,7 @@ abstract class Geometry(
   }
 
   /**
-   *  Sets the ID of the Spatial Reference System used by the <code>Geometry</code>.
+   *  Sets the ID of the Spatial Reference System used by the `Geometry`.
    */
   open fun setSRID(SRID: Int) {
     this.SRID = SRID
@@ -94,14 +93,14 @@ abstract class Geometry(
   /**
    * Gets the user data object for this geometry, if any.
    *
-   * @return the user data object, or <code>null</code> if none set
+   * @return the user data object, or `null` if none set
    */
   open fun getUserData(): Any? {
     return userData
   }
 
   /**
-   * Returns the number of {@link Geometry}s in a {@link GeometryCollection}
+   * Returns the number of [Geometry]s in a [GeometryCollection]
    * (or 1, if the geometry is not a collection).
    *
    * @return the number of geometries contained in this geometry
@@ -111,8 +110,8 @@ abstract class Geometry(
   }
 
   /**
-   * Returns an element {@link Geometry} from a {@link GeometryCollection}
-   * (or <code>this</code>, if the geometry is not a collection).
+   * Returns an element [Geometry] from a [GeometryCollection]
+   * (or `this`, if the geometry is not a collection).
    *
    * @param n the index of the geometry element
    * @return the n'th geometry contained in this geometry
@@ -132,10 +131,10 @@ abstract class Geometry(
   }
 
   /**
-   *  Returns the <code>PrecisionModel</code> used by the <code>Geometry</code>.
+   *  Returns the `PrecisionModel` used by the `Geometry`.
    *
    * @return    the specification of the grid of allowable points, for this
-   *      <code>Geometry</code> and all other <code>Geometry</code>s
+   *      `Geometry` and all other `Geometry`s
    */
   open fun getPrecisionModel(): PrecisionModel {
     return factory.getPrecisionModel()
@@ -144,9 +143,9 @@ abstract class Geometry(
   /**
    *  Returns a vertex of this geometry
    *  (usually, but not necessarily, the first one),
-   *  or <code>null</code> if the geometry is empty.
+   *  or `null` if the geometry is empty.
    *
-   * @return a coordinate which is a vertex of this <code>Geometry</code>.
+   * @return a coordinate which is a vertex of this `Geometry`.
    * @return null if this Geometry is empty
    */
   abstract fun getCoordinate(): Coordinate?
@@ -155,21 +154,21 @@ abstract class Geometry(
    *  Returns an array containing the values of all the vertices for
    *  this geometry.
    *
-   * @return    the vertices of this <code>Geometry</code>
+   * @return    the vertices of this `Geometry`
    */
   abstract fun getCoordinates(): Array<Coordinate>
 
   /**
-   *  Returns the count of this <code>Geometry</code>s vertices.
+   *  Returns the count of this `Geometry`s vertices.
    *
-   * @return    the number of vertices in this <code>Geometry</code>
+   * @return    the number of vertices in this `Geometry`
    */
   abstract fun getNumPoints(): Int
 
   /**
-   * Tests whether this {@link Geometry} is simple.
+   * Tests whether this [Geometry] is simple.
    *
-   * @return <code>true</code> if this <code>Geometry</code> is simple
+   * @return `true` if this `Geometry` is simple
    * @see #isValid
    */
   open fun isSimple(): Boolean {
@@ -178,10 +177,10 @@ abstract class Geometry(
   }
 
   /**
-   * Tests whether this <code>Geometry</code>
+   * Tests whether this `Geometry`
    * is topologically valid, according to the OGC SFS specification.
    *
-   * @return <code>true</code> if this <code>Geometry</code> is valid
+   * @return `true` if this `Geometry` is valid
    *
    * @see IsValidOp
    */
@@ -190,18 +189,18 @@ abstract class Geometry(
   }
 
   /**
-   * Tests whether the set of points covered by this <code>Geometry</code> is
+   * Tests whether the set of points covered by this `Geometry` is
    * empty.
    *
-   * @return <code>true</code> if this <code>Geometry</code> does not cover any points
+   * @return `true` if this `Geometry` does not cover any points
    */
   abstract fun isEmpty(): Boolean
 
   /**
-   * Returns the minimum distance between this <code>Geometry</code>
-   * and another <code>Geometry</code>.
+   * Returns the minimum distance between this `Geometry`
+   * and another `Geometry`.
    *
-   * @param  g the <code>Geometry</code> from which to compute the distance
+   * @param  g the `Geometry` from which to compute the distance
    * @return the distance between the geometries
    * @return 0 if either input geometry is empty
    * @throws IllegalArgumentException if g is null
@@ -211,19 +210,19 @@ abstract class Geometry(
   }
 
   /**
-   * Tests whether the distance from this <code>Geometry</code>
+   * Tests whether the distance from this `Geometry`
    * to another is less than or equal to a specified value.
    *
    * @param geom the Geometry to check the distance to
    * @param distance the distance value to compare
-   * @return <code>true</code> if the geometries are less than <code>distance</code> apart.
+   * @return `true` if the geometries are less than `distance` apart.
    */
   open fun isWithinDistance(geom: Geometry, distance: Double): Boolean {
     return DistanceOp.isWithinDistance(this, geom, distance)
   }
 
   /**
-   * Tests whether this is a rectangular {@link Polygon}.
+   * Tests whether this is a rectangular [Polygon].
    *
    * @return true if the geometry is a rectangle.
    */
@@ -233,7 +232,7 @@ abstract class Geometry(
   }
 
   /**
-   *  Returns the area of this <code>Geometry</code>.
+   *  Returns the area of this `Geometry`.
    *
    * @return the area of the Geometry
    */
@@ -242,7 +241,7 @@ abstract class Geometry(
   }
 
   /**
-   *  Returns the length of this <code>Geometry</code>.
+   *  Returns the length of this `Geometry`.
    *
    * @return the length of the Geometry
    */
@@ -251,9 +250,9 @@ abstract class Geometry(
   }
 
   /**
-   * Computes the centroid of this <code>Geometry</code>.
+   * Computes the centroid of this `Geometry`.
    *
-   * @return a {@link Point} which is the centroid of this Geometry
+   * @return a [Point] which is the centroid of this Geometry
    */
   open fun getCentroid(): Point {
     if (isEmpty())
@@ -263,9 +262,9 @@ abstract class Geometry(
   }
 
   /**
-   * Computes an interior point of this <code>Geometry</code>.
+   * Computes an interior point of this `Geometry`.
    *
-   * @return a {@link Point} which is in the interior of this Geometry
+   * @return a [Point] which is in the interior of this Geometry
    */
   open fun getInteriorPoint(): Point {
     if (isEmpty()) return factory.createPoint()
@@ -297,14 +296,14 @@ abstract class Geometry(
 
   /**
    * Returns the boundary, or an empty geometry of appropriate dimension
-   * if this <code>Geometry</code>  is empty.
+   * if this `Geometry`  is empty.
    *
-   * @return    the closure of the combinatorial boundary of this <code>Geometry</code>
+   * @return    the closure of the combinatorial boundary of this `Geometry`
    */
   abstract fun getBoundary(): Geometry
 
   /**
-   *  Returns the dimension of this <code>Geometry</code>s inherent boundary.
+   *  Returns the dimension of this `Geometry`s inherent boundary.
    *
    * @return    the dimension of the boundary of the class implementing this
    *      interface.
@@ -313,7 +312,7 @@ abstract class Geometry(
 
   /**
    *  Gets a Geometry representing the envelope (bounding box) of
-   *  this <code>Geometry</code>.
+   *  this `Geometry`.
    *
    * @return a Geometry representing the envelope of this Geometry
    *
@@ -324,10 +323,10 @@ abstract class Geometry(
   }
 
   /**
-   * Gets an {@link Envelope} containing
-   * the minimum and maximum x and y values in this <code>Geometry</code>.
+   * Gets an [Envelope] containing
+   * the minimum and maximum x and y values in this `Geometry`.
    *
-   * @return the envelope of this <code>Geometry</code>.
+   * @return the envelope of this `Geometry`.
    * @return an empty Envelope if this Geometry is empty
    */
   open fun getEnvelopeInternal(): Envelope {
@@ -358,8 +357,8 @@ abstract class Geometry(
   /**
    * Tests whether this geometry is disjoint from the argument geometry.
    *
-   * @param  g  the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return        <code>true</code> if the two <code>Geometry</code>s are
+   * @param  g  the `Geometry` with which to compare this `Geometry`
+   * @return        `true` if the two `Geometry`s are
    *      disjoint
    *
    * @see Geometry#intersects
@@ -372,9 +371,9 @@ abstract class Geometry(
    * Tests whether this geometry touches the
    * argument geometry.
    *
-   * @param  g  the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return        <code>true</code> if the two <code>Geometry</code>s touch;
-   *      Returns <code>false</code> if both <code>Geometry</code>s are points
+   * @param  g  the `Geometry` with which to compare this `Geometry`
+   * @return        `true` if the two `Geometry`s touch;
+   *      Returns `false` if both `Geometry`s are points
    */
   open fun touches(g: Geometry): Boolean {
     return GeometryRelate.touches(this, g)
@@ -383,8 +382,8 @@ abstract class Geometry(
   /**
    * Tests whether this geometry intersects the argument geometry.
    *
-   * @param  g  the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return        <code>true</code> if the two <code>Geometry</code>s intersect
+   * @param  g  the `Geometry` with which to compare this `Geometry`
+   * @return        `true` if the two `Geometry`s intersect
    *
    * @see Geometry#disjoint
    */
@@ -409,8 +408,8 @@ abstract class Geometry(
    * Tests whether this geometry crosses the
    * argument geometry.
    *
-   * @param  g  the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return        <code>true</code> if the two <code>Geometry</code>s cross.
+   * @param  g  the `Geometry` with which to compare this `Geometry`
+   * @return        `true` if the two `Geometry`s cross.
    */
   open fun crosses(g: Geometry): Boolean {
     // short-circuit test
@@ -423,9 +422,9 @@ abstract class Geometry(
    * Tests whether this geometry is within the
    * specified geometry.
    *
-   * @param  g  the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return        <code>true</code> if this <code>Geometry</code> is within
-   *      <code>g</code>
+   * @param  g  the `Geometry` with which to compare this `Geometry`
+   * @return        `true` if this `Geometry` is within
+   *      `g`
    *
    * @see Geometry#contains
    * @see Geometry#coveredBy
@@ -438,8 +437,8 @@ abstract class Geometry(
    * Tests whether this geometry contains the
    * argument geometry.
    *
-   * @param  g  the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return        <code>true</code> if this <code>Geometry</code> contains <code>g</code>
+   * @param  g  the `Geometry` with which to compare this `Geometry`
+   * @return        `true` if this `Geometry` contains `g`
    *
    * @see Geometry#within
    * @see Geometry#covers
@@ -458,8 +457,8 @@ abstract class Geometry(
    * Tests whether this geometry overlaps the
    * specified geometry.
    *
-   * @param  g  the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return        <code>true</code> if the two <code>Geometry</code>s overlap.
+   * @param  g  the `Geometry` with which to compare this `Geometry`
+   * @return        `true` if the two `Geometry`s overlap.
    */
   open fun overlaps(g: Geometry): Boolean {
     return GeometryRelate.overlaps(this, g)
@@ -469,8 +468,8 @@ abstract class Geometry(
    * Tests whether this geometry covers the
    * argument geometry.
    *
-   * @param  g  the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return        <code>true</code> if this <code>Geometry</code> covers <code>g</code>
+   * @param  g  the `Geometry` with which to compare this `Geometry`
+   * @return        `true` if this `Geometry` covers `g`
    *
    * @see Geometry#contains
    * @see Geometry#coveredBy
@@ -483,8 +482,8 @@ abstract class Geometry(
    * Tests whether this geometry is covered by the
    * argument geometry.
    *
-   * @param  g  the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return        <code>true</code> if this <code>Geometry</code> is covered by <code>g</code>
+   * @param  g  the `Geometry` with which to compare this `Geometry`
+   * @return        `true` if this `Geometry` is covered by `g`
    *
    * @see Geometry#within
    * @see Geometry#covers
@@ -495,14 +494,14 @@ abstract class Geometry(
 
   /**
    * Tests whether the elements in the DE-9IM
-   * {@link IntersectionMatrix} for the two <code>Geometry</code>s match the elements in <code>intersectionPattern</code>.
+   * [IntersectionMatrix] for the two `Geometry`s match the elements in `intersectionPattern`.
    *
-   * @param  g                the <code>Geometry</code> with which to compare
-   *      this <code>Geometry</code>
+   * @param  g                the `Geometry` with which to compare
+   *      this `Geometry`
    * @param  intersectionPattern  the pattern against which to check the
-   *      intersection matrix for the two <code>Geometry</code>s
-   * @return                      <code>true</code> if the DE-9IM intersection
-   *      matrix for the two <code>Geometry</code>s match <code>intersectionPattern</code>
+   *      intersection matrix for the two `Geometry`s
+   * @return                      `true` if the DE-9IM intersection
+   *      matrix for the two `Geometry`s match `intersectionPattern`
    * @see IntersectionMatrix
    */
   open fun relate(g: Geometry, intersectionPattern: String): Boolean {
@@ -510,11 +509,11 @@ abstract class Geometry(
   }
 
   /**
-   *  Returns the DE-9IM {@link IntersectionMatrix} for the two <code>Geometry</code>s.
+   *  Returns the DE-9IM [IntersectionMatrix] for the two `Geometry`s.
    *
-   * @param  g  the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return        an {@link IntersectionMatrix} describing the intersections of the interiors,
-   *      boundaries and exteriors of the two <code>Geometry</code>s
+   * @param  g  the `Geometry` with which to compare this `Geometry`
+   * @return        an [IntersectionMatrix] describing the intersections of the interiors,
+   *      boundaries and exteriors of the two `Geometry`s
    */
   open fun relate(g: Geometry): IntersectionMatrix {
     return GeometryRelate.relate(this, g)
@@ -524,8 +523,8 @@ abstract class Geometry(
    * Tests whether this geometry is
    * topologically equal to the argument geometry.
    *
-   * @param  g  the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return true if the two <code>Geometry</code>s are topologically equal
+   * @param  g  the `Geometry` with which to compare this `Geometry`
+   * @return true if the two `Geometry`s are topologically equal
    *
    * @see #equalsTopo(Geometry)
    */
@@ -536,10 +535,10 @@ abstract class Geometry(
 
   /**
    * Tests whether this geometry is topologically equal to the argument geometry
-   * as defined by the SFS <code>equals</code> predicate.
+   * as defined by the SFS `equals` predicate.
    *
-   * @param g the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return <code>true</code> if the two <code>Geometry</code>s are topologically equal
+   * @param g the `Geometry` with which to compare this `Geometry`
+   * @return `true` if the two `Geometry`s are topologically equal
    *
    * @see #equalsExact(Geometry)
    */
@@ -549,7 +548,7 @@ abstract class Geometry(
 
   /**
    * Tests whether this geometry is structurally and numerically equal
-   * to a given <code>Object</code>.
+   * to a given `Object`.
    *
    * @param o the Object to compare
    * @return true if this geometry is exactly equal to the argument
@@ -577,9 +576,9 @@ abstract class Geometry(
   }
 
   /**
-   *  Returns the Well-known Text representation of this <code>Geometry</code>.
+   *  Returns the Well-known Text representation of this `Geometry`.
    *
-   * @return    the Well-known Text representation of this <code>Geometry</code>
+   * @return    the Well-known Text representation of this `Geometry`
    */
   open fun toText(): String {
     val writer = WKTWriter()
@@ -639,10 +638,10 @@ abstract class Geometry(
   }
 
   /**
-   *  Computes the smallest convex <code>Polygon</code> that contains all the
-   *  points in the <code>Geometry</code>.
+   *  Computes the smallest convex `Polygon` that contains all the
+   *  points in the `Geometry`.
    *
-   * @return    the minimum-area convex polygon containing this <code>Geometry</code>'
+   * @return    the minimum-area convex polygon containing this `Geometry`'
    *      s points
    */
   open fun convexHull(): Geometry {
@@ -668,27 +667,27 @@ abstract class Geometry(
   protected abstract fun reverseInternal(): Geometry
 
   /**
-   * Computes a <code>Geometry</code> representing the point-set which is
-   * common to both this <code>Geometry</code> and the <code>other</code> Geometry.
+   * Computes a `Geometry` representing the point-set which is
+   * common to both this `Geometry` and the `other` Geometry.
    *
-   * @param  other the <code>Geometry</code> with which to compute the intersection
-   * @return a Geometry representing the point-set common to the two <code>Geometry</code>s
+   * @param  other the `Geometry` with which to compute the intersection
+   * @return a Geometry representing the point-set common to the two `Geometry`s
    * @throws TopologyException if a robustness error occurs
-   * @throws IllegalArgumentException if the argument is a non-empty heterogeneous <code>GeometryCollection</code>
+   * @throws IllegalArgumentException if the argument is a non-empty heterogeneous `GeometryCollection`
    */
   open fun intersection(other: Geometry): Geometry {
     return GeometryOverlay.intersection(this, other)
   }
 
   /**
-   * Computes a <code>Geometry</code> representing the point-set
+   * Computes a `Geometry` representing the point-set
    * which is contained in both this
-   * <code>Geometry</code> and the <code>other</code> Geometry.
+   * `Geometry` and the `other` Geometry.
    *
    * @param other
-   *          the <code>Geometry</code> with which to compute the union
-   * @return a point-set combining the points of this <code>Geometry</code> and the
-   *         points of <code>other</code>
+   *          the `Geometry` with which to compute the union
+   * @return a point-set combining the points of this `Geometry` and the
+   *         points of `other`
    * @throws TopologyException
    *           if a robustness error occurs
    * @throws IllegalArgumentException
@@ -700,14 +699,14 @@ abstract class Geometry(
   }
 
   /**
-   * Computes a <code>Geometry</code> representing the closure of the point-set
-   * of the points contained in this <code>Geometry</code> that are not contained in
-   * the <code>other</code> Geometry.
+   * Computes a `Geometry` representing the closure of the point-set
+   * of the points contained in this `Geometry` that are not contained in
+   * the `other` Geometry.
    *
-   * @param  other  the <code>Geometry</code> with which to compute the
+   * @param  other  the `Geometry` with which to compute the
    *      difference
-   * @return a Geometry representing the point-set difference of this <code>Geometry</code> with
-   *      <code>other</code>
+   * @return a Geometry representing the point-set difference of this `Geometry` with
+   *      `other`
    * @throws TopologyException if a robustness error occurs
    * @throws IllegalArgumentException if either input is a non-empty GeometryCollection
    */
@@ -716,16 +715,16 @@ abstract class Geometry(
   }
 
   /**
-   * Computes a <code>Geometry</code> representing the closure of the point-set
-   * which is the union of the points in this <code>Geometry</code> which are not
-   * contained in the <code>other</code> Geometry,
-   * with the points in the <code>other</code> Geometry not contained in this
-   * <code>Geometry</code>.
+   * Computes a `Geometry` representing the closure of the point-set
+   * which is the union of the points in this `Geometry` which are not
+   * contained in the `other` Geometry,
+   * with the points in the `other` Geometry not contained in this
+   * `Geometry`.
    *
-   * @param  other the <code>Geometry</code> with which to compute the symmetric
+   * @param  other the `Geometry` with which to compute the symmetric
    *      difference
-   * @return a Geometry representing the point-set symmetric difference of this <code>Geometry</code>
-   *      with <code>other</code>
+   * @return a Geometry representing the point-set symmetric difference of this `Geometry`
+   *      with `other`
    * @throws TopologyException if a robustness error occurs
    * @throws IllegalArgumentException if either input is a non-empty GeometryCollection
    */
@@ -746,13 +745,13 @@ abstract class Geometry(
   }
 
   /**
-   * Returns true if the two <code>Geometry</code>s are exactly equal,
+   * Returns true if the two `Geometry`s are exactly equal,
    * up to a specified distance tolerance.
    *
-   * @param other the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @param tolerance distance at or below which two <code>Coordinate</code>s
+   * @param other the `Geometry` with which to compare this `Geometry`
+   * @param tolerance distance at or below which two `Coordinate`s
    *   are considered equal
-   * @return <code>true</code> if this and the other <code>Geometry</code>
+   * @return `true` if this and the other `Geometry`
    *   have identical structure and point values, up to the distance tolerance.
    *
    * @see #equalsExact(Geometry)
@@ -761,10 +760,10 @@ abstract class Geometry(
   abstract fun equalsExact(other: Geometry, tolerance: Double): Boolean
 
   /**
-   * Returns true if the two <code>Geometry</code>s are exactly equal.
+   * Returns true if the two `Geometry`s are exactly equal.
    *
-   * @param  other  the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return <code>true</code> if this and the other <code>Geometry</code>
+   * @param  other  the `Geometry` with which to compare this `Geometry`
+   * @return `true` if this and the other `Geometry`
    *      have identical structure and point values.
    *
    * @see #equalsExact(Geometry, double)
@@ -787,28 +786,28 @@ abstract class Geometry(
   }
 
   /**
-   *  Performs an operation with or on this <code>Geometry</code>'s
+   *  Performs an operation with or on this `Geometry`'s
    *  coordinates.
    *
-   * @param  filter  the filter to apply to this <code>Geometry</code>'s
+   * @param  filter  the filter to apply to this `Geometry`'s
    *      coordinates
    */
   abstract fun apply(filter: CoordinateFilter)
 
   /**
-   *  Performs an operation on the coordinates in this <code>Geometry</code>'s
-   *  {@link CoordinateSequence}s.
+   *  Performs an operation on the coordinates in this `Geometry`'s
+   *  [CoordinateSequence]s.
    *
    * @param  filter  the filter to apply
    */
   abstract fun apply(filter: CoordinateSequenceFilter)
 
   /**
-   *  Performs an operation with or on this <code>Geometry</code> and its
-   *  subelement <code>Geometry</code>s (if any).
+   *  Performs an operation with or on this `Geometry` and its
+   *  subelement `Geometry`s (if any).
    *
-   * @param  filter  the filter to apply to this <code>Geometry</code> (and
-   *      its children, if it is a <code>GeometryCollection</code>).
+   * @param  filter  the filter to apply to this `Geometry` (and
+   *      its children, if it is a `GeometryCollection`).
    */
   abstract fun apply(filter: GeometryFilter)
 
@@ -816,12 +815,12 @@ abstract class Geometry(
    *  Performs an operation with or on this Geometry and its
    *  component Geometry's.
    *
-   * @param  filter  the filter to apply to this <code>Geometry</code>.
+   * @param  filter  the filter to apply to this `Geometry`.
    */
   abstract fun apply(filter: GeometryComponentFilter)
 
   /**
-   * Creates and returns a full copy of this {@link Geometry} object.
+   * Creates and returns a full copy of this [Geometry] object.
    *
    * @return a clone of this instance
    * @deprecated
@@ -831,7 +830,7 @@ abstract class Geometry(
   }
 
   /**
-   * Creates a deep copy of this {@link Geometry} object.
+   * Creates a deep copy of this [Geometry] object.
    *
    * @return a deep copy of this geometry
    */
@@ -851,8 +850,8 @@ abstract class Geometry(
   protected abstract fun copyInternal(): Geometry
 
   /**
-   *  Converts this <code>Geometry</code> to <b>normal form</b> (or <b>
-   *  canonical form</b> ).
+   *  Converts this `Geometry` to **normal form** (or **
+   *  canonical form** ).
    */
   abstract fun normalize()
 
@@ -870,10 +869,10 @@ abstract class Geometry(
   }
 
   /**
-   *  Returns whether this <code>Geometry</code> is greater than, equal to,
-   *  or less than another <code>Geometry</code>.
+   *  Returns whether this `Geometry` is greater than, equal to,
+   *  or less than another `Geometry`.
    *
-   * @param  o  a <code>Geometry</code> with which to compare this <code>Geometry</code>
+   * @param  o  a `Geometry` with which to compare this `Geometry`
    * @return    a positive number, 0, or a negative number
    */
   override fun compareTo(o: Any?): Int {
@@ -894,12 +893,12 @@ abstract class Geometry(
   }
 
   /**
-   *  Returns whether this <code>Geometry</code> is greater than, equal to,
-   *  or less than another <code>Geometry</code>,
-   * using the given {@link CoordinateSequenceComparator}.
+   *  Returns whether this `Geometry` is greater than, equal to,
+   *  or less than another `Geometry`,
+   * using the given [CoordinateSequenceComparator].
    *
-   * @param  o  a <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @param comp a <code>CoordinateSequenceComparator</code>
+   * @param  o  a `Geometry` with which to compare this `Geometry`
+   * @param comp a `CoordinateSequenceComparator`
    *
    * @return    a positive number, 0, or a negative number
    */
@@ -921,20 +920,20 @@ abstract class Geometry(
   }
 
   /**
-   *  Returns whether the two <code>Geometry</code>s are equal, from the point
-   *  of view of the <code>equalsExact</code> method.
+   *  Returns whether the two `Geometry`s are equal, from the point
+   *  of view of the `equalsExact` method.
    *
-   * @param  other  the <code>Geometry</code> with which to compare this <code>Geometry</code>
+   * @param  other  the `Geometry` with which to compare this `Geometry`
    *      for equality
-   * @return        <code>true</code> if the classes of the two <code>Geometry</code>
-   *      s are considered to be equal by the <code>equalsExact</code> method.
+   * @return        `true` if the classes of the two `Geometry`
+   *      s are considered to be equal by the `equalsExact` method.
    */
   protected open fun isEquivalentClass(other: Geometry): Boolean {
     return this::class == other::class
   }
 
   /**
-   * Tests whether this is an instance of a general {@link GeometryCollection},
+   * Tests whether this is an instance of a general [GeometryCollection],
    * rather than a homogeneous subclass.
    *
    * @return true if this is a heterogeneous GeometryCollection
@@ -944,29 +943,29 @@ abstract class Geometry(
   }
 
   /**
-   *  Returns the minimum and maximum x and y values in this <code>Geometry</code>
-   *  , or a null <code>Envelope</code> if this <code>Geometry</code> is empty.
+   *  Returns the minimum and maximum x and y values in this `Geometry`
+   *  , or a null `Envelope` if this `Geometry` is empty.
    *
-   * @return    this <code>Geometry</code>s bounding box
+   * @return    this `Geometry`s bounding box
    */
   protected abstract fun computeEnvelopeInternal(): Envelope
 
   /**
-   *  Returns whether this <code>Geometry</code> is greater than, equal to,
-   *  or less than another <code>Geometry</code> having the same class.
+   *  Returns whether this `Geometry` is greater than, equal to,
+   *  or less than another `Geometry` having the same class.
    *
-   * @param  o  a <code>Geometry</code> having the same class as this <code>Geometry</code>
+   * @param  o  a `Geometry` having the same class as this `Geometry`
    * @return    a positive number, 0, or a negative number
    */
   protected abstract fun compareToSameClass(o: Any?): Int
 
   /**
-   *  Returns whether this <code>Geometry</code> is greater than, equal to,
-   *  or less than another <code>Geometry</code> of the same class.
-   * using the given {@link CoordinateSequenceComparator}.
+   *  Returns whether this `Geometry` is greater than, equal to,
+   *  or less than another `Geometry` of the same class.
+   * using the given [CoordinateSequenceComparator].
    *
-   * @param  o  a <code>Geometry</code> having the same class as this <code>Geometry</code>
-   * @param comp a <code>CoordinateSequenceComparator</code>
+   * @param  o  a `Geometry` having the same class as this `Geometry`
+   * @param comp a `CoordinateSequenceComparator`
    * @return    a positive number, 0, or a negative number
    */
   protected abstract fun compareToSameClass(o: Any?, comp: CoordinateSequenceComparator): Int
@@ -995,12 +994,12 @@ abstract class Geometry(
   }
 
   /**
-   *  Returns the first non-zero result of <code>compareTo</code> encountered as
-   *  the two <code>Collection</code>s are iterated over.
+   *  Returns the first non-zero result of `compareTo` encountered as
+   *  the two `Collection`s are iterated over.
    *
-   * @param  a  a <code>Collection</code> of <code>Comparable</code>s
-   * @param  b  a <code>Collection</code> of <code>Comparable</code>s
-   * @return    the first non-zero <code>compareTo</code> result, if any;
+   * @param  a  a `Collection` of `Comparable`s
+   * @param  b  a `Collection` of `Comparable`s
+   * @return    the first non-zero `compareTo` result, if any;
    *      otherwise, zero
    */
   protected open fun compare(a: Collection<*>, b: Collection<*>): Int {
@@ -1076,12 +1075,12 @@ abstract class Geometry(
     }
 
     /**
-     * Returns true if the array contains any non-empty <code>Geometry</code>s.
+     * Returns true if the array contains any non-empty `Geometry`s.
      *
-     * @param  geometries  an array of <code>Geometry</code>s; no elements may be
-     *      <code>null</code>
-     * @return             <code>true</code> if any of the <code>Geometry</code>s
-     *      <code>isEmpty</code> methods return <code>false</code>
+     * @param  geometries  an array of `Geometry`s; no elements may be
+     *      `null`
+     * @return             `true` if any of the `Geometry`s
+     *      `isEmpty` methods return `false`
      */
     @JvmStatic
     protected fun hasNonEmptyElements(geometries: Array<out Geometry>): Boolean {
@@ -1094,11 +1093,11 @@ abstract class Geometry(
     }
 
     /**
-     *  Returns true if the array contains any <code>null</code> elements.
+     *  Returns true if the array contains any `null` elements.
      *
      * @param  array  an array to validate
-     * @return        <code>true</code> if any of <code>array</code>s elements are
-     *      <code>null</code>
+     * @return        `true` if any of `array`s elements are
+     *      `null`
      */
     @JvmStatic
     protected fun hasNullElements(array: Array<out Any?>): Boolean {
@@ -1111,10 +1110,10 @@ abstract class Geometry(
     }
 
     /**
-     *  Throws an exception if <code>g</code>'s type is a <code>GeometryCollection</code>.
+     *  Throws an exception if `g`'s type is a `GeometryCollection`.
      *
-     * @param  g the <code>Geometry</code> to check
-     * @throws  IllegalArgumentException  if <code>g</code> is a <code>GeometryCollection</code>
+     * @param  g the `Geometry` to check
+     * @throws  IllegalArgumentException  if `g` is a `GeometryCollection`
      *      but not one of its subclasses
      */
     @JvmStatic

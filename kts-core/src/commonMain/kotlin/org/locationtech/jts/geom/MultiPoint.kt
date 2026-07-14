@@ -12,16 +12,15 @@
 package org.locationtech.jts.geom
 
 /**
- * Models a collection of {@link Point}s.
- * <p>
+ * Models a collection of [Point]s.
+ * 
  * Any collection of Points is a valid MultiPoint.
  *
- * @version 1.7
  */
 open class MultiPoint : GeometryCollection, Puntal {
 
   /**
-   *  Constructs a <code>MultiPoint</code>.
+   *  Constructs a `MultiPoint`.
    *
    * @deprecated Use GeometryFactory instead
    */
@@ -29,8 +28,8 @@ open class MultiPoint : GeometryCollection, Puntal {
   constructor(points: Array<Point>?, precisionModel: PrecisionModel, SRID: Int) : super(points as Array<Geometry>?, GeometryFactory(precisionModel, SRID))
 
   /**
-   * @param  points          the <code>Point</code>s for this <code>MultiPoint</code>
-   *      , or <code>null</code> or an empty array to create the empty geometry.
+   * @param  points          the `Point`s for this `MultiPoint`
+   *      , or `null` or an empty array to create the empty geometry.
    */
   @Suppress("UNCHECKED_CAST")
   constructor(points: Array<Point>?, factory: GeometryFactory) : super(points as Array<Geometry>?, factory)
@@ -80,11 +79,11 @@ open class MultiPoint : GeometryCollection, Puntal {
   }
 
   /**
-   *  Returns the <code>Coordinate</code> at the given position.
+   *  Returns the `Coordinate` at the given position.
    *
-   * @param  n  the index of the <code>Coordinate</code> to retrieve, beginning
+   * @param  n  the index of the `Coordinate` to retrieve, beginning
    *      at 0
-   * @return    the <code>n</code>th <code>Coordinate</code>
+   * @return    the `n`th `Coordinate`
    */
   protected fun getCoordinate(n: Int): Coordinate? {
     return (geometries[n] as Point).getCoordinate()

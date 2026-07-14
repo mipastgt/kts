@@ -23,7 +23,6 @@ import org.locationtech.jts.geom.Triangle
  * Simplifies a linestring (sequence of points) using the
  * Visvalingam-Whyatt algorithm.
  *
- * @version 1.7
  */
 internal class VWLineSimplifier(private val pts: Array<Coordinate>, distanceTolerance: Double) {
 

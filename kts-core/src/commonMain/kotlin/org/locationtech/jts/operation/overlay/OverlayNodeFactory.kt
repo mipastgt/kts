@@ -21,7 +21,6 @@ import org.locationtech.jts.geomgraph.PlanarGraph
  * Creates nodes for use in the [PlanarGraph]s constructed during
  * overlay operations.
  *
- * @version 1.7
  */
 class OverlayNodeFactory : NodeFactory() {
   override fun createNode(coord: Coordinate): Node {

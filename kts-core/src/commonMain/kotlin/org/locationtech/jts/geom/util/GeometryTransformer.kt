@@ -34,13 +34,12 @@ import org.locationtech.jts.geom.Polygon
  * which perform transformations on
  * various different Geometry subclasses.
  *
- * All <code>transformX</code> methods may return <code>null</code>,
+ * All `transformX` methods may return `null`,
  * to avoid creating empty or invalid geometry objects. This will be handled correctly
  * by the transformer.
  * The [transform] method itself will always
  * return a non-null Geometry object (but this may be empty).
  *
- * @version 1.7
  *
  * @see GeometryEditor
  */
@@ -58,24 +57,24 @@ open class GeometryTransformer {
 
   // these could eventually be exposed to clients
   /**
-   * <code>true</code> if empty geometries should not be included in the result
+   * `true` if empty geometries should not be included in the result
    */
   private val pruneEmptyGeometry = true
 
   /**
-   * <code>true</code> if a homogenous collection result
+   * `true` if a homogenous collection result
    * from a [GeometryCollection] should still
    * be a general GeometryCollection
    */
   private val preserveGeometryCollectionType = true
 
   /**
-   * <code>true</code> if the output from a collection argument should still be a collection
+   * `true` if the output from a collection argument should still be a collection
    */
   private val preserveCollections = false
 
   /**
-   * <code>true</code> if the type of the input should be preserved
+   * `true` if the type of the input should be preserved
    */
   private val preserveType = false
 

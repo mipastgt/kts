@@ -20,7 +20,6 @@ import org.locationtech.jts.planargraph.Node
  * an edge of a polygon formed by the graph.
  * May be logically deleted from the graph by setting the `marked` flag.
  *
- * @version 1.7
  */
 class PolygonizeDirectedEdge
 /**

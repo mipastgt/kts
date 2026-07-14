@@ -23,7 +23,6 @@ import org.locationtech.jts.geom.Point
  * Extracts a representative [Coordinate]
  * from each connected component of a [Geometry].
  *
- * @version 1.9
  */
 open class ComponentCoordinateExtracter(private val coords: MutableList<in Coordinate>) : GeometryComponentFilter {
 

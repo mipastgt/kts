@@ -39,7 +39,6 @@ import org.locationtech.jts.geom.Position
  *
  * It is up to the client code to associate the 0 and 1 `TopologyLocation`s
  * with specific geometries.
- * @version 1.7
  */
 class Label {
 

@@ -21,7 +21,6 @@ import org.locationtech.jts.geom.PrecisionModel
  * Computes the raw offset curve for a
  * single [org.locationtech.jts.geom.Geometry] component (ring, line or point).
  *
- * @version 1.7
  */
 class OffsetCurveBuilder(
   private val precisionModel: PrecisionModel,

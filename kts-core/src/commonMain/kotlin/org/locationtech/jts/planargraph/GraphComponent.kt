@@ -17,7 +17,6 @@ import kotlin.jvm.JvmStatic
  * The base class for all graph component classes.
  * Maintains flags of use in generic graph algorithms.
  *
- * @version 1.7
  */
 abstract class GraphComponent {
 

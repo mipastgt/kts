@@ -28,13 +28,13 @@ import org.locationtech.jts.util.Assert
  * It can be used to transform a [Coordinate] or [Geometry].
  * An affine transformation is a mapping of the 2D plane into itself
  * via a series of transformations of the following basic types:
- * <ul>
- * <li>reflection (through a line)
- * <li>rotation (around the origin)
- * <li>scaling (relative to the origin)
- * <li>shearing (in both the X and Y directions)
- * <li>translation
- * </ul>
+ * 
+ * - reflection (through a line)
+ * - rotation (around the origin)
+ * - scaling (relative to the origin)
+ * - shearing (in both the X and Y directions)
+ * - translation
+ * 
  * In general, affine transformations preserve straightness and parallel lines,
  * but do not preserve distance or shape.
  *
@@ -65,7 +65,7 @@ open class AffineTransformation : CoordinateSequenceFilter {
    *
    * @param matrix an array containing the 6 values { m00, m01, m02, m10, m11, m12 }
    * @throws NullPointerException if matrix is null
-   * @throws ArrayIndexOutOfBoundsException if matrix is too small
+   * @throws IndexOutOfBoundsException if matrix is too small
    */
   constructor(matrix: DoubleArray) {
     m00 = matrix[0]
@@ -184,9 +184,9 @@ open class AffineTransformation : CoordinateSequenceFilter {
    * of the transformation matrix.
    * Only the 6 non-trivial entries are returned,
    * in the sequence:
-   * <pre>
+   * ```
    * m00, m01, m02, m10, m11, m12
-   * </pre>
+   * ```
    *
    * @return an array of length 6
    */
@@ -251,7 +251,7 @@ open class AffineTransformation : CoordinateSequenceFilter {
 
   /**
    * Sets this transformation to be a reflection
-   * about the line defined by a line <tt>(x0,y0) - (x1,y1)</tt>.
+   * about the line defined by a line `(x0,y0) - (x1,y1)`.
    *
    * @return this transformation, with an updated matrix
    */
@@ -585,13 +585,13 @@ open class AffineTransformation : CoordinateSequenceFilter {
   }
 
   /**
-   * Applies this transformation to the <tt>src</tt> coordinate
-   * and places the results in the <tt>dest</tt> coordinate
+   * Applies this transformation to the `src` coordinate
+   * and places the results in the `dest` coordinate
    * (which may be the same as the source).
    *
    * @param src the coordinate to transform
    * @param dest the coordinate to accept the results
-   * @return the <tt>dest</tt> coordinate
+   * @return the `dest` coordinate
    */
   fun transform(src: Coordinate, dest: Coordinate): Coordinate {
     val xp = m00 * src.x + m01 * src.y + m02
@@ -605,7 +605,7 @@ open class AffineTransformation : CoordinateSequenceFilter {
    * Creates a new [Geometry] which is the result
    * of this transformation applied to the input Geometry.
    *
-   *@param g  a <code>Geometry</code>
+   *@param g  a `Geometry`
    *@return a transformed Geometry
    */
   fun transform(g: Geometry): Geometry {
@@ -618,7 +618,7 @@ open class AffineTransformation : CoordinateSequenceFilter {
    * Applies this transformation to the i'th coordinate
    * in the given CoordinateSequence.
    *
-   *@param seq  a <code>CoordinateSequence</code>
+   *@param seq  a `CoordinateSequence`
    *@param i the index of the coordinate to transform
    */
   fun transform(seq: CoordinateSequence, i: Int) {
@@ -631,7 +631,7 @@ open class AffineTransformation : CoordinateSequenceFilter {
   /**
    * Transforms the i'th coordinate in the input sequence
    *
-   *@param seq  a <code>CoordinateSequence</code>
+   *@param seq  a `CoordinateSequence`
    *@param i the index of the coordinate to transform
    */
   override fun filter(seq: CoordinateSequence, i: Int) {
@@ -664,7 +664,7 @@ open class AffineTransformation : CoordinateSequenceFilter {
 
   /**
    * Tests if an object is an
-   * <tt>AffineTransformation</tt>
+   * `AffineTransformation`
    * and has the same matrix as
    * this transformation.
    *
@@ -709,9 +709,9 @@ open class AffineTransformation : CoordinateSequenceFilter {
   /**
    * Gets a text representation of this transformation.
    * The string is of the form:
-   * <pre>
+   * ```
    * AffineTransformation[[m00, m01, m02], [m10, m11, m12]]
-   * </pre>
+   * ```
    *
    * @return a string representing this transformation
    *
@@ -761,7 +761,7 @@ open class AffineTransformation : CoordinateSequenceFilter {
     /**
      * Creates a transformation for a rotation
      * about the origin
-     * by an angle <i>theta</i>.
+     * by an angle *theta*.
      *
      * @param theta the rotation angle, in radians
      * @return a transformation for the rotation
@@ -773,7 +773,7 @@ open class AffineTransformation : CoordinateSequenceFilter {
 
     /**
      * Creates a transformation for a rotation
-     * by an angle <i>theta</i>,
+     * by an angle *theta*,
      * specified by the sine and cosine of the angle.
      *
      * @param sinTheta the sine of the rotation angle
@@ -789,7 +789,7 @@ open class AffineTransformation : CoordinateSequenceFilter {
 
     /**
      * Creates a transformation for a rotation
-     * about the point (x,y) by an angle <i>theta</i>.
+     * about the point (x,y) by an angle *theta*.
      *
      * @param theta the rotation angle, in radians
      * @param x the x-ordinate of the rotation point
@@ -803,7 +803,7 @@ open class AffineTransformation : CoordinateSequenceFilter {
 
     /**
      * Creates a transformation for a rotation
-     * about the point (x,y) by an angle <i>theta</i>,
+     * about the point (x,y) by an angle *theta*,
      * specified by the sine and cosine of the angle.
      *
      * @param sinTheta the sine of the rotation angle

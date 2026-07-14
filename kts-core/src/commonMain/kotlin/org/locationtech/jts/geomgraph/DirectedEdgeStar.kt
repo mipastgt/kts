@@ -22,7 +22,6 @@ import org.locationtech.jts.util.Assert
  * It supports labelling the edges as well as linking the edges to form both
  * MaximalEdgeRings and MinimalEdgeRings.
  *
- * @version 1.7
  */
 open class DirectedEdgeStar : EdgeEndStar() {
 

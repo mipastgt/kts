@@ -16,7 +16,6 @@ package org.locationtech.jts.index.strtree
  * Boundable wrapper for a non-Boundable spatial object. Used internally by
  * AbstractSTRtree.
  *
- * @version 1.7
  */
 class ItemBoundable(private val bounds: Any?, private val item: Any?) : Boundable {
 

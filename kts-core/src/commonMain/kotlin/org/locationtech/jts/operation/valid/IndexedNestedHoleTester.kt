@@ -22,7 +22,6 @@ import org.locationtech.jts.index.strtree.STRtree
  * nested inside another hole, using a spatial
  * index to speed up the comparisons.
  *
- * @version 1.7
  */
 internal class IndexedNestedHoleTester(private val polygon: Polygon) {
 

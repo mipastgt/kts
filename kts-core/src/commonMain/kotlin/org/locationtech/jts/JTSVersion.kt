@@ -22,7 +22,6 @@ import kotlin.jvm.JvmField
  * An optional release status string may be present in the string version of
  * the version.
  *
- * @version 1.7
  */
 class JTSVersion private constructor() {
 

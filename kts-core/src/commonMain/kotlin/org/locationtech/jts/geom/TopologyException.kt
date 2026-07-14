@@ -14,7 +14,6 @@ package org.locationtech.jts.geom
 /**
  * Indicates an invalid or inconsistent topological situation encountered during processing
  *
- * @version 1.7
  */
 class TopologyException : RuntimeException {
 

@@ -24,7 +24,6 @@ import org.locationtech.jts.geomgraph.Label
  * A collection of [EdgeEnd]s which obey the following invariant:
  * They originate at the same node and have the same direction.
  *
- * @version 1.7
  */
 internal class EdgeEndBundle : EdgeEnd {
 

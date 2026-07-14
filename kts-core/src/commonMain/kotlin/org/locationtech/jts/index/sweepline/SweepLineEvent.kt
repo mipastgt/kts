@@ -12,7 +12,6 @@
 package org.locationtech.jts.index.sweepline
 
 /**
- * @version 1.7
  */
 class SweepLineEvent(x: Double, insertEvent: SweepLineEvent?, sweepInt: SweepLineInterval) :
     Comparable<Any?> {

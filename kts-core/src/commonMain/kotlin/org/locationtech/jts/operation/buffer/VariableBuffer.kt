@@ -34,7 +34,7 @@ import org.locationtech.jts.geom.Polygon
  * Creates a buffer polygon with a varying buffer distance
  * at each vertex along a line.
  * Vertex distances may be zero.
- * <p>
+ * 
  * Only single linestrings are supported as input, since buffer widths
  * are typically specified individually for each line.
  *

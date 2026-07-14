@@ -176,7 +176,7 @@ class HilbertCode {
     /**
      * Computes the point on a Hilbert curve
      * of given level for a given code index.
-     * The point ordinates will lie in the range [0, 2<sup>level</sup></i> - 1].
+     * The point ordinates will lie in the range [0, 2<sup>level</sup>* - 1].
      *
      * @param level the Hilbert curve level
      * @param index the index of the point on the curve

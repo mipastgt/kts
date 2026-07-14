@@ -19,7 +19,6 @@ import org.locationtech.jts.geomgraph.NodeMap
 /**
  * Used by the [NodeMap] in a [RelateNodeGraph] to create [RelateNode]s.
  *
- * @version 1.7
  */
 internal class RelateNodeFactory : NodeFactory() {
   override fun createNode(coord: Coordinate): Node {

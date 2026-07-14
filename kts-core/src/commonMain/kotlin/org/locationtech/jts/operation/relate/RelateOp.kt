@@ -40,7 +40,6 @@ import org.locationtech.jts.operation.GeometryGraphOperation
  * these methods may not be consistent with the relationship computed by
  * a custom Boundary Node Rule.
  *
- * @version 1.7
  */
 class RelateOp : GeometryGraphOperation {
 

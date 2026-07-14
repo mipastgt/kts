@@ -13,10 +13,10 @@ package org.locationtech.jts.geom
 
 /**
  * Coordinate subclass supporting XY ordinates.
- * <p>
- * This data object is suitable for use with coordinate sequences with <tt>dimension</tt> = 2.
- * <p>
- * The {@link Coordinate#z} field is visible, but intended to be ignored.
+ * 
+ * This data object is suitable for use with coordinate sequences with `dimension` = 2.
+ * 
+ * The [Coordinate.z] field is visible, but intended to be ignored.
  *
  * @since 1.16
  */

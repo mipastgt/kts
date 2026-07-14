@@ -77,11 +77,11 @@ class Area {
 
     /**
      * Computes the signed area for a ring. The signed area is:
-     * <ul>
-     * <li>positive if the ring is oriented CW
-     * <li>negative if the ring is oriented CCW
-     * <li>zero if the ring is degenerate or flat
-     * </ul>
+     * 
+     * - positive if the ring is oriented CW
+     * - negative if the ring is oriented CCW
+     * - zero if the ring is degenerate or flat
+     * 
      *
      * @param ring
      *          the coordinates forming the ring

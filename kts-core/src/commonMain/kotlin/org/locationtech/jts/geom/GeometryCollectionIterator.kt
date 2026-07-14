@@ -12,52 +12,51 @@
 package org.locationtech.jts.geom
 
 /**
- *  Iterates over all {@link Geometry}s in a {@link Geometry},
+ *  Iterates over all [Geometry]s in a [Geometry],
  *  (which may be either a collection or an atomic geometry).
  *  The iteration sequence follows a pre-order, depth-first traversal of the
- *  structure of the <code>GeometryCollection</code>
- *  (which may be nested). The original <code>Geometry</code> object is
+ *  structure of the `GeometryCollection`
+ *  (which may be nested). The original `Geometry` object is
  *  returned as well (as the first object), as are all sub-collections and atomic elements.
- *  It is  simple to ignore the intermediate <code>GeometryCollection</code> objects if they are not
+ *  It is  simple to ignore the intermediate `GeometryCollection` objects if they are not
  *  needed.
  *
- * @version 1.7
  */
 class GeometryCollectionIterator
 /**
- *  Constructs an iterator over the given <code>Geometry</code>.
+ *  Constructs an iterator over the given `Geometry`.
  *
  * @param  parent  the geometry over which to iterate; also, the first
  *      element returned by the iterator.
  */
 (
   /**
-   *  The <code>Geometry</code> being iterated over.
+   *  The `Geometry` being iterated over.
    */
   private val parent: Geometry
 ) : MutableIterator<Any?> {
 
   /**
    *  Indicates whether or not the first element
-   *  (the root <code>GeometryCollection</code>) has been returned.
+   *  (the root `GeometryCollection`) has been returned.
    */
   private var atStart = true
 
   /**
-   *  The number of <code>Geometry</code>s in the the <code>GeometryCollection</code>.
+   *  The number of `Geometry`s in the the `GeometryCollection`.
    */
   private var max = parent.getNumGeometries()
 
   /**
-   *  The index of the <code>Geometry</code> that will be returned when <code>next</code>
+   *  The index of the `Geometry` that will be returned when `next`
    *  is called.
    */
   private var index = 0
 
   /**
-   *  The iterator over a nested <code>Geometry</code>, or <code>null</code>
-   *  if this <code>GeometryCollectionIterator</code> is not currently iterating
-   *  over a nested <code>GeometryCollection</code>.
+   *  The iterator over a nested `Geometry`, or `null`
+   *  if this `GeometryCollectionIterator` is not currently iterating
+   *  over a nested `GeometryCollection`.
    */
   private var subcollectionIterator: GeometryCollectionIterator? = null
 

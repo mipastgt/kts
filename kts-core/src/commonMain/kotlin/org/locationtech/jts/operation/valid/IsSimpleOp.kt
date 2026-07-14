@@ -37,7 +37,6 @@ import org.locationtech.jts.noding.SegmentString
  *
  * @see BoundaryNodeRule
  *
- * @version 1.7
  */
 class IsSimpleOp {
 

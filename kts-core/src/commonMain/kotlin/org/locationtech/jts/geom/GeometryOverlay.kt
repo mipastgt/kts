@@ -24,7 +24,7 @@ import org.locationtech.jts.operation.union.UnaryUnionOp
 /**
  * Internal class which encapsulates the runtime switch to use OverlayNG,
  * and some additional extensions for optimization and GeometryCollection handling.
- * <p>
+ * 
  * (Was package-private in Java; widened to public because a same-package Java test
  * accesses setOverlayImpl and Kotlin has no package-private visibility.)
  *

@@ -32,23 +32,22 @@ import org.locationtech.jts.geom.util.AffineTransformation
  * Provides various ways of specifying the location and extent
  * and rotations of the generated shapes,
  * as well as number of line segments used to form them.
- * <p>
- * <b>Example of usage:</b>
- * <pre>
+ * 
+ * **Example of usage:**
+ * ```
  *  GeometricShapeFactory gsf = new GeometricShapeFactory();
  *  gsf.setSize(100);
  *  gsf.setNumPoints(100);
  *  gsf.setBase(new Coordinate(100, 100));
  *  gsf.setRotation(0.5);
  *  Polygon rect = gsf.createRectangle();
- * </pre>
+ * ```
  *
- * @version 1.7
  */
 open class GeometricShapeFactory
 /**
  * Create a shape factory which will create shapes using the given
- * {@link GeometryFactory}.
+ * [GeometryFactory].
  *
  * @param geomFact the factory to use
  */
@@ -70,7 +69,7 @@ open class GeometricShapeFactory
 
   /**
    * Create a shape factory which will create shapes using the default
-   * {@link GeometryFactory}.
+   * [GeometryFactory].
    */
   constructor() : this(GeometryFactory())
 
@@ -100,7 +99,7 @@ open class GeometricShapeFactory
   }
 
   /**
-   * Sets the total number of points in the created {@link Geometry}.
+   * Sets the total number of points in the created [Geometry].
    * The created geometry will have no more than this number of points,
    * unless more are needed to create a valid geometry.
    */
@@ -157,7 +156,7 @@ open class GeometricShapeFactory
   }
 
   /**
-   * Creates a rectangular {@link Polygon}.
+   * Creates a rectangular [Polygon].
    *
    * @return a rectangular Polygon
    *
@@ -212,9 +211,9 @@ open class GeometricShapeFactory
     return rotate(poly) as Polygon
   }
 
-  //* @deprecated use {@link createEllipse} instead
+  //* @deprecated use [createEllipse] instead
   /**
-   * Creates a circular or elliptical {@link Polygon}.
+   * Creates a circular or elliptical [Polygon].
    *
    * @return a circle or ellipse
    */
@@ -223,7 +222,7 @@ open class GeometricShapeFactory
   }
 
   /**
-   * Creates an elliptical {@link Polygon}.
+   * Creates an elliptical [Polygon].
    * If the supplied envelope is square the
    * result will be a circle.
    *
@@ -255,7 +254,7 @@ open class GeometricShapeFactory
   }
 
   /**
-   * Creates a squircular {@link Polygon}.
+   * Creates a squircular [Polygon].
    *
    * @return a squircle
    */
@@ -264,7 +263,7 @@ open class GeometricShapeFactory
   }
 
   /**
-   * Creates a supercircular {@link Polygon}
+   * Creates a supercircular [Polygon]
    * of a given positive power.
    *
    * @return a supercircle
@@ -314,7 +313,7 @@ open class GeometricShapeFactory
   }
 
   /**
-   * Creates an elliptical arc, as a {@link LineString}.
+   * Creates an elliptical arc, as a [LineString].
    * The arc is always created in a counter-clockwise direction.
    * This can easily be reversed if required by using
    * {#link LineString.reverse()}

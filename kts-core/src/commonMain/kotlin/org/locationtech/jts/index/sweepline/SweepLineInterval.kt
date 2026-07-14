@@ -12,7 +12,6 @@
 package org.locationtech.jts.index.sweepline
 
 /**
- * @version 1.7
  */
 class SweepLineInterval {
 

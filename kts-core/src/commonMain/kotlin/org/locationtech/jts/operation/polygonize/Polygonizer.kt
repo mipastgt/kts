@@ -21,7 +21,6 @@ import org.locationtech.jts.geom.Polygon
  * Polygonizes a set of [Geometry]s which contain linework that
  * represents the edges of a planar graph.
  *
- * @version 1.7
  */
 class Polygonizer
 /**

@@ -20,7 +20,6 @@ import org.locationtech.jts.geom.Coordinate
  * Implements splitting an edge with intersections
  * into multiple resultant edges.
  *
- * @version 1.7
  */
 class EdgeIntersectionList(private val edge: Edge) {
 

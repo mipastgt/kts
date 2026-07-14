@@ -14,7 +14,6 @@ package org.locationtech.jts.geomgraph
 import org.locationtech.jts.geom.Coordinate
 
 /**
- * @version 1.7
  */
 open class NodeFactory {
   /**

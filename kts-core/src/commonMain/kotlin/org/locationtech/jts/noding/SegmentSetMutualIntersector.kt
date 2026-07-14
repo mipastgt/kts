@@ -33,7 +33,6 @@ package org.locationtech.jts.noding
  * belonging to the same set).
  *
  * @author Martin Davis
- * @version 1.10
  */
 interface SegmentSetMutualIntersector {
   /**

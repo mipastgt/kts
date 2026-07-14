@@ -23,7 +23,6 @@ import org.locationtech.jts.util.Assert
  * A query-only R-tree created using the Sort-Tile-Recursive (STR) algorithm.
  * For two-dimensional spatial data.
  *
- * @version 1.7
  */
 open class STRtree : AbstractSTRtree, SpatialIndex {
 
@@ -195,7 +194,7 @@ open class STRtree : AbstractSTRtree, SpatialIndex {
   }
 
   /**
-   * Finds the item in this tree which is nearest to the given [Object],
+   * Finds the item in this tree which is nearest to the given item,
    * using [ItemDistance] as the distance metric.
    *
    * @return the nearest item in this tree

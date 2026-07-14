@@ -24,7 +24,6 @@ import org.locationtech.jts.geomgraph.DirectedEdge
  * The input subgraphs are assumed to have had depths
  * already calculated for their edges.
  *
- * @version 1.7
  */
 class SubgraphDepthLocater internal constructor(private val subgraphs: List<BufferSubgraph>) {
   private val seg = LineSegment()

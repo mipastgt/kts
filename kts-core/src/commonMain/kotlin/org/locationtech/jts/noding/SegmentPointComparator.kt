@@ -26,7 +26,6 @@ import org.locationtech.jts.util.Assert
  * have the same precision and correspond to rounded values
  * of exact coordinates lying on the segment.
  *
- * @version 1.7
  */
 class SegmentPointComparator {
 

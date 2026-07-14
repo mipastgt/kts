@@ -18,7 +18,6 @@ package org.locationtech.jts.noding
  * (which for instance may simply identify intersections, rather than
  * insert them).
  *
- * @version 1.7
  */
 abstract class SinglePassNoder : Noder {
 

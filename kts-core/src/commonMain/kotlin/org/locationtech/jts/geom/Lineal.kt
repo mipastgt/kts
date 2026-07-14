@@ -13,8 +13,8 @@
 package org.locationtech.jts.geom
 
 /**
- * Identifies {@link Geometry} subclasses which
- * are 1-dimensional and have components which are {@link LineString}s.
+ * Identifies [Geometry] subclasses which
+ * are 1-dimensional and have components which are [LineString]s.
  *
  * @author Martin Davis
  *

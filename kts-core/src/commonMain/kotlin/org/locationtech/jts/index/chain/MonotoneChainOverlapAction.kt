@@ -19,7 +19,6 @@ import org.locationtech.jts.geom.LineSegment
  * The action for the internal iterator for performing
  * overlap queries on a MonotoneChain
  *
- * @version 1.7
  */
 open class MonotoneChainOverlapAction {
   @JvmField

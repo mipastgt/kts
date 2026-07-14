@@ -23,7 +23,6 @@ import org.locationtech.jts.geom.Point
  * <h2>Algorithm</h2>
  * Find a point which is closest to the centroid of the geometry.
  *
- * @version 1.7
  */
 class InteriorPointPoint(g: Geometry) {
 
@@ -73,7 +72,7 @@ class InteriorPointPoint(g: Geometry) {
      *
      * @param geom the geometry to compute
      * @return the computed interior point,
-     * or <code>null</code> if the geometry has no puntal components
+     * or `null` if the geometry has no puntal components
      */
     @JvmStatic
     fun getInteriorPoint(geom: Geometry): Coordinate? {

@@ -15,7 +15,6 @@ package org.locationtech.jts.index
 /**
  * A visitor for items in a [SpatialIndex].
  *
- * @version 1.7
  */
 interface ItemVisitor {
   /**

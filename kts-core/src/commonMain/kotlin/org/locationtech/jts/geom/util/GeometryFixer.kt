@@ -61,12 +61,12 @@ open class GeometryFixer(private val geom: Geometry) {
   }
 
   /**
-   * Sets whether fixed {@code MULTI} geometries that consist of
-   * only one item should still be returned as {@code MULTI} geometries.
+   * Sets whether fixed `MULTI` geometries that consist of
+   * only one item should still be returned as `MULTI` geometries.
    *
-   * The default is to keep {@code MULTI} geometries.
+   * The default is to keep `MULTI` geometries.
    *
-   * @param isKeepMulti flag whether to keep {@code MULTI} geometries.
+   * @param isKeepMulti flag whether to keep `MULTI` geometries.
    */
   fun setKeepMulti(isKeepMulti: Boolean) {
     this.isKeepMulti = isKeepMulti
@@ -356,11 +356,11 @@ open class GeometryFixer(private val geom: Geometry) {
 
     /**
      * Fixes a geometry to be valid, allowing to set a flag controlling how
-     * single item results from fixed {@code MULTI} geometries should be
+     * single item results from fixed `MULTI` geometries should be
      * returned.
      *
      * @param geom the geometry to be fixed
-     * @param isKeepMulti a flag indicating if {@code MULTI} geometries should not be converted to single instance types
+     * @param isKeepMulti a flag indicating if `MULTI` geometries should not be converted to single instance types
      *                    if they consist of only one item.
      * @return the valid fixed geometry
      */

@@ -14,16 +14,15 @@ package org.locationtech.jts.geom
 import org.locationtech.jts.operation.BoundaryOp
 
 /**
- * Models a collection of {@link LineString}s.
- * <p>
+ * Models a collection of [LineString]s.
+ * 
  * Any collection of LineStrings is a valid MultiLineString.
  *
- * @version 1.7
  */
 open class MultiLineString : GeometryCollection, Lineal {
 
   /**
-   *  Constructs a <code>MultiLineString</code>.
+   *  Constructs a `MultiLineString`.
    *
    * @deprecated Use GeometryFactory instead
    */
@@ -32,8 +31,8 @@ open class MultiLineString : GeometryCollection, Lineal {
 
   /**
    * @param lineStrings
-   *            the <code>LineString</code>s for this <code>MultiLineString</code>,
-   *            or <code>null</code> or an empty array to create the empty
+   *            the `LineString`s for this `MultiLineString`,
+   *            or `null` or an empty array to create the empty
    *            geometry.
    */
   @Suppress("UNCHECKED_CAST")
@@ -82,10 +81,10 @@ open class MultiLineString : GeometryCollection, Lineal {
   }
 
   /**
-   * Creates a {@link MultiLineString} in the reverse
+   * Creates a [MultiLineString] in the reverse
    * order to this object.
    *
-   * @return a {@link MultiLineString} in the reverse order
+   * @return a [MultiLineString] in the reverse order
    */
   override fun reverse(): MultiLineString {
     return super.reverse() as MultiLineString

@@ -48,7 +48,7 @@ class MinimumAreaRectangle {
    * with a hint if the geometry is convex.
    *
    * @param inputGeom a Geometry which is convex
-   * @param isConvex <code>true</code> if the input geometry is convex
+   * @param isConvex `true` if the input geometry is convex
    */
   constructor(inputGeom: Geometry, isConvex: Boolean) {
     this.inputGeom = inputGeom

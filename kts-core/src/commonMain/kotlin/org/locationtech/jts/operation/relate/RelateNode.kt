@@ -19,7 +19,6 @@ import org.locationtech.jts.geomgraph.Node
 /**
  * Represents a node in the topological graph used to compute spatial relationships.
  *
- * @version 1.7
  */
 internal class RelateNode(coord: Coordinate?, edges: EdgeEndStar?) : Node(coord, edges) {
 

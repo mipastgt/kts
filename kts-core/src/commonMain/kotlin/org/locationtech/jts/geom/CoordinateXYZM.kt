@@ -13,8 +13,8 @@ package org.locationtech.jts.geom
 
 /**
  * Coordinate subclass supporting XYZM ordinates.
- * <p>
- * This data object is suitable for use with coordinate sequences with <tt>dimension</tt> = 4 and <tt>measures</tt> = 1.
+ * 
+ * This data object is suitable for use with coordinate sequences with `dimension` = 4 and `measures` = 1.
  *
  * @since 1.16
  */

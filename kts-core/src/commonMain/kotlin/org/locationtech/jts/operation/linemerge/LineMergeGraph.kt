@@ -22,7 +22,6 @@ import org.locationtech.jts.planargraph.PlanarGraph
 /**
  * A planar graph of edges that is analyzed to sew the edges together.
  *
- * @version 1.7
  */
 class LineMergeGraph : PlanarGraph() {
   /**

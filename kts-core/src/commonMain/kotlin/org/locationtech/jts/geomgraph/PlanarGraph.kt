@@ -14,7 +14,6 @@ package org.locationtech.jts.geomgraph
 import kotlin.jvm.JvmStatic
 
 /**
- * @version 1.7
  */
 
 import org.locationtech.jts.algorithm.Orientation
@@ -41,7 +40,6 @@ import org.locationtech.jts.geom.Quadrant
  *  * Computing the intersections between the edges and nodes of two different graphs
  *
  *
- * @version 1.7
  */
 open class PlanarGraph(nodeFact: NodeFactory) {
 

@@ -24,7 +24,6 @@ import org.locationtech.jts.geomgraph.Node
  * Computes the intersection of line segments,
  * and adds the intersection to the edges containing the segments.
  *
- * @version 1.7
  */
 class SegmentIntersector(
   private val li: LineIntersector,

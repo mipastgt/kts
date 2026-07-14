@@ -23,7 +23,6 @@ import org.locationtech.jts.geom.MultiLineString
  * Builds a linear geometry ([LineString] or [MultiLineString])
  * incrementally (point-by-point).
  *
- * @version 1.7
  */
 open class LinearGeometryBuilder(private val geomFact: GeometryFactory) {
   private val lines: MutableList<Any?> = ArrayList()

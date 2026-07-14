@@ -27,17 +27,16 @@ import org.locationtech.jts.algorithm.RobustLineIntersector
 import org.locationtech.jts.io.WKTConstants
 
 /**
- * Represents a line segment defined by two {@link Coordinate}s.
+ * Represents a line segment defined by two [Coordinate]s.
  * Provides methods to compute various geometric properties
  * and relationships of line segments.
- * <p>
+ * 
  * This class is designed to be easily mutable (to the extent of
  * having its contained points public).
  * This supports a common pattern of reusing a single LineSegment
  * object as a way of computing segment properties on the
- * segments defined by arrays or lists of {@link Coordinate}s.
+ * segments defined by arrays or lists of [Coordinate]s.
  *
- * @version 1.7
  */
 open class LineSegment(
   @JvmField var p0: Coordinate,
@@ -109,7 +108,7 @@ open class LineSegment(
   /**
    * Tests whether the segment is horizontal.
    *
-   * @return <code>true</code> if the segment is horizontal
+   * @return `true` if the segment is horizontal
    */
   open fun isHorizontal(): Boolean {
     return p0.y == p1.y
@@ -118,7 +117,7 @@ open class LineSegment(
   /**
    * Tests whether the segment is vertical.
    *
-   * @return <code>true</code> if the segment is vertical
+   * @return `true` if the segment is vertical
    */
   open fun isVertical(): Boolean {
     return p0.x == p1.x
@@ -128,20 +127,20 @@ open class LineSegment(
    * Determines the orientation of a LineSegment relative to this segment.
    * The concept of orientation is specified as follows:
    * Given two line segments A and L,
-   * <ul>
-   * <li>A is to the left of a segment L if A lies wholly in the
+   * 
+   * - A is to the left of a segment L if A lies wholly in the
    * closed half-plane lying to the left of L
-   * <li>A is to the right of a segment L if A lies wholly in the
+   * - A is to the right of a segment L if A lies wholly in the
    * closed half-plane lying to the right of L
-   * <li>otherwise, A has indeterminate orientation relative to L. This
+   * - otherwise, A has indeterminate orientation relative to L. This
    * happens if A is collinear with L or if A crosses the line determined by L.
-   * </ul>
+   * 
    *
    * @param seg the LineSegment to compare
    *
-   * @return 1 if <code>seg</code> is to the left of this segment
-   * @return -1 if <code>seg</code> is to the right of this segment
-   * @return 0 if <code>seg</code> is collinear to or crosses this segment
+   * @return 1 if `seg` is to the left of this segment
+   * @return -1 if `seg` is to the right of this segment
+   * @return 0 if `seg` is collinear to or crosses this segment
    */
   open fun orientationIndex(seg: LineSegment): Int {
     val orient0 = Orientation.index(p0, p1, seg.p0)
@@ -157,14 +156,14 @@ open class LineSegment(
   }
 
   /**
-   * Determines the orientation index of a {@link Coordinate} relative to this segment.
-   * The orientation index is as defined in {@link Orientation#index(Coordinate, Coordinate, Coordinate)}.
+   * Determines the orientation index of a [Coordinate] relative to this segment.
+   * The orientation index is as defined in [Orientation.index].
    *
    * @param p the coordinate to compare
    *
-   * @return 1 (LEFT) if <code>p</code> is to the left of this segment
-   * @return -1 (RIGHT) if <code>p</code> is to the right of this segment
-   * @return 0 (COLLINEAR) if <code>p</code> is collinear with this segment
+   * @return 1 (LEFT) if `p` is to the left of this segment
+   * @return -1 (RIGHT) if `p` is to the right of this segment
+   * @return 0 (COLLINEAR) if `p` is collinear with this segment
    *
    * @see Orientation#index(Coordinate, Coordinate, Coordinate)
    */
@@ -186,7 +185,7 @@ open class LineSegment(
    * This is useful for using line segments in maps and indexes when
    * topological equality rather than exact equality is desired.
    * A segment in normalized form has the first point smaller
-   * than the second (according to the standard ordering on {@link Coordinate}).
+   * than the second (according to the standard ordering on [Coordinate]).
    */
   open fun normalize() {
     if (p1.compareTo(p0) < 0) reverse()
@@ -266,11 +265,11 @@ open class LineSegment(
   }
 
   /**
-   * Computes the {@link Coordinate} that lies a given
+   * Computes the [Coordinate] that lies a given
    * fraction along the line defined by this segment.
-   * A fraction of <code>0.0</code> returns the start point of the segment;
-   * a fraction of <code>1.0</code> returns the end point of the segment.
-   * If the fraction is &lt; 0.0 or &gt; 1.0 the point returned
+   * A fraction of `0.0` returns the start point of the segment;
+   * a fraction of `1.0` returns the end point of the segment.
+   * If the fraction is < 0.0 or > 1.0 the point returned
    * will lie before the start or beyond the end of the segment.
    *
    * @param segmentLengthFraction the fraction of the segment length along the line
@@ -284,11 +283,11 @@ open class LineSegment(
   }
 
   /**
-   * Computes the {@link Coordinate} that lies a given
+   * Computes the [Coordinate] that lies a given
    * fraction along the line defined by this segment and offset from
    * the segment by a given distance.
-   * A fraction of <code>0.0</code> offsets from the start point of the segment;
-   * a fraction of <code>1.0</code> offsets from the end point of the segment.
+   * A fraction of `0.0` offsets from the start point of the segment;
+   * a fraction of `1.0` offsets from the end point of the segment.
    * The computed point is offset to the left of the line if the offset distance is
    * positive, to the right if negative.
    *
@@ -332,11 +331,11 @@ open class LineSegment(
    * Computes the Projection Factor for the projection of the point p
    * onto this LineSegment.  The Projection Factor is the constant r
    * by which the vector for this segment must be multiplied to
-   * equal the vector for the projection of <tt>p</tt> on the line
+   * equal the vector for the projection of `p` on the line
    * defined by this segment.
-   * <p>
-   * The projection factor will lie in the range <tt>(-inf, +inf)</tt>,
-   * or be <code>NaN</code> if the line segment has zero length..
+   * 
+   * The projection factor will lie in the range `(-inf, +inf)`,
+   * or be `NaN` if the line segment has zero length..
    *
    * @param p the point to compute the factor for
    * @return the projection factor for the point
@@ -367,13 +366,13 @@ open class LineSegment(
   }
 
   /**
-   * Computes the fraction of distance (in <tt>[0.0, 1.0]</tt>)
+   * Computes the fraction of distance (in `[0.0, 1.0]`)
    * that the projection of a point occurs along this line segment.
    * If the point is beyond either ends of the line segment,
-   * the closest fractional value (<tt>0.0</tt> or <tt>1.0</tt>) is returned.
-   * <p>
-   * Essentially, this is the {@link #projectionFactor} clamped to
-   * the range <tt>[0.0, 1.0]</tt>.
+   * the closest fractional value (`0.0` or `1.0`) is returned.
+   * 
+   * Essentially, this is the [projectionFactor] clamped to
+   * the range `[0.0, 1.0]`.
    * If the segment has zero length, 1.0 is returned.
    *
    * @param inputPt the point
@@ -393,7 +392,7 @@ open class LineSegment(
   /**
    * Compute the projection of a point onto the line determined
    * by this line segment.
-   * <p>
+   * 
    * Note that the projected point
    * may lie outside the line segment.  If this is the case,
    * the projection factor will lie outside the range [0.0, 1.0].
@@ -417,12 +416,12 @@ open class LineSegment(
    * line segment.  The returned line segment will be a subset of
    * the target line line segment.  This subset may be null, if
    * the segments are oriented in such a way that there is no projection.
-   * <p>
+   * 
    * Note that the returned line may have zero length (i.e. the same endpoints).
    * This can happen for instance if the lines are perpendicular to one another.
    *
    * @param seg the line segment to project
-   * @return the projected line segment, or <code>null</code> if there is no overlap
+   * @return the projected line segment, or `null` if there is no overlap
    */
   open fun project(seg: LineSegment): LineSegment? {
     val pf0 = projectionFactor(seg.p0)
@@ -443,7 +442,7 @@ open class LineSegment(
   }
 
   /**
-   * Computes the {@link LineSegment} that is offset from
+   * Computes the [LineSegment] that is offset from
    * the segment by a given distance.
    * The computed segment is offset to the left of the line if the offset distance is
    * positive, to the right if negative.
@@ -566,10 +565,10 @@ open class LineSegment(
    * exactly one of them is returned
    * (chosen at the discretion of the algorithm).
    * If more information is required about the details of the intersection,
-   * the {@link RobustLineIntersector} class should be used.
+   * the [RobustLineIntersector] class should be used.
    *
    * @param line a line segment
-   * @return an intersection point, or <code>null</code> if there is none
+   * @return an intersection point, or `null` if there is none
    *
    * @see RobustLineIntersector
    */
@@ -587,13 +586,13 @@ open class LineSegment(
    * There may be 0, 1 or an infinite number of intersection points
    * between two lines.
    * If there is a unique intersection point, it is returned.
-   * Otherwise, <tt>null</tt> is returned.
+   * Otherwise, `null` is returned.
    * If more information is required about the details of the intersection,
-   * the {@link RobustLineIntersector} class should be used.
+   * the [RobustLineIntersector] class should be used.
    *
    * @param line a line segment defining an straight line with infinite extent
    * @return an intersection point,
-   * or <code>null</code> if there is no point of intersection
+   * or `null` if there is no point of intersection
    * or an infinite number of intersection points
    *
    * @see RobustLineIntersector
@@ -614,11 +613,11 @@ open class LineSegment(
   }
 
   /**
-   *  Returns <code>true</code> if <code>other</code> has the same values for
+   *  Returns `true` if `other` has the same values for
    *  its points.
    *
-   * @param  o  a <code>LineSegment</code> with which to do the comparison.
-   * @return        <code>true</code> if <code>other</code> is a <code>LineSegment</code>
+   * @param  o  a `LineSegment` with which to do the comparison.
+   * @return        `true` if `other` is a `LineSegment`
    *      with the same values for the x and y ordinates.
    */
   override fun equals(o: Any?): Boolean {
@@ -660,10 +659,10 @@ open class LineSegment(
    *  Compares this object with the specified object for order.
    *  Uses the standard lexicographic ordering for the points in the LineSegment.
    *
-   * @param  o  the <code>LineSegment</code> with which this <code>LineSegment</code>
+   * @param  o  the `LineSegment` with which this `LineSegment`
    *      is being compared
-   * @return    a negative integer, zero, or a positive integer as this <code>LineSegment</code>
-   *      is less than, equal to, or greater than the specified <code>LineSegment</code>
+   * @return    a negative integer, zero, or a positive integer as this `LineSegment`
+   *      is less than, equal to, or greater than the specified `LineSegment`
    */
   override fun compareTo(o: Any?): Int {
     val other = o as LineSegment
@@ -673,12 +672,12 @@ open class LineSegment(
   }
 
   /**
-   *  Returns <code>true</code> if <code>other</code> is
+   *  Returns `true` if `other` is
    *  topologically equal to this LineSegment (e.g. irrespective
    *  of orientation).
    *
-   * @param  other  a <code>LineSegment</code> with which to do the comparison.
-   * @return        <code>true</code> if <code>other</code> is a <code>LineSegment</code>
+   * @param  other  a `LineSegment` with which to do the comparison.
+   * @return        `true` if `other` is a `LineSegment`
    *      with the same values for the x and y ordinates.
    */
   open fun equalsTopo(other: LineSegment): Boolean {

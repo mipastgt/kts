@@ -12,11 +12,10 @@
 package org.locationtech.jts.geom
 
 /**
- * A list of {@link Coordinate}s, which may
+ * A list of [Coordinate]s, which may
  * be set to prevent repeated coordinates from occurring in the list.
  *
  *
- * @version 1.7
  */
 class CoordinateList private constructor(
   private val list: ArrayList<Coordinate>
@@ -29,7 +28,7 @@ class CoordinateList private constructor(
 
   /**
    * Constructs a new list from an array of Coordinates, allowing repeated points.
-   * (I.e. this constructor produces a {@link CoordinateList} with exactly the same set of points
+   * (I.e. this constructor produces a [CoordinateList] with exactly the same set of points
    * as the input array.)
    *
    * @param coord the initial coordinates
@@ -43,7 +42,7 @@ class CoordinateList private constructor(
    * allowing caller to specify if repeated points are to be removed.
    *
    * @param coord the array of coordinates to load into the list
-   * @param allowRepeated if <code>false</code>, repeated points are removed
+   * @param allowRepeated if `false`, repeated points are removed
    */
   constructor(coord: Array<Coordinate>, allowRepeated: Boolean) : this(ArrayList(coord.size)) {
     add(coord, allowRepeated)

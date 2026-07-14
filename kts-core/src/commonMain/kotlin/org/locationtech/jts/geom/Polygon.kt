@@ -17,15 +17,14 @@ import org.locationtech.jts.algorithm.Orientation
 /**
  * Represents a polygon with linear edges, which may include holes.
  * The outer boundary (shell)
- * and inner boundaries (holes) of the polygon are represented by {@link LinearRing}s.
+ * and inner boundaries (holes) of the polygon are represented by [LinearRing]s.
  *
- * @version 1.7
  */
 open class Polygon : Geometry, Polygonal {
 
   /**
    *  The exterior boundary,
-   * or <code>null</code> if this <code>Polygon</code>
+   * or `null` if this `Polygon`
    *  is empty.
    */
   protected lateinit var shell: LinearRing
@@ -38,14 +37,14 @@ open class Polygon : Geometry, Polygonal {
   protected lateinit var holes: Array<LinearRing>
 
   /**
-   *  Constructs a <code>Polygon</code> with the given exterior boundary.
+   *  Constructs a `Polygon` with the given exterior boundary.
    *
    * @deprecated Use GeometryFactory instead
    */
   constructor(shell: LinearRing?, precisionModel: PrecisionModel, SRID: Int) : this(shell, arrayOf<LinearRing>(), GeometryFactory(precisionModel, SRID))
 
   /**
-   *  Constructs a <code>Polygon</code> with the given exterior boundary and
+   *  Constructs a `Polygon` with the given exterior boundary and
    *  interior boundaries.
    *
    * @deprecated Use GeometryFactory instead
@@ -53,7 +52,7 @@ open class Polygon : Geometry, Polygonal {
   constructor(shell: LinearRing?, holes: Array<LinearRing>?, precisionModel: PrecisionModel, SRID: Int) : this(shell, holes, GeometryFactory(precisionModel, SRID))
 
   /**
-   *  Constructs a <code>Polygon</code> with the given exterior boundary and
+   *  Constructs a `Polygon` with the given exterior boundary and
    *  interior boundaries.
    */
   constructor(shell: LinearRing?, holes: Array<LinearRing>?, factory: GeometryFactory) : super(factory) {
@@ -170,7 +169,7 @@ open class Polygon : Geometry, Polygonal {
   }
 
   /**
-   *  Returns the area of this <code>Polygon</code>
+   *  Returns the area of this `Polygon`
    *
    * @return the area of the polygon
    */
@@ -184,7 +183,7 @@ open class Polygon : Geometry, Polygonal {
   }
 
   /**
-   *  Returns the perimeter of this <code>Polygon</code>
+   *  Returns the perimeter of this `Polygon`
    *
    * @return the perimeter of the polygon
    */
@@ -273,7 +272,7 @@ open class Polygon : Geometry, Polygonal {
   }
 
   /**
-   * Creates and returns a full copy of this {@link Polygon} object.
+   * Creates and returns a full copy of this [Polygon] object.
    * (including all coordinates contained by it).
    *
    * @return a clone of this instance

@@ -28,7 +28,6 @@ import org.locationtech.jts.util.Assert
  * EdgeEnds are comparable under the ordering
  * "a has a greater angle with the x-axis than b".
  * This ordering is used to sort EdgeEnds around a node.
- * @version 1.7
  */
 open class EdgeEnd : Comparable<Any?> {
 

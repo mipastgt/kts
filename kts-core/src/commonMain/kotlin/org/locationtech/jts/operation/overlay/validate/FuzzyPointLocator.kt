@@ -29,7 +29,6 @@ import org.locationtech.jts.geom.Polygon
  * it is considered to be on the Boundary.
  *
  * @author Martin Davis
- * @version 1.7
  */
 class FuzzyPointLocator(private val g: Geometry, private val boundaryDistanceTolerance: Double) {
 

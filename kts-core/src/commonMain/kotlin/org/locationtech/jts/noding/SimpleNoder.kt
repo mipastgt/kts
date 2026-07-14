@@ -19,7 +19,6 @@ import org.locationtech.jts.geom.Coordinate
  * This has n^2 performance, so is too slow for use on large numbers
  * of segments.
  *
- * @version 1.7
  */
 class SimpleNoder : SinglePassNoder() {
 

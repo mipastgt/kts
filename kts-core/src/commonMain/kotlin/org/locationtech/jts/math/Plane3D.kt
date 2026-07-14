@@ -26,11 +26,11 @@ class Plane3D(private val normal: Vector3D, private val basePt: Coordinate) {
   /**
    * Computes the oriented distance from a point to the plane.
    * The distance is:
-   * <ul>
-   * <li><b>positive</b> if the point lies above the plane (relative to the plane normal)
-   * <li><b>zero</b> if the point is on the plane
-   * <li><b>negative</b> if the point lies below the plane (relative to the plane normal)
-   * </ul>
+   * 
+   * - **positive** if the point lies above the plane (relative to the plane normal)
+   * - **zero** if the point is on the plane
+   * - **negative** if the point lies below the plane (relative to the plane normal)
+   * 
    *
    * @param p the point to compute the distance for
    * @return the oriented distance to the plane
@@ -46,7 +46,7 @@ class Plane3D(private val normal: Vector3D, private val basePt: Coordinate) {
 
   /**
    * Computes the axis plane that this plane lies closest to.
-   * <p>
+   * 
    * Geometries lying in this plane undergo least distortion
    * (and have maximum area)
    * when projected to the closest axis plane.

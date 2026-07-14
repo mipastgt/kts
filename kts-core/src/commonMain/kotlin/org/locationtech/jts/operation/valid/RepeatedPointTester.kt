@@ -24,7 +24,6 @@ import org.locationtech.jts.geom.Polygon
  * (consecutive identical coordinates) as defined in the
  * JTS spec.
  *
- * @version 1.7
  */
 class RepeatedPointTester {
 

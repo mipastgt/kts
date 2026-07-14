@@ -36,7 +36,6 @@ import org.locationtech.jts.noding.SegmentString
  * nodes are created if a vertex lies within a tolerance distance
  * of the interior of a segment.
  *
- * @version 1.17
  */
 class SnapRoundingIntersectionAdder
 /**

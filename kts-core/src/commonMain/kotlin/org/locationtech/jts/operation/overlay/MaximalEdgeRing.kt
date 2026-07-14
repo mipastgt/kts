@@ -17,7 +17,7 @@ import org.locationtech.jts.geomgraph.DirectedEdgeStar
 import org.locationtech.jts.geomgraph.EdgeRing
 
 /**
- * A ring of [DirectedEdge]s which may contain nodes of degree &gt; 2.
+ * A ring of [DirectedEdge]s which may contain nodes of degree > 2.
  * A `MaximalEdgeRing` may represent two different spatial entities:
  *
  *  * a single polygon possibly containing inversions (if the ring is oriented CW)
@@ -32,7 +32,6 @@ import org.locationtech.jts.geomgraph.EdgeRing
  * A MaximalEdgeRing can be converted to a list of MinimalEdgeRings using the
  * [buildMinimalRings] method.
  *
- * @version 1.7
  * @see org.locationtech.jts.operation.overlay.MinimalEdgeRing
  */
 class MaximalEdgeRing(start: DirectedEdge, geometryFactory: GeometryFactory) :

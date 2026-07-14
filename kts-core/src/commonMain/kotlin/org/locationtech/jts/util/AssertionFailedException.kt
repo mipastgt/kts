@@ -15,17 +15,16 @@ package org.locationtech.jts.util
  *  Thrown when the application is in an inconsistent state. Indicates a problem
  *  with the code.
  *
- * @version 1.7
  */
 class AssertionFailedException : RuntimeException {
 
   /**
-   *  Creates an <code>AssertionFailedException</code>.
+   *  Creates an `AssertionFailedException`.
    */
   constructor() : super()
 
   /**
-   *  Creates a <code>AssertionFailedException</code> with the given detail
+   *  Creates a `AssertionFailedException` with the given detail
    *  message.
    *
    * @param  message  a description of the assertion

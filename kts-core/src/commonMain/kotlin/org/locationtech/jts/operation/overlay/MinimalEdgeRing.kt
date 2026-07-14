@@ -21,7 +21,6 @@ import org.locationtech.jts.geomgraph.EdgeRing
  * has degree greater than 2.  These are the form of rings required
  * to represent polygons under the OGC SFS spatial data model.
  *
- * @version 1.7
  * @see org.locationtech.jts.operation.overlay.MaximalEdgeRing
  */
 class MinimalEdgeRing(start: DirectedEdge, geometryFactory: GeometryFactory) :

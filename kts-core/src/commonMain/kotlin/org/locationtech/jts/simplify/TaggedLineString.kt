@@ -20,7 +20,6 @@ import org.locationtech.jts.geom.LinearRing
 /**
  * Represents a [LineString] which can be modified to a simplified shape.
  *
- * @version 1.7
  */
 internal class TaggedLineString(parentLine: LineString, minimumSize: Int, isRing: Boolean) {
 

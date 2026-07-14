@@ -37,7 +37,6 @@ import org.locationtech.jts.geom.util.ShortCircuitedGeometryVisitor
  * to test many geometries
  * against a single rectangle.
  *
- * @version 1.7
  */
 class RectangleIntersects
 /**
@@ -112,7 +111,6 @@ class RectangleIntersects
  * based on the relationship of the envelope(s) of the geometry.
  *
  * @author Martin Davis
- * @version 1.7
  */
 internal class EnvelopeIntersectsVisitor(private val rectEnv: Envelope) : ShortCircuitedGeometryVisitor() {
 
@@ -175,7 +173,6 @@ internal class EnvelopeIntersectsVisitor(private val rectEnv: Envelope) : ShortC
  * a query geometry.
  *
  * @author Martin Davis
- * @version 1.7
  */
 internal class GeometryContainsPointVisitor(rectangle: Polygon) : ShortCircuitedGeometryVisitor() {
 

@@ -23,7 +23,7 @@ import org.locationtech.jts.geom.CoordinateList
 /**
  * Simplifies a buffer input line to
  * remove concavities with shallow depth.
- * <p>
+ * 
  * A key aspect of the simplification is that it
  * affects inside (concave or inward) corners only.
  * Convex (outward) corners are preserved, since they

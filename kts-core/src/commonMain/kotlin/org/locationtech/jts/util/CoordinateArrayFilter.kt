@@ -15,16 +15,15 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.CoordinateFilter
 
 /**
- *  A {@link CoordinateFilter} that creates an array containing every
- *  coordinate in a {@link Geometry}.
+ *  A [CoordinateFilter] that creates an array containing every
+ *  coordinate in a [Geometry].
  *
- * @version 1.7
  */
 class CoordinateArrayFilter
 /**
- *  Constructs a <code>CoordinateArrayFilter</code>.
+ *  Constructs a `CoordinateArrayFilter`.
  *
- * @param  size  the number of points that the <code>CoordinateArrayFilter</code>
+ * @param  size  the number of points that the `CoordinateArrayFilter`
  *      will collect
  */
 (size: Int) : CoordinateFilter {
@@ -32,9 +31,9 @@ class CoordinateArrayFilter
   private var n = 0
 
   /**
-   *  Returns the gathered <code>Coordinate</code>s.
+   *  Returns the gathered `Coordinate`s.
    *
-   * @return    the <code>Coordinate</code>s collected by this <code>CoordinateArrayFilter</code>
+   * @return    the `Coordinate`s collected by this `CoordinateArrayFilter`
    */
   fun getCoordinates(): Array<Coordinate?> {
     return pts

@@ -45,7 +45,6 @@ import org.locationtech.jts.util.Assert
  * would first need to be noded and merged (if not explicitly, at least
  * implicitly).
  *
- * @version 1.7
  */
 internal class RelateComputer(private val arg: Array<GeometryGraph>) {
 

@@ -40,7 +40,6 @@ import org.locationtech.jts.util.Assert
 
 /**
  * A GeometryGraph is a graph that models a given Geometry
- * @version 1.7
  */
 open class GeometryGraph(
   private val argIndex: Int,  // the index of this geometry as an argument to a spatial function (used for labelling)

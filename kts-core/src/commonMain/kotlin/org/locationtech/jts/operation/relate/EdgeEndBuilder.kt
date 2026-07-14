@@ -20,7 +20,6 @@ import org.locationtech.jts.geomgraph.Label
 /**
  * Computes the [EdgeEnd]s which arise from a noded [Edge].
  *
- * @version 1.7
  */
 internal class EdgeEndBuilder {
 

@@ -24,7 +24,6 @@ import org.locationtech.jts.noding.SegmentString
  * "Snaps" all [SegmentString]s in a [SpatialIndex] containing
  * [MonotoneChain]s to a given [HotPixel].
  *
- * @version 1.7
  */
 class MCIndexPointSnapper(private val index: SpatialIndex) {
 

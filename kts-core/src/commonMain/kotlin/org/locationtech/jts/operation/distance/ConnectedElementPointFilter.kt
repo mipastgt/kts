@@ -26,7 +26,6 @@ import org.locationtech.jts.geom.Polygon
  * (e.g. a polygon, linestring or point)
  * and returns them in a list
  *
- * @version 1.7
  */
 class ConnectedElementPointFilter private constructor(
   private val pts: MutableList<Coordinate?>

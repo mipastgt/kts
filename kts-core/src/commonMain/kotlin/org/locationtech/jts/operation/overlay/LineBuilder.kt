@@ -23,7 +23,6 @@ import org.locationtech.jts.util.Assert
  * Forms JTS LineStrings out of a the graph of [DirectedEdge]s
  * created by an [OverlayOp].
  *
- * @version 1.7
  */
 class LineBuilder(
   private val op: OverlayOp,

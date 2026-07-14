@@ -20,7 +20,7 @@ import org.locationtech.jts.operation.relateng.RelatePredicate
 /**
  * Internal class which encapsulates the runtime switch to use RelateNG.
  * (Was package-private in Java; kept module-internal here since only the Kotlin
- * {@link Geometry} calls it.)
+ * [Geometry] calls it.)
  *
  * @author mdavis
  */

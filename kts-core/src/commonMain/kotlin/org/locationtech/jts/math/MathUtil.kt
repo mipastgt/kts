@@ -28,7 +28,7 @@ import org.locationtech.jts.util.Random
 class MathUtil {
   companion object {
     /**
-     * Clamps a <tt>double</tt> value to a given range.
+     * Clamps a `double` value to a given range.
      * @param x the value to clamp
      * @param min the minimum value of the range
      * @param max the maximum value of the range
@@ -42,7 +42,7 @@ class MathUtil {
     }
 
     /**
-     * Clamps an <tt>int</tt> value to a given range.
+     * Clamps an `int` value to a given range.
      * @param x the value to clamp
      * @param min the minimum value of the range
      * @param max the maximum value of the range
@@ -84,12 +84,12 @@ class MathUtil {
     private val LOG_10 = ln(10.0)
 
     /**
-     * Computes the base-10 logarithm of a <tt>double</tt> value.
-     * <ul>
-     * <li>If the argument is NaN or less than zero, then the result is NaN.
-     * <li>If the argument is positive infinity, then the result is positive infinity.
-     * <li>If the argument is positive zero or negative zero, then the result is negative infinity.
-     * </ul>
+     * Computes the base-10 logarithm of a `double` value.
+     * 
+     * - If the argument is NaN or less than zero, then the result is NaN.
+     * - If the argument is positive infinity, then the result is positive infinity.
+     * - If the argument is positive zero or negative zero, then the result is negative infinity.
+     * 
      *
      * @param x a positive number
      * @return the value log a, the base-10 logarithm of the input value
@@ -104,8 +104,8 @@ class MathUtil {
 
     /**
      * Computes an index which wraps around a given maximum value.
-     * For values &gt;= 0, this is equals to <tt>val % max</tt>.
-     * For values &lt; 0, this is equal to <tt>max - (-val) % max</tt>
+     * For values >= 0, this is equals to `val % max`.
+     * For values < 0, this is equal to `max - (-val) % max`
      *
      * @param index the value to wrap
      * @param max the maximum value (or modulus)
@@ -168,9 +168,9 @@ class MathUtil {
      * They are produced by an additive recurrence with 1/&phi; as the constant.
      * This produces a low-discrepancy sequence which is more evenly
      * distribute than random numbers.
-     * <p>
+     * 
      * See <a href='https://en.wikipedia.org/wiki/Low-discrepancy_sequence#Additive_recurrence'>Wikipedia: Low-discrepancy Sequences - Additive Recurrence</a>.
-     * <p>
+     * 
      * The sequence is initialized by calling it
      * with any positive fractional number; 0 works well for most uses.
      *
@@ -185,14 +185,14 @@ class MathUtil {
     /**
      * Generates a quasi-random sequence of numbers in the range [0,1].
      * They are produced by an additive recurrence with constant &alpha;.
-     * <pre>
+     * ```
      *     R(&alpha;) :  t<sub>n</sub> = { t<sub>0</sub> + n&alpha; },  n = 1,2,3,...
-     * </pre>
+     * ```
      * When &alpha; is irrational this produces a
      * <a href='https://en.wikipedia.org/wiki/Low-discrepancy_sequence#Additive_recurrence'>Low discrepancy sequence</a>
      *  which is more evenly
      * distributed than random numbers.
-     * <p>
+     * 
      * The sequence is initialized by calling it
      * with any positive fractional number. 0 works well for most uses.
      *
@@ -209,8 +209,8 @@ class MathUtil {
 
     /**
      * Generates a randomly-shuffled list of the integers from [0..n-1].
-     * <p>
-     * One use is to randomize points inserted into a {@link KDtree}.
+     * 
+     * One use is to randomize points inserted into a [org.locationtech.jts.index.kdtree.KdTree].
      *
      * @param n the number of integers to shuffle
      * @return the shuffled array

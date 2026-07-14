@@ -20,7 +20,6 @@ package org.locationtech.jts.noding
  *
  * Immutable and thread-safe.
  *
- * @version 1.7
  */
 class FastSegmentSetIntersectionFinder
 /**

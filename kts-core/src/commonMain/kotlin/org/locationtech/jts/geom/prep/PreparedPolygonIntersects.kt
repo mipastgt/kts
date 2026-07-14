@@ -17,7 +17,7 @@ import org.locationtech.jts.geom.Geometry
 import org.locationtech.jts.noding.SegmentStringUtil
 
 /**
- * Computes the <tt>intersects</tt> spatial relationship predicate for
+ * Computes the `intersects` spatial relationship predicate for
  * [PreparedPolygon]s relative to all other [Geometry] classes. Uses
  * short-circuit tests and indexing to improve performance.
  *

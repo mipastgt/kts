@@ -18,7 +18,6 @@ import org.locationtech.jts.geom.Location
 
 /**
  * A map of nodes, indexed by the coordinate of the node
- * @version 1.7
  */
 class NodeMap(private val nodeFact: NodeFactory) {
 

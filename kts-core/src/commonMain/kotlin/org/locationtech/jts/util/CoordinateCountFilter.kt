@@ -15,10 +15,9 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.CoordinateFilter
 
 /**
- *  A {@link CoordinateFilter} that counts the total number of coordinates
- *  in a <code>Geometry</code>.
+ *  A [CoordinateFilter] that counts the total number of coordinates
+ *  in a `Geometry`.
  *
- * @version 1.7
  */
 class CoordinateCountFilter : CoordinateFilter {
   private var n = 0
@@ -26,7 +25,7 @@ class CoordinateCountFilter : CoordinateFilter {
   /**
    *  Returns the result of the filtering.
    *
-   * @return    the number of points found by this <code>CoordinateCountFilter</code>
+   * @return    the number of points found by this `CoordinateCountFilter`
    */
   fun getCount(): Int {
     return n

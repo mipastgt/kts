@@ -27,7 +27,6 @@ import org.locationtech.jts.geom.util.GeometryEditor
  * according to the supplied [PrecisionModel], without
  * attempting to preserve valid topology.
  *
- * @version 1.7
  *
  * @deprecated use GeometryPrecisionReducer
  */

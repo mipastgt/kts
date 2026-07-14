@@ -18,7 +18,6 @@ import org.locationtech.jts.geom.Coordinate
  * SegmentStrings can carry a context object, which is useful
  * for preserving topological or parentage information.
  *
- * @version 1.7
  */
 interface SegmentString {
   /**

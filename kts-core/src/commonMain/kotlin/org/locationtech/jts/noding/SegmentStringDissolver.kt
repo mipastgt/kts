@@ -30,7 +30,6 @@ import org.locationtech.jts.geom.CoordinateArrays
  * This requires a custom merging strategy to be supplied
  * to merge the topology labels appropriately.
  *
- * @version 1.7
  * @see SegmentStringMerger
  */
 class SegmentStringDissolver

@@ -21,7 +21,6 @@ import org.locationtech.jts.geom.Polygon
 /**
  * Extracts all the [Polygon] elements from a [Geometry].
  *
- * @version 1.7
  * @see GeometryExtracter
  */
 open class PolygonExtracter(private val comps: MutableList<in Polygon>) : GeometryFilter {

@@ -16,7 +16,6 @@ import kotlin.jvm.JvmField
 /**
  * Represents an (1-dimensional) closed interval on the Real number line.
  *
- * @version 1.7
  */
 class Interval {
 

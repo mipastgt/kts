@@ -19,7 +19,6 @@ import kotlin.time.TimeSource
  * Implements a timer function which can compute
  * elapsed time as well as split times.
  *
- * @version 1.7
  */
 class Stopwatch {
 

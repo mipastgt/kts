@@ -28,7 +28,6 @@ import org.locationtech.jts.operation.overlay.snap.GeometrySnapper
  * geometry, and compares these results with the expected ones.
  *
  * @author Martin Davis
- * @version 1.7
  * @see OverlayOp
  */
 class OverlayResultValidator(a: Geometry, b: Geometry, result: Geometry) {

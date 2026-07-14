@@ -19,7 +19,6 @@ import org.locationtech.jts.geom.Geometry
  * Provides versions of Geometry spatial functions which use
  * enhanced precision techniques to reduce the likelihood of robustness problems.
  *
- * @version 1.7
  */
 class EnhancedPrecisionOp {
   companion object {

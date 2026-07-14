@@ -33,12 +33,11 @@ import org.locationtech.jts.util.Assert
  * @see GeometryTransformer
  * @see Geometry.isValid
  *
- * @version 1.7
  */
 open class GeometryEditor {
   /**
    * The factory used to create the modified Geometry.
-   * If <tt>null</tt> the GeometryFactory of the input is used.
+   * If `null` the GeometryFactory of the input is used.
    */
   private var factory: GeometryFactory? = null
   private var isUserDataCopied = false
@@ -175,16 +174,15 @@ open class GeometryEditor {
   /**
    * A interface which specifies an edit operation for Geometries.
    *
-   * @version 1.7
    */
   interface GeometryEditorOperation {
     /**
      * Edits a Geometry by returning a new Geometry with a modification.
      * The returned geometry may be:
-     * <ul>
-     * <li>the input geometry itself.
-     * <li><code>null</code> if the geometry is to be deleted.
-     * </ul>
+     * 
+     * - the input geometry itself.
+     * - `null` if the geometry is to be deleted.
+     * 
      *
      * @param geometry the Geometry to modify
      * @param factory the factory with which to construct the modified Geometry

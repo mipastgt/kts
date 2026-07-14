@@ -57,8 +57,8 @@ class Orientation {
     const val STRAIGHT = COLLINEAR
 
     /**
-     * Returns the orientation index of the direction of the point <code>q</code> relative to
-     * a directed infinite line specified by <code>p1-p2</code>.
+     * Returns the orientation index of the direction of the point `q` relative to
+     * a directed infinite line specified by `p1-p2`.
      *
      * @param p1 the origin point of the line vector
      * @param p2 the final point of the line vector
@@ -79,7 +79,7 @@ class Orientation {
      *
      * @param ring an array of Coordinates forming a ring (with first and last point identical)
      * @return true if the ring is oriented counter-clockwise.
-     * @throws IllegalArgumentException if there are too few points to determine orientation (&lt; 4)
+     * @throws IllegalArgumentException if there are too few points to determine orientation (< 4)
      */
     @JvmStatic
     fun isCCW(ring: Array<Coordinate>): Boolean {

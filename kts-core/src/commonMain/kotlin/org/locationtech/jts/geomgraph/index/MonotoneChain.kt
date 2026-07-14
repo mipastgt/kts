@@ -12,7 +12,6 @@
 package org.locationtech.jts.geomgraph.index
 
 /**
- * @version 1.7
  */
 class MonotoneChain(private val mce: MonotoneChainEdge, private val chainIndex: Int) {
 

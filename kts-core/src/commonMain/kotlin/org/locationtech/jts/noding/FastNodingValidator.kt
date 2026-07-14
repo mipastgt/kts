@@ -27,7 +27,6 @@ import org.locationtech.jts.io.WKTWriter
  * Alternatively, it can be requested to detect all intersections
  * by using [setFindAllIntersections].
  *
- * @version 1.7
  *
  * @see NodingIntersectionFinder
  */

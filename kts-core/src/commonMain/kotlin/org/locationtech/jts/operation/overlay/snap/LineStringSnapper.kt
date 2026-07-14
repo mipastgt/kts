@@ -25,7 +25,6 @@ import org.locationtech.jts.geom.LineString
  * The implementation handles empty geometry and empty snap vertex sets.
  *
  * @author Martin Davis
- * @version 1.7
  */
 class LineStringSnapper {
 

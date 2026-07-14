@@ -17,7 +17,6 @@ import org.locationtech.jts.geom.Geometry
  * Provides versions of Geometry spatial functions which use
  * common bit removal to reduce the likelihood of robustness problems.
  *
- * @version 1.7
  */
 class CommonBitsOp(private val returnToOriginalPrecision: Boolean) {
 

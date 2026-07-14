@@ -14,7 +14,6 @@ package org.locationtech.jts.io
 /**
  * Thrown by a `WKTReader` when a parsing problem occurs.
  *
- * @version 1.7
  */
 open class ParseException : Exception {
 

@@ -21,7 +21,7 @@ import org.locationtech.jts.geom.util.GeometryMapper.MapOp
 
 /**
  * Maps the members of a [GeometryCollection]
- * into another <tt>GeometryCollection</tt> via a defined
+ * into another `GeometryCollection` via a defined
  * mapping function.
  *
  * @author Martin Davis

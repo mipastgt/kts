@@ -21,7 +21,6 @@ import org.locationtech.jts.util.Assert
  * A GraphComponent is the parent class for the objects'
  * that form a graph.  Each GraphComponent can carry a
  * Label.
- * @version 1.7
  */
 abstract class GraphComponent {
 

@@ -26,7 +26,6 @@ import org.locationtech.jts.geom.TopologyException
 import org.locationtech.jts.util.Assert
 
 /**
- * @version 1.7
  */
 abstract class EdgeRing(
   start: DirectedEdge,

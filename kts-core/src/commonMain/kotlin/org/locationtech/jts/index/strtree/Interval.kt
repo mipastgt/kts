@@ -19,7 +19,6 @@ import org.locationtech.jts.util.Assert
  * A contiguous portion of 1D-space. Used internally by SIRtree.
  * @see SIRtree
  *
- * @version 1.7
  */
 class Interval(min: Double, max: Double) {
 

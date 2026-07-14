@@ -135,12 +135,12 @@ open class AffineTransformationFactory {
     /**
      * Creates an AffineTransformation defined by a mapping between two baselines.
      * The computed transformation consists of:
-     * <ul>
-     * <li>a translation
+     * 
+     * - a translation
      * from the start point of the source baseline to the start point of the destination baseline,
-     * <li>a rotation through the angle between the baselines about the destination start point,
-     * <li>and a scaling equal to the ratio of the baseline lengths.
-     * </ul>
+     * - a rotation through the angle between the baselines about the destination start point,
+     * - and a scaling equal to the ratio of the baseline lengths.
+     * 
      * If the source baseline has zero length, an identity transformation is returned.
      *
      * @param src0 the start point of the source baseline

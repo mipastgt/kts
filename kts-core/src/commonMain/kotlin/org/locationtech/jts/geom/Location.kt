@@ -15,11 +15,10 @@ import kotlin.jvm.JvmStatic
 
 /**
  *  Constants representing the different topological locations
- *  which can occur in a {@link Geometry}.
+ *  which can occur in a [Geometry].
  *  The constants are also used as the row and column indices
- *  of DE-9IM {@link IntersectionMatrix}es.
+ *  of DE-9IM [IntersectionMatrix]es.
  *
- * @version 1.7
  */
 class Location {
   companion object {
@@ -50,7 +49,7 @@ class Location {
     const val NONE = -1
 
     /**
-     *  Converts the location value to a location symbol, for example, <code>EXTERIOR =&gt; 'e'</code>
+     *  Converts the location value to a location symbol, for example, `EXTERIOR => 'e'`
      *  .
      *
      * @param  locationValue  either EXTERIOR, BOUNDARY, INTERIOR or NONE

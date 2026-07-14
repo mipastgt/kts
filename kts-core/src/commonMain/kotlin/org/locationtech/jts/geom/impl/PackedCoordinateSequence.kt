@@ -34,7 +34,6 @@ import org.locationtech.jts.geom.Envelope
  * The cache is cleared each time the coordinate sequence contents are
  * modified through a setter method.
  *
- * @version 1.7
  */
 abstract class PackedCoordinateSequence protected constructor(
   dimension: Int,

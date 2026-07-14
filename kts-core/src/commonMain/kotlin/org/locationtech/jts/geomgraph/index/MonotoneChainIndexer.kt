@@ -42,7 +42,6 @@ import org.locationtech.jts.util.IntArrayList
  * Note that due to the efficient intersection test, there is no need to limit the size
  * of chains to obtain fast performance.
  *
- * @version 1.7
  */
 class MonotoneChainIndexer {
 

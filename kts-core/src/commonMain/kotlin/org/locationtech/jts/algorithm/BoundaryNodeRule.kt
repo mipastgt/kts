@@ -24,11 +24,10 @@ import kotlin.jvm.JvmField
  * usually follows the [EndPointBoundaryNodeRule].)
  * Some JTS operations allow the BoundaryNodeRule to be specified,
  * and respect the supplied rule when computing the results of the operation.
- * <p>
+ * 
  * This interface and its subclasses follow the `Strategy` design pattern.
  *
  * @author Martin Davis
- * @version 1.7
  */
 interface BoundaryNodeRule {
 
@@ -49,12 +48,11 @@ interface BoundaryNodeRule {
    * of components.
    * Under this rule [org.locationtech.jts.geom.LinearRing]s and closed
    * [org.locationtech.jts.geom.LineString]s have an empty boundary.
-   * <p>
-   * This is the rule specified by the <i>OGC SFS</i>,
+   * 
+   * This is the rule specified by the *OGC SFS*,
    * and is the default rule used in JTS.
    *
    * @author Martin Davis
-   * @version 1.7
    */
   class Mod2BoundaryNodeRule : BoundaryNodeRule {
     override fun isInBoundary(boundaryCount: Int): Boolean {
@@ -77,7 +75,6 @@ interface BoundaryNodeRule {
    * (the common endpoint of the underlying LineString).
    *
    * @author Martin Davis
-   * @version 1.7
    */
   class EndPointBoundaryNodeRule : BoundaryNodeRule {
     override fun isInBoundary(boundaryCount: Int): Boolean {
@@ -97,7 +94,6 @@ interface BoundaryNodeRule {
    * the "unattached" ones.
    *
    * @author Martin Davis
-   * @version 1.7
    */
   class MultiValentEndPointBoundaryNodeRule : BoundaryNodeRule {
     override fun isInBoundary(boundaryCount: Int): Boolean {
@@ -116,7 +112,6 @@ interface BoundaryNodeRule {
    * being all the "unattached" endpoints.
    *
    * @author Martin Davis
-   * @version 1.7
    */
   class MonoValentEndPointBoundaryNodeRule : BoundaryNodeRule {
     override fun isInBoundary(boundaryCount: Int): Boolean {

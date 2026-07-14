@@ -12,18 +12,17 @@
 package org.locationtech.jts.geom
 
 /**
- * Models a collection of {@link Polygon}s.
- * <p>
+ * Models a collection of [Polygon]s.
+ * 
  * As per the OGC SFS specification,
  * the Polygons in a MultiPolygon may not overlap,
  * and may only touch at single points.
  *
- * @version 1.7
  */
 open class MultiPolygon : GeometryCollection, Polygonal {
 
   /**
-   *  Constructs a <code>MultiPolygon</code>.
+   *  Constructs a `MultiPolygon`.
    *
    * @deprecated Use GeometryFactory instead
    */
@@ -31,8 +30,8 @@ open class MultiPolygon : GeometryCollection, Polygonal {
 
   /**
    * @param polygons
-   *            the <code>Polygon</code>s for this <code>MultiPolygon</code>,
-   *            or <code>null</code> or an empty array to create the empty
+   *            the `Polygon`s for this `MultiPolygon`,
+   *            or `null` or an empty array to create the empty
    *            geometry.
    */
   @Suppress("UNCHECKED_CAST")
@@ -89,7 +88,7 @@ open class MultiPolygon : GeometryCollection, Polygonal {
   }
 
   /**
-   * Creates a {@link MultiPolygon} with
+   * Creates a [MultiPolygon] with
    * every component reversed.
    * The order of the components in the collection are not reversed.
    *

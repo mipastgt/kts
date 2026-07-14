@@ -18,8 +18,8 @@ import org.locationtech.jts.noding.SegmentIntersectionDetector
 import org.locationtech.jts.noding.SegmentStringUtil
 
 /**
- * A base class containing the logic for computes the <tt>contains</tt>
- * and <tt>covers</tt> spatial relationship predicates
+ * A base class containing the logic for computes the `contains`
+ * and `covers` spatial relationship predicates
  * for a [PreparedPolygon] relative to all other [Geometry] classes.
  * Uses short-circuit tests and indexing to improve performance.
  *
@@ -41,7 +41,7 @@ abstract class AbstractPreparedPolygonContains(prepPoly: PreparedPolygon) : Prep
   private var hasNonProperIntersection = false
 
   /**
-   * Evaluate the <tt>contains</tt> or <tt>covers</tt> relationship
+   * Evaluate the `contains` or `covers` relationship
    * for the given geometry.
    *
    * @param geom the test geometry

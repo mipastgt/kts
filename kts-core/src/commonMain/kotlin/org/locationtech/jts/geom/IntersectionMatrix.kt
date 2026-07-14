@@ -14,56 +14,55 @@ package org.locationtech.jts.geom
 import kotlin.jvm.JvmStatic
 
 /**
- * Models a <b>Dimensionally Extended Nine-Intersection Model (DE-9IM)</b> matrix.
+ * Models a **Dimensionally Extended Nine-Intersection Model (DE-9IM)** matrix.
  * DE-9IM matrix values (such as "212FF1FF2")
- * specify the topological relationship between two {@link Geometry}s.
+ * specify the topological relationship between two [Geometry]s.
  * This class can also represent matrix patterns (such as "T*T******")
  * which are used for matching instances of DE-9IM matrices.
- * <p>
+ * 
  * DE-9IM matrices are 3x3 matrices with integer entries.
  * The matrix indices {0,1,2} represent the topological locations
  * that occur in a geometry (Interior, Boundary, Exterior).
  * These are provided by the constants
- * {@link Location#INTERIOR}, {@link Location#BOUNDARY}, and {@link Location#EXTERIOR}.
- * <p>
+ * [Location.INTERIOR], [Location.BOUNDARY], and [Location.EXTERIOR].
+ * 
  * When used to specify the topological relationship between two geometries,
  * the matrix entries represent the possible dimensions of each intersection:
- * {@link Dimension#A} = 2, {@link Dimension#L} = 1, {@link Dimension#P} = 0 and {@link Dimension#FALSE} = -1.
+ * [Dimension.A] = 2, [Dimension.L] = 1, [Dimension.P] = 0 and [Dimension.FALSE] = -1.
  * When used to represent a matrix pattern entries can have the additional values
- * {@link Dimension#TRUE} {"T") and {@link Dimension#DONTCARE} ("*").
- * <p>
+ * [Dimension.TRUE] {"T") and [Dimension.DONTCARE] ("*").
+ * 
  * For a description of the DE-9IM and the spatial predicates derived from it,
  * see the following references:
- * <ul>
- * <li><i><a href="http://www.opengis.org/techno/specs.htm">
- * OGC 99-049 OpenGIS Simple Features Specification for SQL</a></i>
- * , Section 2.1.13</li>
- * <li><i><a href="http://portal.opengeospatial.org/files/?artifact_id=25355">
- * OGC 06-103r4 OpenGIS Implementation Standard for Geographic information - Simple feature access - Part 1: Common architecture</a></i>
+ * 
+ * - *<a href="http://www.opengis.org/techno/specs.htm">
+ * OGC 99-049 OpenGIS Simple Features Specification for SQL</a>*
+ * , Section 2.1.13
+ * - *<a href="http://portal.opengeospatial.org/files/?artifact_id=25355">
+ * OGC 06-103r4 OpenGIS Implementation Standard for Geographic information - Simple feature access - Part 1: Common architecture</a>*
  * , Section 6.1.15 (which provides some further details on certain predicate specifications).
- * </li>
- * <li>Wikipedia article on <a href="https://en.wikipedia.org/wiki/DE-9IM">DE-9IM</a></li>
- * </ul>
- * <p>
+ * 
+ * - Wikipedia article on <a href="https://en.wikipedia.org/wiki/DE-9IM">DE-9IM</a>
+ * 
+ * 
  * Methods are provided to:
  *  <UL>
  *    <LI>set and query the elements of the matrix in a convenient fashion
  *    <LI>convert to and from the standard string representation (specified in
  *    SFS Section 2.1.13.2).
  *    <LI>test if a matrix matches a given pattern string.
- *    <li>test if a matrix (possibly with geometry dimensions) matches a standard named spatial predicate
+ *    - test if a matrix (possibly with geometry dimensions) matches a standard named spatial predicate
  *  </UL>
  *
- * @version 1.7
  */
 open class IntersectionMatrix {
   /**
-   *  Internal representation of this <code>IntersectionMatrix</code>.
+   *  Internal representation of this `IntersectionMatrix`.
    */
   private var matrix: Array<IntArray> = Array(3) { IntArray(3) }
 
   /**
-   *  Creates an <code>IntersectionMatrix</code> with <code>FALSE</code>
+   *  Creates an `IntersectionMatrix` with `FALSE`
    *  dimension values.
    */
   constructor() {
@@ -71,7 +70,7 @@ open class IntersectionMatrix {
   }
 
   /**
-   *  Creates an <code>IntersectionMatrix</code> with the given dimension
+   *  Creates an `IntersectionMatrix` with the given dimension
    *  symbols.
    *
    * @param  elements  a String of nine dimension symbols in row major order
@@ -81,10 +80,10 @@ open class IntersectionMatrix {
   }
 
   /**
-   *  Creates an <code>IntersectionMatrix</code> with the same elements as
-   *  <code>other</code>.
+   *  Creates an `IntersectionMatrix` with the same elements as
+   *  `other`.
    *
-   * @param  other  an <code>IntersectionMatrix</code> to copy
+   * @param  other  an `IntersectionMatrix` to copy
    */
   constructor(other: IntersectionMatrix) : this() {
     matrix[Location.INTERIOR][Location.INTERIOR] = other.matrix[Location.INTERIOR][Location.INTERIOR]
@@ -114,13 +113,13 @@ open class IntersectionMatrix {
   }
 
   /**
-   *  Changes the value of one of this <code>IntersectionMatrix</code>s
+   *  Changes the value of one of this `IntersectionMatrix`s
    *  elements.
    *
-   * @param  row             the row of this <code>IntersectionMatrix</code>,
-   *      indicating the interior, boundary or exterior of the first <code>Geometry</code>
-   * @param  column          the column of this <code>IntersectionMatrix</code>,
-   *      indicating the interior, boundary or exterior of the second <code>Geometry</code>
+   * @param  row             the row of this `IntersectionMatrix`,
+   *      indicating the interior, boundary or exterior of the first `Geometry`
+   * @param  column          the column of this `IntersectionMatrix`,
+   *      indicating the interior, boundary or exterior of the second `Geometry`
    * @param  dimensionValue  the new value of the element
    */
   fun set(row: Int, column: Int, dimensionValue: Int) {
@@ -128,11 +127,11 @@ open class IntersectionMatrix {
   }
 
   /**
-   *  Changes the elements of this <code>IntersectionMatrix</code> to the
-   *  dimension symbols in <code>dimensionSymbols</code>.
+   *  Changes the elements of this `IntersectionMatrix` to the
+   *  dimension symbols in `dimensionSymbols`.
    *
-   * @param  dimensionSymbols  nine dimension symbols to which to set this <code>IntersectionMatrix</code>
-   *      s elements. Possible values are <code>{T, F, * , 0, 1, 2}</code>
+   * @param  dimensionSymbols  nine dimension symbols to which to set this `IntersectionMatrix`
+   *      s elements. Possible values are `{T, F, * , 0, 1, 2}`
    */
   fun set(dimensionSymbols: String) {
     for (i in 0 until dimensionSymbols.length) {
@@ -143,16 +142,16 @@ open class IntersectionMatrix {
   }
 
   /**
-   *  Changes the specified element to <code>minimumDimensionValue</code> if the
+   *  Changes the specified element to `minimumDimensionValue` if the
    *  element is less.
    *
-   * @param  row                    the row of this <code>IntersectionMatrix</code>
-   *      , indicating the interior, boundary or exterior of the first <code>Geometry</code>
-   * @param  column                 the column of this <code>IntersectionMatrix</code>
-   *      , indicating the interior, boundary or exterior of the second <code>Geometry</code>
+   * @param  row                    the row of this `IntersectionMatrix`
+   *      , indicating the interior, boundary or exterior of the first `Geometry`
+   * @param  column                 the column of this `IntersectionMatrix`
+   *      , indicating the interior, boundary or exterior of the second `Geometry`
    * @param  minimumDimensionValue  the dimension value with which to compare the
    *      element. The order of dimension values from least to greatest is
-   *      <code>{DONTCARE, TRUE, FALSE, 0, 1, 2}</code>.
+   *      `{DONTCARE, TRUE, FALSE, 0, 1, 2}`.
    */
   fun setAtLeast(row: Int, column: Int, minimumDimensionValue: Int) {
     if (matrix[row][column] < minimumDimensionValue) {
@@ -161,16 +160,16 @@ open class IntersectionMatrix {
   }
 
   /**
-   *  If row &gt;= 0 and column &gt;= 0, changes the specified element to <code>minimumDimensionValue</code>
-   *  if the element is less. Does nothing if row &lt;0 or column &lt; 0.
+   *  If row >= 0 and column >= 0, changes the specified element to `minimumDimensionValue`
+   *  if the element is less. Does nothing if row <0 or column < 0.
    *
-   * @param  row                    the row of this <code>IntersectionMatrix</code>
-   *      , indicating the interior, boundary or exterior of the first <code>Geometry</code>
-   * @param  column                 the column of this <code>IntersectionMatrix</code>
-   *      , indicating the interior, boundary or exterior of the second <code>Geometry</code>
+   * @param  row                    the row of this `IntersectionMatrix`
+   *      , indicating the interior, boundary or exterior of the first `Geometry`
+   * @param  column                 the column of this `IntersectionMatrix`
+   *      , indicating the interior, boundary or exterior of the second `Geometry`
    * @param  minimumDimensionValue  the dimension value with which to compare the
    *      element. The order of dimension values from least to greatest is
-   *      <code>{DONTCARE, TRUE, FALSE, 0, 1, 2}</code>.
+   *      `{DONTCARE, TRUE, FALSE, 0, 1, 2}`.
    */
   fun setAtLeastIfValid(row: Int, column: Int, minimumDimensionValue: Int) {
     if (row >= 0 && column >= 0) {
@@ -179,13 +178,13 @@ open class IntersectionMatrix {
   }
 
   /**
-   *  For each element in this <code>IntersectionMatrix</code>, changes the
+   *  For each element in this `IntersectionMatrix`, changes the
    *  element to the corresponding minimum dimension symbol if the element is
    *  less.
    *
    * @param  minimumDimensionSymbols  nine dimension symbols with which to
-   *      compare the elements of this <code>IntersectionMatrix</code>. The
-   *      order of dimension values from least to greatest is <code>{DONTCARE, TRUE, FALSE, 0, 1, 2}</code>
+   *      compare the elements of this `IntersectionMatrix`. The
+   *      order of dimension values from least to greatest is `{DONTCARE, TRUE, FALSE, 0, 1, 2}`
    *      .
    */
   fun setAtLeast(minimumDimensionSymbols: String) {
@@ -197,11 +196,11 @@ open class IntersectionMatrix {
   }
 
   /**
-   *  Changes the elements of this <code>IntersectionMatrix</code> to <code>dimensionValue</code>
+   *  Changes the elements of this `IntersectionMatrix` to `dimensionValue`
    *  .
    *
-   * @param  dimensionValue  the dimension value to which to set this <code>IntersectionMatrix</code>
-   *      s elements. Possible values <code>{TRUE, FALSE, DONTCARE, 0, 1, 2}</code>
+   * @param  dimensionValue  the dimension value to which to set this `IntersectionMatrix`
+   *      s elements. Possible values `{TRUE, FALSE, DONTCARE, 0, 1, 2}`
    *      .
    */
   fun setAll(dimensionValue: Int) {
@@ -216,14 +215,14 @@ open class IntersectionMatrix {
    *  Returns the value of one of this matrix
    *  entries.
    *  The value of the provided index is one of the
-   *  values from the {@link Location} class.
+   *  values from the [Location] class.
    *  The value returned is a constant
-   *  from the {@link Dimension} class.
+   *  from the [Dimension] class.
    *
-   * @param  row     the row of this <code>IntersectionMatrix</code>, indicating
-   *      the interior, boundary or exterior of the first <code>Geometry</code>
-   * @param  column  the column of this <code>IntersectionMatrix</code>,
-   *      indicating the interior, boundary or exterior of the second <code>Geometry</code>
+   * @param  row     the row of this `IntersectionMatrix`, indicating
+   *      the interior, boundary or exterior of the first `Geometry`
+   * @param  column  the column of this `IntersectionMatrix`,
+   *      indicating the interior, boundary or exterior of the second `Geometry`
    * @return         the dimension value at the given matrix position.
    */
   fun get(row: Int, column: Int): Int {
@@ -231,9 +230,9 @@ open class IntersectionMatrix {
   }
 
   /**
-   * Tests if this matrix matches <code>[FF*FF****]</code>.
+   * Tests if this matrix matches `[FF*FF****]`.
    *
-   * @return    <code>true</code> if the two <code>Geometry</code>s related by
+   * @return    `true` if the two `Geometry`s related by
    *      this matrix are disjoint
    */
   fun isDisjoint(): Boolean {
@@ -244,9 +243,9 @@ open class IntersectionMatrix {
   }
 
   /**
-   *  Tests if <code>isDisjoint</code> returns false.
+   *  Tests if `isDisjoint` returns false.
    *
-   * @return <code>true</code> if the two <code>Geometry</code>s related by
+   * @return `true` if the two `Geometry`s related by
    *      this matrix intersect
    */
   fun isIntersects(): Boolean {
@@ -255,13 +254,13 @@ open class IntersectionMatrix {
 
   /**
    *  Tests if this matrix matches
-   *  <code>[FT*******]</code>, <code>[F**T*****]</code> or <code>[F***T****]</code>.
+   *  `[FT*******]`, `[F**T*****]` or `[F***T****]`.
    *
-   * @param  dimensionOfGeometryA  the dimension of the first <code>Geometry</code>
-   * @param  dimensionOfGeometryB  the dimension of the second <code>Geometry</code>
-   * @return                       <code>true</code> if the two <code>Geometry</code>
+   * @param  dimensionOfGeometryA  the dimension of the first `Geometry`
+   * @param  dimensionOfGeometryB  the dimension of the second `Geometry`
+   * @return                       `true` if the two `Geometry`
    *      s related by this matrix touch; Returns false
-   *      if both <code>Geometry</code>s are points.
+   *      if both `Geometry`s are points.
    */
   fun isTouches(dimensionOfGeometryA: Int, dimensionOfGeometryB: Int): Boolean {
     if (dimensionOfGeometryA > dimensionOfGeometryB) {
@@ -284,26 +283,26 @@ open class IntersectionMatrix {
   /**
    * Tests whether this geometry crosses the
    * specified geometry.
-   * <p>
-   * The <code>crosses</code> predicate has the following equivalent definitions:
-   * <ul>
-   * <li>The geometries have some but not all interior points in common.
-   * <li>The DE-9IM Intersection Matrix for the two geometries matches
-   *   <ul>
-   *    <li><code>[T*T******]</code> (for P/L, P/A, and L/A situations)
-   *    <li><code>[T*****T**]</code> (for L/P, L/A, and A/L situations)
-   *    <li><code>[0********]</code> (for L/L situations)
-   *   </ul>
-   * </ul>
-   * For any other combination of dimensions this predicate returns <code>false</code>.
-   * <p>
+   * 
+   * The `crosses` predicate has the following equivalent definitions:
+   * 
+   * - The geometries have some but not all interior points in common.
+   * - The DE-9IM Intersection Matrix for the two geometries matches
+   *   
+   *    - `[T*T******]` (for P/L, P/A, and L/A situations)
+   *    - `[T*****T**]` (for L/P, L/A, and A/L situations)
+   *    - `[0********]` (for L/L situations)
+   *   
+   * 
+   * For any other combination of dimensions this predicate returns `false`.
+   * 
    * The SFS defined this predicate only for P/L, P/A, L/L, and L/A situations.
    * JTS extends the definition to apply to L/P, A/P and A/L situations as well.
    * This makes the relation symmetric.
    *
-   * @param  dimensionOfGeometryA  the dimension of the first <code>Geometry</code>
-   * @param  dimensionOfGeometryB  the dimension of the second <code>Geometry</code>
-   * @return                       <code>true</code> if the two <code>Geometry</code>s
+   * @param  dimensionOfGeometryA  the dimension of the first `Geometry`
+   * @param  dimensionOfGeometryB  the dimension of the second `Geometry`
+   * @return                       `true` if the two `Geometry`s
    *      related by this matrix cross.
    */
   fun isCrosses(dimensionOfGeometryA: Int, dimensionOfGeometryB: Int): Boolean {
@@ -326,9 +325,9 @@ open class IntersectionMatrix {
   }
 
   /**
-   * Tests whether this matrix matches <code>[T*F**F***]</code>.
+   * Tests whether this matrix matches `[T*F**F***]`.
    *
-   * @return    <code>true</code> if the first <code>Geometry</code> is within
+   * @return    `true` if the first `Geometry` is within
    *      the second
    */
   fun isWithin(): Boolean {
@@ -340,7 +339,7 @@ open class IntersectionMatrix {
   /**
    * Tests whether this matrix matches [T*****FF*[.
    *
-   * @return    <code>true</code> if the first <code>Geometry</code> contains the
+   * @return    `true` if the first `Geometry` contains the
    *      second
    */
   fun isContains(): Boolean {
@@ -351,12 +350,12 @@ open class IntersectionMatrix {
 
   /**
    * Tests if this matrix matches
-   *    <code>[T*****FF*]</code>
-   * or <code>[*T****FF*]</code>
-   * or <code>[***T**FF*]</code>
-   * or <code>[****T*FF*]</code>
+   *    `[T*****FF*]`
+   * or `[*T****FF*]`
+   * or `[***T**FF*]`
+   * or `[****T*FF*]`
    *
-   * @return    <code>true</code> if the first <code>Geometry</code> covers the
+   * @return    `true` if the first `Geometry` covers the
    *      second
    */
   fun isCovers(): Boolean {
@@ -372,12 +371,12 @@ open class IntersectionMatrix {
 
   /**
    *Tests if this matrix matches
-   *    <code>[T*F**F***]</code>
-   * or <code>[*TF**F***]</code>
-   * or <code>[**FT*F***]</code>
-   * or <code>[**F*TF***]</code>
+   *    `[T*F**F***]`
+   * or `[*TF**F***]`
+   * or `[**FT*F***]`
+   * or `[**F*TF***]`
    *
-   * @return    <code>true</code> if the first <code>Geometry</code>
+   * @return    `true` if the first `Geometry`
    * is covered by the second
    */
   fun isCoveredBy(): Boolean {
@@ -393,20 +392,20 @@ open class IntersectionMatrix {
 
   /**
    *  Tests whether the argument dimensions are equal and
-   *  this matrix matches the pattern <tt>[T*F**FFF*]</tt>.
-   *  <p>
-   *  <b>Note:</b> This pattern differs from the one stated in
-   *  <i>Simple feature access - Part 1: Common architecture</i>.
-   *  That document states the pattern as <tt>[TFFFTFFFT]</tt>.  This would
+   *  this matrix matches the pattern `[T*F**FFF*]`.
+   *  
+   *  **Note:** This pattern differs from the one stated in
+   *  *Simple feature access - Part 1: Common architecture*.
+   *  That document states the pattern as `[TFFFTFFFT]`.  This would
    *  specify that
-   *  two identical <tt>POINT</tt>s are not equal, which is not desirable behaviour.
+   *  two identical `POINT`s are not equal, which is not desirable behaviour.
    *  The pattern used here has been corrected to compute equality in this situation.
    *
-   * @param  dimensionOfGeometryA  the dimension of the first <code>Geometry</code>
-   * @param  dimensionOfGeometryB  the dimension of the second <code>Geometry</code>
-   * @return                       <code>true</code> if the two <code>Geometry</code>s
+   * @param  dimensionOfGeometryA  the dimension of the first `Geometry`
+   * @param  dimensionOfGeometryB  the dimension of the second `Geometry`
+   * @return                       `true` if the two `Geometry`s
    *      related by this matrix are equal; the
-   *      <code>Geometry</code>s must have the same dimension to be equal
+   *      `Geometry`s must have the same dimension to be equal
    */
   fun isEquals(dimensionOfGeometryA: Int, dimensionOfGeometryB: Int): Boolean {
     if (dimensionOfGeometryA != dimensionOfGeometryB) {
@@ -422,15 +421,15 @@ open class IntersectionMatrix {
   /**
    * Tests if this matrix matches
    *  <UL>
-   *    <LI><tt>[T*T***T**]</tt> (for two points or two surfaces)
-   *    <LI><tt>[1*T***T**]</tt> (for two curves)
+   *    <LI>`[T*T***T**]` (for two points or two surfaces)
+   *    <LI>`[1*T***T**]` (for two curves)
    *  </UL>.
    *
-   * @param  dimensionOfGeometryA  the dimension of the first <code>Geometry</code>
-   * @param  dimensionOfGeometryB  the dimension of the second <code>Geometry</code>
-   * @return                       <code>true</code> if the two <code>Geometry</code>s
+   * @param  dimensionOfGeometryA  the dimension of the first `Geometry`
+   * @param  dimensionOfGeometryB  the dimension of the second `Geometry`
+   * @return                       `true` if the two `Geometry`s
    *      related by this matrix overlap. For this
-   *      function to return <code>true</code>, the <code>Geometry</code>s must
+   *      function to return `true`, the `Geometry`s must
    *      be two points, two curves or two surfaces.
    */
   fun isOverlaps(dimensionOfGeometryA: Int, dimensionOfGeometryB: Int): Boolean {
@@ -453,8 +452,8 @@ open class IntersectionMatrix {
    *
    * @param  pattern A pattern containing nine dimension symbols with which to
    *      compare the entries of this matrix. Possible
-   *      symbol values are <code>{T, F, * , 0, 1, 2}</code>.
-   * @return <code>true</code> if this matrix matches the pattern
+   *      symbol values are `{T, F, * , 0, 1, 2}`.
+   * @return `true` if this matrix matches the pattern
    */
   fun matches(pattern: String): Boolean {
     if (pattern.length != 9) {
@@ -473,7 +472,7 @@ open class IntersectionMatrix {
   /**
    *  Transposes this IntersectionMatrix.
    *
-   * @return    this <code>IntersectionMatrix</code> as a convenience
+   * @return    this `IntersectionMatrix` as a convenience
    */
   fun transpose(): IntersectionMatrix {
     var temp = matrix[1][0]
@@ -489,10 +488,10 @@ open class IntersectionMatrix {
   }
 
   /**
-   *  Returns a nine-character <code>String</code> representation of this <code>IntersectionMatrix</code>
+   *  Returns a nine-character `String` representation of this `IntersectionMatrix`
    *  .
    *
-   * @return    the nine dimension symbols of this <code>IntersectionMatrix</code>
+   * @return    the nine dimension symbols of this `IntersectionMatrix`
    *      in row-major order.
    */
   override fun toString(): String {
@@ -507,11 +506,11 @@ open class IntersectionMatrix {
 
   companion object {
     /**
-     *  Tests if the dimension value matches <tt>TRUE</tt>
+     *  Tests if the dimension value matches `TRUE`
      *  (i.e.  has value 0, 1, 2 or TRUE).
      *
-     * @param  actualDimensionValue     a number that can be stored in the <code>IntersectionMatrix</code>
-     *      . Possible values are <code>{TRUE, FALSE, DONTCARE, 0, 1, 2}</code>.
+     * @param  actualDimensionValue     a number that can be stored in the `IntersectionMatrix`
+     *      . Possible values are `{TRUE, FALSE, DONTCARE, 0, 1, 2}`.
      * @return true if the dimension value matches TRUE
      */
     @JvmStatic
@@ -525,11 +524,11 @@ open class IntersectionMatrix {
     /**
      *  Tests if the dimension value satisfies the dimension symbol.
      *
-     * @param  actualDimensionValue     a number that can be stored in the <code>IntersectionMatrix</code>
-     *      . Possible values are <code>{TRUE, FALSE, DONTCARE, 0, 1, 2}</code>.
+     * @param  actualDimensionValue     a number that can be stored in the `IntersectionMatrix`
+     *      . Possible values are `{TRUE, FALSE, DONTCARE, 0, 1, 2}`.
      * @param  requiredDimensionSymbol  a character used in the string
-     *      representation of an <code>IntersectionMatrix</code>. Possible values
-     *      are <code>{T, F, * , 0, 1, 2}</code>.
+     *      representation of an `IntersectionMatrix`. Possible values
+     *      are `{T, F, * , 0, 1, 2}`.
      * @return                          true if the dimension symbol matches
      *      the dimension value
      */
@@ -561,9 +560,9 @@ open class IntersectionMatrix {
      *  corresponding required dimension symbol in a pattern string.
      *
      * @param  actualDimensionSymbols    nine dimension symbols to validate.
-     *      Possible values are <code>{T, F, * , 0, 1, 2}</code>.
+     *      Possible values are `{T, F, * , 0, 1, 2}`.
      * @param  requiredDimensionSymbols  nine dimension symbols to validate
-     *      against. Possible values are <code>{T, F, * , 0, 1, 2}</code>.
+     *      against. Possible values are `{T, F, * , 0, 1, 2}`.
      * @return                           true if each of the required dimension
      *      symbols encompass the corresponding actual dimension symbol
      */

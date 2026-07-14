@@ -22,7 +22,6 @@ import org.locationtech.jts.geomgraph.index.SimpleMCSweepLineIntersector
  * Takes one or more sets of edges and constructs a
  * new set of edges consisting of all the split edges created by
  * noding the input edges together
- * @version 1.7
  */
 class EdgeSetNoder(private val li: LineIntersector) {
 

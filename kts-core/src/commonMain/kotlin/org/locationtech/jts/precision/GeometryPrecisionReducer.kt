@@ -23,7 +23,6 @@ import org.locationtech.jts.geom.util.GeometryEditor
  * according to the supplied [PrecisionModel],
  * ensuring that the result is valid (unless specified otherwise).
  *
- * @version 1.12
  */
 class GeometryPrecisionReducer(private val targetPM: PrecisionModel) {
 

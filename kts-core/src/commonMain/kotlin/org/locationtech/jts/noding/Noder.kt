@@ -18,7 +18,6 @@ package org.locationtech.jts.noding
  * As a final step in the noding a new set of segment strings split
  * at the nodes may be returned.
  *
- * @version 1.7
  */
 interface Noder {
 

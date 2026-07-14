@@ -12,20 +12,19 @@
 package org.locationtech.jts.geom
 
 /**
- * Models an OGC SFS <code>LinearRing</code>.
- * A <code>LinearRing</code> is a {@link LineString} which is both closed and simple.
- * <p>
+ * Models an OGC SFS `LinearRing`.
+ * A `LinearRing` is a [LineString] which is both closed and simple.
+ * 
  * A ring must have either 0 or 3 or more points.
  * The first and last points must be equal (in 2D).
  * If these conditions are not met, the constructors throw
- * an {@link IllegalArgumentException}.
+ * an [IllegalArgumentException].
  *
- * @version 1.7
  */
 open class LinearRing : LineString {
 
   /**
-   * Constructs a <code>LinearRing</code> with the given points.
+   * Constructs a `LinearRing` with the given points.
    *
    * @throws IllegalArgumentException if the ring is not closed, or has too few points
    *
@@ -45,8 +44,8 @@ open class LinearRing : LineString {
   private constructor(points: Array<Coordinate>?, factory: GeometryFactory) : this(factory.getCoordinateSequenceFactory().create(points), factory)
 
   /**
-   * Constructs a <code>LinearRing</code> with the vertices
-   * specified by the given {@link CoordinateSequence}.
+   * Constructs a `LinearRing` with the vertices
+   * specified by the given [CoordinateSequence].
    *
    * @throws IllegalArgumentException if the ring is not closed, or has too few points
    *
@@ -68,7 +67,7 @@ open class LinearRing : LineString {
   }
 
   /**
-   * Returns <code>Dimension.FALSE</code>, since by definition LinearRings do
+   * Returns `Dimension.FALSE`, since by definition LinearRings do
    * not have a boundary.
    *
    * @return Dimension.FALSE

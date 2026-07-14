@@ -15,7 +15,6 @@ package org.locationtech.jts.index.sweepline
  * A sweepline implements a sorted index on a set of intervals.
  * It is used to compute all overlaps between the interval in the index.
  *
- * @version 1.7
  */
 class SweepLineIndex {
 

@@ -18,7 +18,6 @@ import org.locationtech.jts.geom.IntersectionMatrix
 import org.locationtech.jts.geom.Location
 
 /**
- * @version 1.7
  */
 open class Node(coord: Coordinate?, edges: EdgeEndStar?) : GraphComponent() {
 

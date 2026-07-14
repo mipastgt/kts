@@ -17,7 +17,6 @@ import org.locationtech.jts.geom.Coordinate
  * A sorted collection of [DirectedEdge]s which leave a [Node]
  * in a [PlanarGraph].
  *
- * @version 1.7
  */
 class DirectedEdgeStar {
 

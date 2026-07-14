@@ -27,7 +27,7 @@ import org.locationtech.jts.geom.GeometryCollection
 open class GeometryMapper {
   /**
    * An interface for geometry functions that map a geometry input to a geometry output.
-   * The output may be <tt>null</tt> if there is no valid output value for
+   * The output may be `null` if there is no valid output value for
    * the given input value.
    *
    * @author Martin Davis
@@ -47,8 +47,8 @@ open class GeometryMapper {
     /**
      * Maps the members of a [Geometry]
      * (which may be atomic or composite)
-     * into another <tt>Geometry</tt> of most specific type.
-     * <tt>null</tt> results are skipped.
+     * into another `Geometry` of most specific type.
+     * `null` results are skipped.
      * In the case of hierarchical [GeometryCollection]s,
      * only the first level of members are mapped.
      *
@@ -83,9 +83,9 @@ open class GeometryMapper {
      * Maps the atomic elements of a [Geometry]
      * (which may be atomic or composite)
      * using a [MapOp] mapping operation
-     * into an atomic <tt>Geometry</tt> or a flat collection
+     * into an atomic `Geometry` or a flat collection
      * of the most specific type.
-     * <tt>null</tt> and empty values returned from the mapping operation
+     * `null` and empty values returned from the mapping operation
      * are discarded.
      *
      * @param geom the geometry to map

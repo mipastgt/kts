@@ -21,7 +21,6 @@ import org.locationtech.jts.geom.LineSegment
  * Simplifies a linestring (sequence of points) using
  * the standard Douglas-Peucker algorithm.
  *
- * @version 1.7
  */
 internal class DouglasPeuckerLineSimplifier(private val pts: Array<Coordinate>) {
 

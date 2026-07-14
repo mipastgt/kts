@@ -25,7 +25,6 @@ import org.locationtech.jts.geom.LineSegment
  * ([MonotoneChainSelectAction] and [MonotoneChainOverlapAction])
  * to return the results for queries.
  *
- * @version 1.7
  */
 class MonotoneChain(
     private val pts: Array<Coordinate>,

@@ -32,16 +32,16 @@ class CGAlgorithmsDD private constructor() {
     private const val DP_SAFE_EPSILON = 1e-15
 
     /**
-     * Returns the index of the direction of the point {@code q} relative to
-     * a vector specified by {@code p1-p2}.
+     * Returns the index of the direction of the point `q` relative to
+     * a vector specified by `p1-p2`.
      *
      * @param p1 the origin point of the vector
      * @param p2 the final point of the vector
      * @param q the point to compute the direction to
      *
-     * @return {@code 1} if q is counter-clockwise (left) from p1-p2
-     *         {@code -1} if q is clockwise (right) from p1-p2
-     *         {@code 0} if q is collinear with p1-p2
+     * @return `1` if q is counter-clockwise (left) from p1-p2
+     *         `-1` if q is clockwise (right) from p1-p2
+     *         `0` if q is collinear with p1-p2
      */
     @JvmStatic
     fun orientationIndex(p1: Coordinate, p2: Coordinate, q: Coordinate): Int {
@@ -49,8 +49,8 @@ class CGAlgorithmsDD private constructor() {
     }
 
     /**
-     * Returns the index of the direction of the point {@code q} relative to
-     * a vector specified by {@code p1-p2}.
+     * Returns the index of the direction of the point `q` relative to
+     * a vector specified by `p1-p2`.
      *
      * @return 1 if q is counter-clockwise (left) from p1-p2
      *        -1 if q is clockwise (right) from p1-p2

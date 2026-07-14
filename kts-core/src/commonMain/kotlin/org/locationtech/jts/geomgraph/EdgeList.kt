@@ -18,7 +18,6 @@ import org.locationtech.jts.noding.OrientedCoordinateArray
 /**
  * A EdgeList is a list of Edges.  It supports locating edges
  * that are pointwise equals to a target edge.
- * @version 1.7
  */
 class EdgeList {
 

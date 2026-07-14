@@ -28,7 +28,6 @@ import org.locationtech.jts.util.Assert
  * The point will lie in the geometry interior
  * in all except certain pathological cases.
  *
- * @version 1.17
  */
 class InteriorPointArea(g: Geometry) {
 
@@ -43,7 +42,7 @@ class InteriorPointArea(g: Geometry) {
    * Gets the computed interior point.
    *
    * @return the coordinate of an interior point
-   *  or <code>null</code> if the input geometry is empty
+   *  or `null` if the input geometry is empty
    */
   fun getInteriorPoint(): Coordinate? {
     return interiorPoint
@@ -103,7 +102,7 @@ class InteriorPointArea(g: Geometry) {
      * Gets the computed interior point.
      *
      * @return the interior point coordinate,
-     *  or <code>null</code> if the input geometry is empty
+     *  or `null` if the input geometry is empty
      */
     fun getInteriorPoint(): Coordinate? {
       return interiorPoint
@@ -336,7 +335,7 @@ class InteriorPointArea(g: Geometry) {
      *
      * @param geom the geometry to compute
      * @return the computed interior point,
-     * or <code>null</code> if the geometry has no polygonal components
+     * or `null` if the geometry has no polygonal components
      */
     @JvmStatic
     fun getInteriorPoint(geom: Geometry): Coordinate? {

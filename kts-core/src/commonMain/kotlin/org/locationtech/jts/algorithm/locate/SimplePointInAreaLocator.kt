@@ -36,7 +36,6 @@ import org.locationtech.jts.geom.Polygon
  * If many points will be tested,
  * [IndexedPointInAreaLocator] may provide better performance.
  *
- * @version 1.7
  */
 class SimplePointInAreaLocator(private val geom: Geometry) : PointOnGeometryLocator {
 

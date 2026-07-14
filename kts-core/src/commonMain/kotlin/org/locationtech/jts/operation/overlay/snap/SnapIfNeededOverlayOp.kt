@@ -27,7 +27,6 @@ import org.locationtech.jts.operation.overlay.OverlayOp
  * and invalid overlay computations.
  *
  * @author Martin Davis
- * @version 1.7
  */
 class SnapIfNeededOverlayOp(g1: Geometry, g2: Geometry) {
 

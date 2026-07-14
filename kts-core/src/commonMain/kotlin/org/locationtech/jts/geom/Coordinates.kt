@@ -51,7 +51,7 @@ class Coordinates {
     }
 
     /**
-     * Determine dimension based on subclass of {@link Coordinate}.
+     * Determine dimension based on subclass of [Coordinate].
      *
      * @param coordinate supplied coordinate
      * @return number of ordinates recorded
@@ -71,7 +71,7 @@ class Coordinates {
     }
 
     /**
-     * Check if coordinate can store Z valye, based on subclass of {@link Coordinate}.
+     * Check if coordinate can store Z valye, based on subclass of [Coordinate].
      *
      * @param coordinate supplied coordinate
      * @return true if setZ is available
@@ -91,7 +91,7 @@ class Coordinates {
     }
 
     /**
-     * Determine number of measures based on subclass of {@link Coordinate}.
+     * Determine number of measures based on subclass of [Coordinate].
      *
      * @param coordinate supplied coordinate
      * @return number of measures recorded

@@ -23,21 +23,21 @@ import kotlin.math.pow
 /**
  * Implements extended-precision floating-point numbers
  * which maintain 106 bits (approximately 30 decimal digits) of precision.
- * <p>
+ * 
  * A DoubleDouble uses a representation containing two double-precision values.
  * A number x is represented as a pair of doubles, x.hi and x.lo,
  * such that the number represented by x is x.hi + x.lo, where
- * <pre>
- *    |x.lo| &lt;= 0.5*ulp(x.hi)
- * </pre>
+ * ```
+ *    |x.lo| <= 0.5*ulp(x.hi)
+ * ```
  * and ulp(y) means "unit in the last place of y".
  * The basic arithmetic operations are implemented using
  * convenient properties of IEEE-754 floating-point arithmetic.
- * <p>
+ * 
  * The range of values which can be represented is the same as in IEEE-754.
  * The precision of the representable numbers
  * is twice as great as IEEE-754 double precision.
- * <p>
+ * 
  * The correctness of the arithmetic algorithms relies on operations
  * being performed with standard IEEE-754 double precision and rounding.
  * This is the Java standard arithmetic model, but for performance reasons
@@ -48,9 +48,9 @@ import kotlin.math.pow
  * A JVM implementation may choose to use the non-standard extended-precision
  * as its default arithmetic mode.
  * To prevent this from happening, this code uses the
- * Java <tt>strictfp</tt> modifier,
+ * Java `strictfp` modifier,
  * which forces all operations to take place in the standard IEEE-754 rounding model.
- * <p>
+ * 
  * The API provides both a set of value-oriented operations
  * and a set of mutating operations.
  * Value-oriented operations treat DoubleDouble values as
@@ -62,36 +62,36 @@ import kotlin.math.pow
  * It provides optimum memory performance, but requires
  * care to ensure that aliasing errors are not created
  * and constant values are not changed.
- * <p>
+ * 
  * For example, the following code example constructs three DD instances:
  * two to hold the input values and one to hold the result of the addition.
- * <pre>
+ * ```
  *     DD a = new DD(2.0);
  *     DD b = new DD(3.0);
  *     DD c = a.add(b);
- * </pre>
+ * ```
  * In contrast, the following approach uses only one object:
- * <pre>
+ * ```
  *     DD a = new DD(2.0);
  *     a.selfAdd(3.0);
- * </pre>
- * <p>
+ * ```
+ * 
  * This implementation uses algorithms originally designed variously by
  * Knuth, Kahan, Dekker, and Linnainmaa.
  * Douglas Priest developed the first C implementation of these techniques.
  * Other more recent C++ implementation are due to Keith M. Briggs and David Bailey et al.
  *
  * <h3>References</h3>
- * <ul>
- * <li>Priest, D., <i>Algorithms for Arbitrary Precision Floating Point Arithmetic</i>,
+ * 
+ * - Priest, D., *Algorithms for Arbitrary Precision Floating Point Arithmetic*,
  * in P. Kornerup and D. Matula, Eds., Proc. 10th Symposium on Computer Arithmetic,
  * IEEE Computer Society Press, Los Alamitos, Calif., 1991.
- * <li>Yozo Hida, Xiaoye S. Li and David H. Bailey,
- * <i>Quad-Double Arithmetic: Algorithms, Implementation, and Application</i>,
+ * - Yozo Hida, Xiaoye S. Li and David H. Bailey,
+ * *Quad-Double Arithmetic: Algorithms, Implementation, and Application*,
  * manuscript, Oct 2000; Lawrence Berkeley National Laboratory Report BNL-46996.
- * <li>David Bailey, <i>High Precision Software Directory</i>;
- * <tt>http://crd.lbl.gov/~dhbailey/mpdist/index.html</tt>
- * </ul>
+ * - David Bailey, *High Precision Software Directory*;
+ * `http://crd.lbl.gov/~dhbailey/mpdist/index.html`
+ * 
  *
  *
  * @author Martin Davis
@@ -148,7 +148,7 @@ class DD : Comparable<Any?> {
    * Creates a new DoubleDouble with value equal to the argument.
    *
    * @param str the value to initialize by
-   * @throws NumberFormatException if <tt>str</tt> is not a valid representation of a number
+   * @throws NumberFormatException if `str` is not a valid representation of a number
    */
   constructor(str: String) : this(parse(str))
 
@@ -216,29 +216,29 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Returns a new DoubleDouble whose value is <tt>(this + y)</tt>.
+   * Returns a new DoubleDouble whose value is `(this + y)`.
    *
    * @param y the addend
-   * @return <tt>(this + y)</tt>
+   * @return `(this + y)`
    */
   fun add(y: DD): DD {
     return copy(this).selfAdd(y)
   }
 
   /**
-   * Returns a new DoubleDouble whose value is <tt>(this + y)</tt>.
+   * Returns a new DoubleDouble whose value is `(this + y)`.
    *
    * @param y the addend
-   * @return <tt>(this + y)</tt>
+   * @return `(this + y)`
    */
   fun add(y: Double): DD {
     return copy(this).selfAdd(y)
   }
 
   /**
-   * Adds the argument to the value of <tt>this</tt>.
+   * Adds the argument to the value of `this`.
    * To prevent altering constants,
-   * this method <b>must only</b> be used on values known to
+   * this method **must only** be used on values known to
    * be newly created.
    *
    * @param y the addend
@@ -249,9 +249,9 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Adds the argument to the value of <tt>this</tt>.
+   * Adds the argument to the value of `this`.
    * To prevent altering constants,
-   * this method <b>must only</b> be used on values known to
+   * this method **must only** be used on values known to
    * be newly created.
    *
    * @param y the addend
@@ -304,29 +304,29 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Computes a new DoubleDouble object whose value is <tt>(this - y)</tt>.
+   * Computes a new DoubleDouble object whose value is `(this - y)`.
    *
    * @param y the subtrahend
-   * @return <tt>(this - y)</tt>
+   * @return `(this - y)`
    */
   fun subtract(y: DD): DD {
     return add(y.negate())
   }
 
   /**
-   * Computes a new DoubleDouble object whose value is <tt>(this - y)</tt>.
+   * Computes a new DoubleDouble object whose value is `(this - y)`.
    *
    * @param y the subtrahend
-   * @return <tt>(this - y)</tt>
+   * @return `(this - y)`
    */
   fun subtract(y: Double): DD {
     return add(-y)
   }
 
   /**
-   * Subtracts the argument from the value of <tt>this</tt>.
+   * Subtracts the argument from the value of `this`.
    * To prevent altering constants,
-   * this method <b>must only</b> be used on values known to
+   * this method **must only** be used on values known to
    * be newly created.
    *
    * @param y the addend
@@ -338,9 +338,9 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Subtracts the argument from the value of <tt>this</tt>.
+   * Subtracts the argument from the value of `this`.
    * To prevent altering constants,
-   * this method <b>must only</b> be used on values known to
+   * this method **must only** be used on values known to
    * be newly created.
    *
    * @param y the addend
@@ -352,9 +352,9 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Returns a new DoubleDouble whose value is <tt>-this</tt>.
+   * Returns a new DoubleDouble whose value is `-this`.
    *
-   * @return <tt>-this</tt>
+   * @return `-this`
    */
   fun negate(): DD {
     if (isNaN()) return this
@@ -362,10 +362,10 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Returns a new DoubleDouble whose value is <tt>(this * y)</tt>.
+   * Returns a new DoubleDouble whose value is `(this * y)`.
    *
    * @param y the multiplicand
-   * @return <tt>(this * y)</tt>
+   * @return `(this * y)`
    */
   fun multiply(y: DD): DD {
     if (y.isNaN()) return createNaN()
@@ -373,10 +373,10 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Returns a new DoubleDouble whose value is <tt>(this * y)</tt>.
+   * Returns a new DoubleDouble whose value is `(this * y)`.
    *
    * @param y the multiplicand
-   * @return <tt>(this * y)</tt>
+   * @return `(this * y)`
    */
   fun multiply(y: Double): DD {
     if (y.isNaN()) return createNaN()
@@ -384,9 +384,9 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Multiplies this object by the argument, returning <tt>this</tt>.
+   * Multiplies this object by the argument, returning `this`.
    * To prevent altering constants,
-   * this method <b>must only</b> be used on values known to
+   * this method **must only** be used on values known to
    * be newly created.
    *
    * @param y the value to multiply by
@@ -397,9 +397,9 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Multiplies this object by the argument, returning <tt>this</tt>.
+   * Multiplies this object by the argument, returning `this`.
    * To prevent altering constants,
-   * this method <b>must only</b> be used on values known to
+   * this method **must only** be used on values known to
    * be newly created.
    *
    * @param y the value to multiply by
@@ -428,10 +428,10 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Computes a new DoubleDouble whose value is <tt>(this / y)</tt>.
+   * Computes a new DoubleDouble whose value is `(this / y)`.
    *
    * @param y the divisor
-   * @return a new object with the value <tt>(this / y)</tt>
+   * @return a new object with the value `(this / y)`
    */
   fun divide(y: DD): DD {
     var hc: Double
@@ -454,10 +454,10 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Computes a new DoubleDouble whose value is <tt>(this / y)</tt>.
+   * Computes a new DoubleDouble whose value is `(this / y)`.
    *
    * @param y the divisor
-   * @return a new object with the value <tt>(this / y)</tt>
+   * @return a new object with the value `(this / y)`
    */
   fun divide(y: Double): DD {
     if (y.isNaN()) return createNaN()
@@ -465,9 +465,9 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Divides this object by the argument, returning <tt>this</tt>.
+   * Divides this object by the argument, returning `this`.
    * To prevent altering constants,
-   * this method <b>must only</b> be used on values known to
+   * this method **must only** be used on values known to
    * be newly created.
    *
    * @param y the value to divide by
@@ -478,9 +478,9 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Divides this object by the argument, returning <tt>this</tt>.
+   * Divides this object by the argument, returning `this`.
    * To prevent altering constants,
-   * this method <b>must only</b> be used on values known to
+   * this method **must only** be used on values known to
    * be newly created.
    *
    * @param y the value to divide by
@@ -511,7 +511,7 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Returns a DoubleDouble whose value is  <tt>1 / this</tt>.
+   * Returns a DoubleDouble whose value is  `1 / this`.
    *
    * @return the reciprocal of this value
    */
@@ -542,9 +542,9 @@ class DD : Comparable<Any?> {
    * value that is not greater than the argument
    * and is equal to a mathematical integer.
    * Special cases:
-   * <ul>
-   * <li>If this value is NaN, returns NaN.
-   * </ul>
+   * 
+   * - If this value is NaN, returns NaN.
+   * 
    *
    * @return the largest (closest to positive infinity)
    * value that is not greater than the argument
@@ -566,9 +566,9 @@ class DD : Comparable<Any?> {
    * Returns the smallest (closest to negative infinity) value
    * that is not less than the argument and is equal to a mathematical integer.
    * Special cases:
-   * <ul>
-   * <li>If this value is NaN, returns NaN.
-   * </ul>
+   * 
+   * - If this value is NaN, returns NaN.
+   * 
    *
    * @return the smallest (closest to negative infinity) value
    * that is not less than the argument and is equal to a mathematical integer.
@@ -587,12 +587,12 @@ class DD : Comparable<Any?> {
 
   /**
    * Returns an integer indicating the sign of this value.
-   * <ul>
-   * <li>if this value is &gt; 0, returns 1
-   * <li>if this value is &lt; 0, returns -1
-   * <li>if this value is = 0, returns 0
-   * <li>if this value is NaN, returns 0
-   * </ul>
+   * 
+   * - if this value is > 0, returns 1
+   * - if this value is < 0, returns -1
+   * - if this value is = 0, returns 0
+   * - if this value is NaN, returns 0
+   * 
    *
    * @return an integer indicating the sign of this value
    */
@@ -608,9 +608,9 @@ class DD : Comparable<Any?> {
    * Rounds this value to the nearest integer.
    * The value is rounded to an integer by adding 1/2 and taking the floor of the result.
    * Special cases:
-   * <ul>
-   * <li>If this value is NaN, returns NaN.
-   * </ul>
+   * 
+   * - If this value is NaN, returns NaN.
+   * 
    *
    * @return this value rounded to the nearest integer
    */
@@ -625,9 +625,9 @@ class DD : Comparable<Any?> {
    * Returns the integer which is largest in absolute value and not further
    * from zero than this value.
    * Special cases:
-   * <ul>
-   * <li>If this value is NaN, returns NaN.
-   * </ul>
+   * 
+   * - If this value is NaN, returns NaN.
+   * 
    *
    * @return the integer which is largest in absolute value and not further from zero than this value
    */
@@ -642,9 +642,9 @@ class DD : Comparable<Any?> {
   /**
    * Returns the absolute value of this value.
    * Special cases:
-   * <ul>
-   * <li>If this value is NaN, it is returned.
-   * </ul>
+   * 
+   * - If this value is NaN, it is returned.
+   * 
    *
    * @return the absolute value of this value
    */
@@ -667,7 +667,7 @@ class DD : Comparable<Any?> {
   /**
    * Squares this object.
    * To prevent altering constants,
-   * this method <b>must only</b> be used on values known to
+   * this method **must only** be used on values known to
    * be newly created.
    *
    * @return the square of this value.
@@ -844,7 +844,7 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Tests whether this value is equal to another <tt>DoubleDouble</tt> value.
+   * Tests whether this value is equal to another `DoubleDouble` value.
    *
    * @param y a DoubleDouble value
    * @return true if this value = y
@@ -854,36 +854,36 @@ class DD : Comparable<Any?> {
   }
 
   /**
-   * Tests whether this value is greater than another <tt>DoubleDouble</tt> value.
+   * Tests whether this value is greater than another `DoubleDouble` value.
    * @param y a DoubleDouble value
-   * @return true if this value &gt; y
+   * @return true if this value > y
    */
   fun gt(y: DD): Boolean {
     return (hi > y.hi) || (hi == y.hi && lo > y.lo)
   }
 
   /**
-   * Tests whether this value is greater than or equals to another <tt>DoubleDouble</tt> value.
+   * Tests whether this value is greater than or equals to another `DoubleDouble` value.
    * @param y a DoubleDouble value
-   * @return true if this value &gt;= y
+   * @return true if this value >= y
    */
   fun ge(y: DD): Boolean {
     return (hi > y.hi) || (hi == y.hi && lo >= y.lo)
   }
 
   /**
-   * Tests whether this value is less than another <tt>DoubleDouble</tt> value.
+   * Tests whether this value is less than another `DoubleDouble` value.
    * @param y a DoubleDouble value
-   * @return true if this value &lt; y
+   * @return true if this value < y
    */
   fun lt(y: DD): Boolean {
     return (hi < y.hi) || (hi == y.hi && lo < y.lo)
   }
 
   /**
-   * Tests whether this value is less than or equal to another <tt>DoubleDouble</tt> value.
+   * Tests whether this value is less than or equal to another `DoubleDouble` value.
    * @param y a DoubleDouble value
-   * @return true if this value &lt;= y
+   * @return true if this value <= y
    */
   fun le(y: DD): Boolean {
     return (hi < y.hi) || (hi == y.hi && lo <= y.lo)
@@ -893,7 +893,7 @@ class DD : Comparable<Any?> {
    * Compares two DoubleDouble objects numerically.
    *
    * @return -1,0 or 1 depending on whether this value is less than, equal to
-   * or greater than the value of <tt>o</tt>
+   * or greater than the value of `o`
    */
   override fun compareTo(o: Any?): Int {
     val other = o as DD
@@ -1007,8 +1007,8 @@ class DD : Comparable<Any?> {
    * (as long as its position lies within the extracted digits
    * - if not, the caller must prepend or append the appropriate zeroes and decimal point).
    *
-   * @param y the number to extract ( >= 0)
-   * @param decimalPointPos the position in which to insert a decimal point
+   * @param insertDecimalPoint whether to insert a decimal point into the digit string
+   * @param magnitude an array of length 1 in which the decimal magnitude of the value is returned
    * @return the string containing the significant digits and possibly a decimal point
    */
   private fun extractSignificantDigits(insertDecimalPoint: Boolean, magnitude: IntArray): String {
@@ -1162,7 +1162,7 @@ class DD : Comparable<Any?> {
      *
      * @param str a string containing a representation of a numeric value
      * @return the extended precision version of the value
-     * @throws NumberFormatException if <tt>s</tt> is not a valid representation of a number
+     * @throws NumberFormatException if `s` is not a valid representation of a number
      */
     @JvmStatic
     @Throws(NumberFormatException::class)
@@ -1171,7 +1171,7 @@ class DD : Comparable<Any?> {
     }
 
     /**
-     * Converts the <tt>double</tt> argument to a DoubleDouble number.
+     * Converts the `double` argument to a DoubleDouble number.
      *
      * @param x a numeric value
      * @return the extended precision version of the value
@@ -1295,13 +1295,13 @@ class DD : Comparable<Any?> {
      * Converts a string representation of a real number into a DoubleDouble value.
      * The format accepted is similar to the standard Java real number syntax.
      * It is defined by the following regular expression:
-     * <pre>
-     * [<tt>+</tt>|<tt>-</tt>] {<i>digit</i>} [ <tt>.</tt> {<i>digit</i>} ] [ ( <tt>e</tt> | <tt>E</tt> ) [<tt>+</tt>|<tt>-</tt>] {<i>digit</i>}+
-     * </pre>
+     * ```
+     * [`+`|`-`] {*digit*} [ `.` {*digit*} ] [ ( `e` | `E` ) [`+`|`-`] {*digit*}+
+     * ```
      *
      * @param str the string to parse
      * @return the value of the parsed number
-     * @throws NumberFormatException if <tt>str</tt> is not a valid representation of a number
+     * @throws NumberFormatException if `str` is not a valid representation of a number
      */
     @JvmStatic
     @Throws(NumberFormatException::class)
