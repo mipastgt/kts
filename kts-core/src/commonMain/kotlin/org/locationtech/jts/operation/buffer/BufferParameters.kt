@@ -19,15 +19,15 @@ import org.locationtech.jts.algorithm.Angle
 /**
  * A value class containing the parameters which
  * specify how a buffer should be constructed.
- * <p>
+ * 
  * The parameters allow control over:
- * <ul>
- * <li>Quadrant segments (accuracy of approximation for circular arcs)
- * <li>End Cap style
- * <li>Join style
- * <li>Mitre limit
- * <li>whether the buffer is single-sided
- * </ul>
+ * 
+ * - Quadrant segments (accuracy of approximation for circular arcs)
+ * - End Cap style
+ * - Join style
+ * - Mitre limit
+ * - whether the buffer is single-sided
+ * 
  *
  * @author Martin Davis
  *
@@ -244,8 +244,8 @@ class BufferParameters {
     /**
      * The default number of facets into which to divide a fillet of 90 degrees.
      * A value of 8 gives less than 2% max error in the buffer distance.
-     * For a max error of &lt; 1%, use QS = 12.
-     * For a max error of &lt; 0.1%, use QS = 18.
+     * For a max error of < 1%, use QS = 12.
+     * For a max error of < 0.1%, use QS = 18.
      */
     const val DEFAULT_QUADRANT_SEGMENTS = 8
 

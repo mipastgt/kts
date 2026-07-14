@@ -24,7 +24,6 @@ import org.locationtech.jts.noding.SegmentString
  * Finds intersections between line segments which are being snapped,
  * and adds them as nodes.
  *
- * @version 1.17
  */
 class SnappingIntersectionAdder
 /**

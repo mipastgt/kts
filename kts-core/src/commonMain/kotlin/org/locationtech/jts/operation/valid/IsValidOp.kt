@@ -28,7 +28,6 @@ import org.locationtech.jts.geom.Polygon
  * for [Geometry]s.
  * See the documentation for the various geometry types for a specification of validity.
  *
- * @version 1.7
  */
 class IsValidOp(
     /**

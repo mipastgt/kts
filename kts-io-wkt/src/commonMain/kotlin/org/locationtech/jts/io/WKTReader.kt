@@ -54,7 +54,6 @@ import org.locationtech.jts.util.Assert
  *   This means it supports the Java syntax for floating point literals (including scientific
  *   notation).
  *
- * @version 1.7
  * @see WKTWriter
  */
 class WKTReader(private var geometryFactory: GeometryFactory) {
@@ -100,7 +99,7 @@ class WKTReader(private var geometryFactory: GeometryFactory) {
     /**
      * Reads a Well-Known Text representation of a [Geometry] from a [String].
      *
-     * @param wellKnownText one or more &lt;Geometry Tagged Text&gt; strings (see the OpenGIS Simple
+     * @param wellKnownText one or more <Geometry Tagged Text> strings (see the OpenGIS Simple
      *     Features Specification) separated by whitespace
      * @return a [Geometry] specified by `wellKnownText`
      * @throws ParseException if a parsing problem occurs

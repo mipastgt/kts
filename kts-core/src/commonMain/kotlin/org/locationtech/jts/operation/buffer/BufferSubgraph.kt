@@ -23,13 +23,12 @@ import org.locationtech.jts.geomgraph.Node
  * A connected subset of the graph of
  * [DirectedEdge]s and [Node]s.
  * Its edges will generate either
- * <ul>
- * <li> a single polygon in the complete buffer, with zero or more holes, or
- * <li> one or more connected holes
- * </ul>
+ * 
+ * -  a single polygon in the complete buffer, with zero or more holes, or
+ * -  one or more connected holes
+ * 
  *
  *
- * @version 1.7
  */
 internal class BufferSubgraph : Comparable<Any?> {
   private val finder: RightmostEdgeFinder = RightmostEdgeFinder()

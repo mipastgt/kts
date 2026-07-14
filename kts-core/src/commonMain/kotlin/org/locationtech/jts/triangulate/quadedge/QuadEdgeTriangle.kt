@@ -36,7 +36,6 @@ import org.locationtech.jts.geom.Polygon
  * and `createOn` method.
  *
  * @author Martin Davis
- * @version 1.0
  */
 class QuadEdgeTriangle
 /**

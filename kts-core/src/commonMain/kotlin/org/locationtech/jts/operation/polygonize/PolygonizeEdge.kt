@@ -17,7 +17,6 @@ import org.locationtech.jts.planargraph.Edge
 /**
  * An edge of a polygonization graph.
  *
- * @version 1.7
  */
 class PolygonizeEdge(private val line: LineString) : Edge() {
 

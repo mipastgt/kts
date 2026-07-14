@@ -22,7 +22,6 @@ import org.locationtech.jts.geom.Envelope
  * It contains a lower-left point and a level number. The level number
  * is the power of two for the size of the node envelope
  *
- * @version 1.7
  */
 class Key(itemEnv: Envelope) {
 

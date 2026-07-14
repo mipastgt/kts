@@ -39,7 +39,6 @@ import org.locationtech.jts.util.Assert
  * Computes the geometric overlay of two [Geometry]s.  The overlay
  * can be used to determine any boolean combination of the geometries.
  *
- * @version 1.7
  */
 class OverlayOp(g0: Geometry, g1: Geometry) : GeometryGraphOperation(g0, g1) {
 

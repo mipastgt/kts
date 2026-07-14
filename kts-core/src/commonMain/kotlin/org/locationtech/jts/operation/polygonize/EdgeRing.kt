@@ -33,7 +33,6 @@ import org.locationtech.jts.util.Assert
  * Represents a ring of [PolygonizeDirectedEdge]s which form
  * a ring of a polygon.  The ring may be either an outer shell or a hole.
  *
- * @version 1.7
  */
 class EdgeRing(private val factory: GeometryFactory) {
 

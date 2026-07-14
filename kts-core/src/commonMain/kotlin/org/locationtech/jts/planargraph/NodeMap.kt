@@ -19,7 +19,6 @@ import org.locationtech.jts.geom.Coordinate
 /**
  * A map of [Node]s, indexed by the coordinate of the node.
  *
- * @version 1.7
  */
 class NodeMap {
 

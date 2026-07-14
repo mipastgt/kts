@@ -19,7 +19,6 @@ import org.locationtech.jts.util.Assert
  * It is centred at the origin,
  * and does not have a defined extent.
  *
- * @version 1.7
  */
 class Root : NodeBase() {
 

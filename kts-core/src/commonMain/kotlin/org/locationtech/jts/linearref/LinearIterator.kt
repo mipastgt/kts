@@ -24,16 +24,15 @@ import org.locationtech.jts.geom.MultiLineString
  *
  * The standard usage pattern for a [LinearIterator] is:
  *
- * <pre>
+ * ```
  * for (LinearIterator it = new LinearIterator(...); it.hasNext(); it.next()) {
  *   ...
  *   int ci = it.getComponentIndex();   // for example
  *   int vi = it.getVertexIndex();      // for example
  *   ...
  * }
- * </pre>
+ * ```
  *
- * @version 1.7
  */
 class LinearIterator {
 

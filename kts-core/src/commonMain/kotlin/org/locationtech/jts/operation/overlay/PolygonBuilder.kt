@@ -27,7 +27,6 @@ import org.locationtech.jts.util.Assert
  * Forms [Polygon]s out of a graph of [DirectedEdge]s.
  * The edges to use are marked as being in the result Area.
  *
- * @version 1.7
  */
 class PolygonBuilder(private val geometryFactory: GeometryFactory) {
 

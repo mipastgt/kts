@@ -25,7 +25,6 @@ import org.locationtech.jts.geom.util.GeometryTransformer
 /**
  * Simplifies a [Geometry] using the Visvalingam-Whyatt area-based algorithm.
  *
- * @version 1.7
  */
 class VWSimplifier(private val inputGeom: Geometry) {
 

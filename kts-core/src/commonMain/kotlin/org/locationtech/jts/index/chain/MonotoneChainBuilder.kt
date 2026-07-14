@@ -20,7 +20,6 @@ import org.locationtech.jts.geom.Quadrant
  * Constructs [MonotoneChain]s
  * for sequences of [Coordinate]s.
  *
- * @version 1.7
  */
 class MonotoneChainBuilder {
 

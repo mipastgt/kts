@@ -15,7 +15,6 @@ package org.locationtech.jts.index
 /**
  * Builds an array of all visited items.
  *
- * @version 1.7
  */
 class ArrayListVisitor : ItemVisitor {
 

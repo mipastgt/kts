@@ -29,7 +29,6 @@ import org.locationtech.jts.util.Assert
  * polygonization, and implements the algorithms to compute the
  * [EdgeRing]s formed by the graph.
  *
- * @version 1.7
  */
 class PolygonizeGraph
 /**

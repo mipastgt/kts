@@ -22,7 +22,6 @@ import org.locationtech.jts.geom.Coordinate
  * subclass `Node` to add their own application-specific
  * data and methods.
  *
- * @version 1.7
  */
 open class Node(
   /** The location of this Node */

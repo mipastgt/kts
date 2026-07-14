@@ -20,7 +20,6 @@ import org.locationtech.jts.util.Assert
  * A [org.locationtech.jts.planargraph.DirectedEdge] of a
  * [LineMergeGraph].
  *
- * @version 1.7
  */
 class LineMergeDirectedEdge
 /**

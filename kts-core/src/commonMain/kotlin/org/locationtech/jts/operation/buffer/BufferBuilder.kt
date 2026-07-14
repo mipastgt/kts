@@ -36,7 +36,6 @@ import org.locationtech.jts.operation.overlay.PolygonBuilder
 /**
  * Builds the buffer geometry for a given input geometry and precision model.
  *
- * @version 1.7
  */
 internal class BufferBuilder(private val bufParams: BufferParameters) {
 

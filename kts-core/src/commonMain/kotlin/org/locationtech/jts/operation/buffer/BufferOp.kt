@@ -28,11 +28,10 @@ import org.locationtech.jts.noding.snapround.SnapRoundingNoder
 
 /**
  * Computes the buffer of a geometry, for both positive and negative buffer distances.
- * <p>
+ * 
  * The buffer operation always returns a polygonal result.
  * The negative or zero-distance buffer of lines and points is always an empty [Polygon].
  *
- * @version 1.7
  */
 class BufferOp {
 
@@ -291,7 +290,7 @@ class BufferOp {
      * Buffers a geometry with distance zero.
      * The result can be computed using the maximum-signed-area orientation,
      * or by combining both orientations.
-     * <p>
+     * 
      * This function is for INTERNAL use only.
      *
      * @param geom the polygonal geometry to buffer by zero

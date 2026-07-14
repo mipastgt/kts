@@ -32,7 +32,6 @@ import org.locationtech.jts.util.Assert
  * Builds a sequence from a set of LineStrings so that
  * they are ordered end to end.
  *
- * @version 1.7
  */
 class LineSequencer {
 

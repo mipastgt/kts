@@ -37,7 +37,6 @@ import org.locationtech.jts.geomgraph.NodeMap
  * have their topology determined implicitly, without creating a Node object
  * to represent them.
  *
- * @version 1.7
  */
 internal class RelateNodeGraph {
 

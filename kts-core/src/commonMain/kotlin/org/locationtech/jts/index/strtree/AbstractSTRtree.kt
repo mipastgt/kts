@@ -19,13 +19,12 @@ import org.locationtech.jts.util.Assert
 
 /**
  * Base class for STRtree and SIRtree. STR-packed R-trees are described in:
- * P. Rigaux, Michel Scholl and Agnes Voisard. <i>Spatial Databases With
- * Application To GIS.</i> Morgan Kaufmann, San Francisco, 2002.
+ * P. Rigaux, Michel Scholl and Agnes Voisard. *Spatial Databases With
+ * Application To GIS.* Morgan Kaufmann, San Francisco, 2002.
  *
  * @see STRtree
  * @see SIRtree
  *
- * @version 1.7
  */
 abstract class AbstractSTRtree {
 

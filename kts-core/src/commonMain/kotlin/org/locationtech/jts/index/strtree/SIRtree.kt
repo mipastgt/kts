@@ -21,7 +21,6 @@ import kotlin.math.min
  *
  * @see STRtree
  *
- * @version 1.7
  */
 open class SIRtree : AbstractSTRtree {
 

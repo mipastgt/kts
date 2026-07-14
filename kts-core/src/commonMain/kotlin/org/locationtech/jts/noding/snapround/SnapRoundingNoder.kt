@@ -28,11 +28,10 @@ import org.locationtech.jts.noding.SegmentString
  *
  *
  * Implements the Snap Rounding technique described in
- * the papers by Hobby, Guibas &amp; Marimont, and Goodrich et al.
+ * the papers by Hobby, Guibas & Marimont, and Goodrich et al.
  * Snap Rounding enforces that all output vertices lie on a uniform grid,
  * which is determined by the provided [PrecisionModel].
  *
- * @version 1.7
  */
 class SnapRoundingNoder(private val pm: PrecisionModel) : Noder {
 

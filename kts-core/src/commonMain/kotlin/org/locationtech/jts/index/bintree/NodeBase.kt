@@ -17,7 +17,6 @@ import kotlin.jvm.JvmField
 /**
  * The base class for nodes in a [Bintree].
  *
- * @version 1.7
  */
 abstract class NodeBase {
 

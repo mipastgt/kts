@@ -17,7 +17,6 @@ import kotlin.jvm.JvmStatic
  * DoubleBits manipulates Double numbers
  * by using bit manipulation and bit-field extraction.
  *
- * @version 1.7
  */
 class DoubleBits(private val x: Double) {
 

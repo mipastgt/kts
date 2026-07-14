@@ -16,7 +16,6 @@ package org.locationtech.jts.triangulate.quadedge
  * An interface for algorithms which process the triangles in a [QuadEdgeSubdivision].
  *
  * @author Martin Davis
- * @version 1.0
  */
 interface TriangleVisitor {
     /**

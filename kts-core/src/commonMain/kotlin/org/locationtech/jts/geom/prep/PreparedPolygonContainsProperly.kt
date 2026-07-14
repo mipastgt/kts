@@ -18,7 +18,7 @@ import org.locationtech.jts.geom.Polygonal
 import org.locationtech.jts.noding.SegmentStringUtil
 
 /**
- * Computes the <tt>containsProperly</tt> spatial relationship predicate
+ * Computes the `containsProperly` spatial relationship predicate
  * for [PreparedPolygon]s relative to all other [Geometry] classes.
  * Uses short-circuit tests and indexing to improve performance.
  *
@@ -66,7 +66,7 @@ class PreparedPolygonContainsProperly(prepPoly: PreparedPolygon) : PreparedPolyg
 
   companion object {
     /**
-     * Computes the </tt>containsProperly</tt> predicate between a [PreparedPolygon]
+     * Computes the `containsProperly` predicate between a [PreparedPolygon]
      * and a [Geometry].
      *
      * @param prep the prepared polygon

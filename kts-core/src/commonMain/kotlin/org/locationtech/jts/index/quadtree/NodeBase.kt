@@ -20,7 +20,6 @@ import org.locationtech.jts.index.ItemVisitor
 /**
  * The base class for nodes in a [Quadtree].
  *
- * @version 1.7
  */
 abstract class NodeBase {
 
@@ -29,11 +28,11 @@ abstract class NodeBase {
 
   /**
    * subquads are numbered as follows:
-   * <pre>
+   * ```
    *  2 | 3
    *  --+--
    *  0 | 1
-   * </pre>
+   * ```
    */
   @JvmField
   protected var subnode = arrayOfNulls<Node>(4)

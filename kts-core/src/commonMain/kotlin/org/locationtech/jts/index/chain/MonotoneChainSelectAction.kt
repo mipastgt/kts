@@ -17,7 +17,6 @@ import org.locationtech.jts.geom.LineSegment
  * The action for the internal iterator for performing
  * envelope select queries on a MonotoneChain
  *
- * @version 1.7
  */
 open class MonotoneChainSelectAction {
   // these envelopes are used during the MonotoneChain search process

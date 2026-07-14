@@ -22,7 +22,6 @@ import org.locationtech.jts.util.Assert
  * A RightmostEdgeFinder find the DirectedEdge in a list which has the highest coordinate,
  * and which is oriented L to R at that point. (I.e. the right side is on the RHS of the edge.)
  *
- * @version 1.7
  */
 internal class RightmostEdgeFinder {
 

@@ -35,7 +35,6 @@ import org.locationtech.jts.geom.Point
  * always the empty [GeometryCollection].
  *
  * @author Martin Davis
- * @version 1.7
  */
 class BoundaryOp(private val geom: Geometry, private val bnRule: BoundaryNodeRule) {
   private val geomFact: GeometryFactory = geom.getFactory()
@@ -189,7 +188,6 @@ class BoundaryOp(private val geom: Geometry, private val bnRule: BoundaryNodeRul
  * Stores an integer count, for use as a Map entry.
  *
  * @author Martin Davis
- * @version 1.7
  */
 internal class Counter {
   /**

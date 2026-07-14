@@ -22,7 +22,6 @@ import org.locationtech.jts.util.Assert
 /**
  * Merges a collection of linear components to form maximal-length linestrings.
  *
- * @version 1.7
  */
 class LineMerger {
   private val graph = LineMergeGraph()

@@ -24,7 +24,6 @@ import org.locationtech.jts.geomgraph.PlanarGraph
  * Used for checking if Topology errors are present after noding.
  *
  * @author Martin Davis
- * @version 1.7
  */
 class ConsistentPolygonRingChecker(private val graph: PlanarGraph) {
 

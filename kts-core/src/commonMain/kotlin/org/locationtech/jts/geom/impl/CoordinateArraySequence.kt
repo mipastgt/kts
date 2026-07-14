@@ -30,7 +30,6 @@ import org.locationtech.jts.geom.Geometry
  * The actual coordinates will always have 3 ordinates,
  * but the dimension is useful as metadata in some situations.
  *
- * @version 1.7
  */
 open class CoordinateArraySequence : CoordinateSequence {
   //With contributions from Markus Schaber [schabios@logi-track.com] 2004-03-26

@@ -27,7 +27,6 @@ import org.locationtech.jts.noding.SegmentString
  *
  * @deprecated Not robust. Use [SnapRoundingNoder] instead.
  *
- * @version 1.7
  */
 @Deprecated("Not robust. Use SnapRoundingNoder instead.")
 class MCIndexSnapRounder(private val pm: PrecisionModel) : Noder {

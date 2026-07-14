@@ -22,7 +22,6 @@ import org.locationtech.jts.index.SpatialIndex
  * A Quadtree is a spatial index structure for efficient range querying
  * of items bounded by 2D rectangles.
  *
- * @version 1.7
  */
 class Quadtree : SpatialIndex {
 

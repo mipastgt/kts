@@ -22,7 +22,6 @@ package org.locationtech.jts.geomgraph.index
  * It uses a [SegmentIntersector] to compute the intersections between
  * segments and to record statistics about what kinds of intersections were found.
  *
- * @version 1.7
  */
 abstract class EdgeSetIntersector {
 

@@ -117,12 +117,12 @@ class Vector2D(
    * Computes the weighted sum of this vector
    * with another vector,
    * with this vector contributing a fraction
-   * of <tt>frac</tt> to the total.
-   * <p>
+   * of `frac` to the total.
+   * 
    * In other words,
-   * <pre>
+   * ```
    * sum = frac * this + (1 - frac) * v
-   * </pre>
+   * ```
    *
    * @param v the vector to sum
    * @param frac the fraction of the total contributed by this vector
@@ -243,12 +243,12 @@ class Vector2D(
   }
 
   /**
-   * Tests if a vector <tt>o</tt> has the same values for the x and y
+   * Tests if a vector `o` has the same values for the x and y
    * components.
    *
    * @param o
-   *          a <tt>Vector2D</tt> with which to do the comparison.
-   * @return true if <tt>other</tt> is a <tt>Vector2D</tt> with the same
+   *          a `Vector2D` with which to do the comparison.
+   * @return true if `other` is a `Vector2D` with the same
    *         values for the x and y components.
    */
   override fun equals(o: Any?): Boolean {
@@ -297,7 +297,7 @@ class Vector2D(
     }
 
     /**
-     * Creates a vector from a {@link Coordinate}.
+     * Creates a vector from a [Coordinate].
      *
      * @param coord the Coordinate to copy
      * @return a new vector
@@ -310,7 +310,7 @@ class Vector2D(
     /**
      * Creates a vector with the direction and magnitude
      * of the difference between the
-     * <tt>to</tt> and <tt>from</tt> {@link Coordinate}s.
+     * `to` and `from` [Coordinate]s.
      *
      * @param from the origin Coordinate
      * @param to the destination Coordinate

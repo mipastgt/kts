@@ -18,7 +18,6 @@ import org.locationtech.jts.planargraph.Edge
  * An edge of a [LineMergeGraph]. The `marked` field indicates
  * whether this Edge has been logically deleted from the graph.
  *
- * @version 1.7
  */
 class LineMergeEdge
 /**

@@ -40,7 +40,6 @@ import org.locationtech.jts.noding.SegmentString
  * The correctness of the output is not verified by this noder.
  * If required this can be done by [org.locationtech.jts.noding.ValidatingNoder].
  *
- * @version 1.17
  */
 class SnappingNoder
 /**

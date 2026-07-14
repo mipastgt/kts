@@ -29,7 +29,6 @@ import org.locationtech.jts.geom.util.GeometryTransformer
  * A snap distance tolerance is used to control where snapping is performed.
  *
  * @author Martin Davis
- * @version 1.7
  */
 class GeometrySnapper(private val srcGeom: Geometry) {
 

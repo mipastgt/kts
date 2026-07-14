@@ -16,7 +16,7 @@ import kotlin.jvm.JvmStatic
 import org.locationtech.jts.geom.Geometry
 
 /**
- * Computes the <tt>covers</tt> spatial relationship predicate
+ * Computes the `covers` spatial relationship predicate
  * for a [PreparedPolygon] relative to all other [Geometry] classes.
  * Uses short-circuit tests and indexing to improve performance.
  *
@@ -30,7 +30,7 @@ class PreparedPolygonCovers(prepPoly: PreparedPolygon) : AbstractPreparedPolygon
   }
 
   /**
-   * Tests whether this PreparedPolygon <tt>covers</tt> a given geometry.
+   * Tests whether this PreparedPolygon `covers` a given geometry.
    *
    * @param geom the test geometry
    * @return true if the test geometry is covered
@@ -40,7 +40,7 @@ class PreparedPolygonCovers(prepPoly: PreparedPolygon) : AbstractPreparedPolygon
   }
 
   /**
-   * Computes the full topological <tt>covers</tt> predicate.
+   * Computes the full topological `covers` predicate.
    * Used when short-circuit tests are not conclusive.
    *
    * @param geom the test geometry
@@ -53,7 +53,7 @@ class PreparedPolygonCovers(prepPoly: PreparedPolygon) : AbstractPreparedPolygon
 
   companion object {
     /**
-     * Computes the </tt>covers</tt> predicate between a [PreparedPolygon]
+     * Computes the `covers` predicate between a [PreparedPolygon]
      * and a [Geometry].
      *
      * @param prep the prepared polygon

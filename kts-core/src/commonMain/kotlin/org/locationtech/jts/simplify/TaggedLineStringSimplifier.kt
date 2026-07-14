@@ -25,7 +25,6 @@ import org.locationtech.jts.geom.LineSegment
  * Uses the recursive Douglas-Peucker algorithm.
  *
  * @author Martin Davis
- * @version 1.7
  */
 internal class TaggedLineStringSimplifier(
     private val inputIndex: LineSegmentIndex,

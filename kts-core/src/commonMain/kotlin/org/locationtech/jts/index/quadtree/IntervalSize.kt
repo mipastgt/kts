@@ -20,7 +20,6 @@ import kotlin.math.max
  * so small it should be considered as zero for the purposes of
  * inserting it into a binary tree.
  *
- * @version 1.7
  */
 class IntervalSize {
   companion object {

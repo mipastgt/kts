@@ -16,7 +16,7 @@ import kotlin.jvm.JvmStatic
 import org.locationtech.jts.geom.Geometry
 
 /**
- * Computes the <tt>contains</tt> spatial relationship predicate
+ * Computes the `contains` spatial relationship predicate
  * for a [PreparedPolygon] relative to all other [Geometry] classes.
  * Uses short-circuit tests and indexing to improve performance.
  *
@@ -26,7 +26,7 @@ import org.locationtech.jts.geom.Geometry
 class PreparedPolygonContains(prepPoly: PreparedPolygon) : AbstractPreparedPolygonContains(prepPoly) {
 
   /**
-   * Tests whether this PreparedPolygon <tt>contains</tt> a given geometry.
+   * Tests whether this PreparedPolygon `contains` a given geometry.
    *
    * @param geom the test geometry
    * @return true if the test geometry is contained
@@ -36,7 +36,7 @@ class PreparedPolygonContains(prepPoly: PreparedPolygon) : AbstractPreparedPolyg
   }
 
   /**
-   * Computes the full topological <tt>contains</tt> predicate.
+   * Computes the full topological `contains` predicate.
    * Used when short-circuit tests are not conclusive.
    *
    * @param geom the test geometry
@@ -49,7 +49,7 @@ class PreparedPolygonContains(prepPoly: PreparedPolygon) : AbstractPreparedPolyg
 
   companion object {
     /**
-     * Computes the </tt>contains</tt> predicate between a [PreparedPolygon]
+     * Computes the `contains` predicate between a [PreparedPolygon]
      * and a [Geometry].
      *
      * @param prep the prepared polygon

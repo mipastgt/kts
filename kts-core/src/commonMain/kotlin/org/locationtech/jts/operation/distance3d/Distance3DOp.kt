@@ -37,7 +37,6 @@ import org.locationtech.jts.operation.distance.GeometryLocation
  *
  * The algorithms used are straightforward O(n^2) comparisons.
  *
- * @version 1.7
  */
 class Distance3DOp
 /**
@@ -461,7 +460,7 @@ class Distance3DOp
      * @param g0 a [Geometry]
      * @param g1 another [Geometry]
      * @param distance the distance to test
-     * @return true if g0.distance(g1) &lt;= distance
+     * @return true if g0.distance(g1) <= distance
      */
     @JvmStatic
     fun isWithinDistance(g0: Geometry, g1: Geometry, distance: Double): Boolean {

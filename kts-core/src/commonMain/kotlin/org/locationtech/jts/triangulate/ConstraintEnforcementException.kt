@@ -19,7 +19,6 @@ import org.locationtech.jts.io.WKTWriter
  * Indicates a failure during constraint enforcement.
  *
  * @author Martin Davis
- * @version 1.0
  */
 class ConstraintEnforcementException : RuntimeException {
 

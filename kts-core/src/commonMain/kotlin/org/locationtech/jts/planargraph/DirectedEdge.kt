@@ -25,7 +25,6 @@ import org.locationtech.jts.geom.Quadrant
  * a client using a `PlanarGraph` will subclass `DirectedEdge`
  * to add its own application-specific data and methods.
  *
- * @version 1.7
  *
  * @param from the node this DirectedEdge leaves
  * @param to the node this DirectedEdge goes to

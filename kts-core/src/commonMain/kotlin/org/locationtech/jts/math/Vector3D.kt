@@ -34,7 +34,7 @@ class Vector3D
 (private val x: Double, private val y: Double, private val z: Double) {
 
   /**
-   * Creates a new 3D vector from a {@link Coordinate}. The coordinate should have
+   * Creates a new 3D vector from a [Coordinate]. The coordinate should have
    * the X,Y and Z ordinates specified.
    *
    * @param v the Coordinate to copy
@@ -44,7 +44,7 @@ class Vector3D
   /**
    * Creates a new vector with the direction and magnitude
    * of the difference between the
-   * <tt>to</tt> and <tt>from</tt> {@link Coordinate}s.
+   * `to` and `from` [Coordinate]s.
    *
    * @param from the origin Coordinate
    * @param to the destination Coordinate
@@ -83,7 +83,7 @@ class Vector3D
    * of this vector and the given vector.
    *
    * @param v the vector to add
-   * @return the sum of this and <code>v</code>
+   * @return the sum of this and `v`
    */
   fun add(v: Vector3D): Vector3D {
     return create(x + v.x, y + v.y, z + v.z)
@@ -94,7 +94,7 @@ class Vector3D
    * of this vector and the given vector.
    *
    * @param v the vector to subtract
-   * @return the difference of this and <code>v</code>
+   * @return the difference of this and `v`
    */
   fun subtract(v: Vector3D): Vector3D {
     return create(x - v.x, y - v.y, z - v.z)
@@ -103,7 +103,7 @@ class Vector3D
   /**
    * Creates a new vector which has the same direction
    * and with length equals to the length of this vector
-   * divided by the scalar value <code>d</code>.
+   * divided by the scalar value `d`.
    *
    * @param d the scalar divisor
    * @return a new vector with divided length
@@ -154,10 +154,10 @@ class Vector3D
   }
 
   /**
-   * Tests if a vector <tt>o</tt> has the same values for the components.
+   * Tests if a vector `o` has the same values for the components.
    *
-   * @param o a <tt>Vector3D</tt> with which to do the comparison.
-   * @return true if <tt>other</tt> is a <tt>Vector3D</tt> with the same values
+   * @param o a `Vector3D` with which to do the comparison.
+   * @return true if `other` is a `Vector3D` with the same values
    *         for the x and y components.
    */
   override fun equals(o: Any?): Boolean {
@@ -217,7 +217,7 @@ class Vector3D
     }
 
     /**
-     * Creates a vector from a 3D {@link Coordinate}.
+     * Creates a vector from a 3D [Coordinate].
      * The coordinate should have the
      * X,Y and Z ordinates specified.
      *
@@ -230,7 +230,7 @@ class Vector3D
     }
 
     /**
-     * Computes the 3D dot-product of two {@link Coordinate}s.
+     * Computes the 3D dot-product of two [Coordinate]s.
      *
      * @param v1 the first vector
      * @param v2 the second vector

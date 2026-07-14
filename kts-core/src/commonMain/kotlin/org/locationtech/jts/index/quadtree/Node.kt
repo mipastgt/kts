@@ -21,7 +21,6 @@ import org.locationtech.jts.util.Assert
  * items which have a spatial extent corresponding to the node's position
  * in the quadtree.
  *
- * @version 1.7
  */
 class Node(private val env: Envelope, private val level: Int) : NodeBase() {
 
@@ -57,7 +56,7 @@ class Node(private val env: Envelope, private val level: Int) : NodeBase() {
   }
 
   /**
-   * Returns the smallest <i>existing</i>
+   * Returns the smallest *existing*
    * node containing the envelope.
    */
   fun find(searchEnv: Envelope): NodeBase {

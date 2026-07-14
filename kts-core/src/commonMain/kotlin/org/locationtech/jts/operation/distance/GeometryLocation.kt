@@ -25,7 +25,6 @@ import org.locationtech.jts.io.WKTWriter
  * so in this case the segment index will have the sentinel value of
  * [INSIDE_AREA].
  *
- * @version 1.7
  */
 class GeometryLocation
 /**

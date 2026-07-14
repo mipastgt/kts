@@ -23,7 +23,6 @@ import org.locationtech.jts.util.Assert
  * A query-only R-tree created using the Sort-Tile-Recursive (STR) algorithm.
  * For two-dimensional spatial data.
  *
- * @version 1.7
  */
 open class STRtree : AbstractSTRtree, SpatialIndex {
 

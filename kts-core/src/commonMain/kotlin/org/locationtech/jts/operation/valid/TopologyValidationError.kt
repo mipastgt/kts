@@ -19,7 +19,6 @@ import org.locationtech.jts.geom.Coordinate
  * Contains information about the nature and location of a [org.locationtech.jts.geom.Geometry]
  * validation error
  *
- * @version 1.7
  */
 class TopologyValidationError(errorType: Int, pt: Coordinate?) {
 

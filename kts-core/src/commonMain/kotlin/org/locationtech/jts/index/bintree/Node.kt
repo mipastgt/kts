@@ -18,7 +18,6 @@ import org.locationtech.jts.util.Assert
 /**
  * A node of a [Bintree].
  *
- * @version 1.7
  */
 class Node(interval: Interval, level: Int) : NodeBase() {
 

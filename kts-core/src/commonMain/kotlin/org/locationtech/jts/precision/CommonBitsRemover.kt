@@ -21,7 +21,6 @@ import org.locationtech.jts.geom.Geometry
  * Removes common most-significant mantissa bits
  * from one or more [Geometry]s.
  *
- * @version 1.7
  */
 class CommonBitsRemover {
 

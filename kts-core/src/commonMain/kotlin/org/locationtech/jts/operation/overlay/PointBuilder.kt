@@ -18,7 +18,6 @@ import org.locationtech.jts.geomgraph.Node
 
 /**
  * Constructs [Point]s from the nodes of an overlay graph.
- * @version 1.7
  */
 class PointBuilder(
   private val op: OverlayOp,

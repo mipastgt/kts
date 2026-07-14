@@ -21,7 +21,6 @@ import org.locationtech.jts.geom.LineString
  * A sequence of [LineMergeDirectedEdge]s forming one of the lines that will
  * be output by the line-merging process.
  *
- * @version 1.7
  */
 class EdgeString
 /**

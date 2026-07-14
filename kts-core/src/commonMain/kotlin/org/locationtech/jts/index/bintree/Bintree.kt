@@ -25,7 +25,6 @@ import kotlin.jvm.JvmStatic
  * items beforehand.  It will automatically expand to accommodate any extent
  * of dataset.
  *
- * @version 1.7
  */
 class Bintree {
 

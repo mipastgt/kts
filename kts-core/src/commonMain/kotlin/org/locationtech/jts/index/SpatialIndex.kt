@@ -16,13 +16,12 @@ import org.locationtech.jts.geom.Envelope
 /**
  * The basic operations supported by classes
  * implementing spatial index algorithms.
- * <p>
+ * 
  * A spatial index typically provides a primary filter for range rectangle queries.
  * A secondary filter is required to test for exact intersection.
  * The secondary filter may consist of other kinds of tests,
  * such as testing other spatial relationships.
  *
- * @version 1.7
  */
 interface SpatialIndex {
   /**

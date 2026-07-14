@@ -40,7 +40,6 @@ import org.locationtech.jts.noding.SegmentString
  * Creates all the raw offset curves for a buffer of a [Geometry].
  * Raw curves need to be noded together and polygonized to form the final buffer area.
  *
- * @version 1.7
  */
 class BufferCurveSetBuilder(
   private val inputGeom: Geometry,

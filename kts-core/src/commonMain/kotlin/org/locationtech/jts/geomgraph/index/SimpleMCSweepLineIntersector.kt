@@ -21,7 +21,6 @@ import org.locationtech.jts.geomgraph.Edge
  * The use of MonotoneChains as the items in the index
  * seems to offer an improvement in performance over a sweep-line alone.
  *
- * @version 1.7
  */
 class SimpleMCSweepLineIntersector : EdgeSetIntersector() {
 

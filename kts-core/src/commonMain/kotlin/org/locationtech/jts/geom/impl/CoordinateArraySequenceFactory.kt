@@ -21,7 +21,6 @@ import org.locationtech.jts.geom.CoordinateSequenceFactory
 /**
  * Creates [CoordinateSequence]s represented as an array of [Coordinate]s.
  *
- * @version 1.7
  */
 class CoordinateArraySequenceFactory private constructor() : CoordinateSequenceFactory {
 
@@ -50,7 +49,7 @@ class CoordinateArraySequenceFactory private constructor() : CoordinateSequenceF
   }
 
   /**
-   * The created sequence dimension is clamped to be &lt;= 3.
+   * The created sequence dimension is clamped to be <= 3.
    *
    * @see org.locationtech.jts.geom.CoordinateSequenceFactory.create
    */

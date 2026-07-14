@@ -20,7 +20,7 @@ import org.locationtech.jts.geom.util.ComponentCoordinateExtracter
 import org.locationtech.jts.noding.SegmentStringUtil
 
 /**
- * Computes the <tt>intersects</tt> spatial relationship predicate
+ * Computes the `intersects` spatial relationship predicate
  * for a target [PreparedLineString] relative to other [Geometry] classes.
  * Uses short-circuit tests and indexing to improve performance.
  *

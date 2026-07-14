@@ -27,7 +27,6 @@ import org.locationtech.jts.precision.CommonBitsRemover
  * if the standard overlay code fails to produce a correct result.
  *
  * @author Martin Davis
- * @version 1.7
  */
 class SnapOverlayOp(g1: Geometry, g2: Geometry) {
 

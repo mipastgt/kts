@@ -49,7 +49,6 @@ import org.locationtech.jts.util.Assert
  * surface; the multiplatform-common API uses the `String`-returning forms (backed internally
  * by a [StringBuilder]).
  *
- * @version 1.7
  */
 class WKTWriter(private val outputDimension: Int) {
 
@@ -135,7 +134,7 @@ class WKTWriter(private val outputDimension: Int) {
   /**
    * Sets the maximum number of coordinates per line
    * written in formatted output.
-   * If the provided coordinate number is &lt;= 0,
+   * If the provided coordinate number is <= 0,
    * coordinates will be written all on one line.
    *
    * @param coordsPerLine the number of coordinates per line to output.
@@ -174,7 +173,7 @@ class WKTWriter(private val outputDimension: Int) {
    *  Converts a `Geometry` to its Well-known Text representation.
    *
    * @param  geometry  a `Geometry` to process
-   * @return           a &lt;Geometry Tagged Text&gt; string (see the OpenGIS Simple
+   * @return           a <Geometry Tagged Text> string (see the OpenGIS Simple
    *      Features Specification)
    */
   fun write(geometry: Geometry): String {
@@ -197,7 +196,7 @@ class WKTWriter(private val outputDimension: Int) {
    *  well-known text more readable.
    *
    * @param  geometry  a `Geometry` to process
-   * @return           a &lt;Geometry Tagged Text&gt; string (see the OpenGIS Simple
+   * @return           a <Geometry Tagged Text> string (see the OpenGIS Simple
    *      Features Specification), with newlines and spaces
    */
   fun writeFormatted(geometry: Geometry): String {
@@ -240,7 +239,7 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `Geometry` to &lt;Geometry Tagged Text&gt; format,
+   *  Converts a `Geometry` to <Geometry Tagged Text> format,
    *  then appends it to the buffer.
    */
   private fun appendGeometryTaggedText(
@@ -255,7 +254,7 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `Geometry` to &lt;Geometry Tagged Text&gt; format,
+   *  Converts a `Geometry` to <Geometry Tagged Text> format,
    *  then appends it to the buffer.
    */
   private fun appendGeometryTaggedText(
@@ -278,7 +277,7 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `Coordinate` to &lt;Point Tagged Text&gt; format,
+   *  Converts a `Coordinate` to <Point Tagged Text> format,
    *  then appends it to the buffer.
    */
   private fun appendPointTaggedText(
@@ -292,7 +291,7 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `LineString` to &lt;LineString Tagged Text&gt;
+   *  Converts a `LineString` to <LineString Tagged Text>
    *  format, then appends it to the buffer.
    */
   private fun appendLineStringTaggedText(
@@ -306,7 +305,7 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `LinearRing` to &lt;LinearRing Tagged Text&gt;
+   *  Converts a `LinearRing` to <LinearRing Tagged Text>
    *  format, then appends it to the buffer.
    */
   private fun appendLinearRingTaggedText(
@@ -320,7 +319,7 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `Polygon` to &lt;Polygon Tagged Text&gt; format,
+   *  Converts a `Polygon` to <Polygon Tagged Text> format,
    *  then appends it to the buffer.
    */
   private fun appendPolygonTaggedText(
@@ -334,7 +333,7 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `MultiPoint` to &lt;MultiPoint Tagged Text&gt;
+   *  Converts a `MultiPoint` to <MultiPoint Tagged Text>
    *  format, then appends it to the buffer.
    */
   private fun appendMultiPointTaggedText(
@@ -348,8 +347,8 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `MultiLineString` to &lt;MultiLineString Tagged
-   *  Text&gt; format, then appends it to the buffer.
+   *  Converts a `MultiLineString` to <MultiLineString Tagged
+   *  Text> format, then appends it to the buffer.
    */
   private fun appendMultiLineStringTaggedText(
     multiLineString: MultiLineString, outputOrdinates: MutableSet<Ordinate>, useFormatting: Boolean,
@@ -362,7 +361,7 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `MultiPolygon` to &lt;MultiPolygon Tagged Text&gt;
+   *  Converts a `MultiPolygon` to <MultiPolygon Tagged Text>
    *  format, then appends it to the buffer.
    */
   private fun appendMultiPolygonTaggedText(
@@ -376,8 +375,8 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `GeometryCollection` to &lt;GeometryCollection
-   *  Tagged Text&gt; format, then appends it to the buffer.
+   *  Converts a `GeometryCollection` to <GeometryCollection
+   *  Tagged Text> format, then appends it to the buffer.
    */
   private fun appendGeometryCollectionTaggedText(
     geometryCollection: GeometryCollection, outputOrdinates: MutableSet<Ordinate>, useFormatting: Boolean,
@@ -450,7 +449,7 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `Polygon` to &lt;Polygon Text&gt; format, then
+   *  Converts a `Polygon` to <Polygon Text> format, then
    *  appends it to the buffer.
    */
   private fun appendPolygonText(
@@ -474,7 +473,7 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `MultiPoint` to &lt;MultiPoint Text&gt; format, then
+   *  Converts a `MultiPoint` to <MultiPoint Text> format, then
    *  appends it to the buffer.
    */
   private fun appendMultiPointText(
@@ -498,7 +497,7 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `MultiLineString` to &lt;MultiLineString Text&gt;
+   *  Converts a `MultiLineString` to <MultiLineString Text>
    *  format, then appends it to the buffer.
    */
   private fun appendMultiLineStringText(
@@ -525,7 +524,7 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `MultiPolygon` to &lt;MultiPolygon Text&gt; format,
+   *  Converts a `MultiPolygon` to <MultiPolygon Text> format,
    *  then appends it to the buffer.
    */
   private fun appendMultiPolygonText(
@@ -552,7 +551,7 @@ class WKTWriter(private val outputDimension: Int) {
   }
 
   /**
-   *  Converts a `GeometryCollection` to &lt;GeometryCollectionText&gt;
+   *  Converts a `GeometryCollection` to <GeometryCollectionText>
    *  format, then appends it to the buffer.
    */
   private fun appendGeometryCollectionText(

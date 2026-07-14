@@ -16,7 +16,6 @@ package org.locationtech.jts.planargraph
  * in fact simply acts as a central point of reference for two opposite
  * [DirectedEdge]s.
  *
- * @version 1.7
  */
 open class Edge : GraphComponent {
 

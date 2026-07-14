@@ -33,7 +33,6 @@ import org.locationtech.jts.geom.Polygon
  * many geometries against a single
  * rectangle in a slightly more efficient way.
  *
- * @version 1.7
  */
 class RectangleContains
 /**

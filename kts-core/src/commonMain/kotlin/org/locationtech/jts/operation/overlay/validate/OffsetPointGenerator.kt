@@ -26,7 +26,6 @@ import org.locationtech.jts.geom.util.LinearComponentExtracter
  * is incorrect.
  *
  * @author Martin Davis
- * @version 1.7
  */
 class OffsetPointGenerator(private val g: Geometry) {
 
@@ -44,7 +43,7 @@ class OffsetPointGenerator(private val g: Geometry) {
   /**
    * Gets the computed offset points.
    *
-   * @return List&lt;Coordinate&gt;
+   * @return List<Coordinate>
    */
   fun getPoints(offsetDistance: Double): MutableList<Coordinate> {
     val offsetPts: MutableList<Coordinate> = ArrayList()

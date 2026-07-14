@@ -20,7 +20,6 @@ import kotlin.jvm.JvmStatic
  * is represented by the common bits.
  * If there are no common bits, the number computed is 0.0.
  *
- * @version 1.7
  */
 class CommonBits {
 

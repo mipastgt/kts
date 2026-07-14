@@ -15,14 +15,13 @@ import org.locationtech.jts.util.Assert
 
 /**
  * A node of an [AbstractSTRtree]. A node is one of:
- * <ul>
- * <li>empty
- * <li>an <i>interior node</i> containing child [AbstractNode]s
- * <li>a <i>leaf node</i> containing data items ([ItemBoundable]s).
- * </ul>
+ * 
+ * - empty
+ * - an *interior node* containing child [AbstractNode]s
+ * - a *leaf node* containing data items ([ItemBoundable]s).
+ * 
  * A node stores the bounds of its children, and its level within the index tree.
  *
- * @version 1.7
  */
 abstract class AbstractNode(private val level: Int) : Boundable {
 
