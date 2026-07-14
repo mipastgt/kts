@@ -21,7 +21,7 @@ import kotlin.math.roundToLong
 /**
  * Specifies the precision model of the [Coordinate]s in a [Geometry].
  * In other words, specifies the grid of allowable points for a `Geometry`.
- * A precision model may be <b>floating</b> ([FLOATING] or [FLOATING_SINGLE]),
+ * A precision model may be **floating** ([FLOATING] or [FLOATING_SINGLE]),
  * in which case normal floating-point value semantics apply.
  * 
  * For a [FIXED] precision model the [makePrecise] method allows rounding a coordinate to
@@ -42,7 +42,7 @@ import kotlin.math.roundToLong
  * This is the default precision model used in JTS
  * - FLOATING_SINGLE - represents single precision floating point.
  * - FIXED - represents a model with a fixed number of decimal places.
- *  A Fixed Precision Model is specified by a <b>scale factor</b>.
+ *  A Fixed Precision Model is specified by a **scale factor**.
  *  The scale factor specifies the size of the grid which numbers are rounded to.
  *  Input coordinates are mapped to fixed coordinates according to the following
  *  equations:
@@ -55,7 +55,7 @@ import kotlin.math.roundToLong
  * of 1000. To specify -3 decimal places of precision (i.e. rounding to
  * the nearest 1000), use a scale factor of 0.001.
  * 
- * It is also supported to specify a precise <b>grid size</b>
+ * It is also supported to specify a precise **grid size**
  * by providing it as a negative scale factor.
  * This allows setting a precise grid size rather than using a fractional scale,
  * which provides more accurate and robust rounding.
@@ -64,7 +64,7 @@ import kotlin.math.roundToLong
  * Coordinates are represented internally as Java double-precision values.
  * Java uses the IEEE-394 floating point standard, which
  * provides 53 bits of precision. (Thus the maximum precisely representable
- * <i>integer</i> is 9,007,199,254,740,992 - or almost 16 decimal digits of precision).
+ * *integer* is 9,007,199,254,740,992 - or almost 16 decimal digits of precision).
  *
  */
 open class PrecisionModel : Comparable<Any?> {
@@ -343,7 +343,7 @@ open class PrecisionModel : Comparable<Any?> {
    * 
    * This method has no effect on NaN values.
    * 
-   * <b>Note:</b> Java's `Math#rint` uses the "Banker's Rounding" algorithm,
+   * **Note:** Java's `Math#rint` uses the "Banker's Rounding" algorithm,
    * which is not suitable for precision operations elsewhere in JTS.
    */
   fun makePrecise(`val`: Double): Double {
@@ -514,7 +514,7 @@ open class PrecisionModel : Comparable<Any?> {
     /**
      *  The maximum precise value representable in a double. Since IEE754
      *  double-precision numbers allow 53 bits of mantissa, the value is equal to
-     *  2^53 - 1.  This provides <i>almost</i> 16 decimal digits of precision.
+     *  2^53 - 1.  This provides *almost* 16 decimal digits of precision.
      */
     const val maximumPreciseValue = 9007199254740992.0
   }

@@ -850,8 +850,8 @@ abstract class Geometry(
   protected abstract fun copyInternal(): Geometry
 
   /**
-   *  Converts this `Geometry` to <b>normal form</b> (or <b>
-   *  canonical form</b> ).
+   *  Converts this `Geometry` to **normal form** (or **
+   *  canonical form** ).
    */
   abstract fun normalize()
 

@@ -14,7 +14,7 @@ package org.locationtech.jts.geom
 import kotlin.jvm.JvmStatic
 
 /**
- * Models a <b>Dimensionally Extended Nine-Intersection Model (DE-9IM)</b> matrix.
+ * Models a **Dimensionally Extended Nine-Intersection Model (DE-9IM)** matrix.
  * DE-9IM matrix values (such as "212FF1FF2")
  * specify the topological relationship between two [Geometry]s.
  * This class can also represent matrix patterns (such as "T*T******")
@@ -35,11 +35,11 @@ import kotlin.jvm.JvmStatic
  * For a description of the DE-9IM and the spatial predicates derived from it,
  * see the following references:
  * 
- * - <i><a href="http://www.opengis.org/techno/specs.htm">
- * OGC 99-049 OpenGIS Simple Features Specification for SQL</a></i>
+ * - *<a href="http://www.opengis.org/techno/specs.htm">
+ * OGC 99-049 OpenGIS Simple Features Specification for SQL</a>*
  * , Section 2.1.13
- * - <i><a href="http://portal.opengeospatial.org/files/?artifact_id=25355">
- * OGC 06-103r4 OpenGIS Implementation Standard for Geographic information - Simple feature access - Part 1: Common architecture</a></i>
+ * - *<a href="http://portal.opengeospatial.org/files/?artifact_id=25355">
+ * OGC 06-103r4 OpenGIS Implementation Standard for Geographic information - Simple feature access - Part 1: Common architecture</a>*
  * , Section 6.1.15 (which provides some further details on certain predicate specifications).
  * 
  * - Wikipedia article on <a href="https://en.wikipedia.org/wiki/DE-9IM">DE-9IM</a>
@@ -394,8 +394,8 @@ open class IntersectionMatrix {
    *  Tests whether the argument dimensions are equal and
    *  this matrix matches the pattern `[T*F**FFF*]`.
    *  
-   *  <b>Note:</b> This pattern differs from the one stated in
-   *  <i>Simple feature access - Part 1: Common architecture</i>.
+   *  **Note:** This pattern differs from the one stated in
+   *  *Simple feature access - Part 1: Common architecture*.
    *  That document states the pattern as `[TFFFTFFFT]`.  This would
    *  specify that
    *  two identical `POINT`s are not equal, which is not desirable behaviour.

@@ -20,13 +20,13 @@ import kotlin.jvm.JvmStatic
  */
 class Position {
   companion object {
-    /** Specifies that a location is <i>on</i> a component */
+    /** Specifies that a location is *on* a component */
     const val ON = 0
 
-    /** Specifies that a location is to the <i>left</i> of a component */
+    /** Specifies that a location is to the *left* of a component */
     const val LEFT = 1
 
-    /** Specifies that a location is to the <i>right</i> of a component */
+    /** Specifies that a location is to the *right* of a component */
     const val RIGHT = 2
 
     /**

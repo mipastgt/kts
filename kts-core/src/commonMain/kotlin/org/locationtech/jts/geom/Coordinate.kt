@@ -510,7 +510,7 @@ open class Coordinate
 
     /**
      * Computes a hash code for a double value, using the algorithm from
-     * Joshua Bloch's book <i>Effective Java"</i>
+     * Joshua Bloch's book *Effective Java"*
      *
      * @param x the value to compute for
      * @return a hashcode for x

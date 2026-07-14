@@ -36,10 +36,10 @@ open class Triangle(
 ) {
 
   /**
-   * Computes the incentre of this triangle. The <i>incentre</i> of a triangle
+   * Computes the incentre of this triangle. The *incentre* of a triangle
    * is the point which is equidistant from the sides of the triangle. It is
    * also the point at which the bisectors of the triangle's angles meet. It is
-   * the centre of the triangle's <i>incircle</i>, which is the unique circle
+   * the centre of the triangle's *incircle*, which is the unique circle
    * that is tangent to each of the triangle's three sides.
    *
    * @return the point which is the inCentre of this triangle
@@ -81,8 +81,8 @@ open class Triangle(
    * The circumcentre does not necessarily lie within the triangle.
    * 
    * This method uses an algorithm due to J.R.Shewchuk which uses normalization
-   * to the origin to improve the accuracy of computation. (See <i>Lecture Notes
-   * on Geometric Robustness</i>, Jonathan Richard Shewchuk, 1999).
+   * to the origin to improve the accuracy of computation. (See *Lecture Notes
+   * on Geometric Robustness*, Jonathan Richard Shewchuk, 1999).
    *
    * @return the circumcentre of this triangle
    */
@@ -303,8 +303,8 @@ open class Triangle(
      * the circumcentre of an obtuse isosceles triangle lies outside the triangle.
      * 
      * This method uses an algorithm due to J.R.Shewchuk which uses normalization
-     * to the origin to improve the accuracy of computation. (See <i>Lecture Notes
-     * on Geometric Robustness</i>, Jonathan Richard Shewchuk, 1999).
+     * to the origin to improve the accuracy of computation. (See *Lecture Notes
+     * on Geometric Robustness*, Jonathan Richard Shewchuk, 1999).
      *
      * @param a
      *          a vertex of the triangle
@@ -392,10 +392,10 @@ open class Triangle(
     }
 
     /**
-     * Computes the incentre of a triangle. The <i>inCentre</i> of a triangle is
+     * Computes the incentre of a triangle. The *inCentre* of a triangle is
      * the point which is equidistant from the sides of the triangle. It is also
      * the point at which the bisectors of the triangle's angles meet. It is the
-     * centre of the triangle's <i>incircle</i>, which is the unique circle that
+     * centre of the triangle's *incircle*, which is the unique circle that
      * is tangent to each of the triangle's three sides.
      * 
      * The incentre always lies within the triangle.

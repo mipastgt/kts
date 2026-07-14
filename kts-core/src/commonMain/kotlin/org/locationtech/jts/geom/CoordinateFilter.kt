@@ -19,7 +19,7 @@ package org.locationtech.jts.geom
  * `CoordinateFilter` is
  * an example of the Gang-of-Four Visitor pattern.
  * 
- * <b>Note</b>: it is not recommended to use these filters to mutate the coordinates.
+ * **Note**: it is not recommended to use these filters to mutate the coordinates.
  * There is no guarantee that the coordinate is the actual object stored in the source geometry.
  * In particular, modified values may not be preserved if the source Geometry uses a non-default [CoordinateSequence].
  * If in-place mutation is required, use [CoordinateSequenceFilter].

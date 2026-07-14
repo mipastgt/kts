@@ -585,7 +585,7 @@ open class Envelope : Comparable<Any?> {
    * Tests if the `Envelope other`
    * lies wholely inside this `Envelope` (inclusive of the boundary).
    * 
-   * Note that this is <b>not</b> the same definition as the SFS `contains`,
+   * Note that this is **not** the same definition as the SFS `contains`,
    * which would exclude the envelope boundary.
    *
    * @param  other the `Envelope` to check
@@ -600,7 +600,7 @@ open class Envelope : Comparable<Any?> {
   /**
    * Tests if the given point lies in or on the envelope.
    * 
-   * Note that this is <b>not</b> the same definition as the SFS `contains`,
+   * Note that this is **not** the same definition as the SFS `contains`,
    * which would exclude the envelope boundary.
    *
    * @param  p  the point which this `Envelope` is
@@ -617,7 +617,7 @@ open class Envelope : Comparable<Any?> {
   /**
    * Tests if the given point lies in or on the envelope.
    * 
-   * Note that this is <b>not</b> the same definition as the SFS `contains`,
+   * Note that this is **not** the same definition as the SFS `contains`,
    * which would exclude the envelope boundary.
    *
    * @param  x  the x-coordinate of the point which this `Envelope` is

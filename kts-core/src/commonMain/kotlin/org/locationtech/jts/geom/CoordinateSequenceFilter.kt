@@ -27,7 +27,7 @@ package org.locationtech.jts.geom
  *  `CoordinateSequenceFilter` is
  *  an example of the Gang-of-Four Visitor pattern.
  *  
- * <b>Note</b>: In general, it is preferable to treat Geometrys as immutable.
+ * **Note**: In general, it is preferable to treat Geometrys as immutable.
  * Mutation should be performed by creating a new Geometry object (see [GeometryEditor]
  * and [GeometryTransformer] for convenient ways to do this).
  * An exception to this rule is when a new Geometry has been created via [Geometry.copy].

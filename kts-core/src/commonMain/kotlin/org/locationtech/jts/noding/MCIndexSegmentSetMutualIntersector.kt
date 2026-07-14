@@ -85,7 +85,7 @@ class MCIndexSegmentSetMutualIntersector : SegmentSetMutualIntersector {
 
   /**
    * Calls [SegmentIntersector.processIntersections]
-   * for all <i>candidate</i> intersections between
+   * for all *candidate* intersections between
    * the given collection of SegmentStrings and the set of indexed segments.
    *
    * @param segStrings set of segments to intersect
