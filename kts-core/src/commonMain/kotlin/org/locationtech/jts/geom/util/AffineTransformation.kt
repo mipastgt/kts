@@ -65,7 +65,7 @@ open class AffineTransformation : CoordinateSequenceFilter {
    *
    * @param matrix an array containing the 6 values { m00, m01, m02, m10, m11, m12 }
    * @throws NullPointerException if matrix is null
-   * @throws ArrayIndexOutOfBoundsException if matrix is too small
+   * @throws IndexOutOfBoundsException if matrix is too small
    */
   constructor(matrix: DoubleArray) {
     m00 = matrix[0]

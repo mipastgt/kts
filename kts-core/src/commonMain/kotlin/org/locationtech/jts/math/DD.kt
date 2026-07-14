@@ -1007,8 +1007,8 @@ class DD : Comparable<Any?> {
    * (as long as its position lies within the extracted digits
    * - if not, the caller must prepend or append the appropriate zeroes and decimal point).
    *
-   * @param y the number to extract ( >= 0)
-   * @param decimalPointPos the position in which to insert a decimal point
+   * @param insertDecimalPoint whether to insert a decimal point into the digit string
+   * @param magnitude an array of length 1 in which the decimal magnitude of the value is returned
    * @return the string containing the significant digits and possibly a decimal point
    */
   private fun extractSignificantDigits(insertDecimalPoint: Boolean, magnitude: IntArray): String {

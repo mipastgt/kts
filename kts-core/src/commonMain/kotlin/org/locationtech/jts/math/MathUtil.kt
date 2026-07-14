@@ -210,7 +210,7 @@ class MathUtil {
     /**
      * Generates a randomly-shuffled list of the integers from [0..n-1].
      * 
-     * One use is to randomize points inserted into a [KDtree].
+     * One use is to randomize points inserted into a [org.locationtech.jts.index.kdtree.KdTree].
      *
      * @param n the number of integers to shuffle
      * @return the shuffled array

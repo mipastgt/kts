@@ -50,7 +50,7 @@ import org.locationtech.jts.noding.SegmentString
 /**
  * Creates a new hole joiner.
  *
- * @param polygon the polygon to join
+ * @param inputPolygon the polygon to join
  */
 class PolygonHoleJoiner(private val inputPolygon: Polygon) {
 

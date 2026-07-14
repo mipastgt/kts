@@ -194,7 +194,7 @@ open class STRtree : AbstractSTRtree, SpatialIndex {
   }
 
   /**
-   * Finds the item in this tree which is nearest to the given [Object],
+   * Finds the item in this tree which is nearest to the given item,
    * using [ItemDistance] as the distance metric.
    *
    * @return the nearest item in this tree

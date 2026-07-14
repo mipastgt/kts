@@ -138,7 +138,7 @@ open class Vertex {
     /**
      * Computes the scalar product c(v)
      *
-     * @param v a vertex
+     * @param c the scalar factor
      * @return returns the scaled vector
      */
     private fun times(c: Double): Vertex {

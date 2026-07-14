@@ -45,7 +45,7 @@ import org.locationtech.jts.util.Assert
  * JTS also supports a non-standard `LINEARRING` tag which is used
  * to output LinearRings.
  *
- * Note: the [Writer] overloads of [write]/[writeFormatted] are the JVM (Phase-1) streaming
+ * Note: the `Writer` overloads of [write]/[writeFormatted] are the JVM (Phase-1) streaming
  * surface; the multiplatform-common API uses the `String`-returning forms (backed internally
  * by a [StringBuilder]).
  *
