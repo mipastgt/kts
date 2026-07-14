@@ -32,7 +32,6 @@ import org.locationtech.jts.io.WKTWriter
  * For read-only applications use [BasicSegmentString],
  * which is (slightly) more lightweight.
  *
- * @version 1.7
  * @see BasicSegmentString
  */
 class NodedSegmentString : NodableSegmentString {

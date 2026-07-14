@@ -23,7 +23,6 @@ import org.locationtech.jts.geom.Coordinate
  * This class is used primarily for Snap-Rounding.
  * For general-purpose noding, use [IntersectionAdder].
  *
- * @version 1.7
  * @see IntersectionAdder
  */
 class InteriorIntersectionFinderAdder

@@ -21,7 +21,6 @@ import org.locationtech.jts.geom.Coordinate
  * Finds non-noded intersections in a set of [SegmentString]s,
  * if any exist.
  *
- * @version 1.7
  */
 class NodingIntersectionFinder
 /**

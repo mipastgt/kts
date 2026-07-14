@@ -15,7 +15,6 @@ package org.locationtech.jts.noding
  * Intersects two sets of [SegmentString]s using
  * brute-force comparison.
  *
- * @version 1.7
  */
 class SimpleSegmentSetMutualIntersector
 /**

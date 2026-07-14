@@ -18,7 +18,6 @@ import org.locationtech.jts.geom.Coordinate
 /**
  * Represents an intersection point between two [SegmentString]s.
  *
- * @version 1.7
  */
 class SegmentNode(
   private val segString: NodedSegmentString,

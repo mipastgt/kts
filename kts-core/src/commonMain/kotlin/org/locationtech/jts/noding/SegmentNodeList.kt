@@ -20,7 +20,6 @@ import org.locationtech.jts.util.Assert
 /**
  * A list of the [SegmentNode]s present along a noded [SegmentString].
  *
- * @version 1.7
  */
 class SegmentNodeList(private val edge: NodedSegmentString) {
   private val nodeMap: TreeMap<SegmentNode, SegmentNode> = TreeMap()

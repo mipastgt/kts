@@ -20,7 +20,6 @@ import org.locationtech.jts.geom.GeometryFactory
  * Validates that a collection of [SegmentString]s is correctly noded.
  * Throws an appropriate exception if an noding error is found.
  *
- * @version 1.7
  */
 class NodingValidator(private val segStrings: Collection<*>) {
 

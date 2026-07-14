@@ -23,7 +23,6 @@ import org.locationtech.jts.geom.Coordinate
  * but searching will continue until either a proper intersection has been found
  * or no intersections are detected.
  *
- * @version 1.7
  */
 class SegmentIntersectionDetector
 /**

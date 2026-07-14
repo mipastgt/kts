@@ -24,7 +24,6 @@ import org.locationtech.jts.index.strtree.STRtree
  *
  * Thread-safe and immutable.
  *
- * @version 1.7
  */
 class MCIndexSegmentSetMutualIntersector : SegmentSetMutualIntersector {
   /**

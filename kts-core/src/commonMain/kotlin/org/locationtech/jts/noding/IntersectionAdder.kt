@@ -23,7 +23,6 @@ import org.locationtech.jts.geom.Coordinate
  * and adds them to each string
  * using [NodedSegmentString.addIntersection].
  *
- * @version 1.7
  */
 class IntersectionAdder(li: LineIntersector) : SegmentIntersector {
 

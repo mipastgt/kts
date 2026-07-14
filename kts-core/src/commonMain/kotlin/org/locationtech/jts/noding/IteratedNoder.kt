@@ -28,7 +28,6 @@ import org.locationtech.jts.geom.TopologyException
  * This problem is detected and an exception is thrown.
  * Clients can choose to rerun the noding using a lower precision model.
  *
- * @version 1.7
  */
 class IteratedNoder(pm: PrecisionModel) : Noder {
 

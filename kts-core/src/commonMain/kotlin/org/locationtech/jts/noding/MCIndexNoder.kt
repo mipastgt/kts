@@ -22,7 +22,6 @@ import org.locationtech.jts.index.hprtree.HPRtree
  * Nodes a set of [SegmentString]s using a index based
  * on [MonotoneChain]s and a [SpatialIndex].
  *
- * @version 1.7
  */
 class MCIndexNoder : SinglePassNoder {
   private val monoChains: MutableList<MonotoneChain> = ArrayList()

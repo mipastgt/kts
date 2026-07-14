@@ -22,7 +22,6 @@ package org.locationtech.jts.noding
  * [isDone] method.
  * This class is an example of the *Strategy* pattern.
  *
- * @version 1.7
  */
 interface SegmentIntersector {
   /**

@@ -24,7 +24,6 @@ import org.locationtech.jts.io.WKTWriter
  *
  * If adding nodes is required use [NodedSegmentString].
  *
- * @version 1.7
  * @see NodedSegmentString
  */
 open class BasicSegmentString

@@ -19,7 +19,6 @@ import org.locationtech.jts.geom.CoordinateArrays
  * in an orientation-independent way.
  *
  * @author Martin Davis
- * @version 1.7
  */
 class OrientedCoordinateArray
 /**
