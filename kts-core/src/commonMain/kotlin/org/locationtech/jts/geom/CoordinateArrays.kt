@@ -19,12 +19,11 @@ import org.locationtech.jts.math.MathUtil
 /**
  * Useful utility functions for handling Coordinate arrays
  *
- * @version 1.7
  */
 class CoordinateArrays private constructor() {
 
   /**
-   * A {@link Comparator} for {@link Coordinate} arrays
+   * A [Comparator] for [Coordinate] arrays
    * in the forward direction of their coordinates,
    * using lexicographic ordering.
    */
@@ -40,7 +39,7 @@ class CoordinateArrays private constructor() {
   }
 
   /**
-   * A {@link Comparator} for {@link Coordinate} arrays
+   * A [Comparator] for [Coordinate] arrays
    * modulo their directionality.
    * E.g. if two coordinate arrays are identical but reversed
    * they will compare as equal under this ordering.
@@ -96,7 +95,7 @@ class CoordinateArrays private constructor() {
 
   companion object {
     /**
-     * Determine dimension based on subclass of {@link Coordinate}.
+     * Determine dimension based on subclass of [Coordinate].
      *
      * @param pts supplied coordinates
      * @return number of ordinates recorded
@@ -114,7 +113,7 @@ class CoordinateArrays private constructor() {
     }
 
     /**
-     * Determine number of measures based on subclass of {@link Coordinate}.
+     * Determine number of measures based on subclass of [Coordinate].
      *
      * @param pts supplied coordinates
      * @return number of measures recorded
@@ -133,11 +132,11 @@ class CoordinateArrays private constructor() {
 
     /**
      * Utility method ensuring array contents are of consistent dimension and measures.
-     * <p>
+     * 
      * Array is modified in place if required, coordinates are replaced in the array as required
      * to ensure all coordinates have the same dimension and measures. The final dimension and
      * measures used are the maximum found when checking the array.
-     * </p>
+     * 
      *
      * @param array Modified in place to coordinates of consistent dimension and measures.
      */
@@ -185,10 +184,10 @@ class CoordinateArrays private constructor() {
 
     /**
      * Utility method ensuring array contents are of the specified dimension and measures.
-     * <p>
+     * 
      * Array is returned unmodified if consistent, or a copy of the array is made with
      * each inconsistent coordinate duplicated into an instance of the correct dimension and measures.
-     * </p></>
+     * </>
      *
      * @param array coordinate array
      * @param dimension
@@ -226,7 +225,7 @@ class CoordinateArrays private constructor() {
     }
 
     /**
-     * Tests whether an array of {@link Coordinate}s forms a ring,
+     * Tests whether an array of [Coordinate]s forms a ring,
      * by checking length and closure.
      * Self-intersection is not checked.
      *
@@ -243,10 +242,10 @@ class CoordinateArrays private constructor() {
     /**
      * Finds a point in a list of points which is not contained in another list of points
      *
-     * @param testPts the {@link Coordinate}s to test
-     * @param pts     an array of {@link Coordinate}s to test the input points against
-     * @return a {@link Coordinate} from <code>testPts</code> which is not in <code>pts</code>, '
-     * or <code>null</code>
+     * @param testPts the [Coordinate]s to test
+     * @param pts     an array of [Coordinate]s to test the input points against
+     * @return a [Coordinate] from `testPts` which is not in `pts`, '
+     * or `null`
      */
     @JvmStatic
     fun ptNotInList(testPts: Array<Coordinate>, pts: Array<Coordinate>): Coordinate? {
@@ -259,7 +258,7 @@ class CoordinateArrays private constructor() {
     }
 
     /**
-     * Compares two {@link Coordinate} arrays
+     * Compares two [Coordinate] arrays
      * in the forward direction of their coordinates,
      * using lexicographic ordering.
      *
@@ -284,18 +283,18 @@ class CoordinateArrays private constructor() {
     }
 
     /**
-     * Determines which orientation of the {@link Coordinate} array
+     * Determines which orientation of the [Coordinate] array
      * is (overall) increasing.
      * In other words, determines which end of the array is "smaller"
-     * (using the standard ordering on {@link Coordinate}).
+     * (using the standard ordering on [Coordinate]).
      * Returns an integer indicating the increasing direction.
      * If the sequence is a palindrome, it is defined to be
      * oriented in a positive direction.
      *
      * @param pts the array of Coordinates to test
-     * @return <code>1</code> if the array is smaller at the start
+     * @return `1` if the array is smaller at the start
      * or is a palindrome,
-     * <code>-1</code> if smaller at the end
+     * `-1` if smaller at the end
      */
     @JvmStatic
     fun increasingDirection(pts: Array<Coordinate>): Int {
@@ -311,12 +310,12 @@ class CoordinateArrays private constructor() {
     }
 
     /**
-     * Determines whether two {@link Coordinate} arrays of equal length
+     * Determines whether two [Coordinate] arrays of equal length
      * are equal in opposite directions.
      *
      * @param pts1
      * @param pts2
-     * @return <code>true</code> if the two arrays are equal in opposite directions.
+     * @return `true` if the two arrays are equal in opposite directions.
      */
     private fun isEqualReversed(pts1: Array<Coordinate>, pts2: Array<Coordinate>): Boolean {
       for (i in 0 until pts1.size) {
@@ -329,7 +328,7 @@ class CoordinateArrays private constructor() {
     }
 
     /**
-     * Creates a deep copy of the argument {@link Coordinate} array.
+     * Creates a deep copy of the argument [Coordinate] array.
      *
      * @param coordinates an array of Coordinates
      * @return a deep copy of the input
@@ -345,7 +344,7 @@ class CoordinateArrays private constructor() {
     }
 
     /**
-     * Creates a deep copy of a given section of a source {@link Coordinate} array
+     * Creates a deep copy of a given section of a source [Coordinate] array
      * into a destination Coordinate array.
      * The destination array must be an appropriate size to receive
      * the copied coordinates.
@@ -372,7 +371,7 @@ class CoordinateArrays private constructor() {
     }
 
     /**
-     * Tests whether {@link Coordinate#equals(Object)} returns true for any two consecutive Coordinates
+     * Tests whether [Coordinate.equals] returns true for any two consecutive Coordinates
      * in the given array.
      *
      * @param coord an array of coordinates
@@ -513,7 +512,7 @@ class CoordinateArrays private constructor() {
 
     /**
      * Returns true if the two arrays are identical, both null, or pointwise
-     * equal, using a user-defined {@link Comparator} for {@link Coordinate} s
+     * equal, using a user-defined [Comparator] for [Coordinate] s
      *
      * @param coord1               an array of Coordinates
      * @param coord2               an array of Coordinates
@@ -539,7 +538,7 @@ class CoordinateArrays private constructor() {
      * Returns the minimum coordinate, using the usual lexicographic comparison.
      *
      * @param coordinates the array to search
-     * @return the minimum coordinate in the array, found using <code>compareTo</code>
+     * @return the minimum coordinate in the array, found using `compareTo`
      * @see Coordinate#compareTo(Coordinate)
      */
     @JvmStatic
@@ -554,7 +553,7 @@ class CoordinateArrays private constructor() {
     }
 
     /**
-     * Shifts the positions of the coordinates until <code>firstCoordinate</code>
+     * Shifts the positions of the coordinates until `firstCoordinate`
      * is first.
      *
      * @param coordinates     the array to rearrange
@@ -568,7 +567,7 @@ class CoordinateArrays private constructor() {
 
     /**
      * Shifts the positions of the coordinates until the coordinate
-     * at <code>firstCoordinate</code> is first.
+     * at `firstCoordinate` is first.
      *
      * @param coordinates            the array to rearrange
      * @param indexOfFirstCoordinate the index of the coordinate to make first
@@ -580,9 +579,9 @@ class CoordinateArrays private constructor() {
 
     /**
      * Shifts the positions of the coordinates until the coordinate
-     * at <code>indexOfFirstCoordinate</code> is first.
+     * at `indexOfFirstCoordinate` is first.
      * <p/>
-     * If {@code ensureRing} is {@code true}, first and last
+     * If `ensureRing` is `true`, first and last
      * coordinate of the returned array are equal.
      *
      * @param coordinates            the array to rearrange
@@ -616,12 +615,12 @@ class CoordinateArrays private constructor() {
     }
 
     /**
-     * Returns the index of <code>coordinate</code> in <code>coordinates</code>.
+     * Returns the index of `coordinate` in `coordinates`.
      * The first position is 0; the second, 1; etc.
      *
-     * @param coordinate  the <code>Coordinate</code> to search for
+     * @param coordinate  the `Coordinate` to search for
      * @param coordinates the array to search
-     * @return the position of <code>coordinate</code>, or -1 if it is
+     * @return the position of `coordinate`, or -1 if it is
      * not found
      */
     @JvmStatic
@@ -635,9 +634,9 @@ class CoordinateArrays private constructor() {
     }
 
     /**
-     * Extracts a subsequence of the input {@link Coordinate} array
-     * from indices <code>start</code> to
-     * <code>end</code> (inclusive).
+     * Extracts a subsequence of the input [Coordinate] array
+     * from indices `start` to
+     * `end` (inclusive).
      * The input indices are clamped to the array size;
      * If the end index is less than the start index,
      * the extracted array will be empty.
@@ -684,7 +683,7 @@ class CoordinateArrays private constructor() {
     }
 
     /**
-     * Extracts the coordinates which intersect an {@link Envelope}.
+     * Extracts the coordinates which intersect an [Envelope].
      *
      * @param coordinates the coordinates to scan
      * @param env         the envelope to intersect with

@@ -15,10 +15,10 @@ import kotlin.jvm.JvmField
 
 /**
  * Coordinate subclass supporting XYM ordinates.
- * <p>
- * This data object is suitable for use with coordinate sequences with <tt>dimension</tt> = 3 and <tt>measures</tt> = 1.
- * <p>
- * The {@link Coordinate#z} field is visible, but intended to be ignored.
+ * 
+ * This data object is suitable for use with coordinate sequences with `dimension` = 3 and `measures` = 1.
+ * 
+ * The [Coordinate.z] field is visible, but intended to be ignored.
  *
  * @since 1.16
  */
@@ -142,8 +142,8 @@ open class CoordinateXYM : Coordinate {
     /**
      * Standard ordinate index value for M in XYM sequences.
      *
-     * <p>This constant assumes XYM coordinate sequence definition.  Check this assumption using
-     * {@link CoordinateSequence#getDimension()} and {@link CoordinateSequence#getMeasures()} before use.
+     * This constant assumes XYM coordinate sequence definition.  Check this assumption using
+     * [CoordinateSequence.getDimension] and [CoordinateSequence.getMeasures] before use.
      */
     const val M = 2
   }

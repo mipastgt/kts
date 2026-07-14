@@ -19,15 +19,15 @@ import kotlin.math.ln
 import kotlin.math.roundToLong
 
 /**
- * Specifies the precision model of the {@link Coordinate}s in a {@link Geometry}.
- * In other words, specifies the grid of allowable points for a <code>Geometry</code>.
- * A precision model may be <b>floating</b> ({@link #FLOATING} or {@link #FLOATING_SINGLE}),
+ * Specifies the precision model of the [Coordinate]s in a [Geometry].
+ * In other words, specifies the grid of allowable points for a `Geometry`.
+ * A precision model may be <b>floating</b> ([FLOATING] or [FLOATING_SINGLE]),
  * in which case normal floating-point value semantics apply.
- * <p>
- * For a {@link #FIXED} precision model the {@link #makePrecise(Coordinate)} method allows rounding a coordinate to
+ * 
+ * For a [FIXED] precision model the [makePrecise] method allows rounding a coordinate to
  * a "precise" value; that is, one whose
  *  precision is known exactly.
- *<p>
+ *
  * Coordinates are assumed to be precise in geometries.
  * That is, the coordinates are assumed to be rounded to the
  * precision model given for the geometry.
@@ -35,13 +35,13 @@ import kotlin.math.roundToLong
  * assume that coordinates are rounded to the precision model.
  * Constructive methods (such as boolean operations) always round computed
  * coordinates to the appropriate precision model.
- * <p>
+ * 
  * Three types of precision model are supported:
- * <ul>
- * <li>FLOATING - represents full double precision floating point.
+ * 
+ * - FLOATING - represents full double precision floating point.
  * This is the default precision model used in JTS
- * <li>FLOATING_SINGLE - represents single precision floating point.
- * <li>FIXED - represents a model with a fixed number of decimal places.
+ * - FLOATING_SINGLE - represents single precision floating point.
+ * - FIXED - represents a model with a fixed number of decimal places.
  *  A Fixed Precision Model is specified by a <b>scale factor</b>.
  *  The scale factor specifies the size of the grid which numbers are rounded to.
  *  Input coordinates are mapped to fixed coordinates according to the following
@@ -50,23 +50,22 @@ import kotlin.math.roundToLong
  *      <LI> jtsPt.x = round( (inputPt.x * scale ) / scale
  *      <LI> jtsPt.y = round( (inputPt.y * scale ) / scale
  *    </UL>
- * </ul>
+ * 
  * For example, to specify 3 decimal places of precision, use a scale factor
  * of 1000. To specify -3 decimal places of precision (i.e. rounding to
  * the nearest 1000), use a scale factor of 0.001.
- * <p>
+ * 
  * It is also supported to specify a precise <b>grid size</b>
  * by providing it as a negative scale factor.
  * This allows setting a precise grid size rather than using a fractional scale,
  * which provides more accurate and robust rounding.
  * For example, to specify rounding to the nearest 1000 use a scale factor of -1000.
- * <p>
+ * 
  * Coordinates are represented internally as Java double-precision values.
  * Java uses the IEEE-394 floating point standard, which
  * provides 53 bits of precision. (Thus the maximum precisely representable
  * <i>integer</i> is 9,007,199,254,740,992 - or almost 16 decimal digits of precision).
  *
- * @version 1.7
  */
 open class PrecisionModel : Comparable<Any?> {
 
@@ -88,7 +87,7 @@ open class PrecisionModel : Comparable<Any?> {
   private var gridSize = 0.0
 
   /**
-   * Creates a <code>PrecisionModel</code> with a default precision
+   * Creates a `PrecisionModel` with a default precision
    * of FLOATING.
    */
   constructor() {
@@ -97,7 +96,7 @@ open class PrecisionModel : Comparable<Any?> {
   }
 
   /**
-   * Creates a <code>PrecisionModel</code> that specifies
+   * Creates a `PrecisionModel` that specifies
    * an explicit precision model type.
    * If the model type is FIXED the scale factor will default to 1.
    *
@@ -111,7 +110,7 @@ open class PrecisionModel : Comparable<Any?> {
   }
 
   /**
-   *  Creates a <code>PrecisionModel</code> that specifies Fixed precision.
+   *  Creates a `PrecisionModel` that specifies Fixed precision.
    *  Fixed-precision coordinates are represented as precise internal coordinates,
    *  which are rounded to the grid defined by the scale factor.
    *
@@ -128,7 +127,7 @@ open class PrecisionModel : Comparable<Any?> {
   }
 
   /**
-   *  Creates a <code>PrecisionModel</code> that specifies Fixed precision.
+   *  Creates a `PrecisionModel` that specifies Fixed precision.
    *  Fixed-precision coordinates are represented as precise internal coordinates,
    *  which are rounded to the grid defined by the scale factor.
    *  The provided scale may be negative, to specify an exact grid size.
@@ -143,7 +142,7 @@ open class PrecisionModel : Comparable<Any?> {
   }
 
   /**
-   *  Copy constructor to create a new <code>PrecisionModel</code>
+   *  Copy constructor to create a new `PrecisionModel`
    *  from an existing one.
    */
   constructor(pm: PrecisionModel) {
@@ -154,7 +153,7 @@ open class PrecisionModel : Comparable<Any?> {
 
   /**
    * Tests whether the precision model supports floating point
-   * @return <code>true</code> if the precision model supports floating point
+   * @return `true` if the precision model supports floating point
    */
   fun isFloating(): Boolean {
     return modelType === FLOATING || modelType === FLOATING_SINGLE
@@ -164,14 +163,14 @@ open class PrecisionModel : Comparable<Any?> {
    * Returns the maximum number of significant digits provided by this
    * precision model.
    * Intended for use by routines which need to print out
-   * decimal representations of precise values (such as {@link WKTWriter}).
-   * <p>
+   * decimal representations of precise values (such as [WKTWriter]).
+   * 
    * This method would be more correctly called
-   * <tt>getMinimumDecimalPlaces</tt>,
+   * `getMinimumDecimalPlaces`,
    * since it actually computes the number of decimal places
    * that is required to correctly display the full
    * precision of an ordinate value.
-   * <p>
+   * 
    * Since it is difficult to compute the required number of
    * decimal places for scale factors which are not powers of 10,
    * the algorithm uses a very rough approximation in this case.
@@ -278,11 +277,11 @@ open class PrecisionModel : Comparable<Any?> {
   }
 
   /**
-   *  Sets <code>internal</code> to the precise representation of <code>external</code>.
+   *  Sets `internal` to the precise representation of `external`.
    *
    * @param external the original coordinate
    * @param internal the coordinate whose values will be changed to the
-   *                 precise representation of <code>external</code>
+   *                 precise representation of `external`
    * @deprecated use makePrecise instead
    */
   fun toInternal(external: Coordinate, internal: Coordinate) {
@@ -297,11 +296,11 @@ open class PrecisionModel : Comparable<Any?> {
   }
 
   /**
-   *  Returns the precise representation of <code>external</code>.
+   *  Returns the precise representation of `external`.
    *
    * @param  external  the original coordinate
    * @return           the coordinate whose values will be changed to the precise
-   *      representation of <code>external</code>
+   *      representation of `external`
    * @deprecated use makePrecise instead
    */
   fun toInternal(external: Coordinate): Coordinate {
@@ -311,11 +310,11 @@ open class PrecisionModel : Comparable<Any?> {
   }
 
   /**
-   *  Returns the external representation of <code>internal</code>.
+   *  Returns the external representation of `internal`.
    *
    * @param  internal  the original coordinate
    * @return           the coordinate whose values will be changed to the
-   *      external representation of <code>internal</code>
+   *      external representation of `internal`
    * @deprecated no longer needed, since internal representation is same as external representation
    */
   fun toExternal(internal: Coordinate): Coordinate {
@@ -324,11 +323,11 @@ open class PrecisionModel : Comparable<Any?> {
   }
 
   /**
-   *  Sets <code>external</code> to the external representation of <code>internal</code>.
+   *  Sets `external` to the external representation of `internal`.
    *
    * @param  internal  the original coordinate
    * @param  external  the coordinate whose values will be changed to the
-   *      external representation of <code>internal</code>
+   *      external representation of `internal`
    * @deprecated no longer needed, since internal representation is same as external representation
    */
   fun toExternal(internal: Coordinate, external: Coordinate) {
@@ -341,10 +340,10 @@ open class PrecisionModel : Comparable<Any?> {
    * Asymmetric Arithmetic Rounding is used, to provide
    * uniform rounding behaviour no matter where the number is
    * on the number line.
-   * <p>
+   * 
    * This method has no effect on NaN values.
-   * <p>
-   * <b>Note:</b> Java's <code>Math#rint</code> uses the "Banker's Rounding" algorithm,
+   * 
+   * <b>Note:</b> Java's `Math#rint` uses the "Banker's Rounding" algorithm,
    * which is not suitable for precision operations elsewhere in JTS.
    */
   fun makePrecise(`val`: Double): Double {
@@ -412,17 +411,17 @@ open class PrecisionModel : Comparable<Any?> {
   }
 
   /**
-   *  Compares this {@link PrecisionModel} object with the specified object for order.
+   *  Compares this [PrecisionModel] object with the specified object for order.
    * A PrecisionModel is greater than another if it provides greater precision.
    * The comparison is based on the value returned by the
-   * {@link #getMaximumSignificantDigits} method.
+   * [getMaximumSignificantDigits] method.
    * This comparison is not strictly accurate when comparing floating precision models
    * to fixed models; however, it is correct when both models are either floating or fixed.
    *
-   * @param  o  the <code>PrecisionModel</code> with which this <code>PrecisionModel</code>
+   * @param  o  the `PrecisionModel` with which this `PrecisionModel`
    *      is being compared
-   * @return    a negative integer, zero, or a positive integer as this <code>PrecisionModel</code>
-   *      is less than, equal to, or greater than the specified <code>PrecisionModel</code>
+   * @return    a negative integer, zero, or a positive integer as this `PrecisionModel`
+   *      is less than, equal to, or greater than the specified `PrecisionModel`
    */
   override fun compareTo(o: Any?): Int {
     val other = o as PrecisionModel
@@ -474,7 +473,7 @@ open class PrecisionModel : Comparable<Any?> {
 
   companion object {
     /**
-     * Determines which of two {@link PrecisionModel}s is the most precise
+     * Determines which of two [PrecisionModel]s is the most precise
      * (allows the greatest number of significant digits).
      *
      * @param pm1 a PrecisionModel

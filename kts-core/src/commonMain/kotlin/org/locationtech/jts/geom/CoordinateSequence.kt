@@ -13,53 +13,52 @@ package org.locationtech.jts.geom
 
 /**
  * The internal representation of a list of coordinates inside a Geometry.
- * <p>
+ * 
  * This allows Geometries to store their
- * points using something other than the JTS {@link Coordinate} class.
+ * points using something other than the JTS [Coordinate] class.
  * For example, a storage-efficient implementation
  * might store coordinate sequences as an array of x's
  * and an array of y's.
  * Or a custom coordinate class might support extra attributes like M-values.
- * <p>
+ * 
  * Implementing a custom coordinate storage structure
- * requires implementing the {@link CoordinateSequence} and
- * {@link CoordinateSequenceFactory} interfaces.
+ * requires implementing the [CoordinateSequence] and
+ * [CoordinateSequenceFactory] interfaces.
  * To use the custom CoordinateSequence, create a
- * new {@link GeometryFactory} parameterized by the CoordinateSequenceFactory
- * The {@link GeometryFactory} can then be used to create new {@link Geometry}s.
+ * new [GeometryFactory] parameterized by the CoordinateSequenceFactory
+ * The [GeometryFactory] can then be used to create new [Geometry]s.
  * The new Geometries
  * will use the custom CoordinateSequence implementation.
- * <p>
+ * 
  * For an example, see the code for ExtendedCoordinateExample.
  *
  * @see CoordinateArraySequenceFactory
  * @see PackedCoordinateSequenceFactory
  *
- * @version 1.7
  */
 interface CoordinateSequence {
 
   /**
    * Returns the dimension (number of ordinates in each coordinate) for this sequence.
    *
-   * <p>This total includes any measures, indicated by non-zero {@link #getMeasures()}.
+   * This total includes any measures, indicated by non-zero [getMeasures].
    *
    * @return the dimension of the sequence.
    */
   fun getDimension(): Int
 
   /**
-   * Returns the number of measures included in {@link #getDimension()} for each coordinate for this
+   * Returns the number of measures included in [getDimension] for each coordinate for this
    * sequence.
    *
    * For a measured coordinate sequence a non-zero value is returned.
-   * <ul>
-   * <li>For XY sequence measures is zero</li>
-   * <li>For XYM sequence measure is one<li>
-   * <li>For XYZ sequence measure is zero</li>
-   * <li>For XYZM sequence measure is one</li>
-   * <li>Values greater than one are supported</li>
-   * </ul>
+   * 
+   * - For XY sequence measures is zero
+   * - For XYM sequence measure is one- 
+   * - For XYZ sequence measure is zero
+   * - For XYZM sequence measure is one
+   * - Values greater than one are supported
+   * 
    *
    * @return the number of measures included in dimension
    */
@@ -68,10 +67,10 @@ interface CoordinateSequence {
   }
 
   /**
-   * Checks {@link #getDimension()} and {@link #getMeasures()} to determine if {@link #getZ(int)}
+   * Checks [getDimension] and [getMeasures] to determine if [getZ]
    * is supported.
    *
-   * @return true if {@link #getZ(int)} is supported.
+   * @return true if [getZ] is supported.
    */
   fun hasZ(): Boolean {
     return (getDimension() - getMeasures()) > 2
@@ -79,10 +78,10 @@ interface CoordinateSequence {
 
   /**
    * Tests whether the coordinates in the sequence have measures associated with them. Returns true
-   * if {@link #getMeasures()} {@code > 0}. See {@link #getMeasures()} to determine the number of measures
+   * if [getMeasures] `> 0`. See [getMeasures] to determine the number of measures
    * present.
    *
-   * @return true if {@link #getM(int)} is supported.
+   * @return true if [getM] is supported.
    *
    * @see #getMeasures()
    * @see #getM(int)
@@ -93,10 +92,10 @@ interface CoordinateSequence {
 
   /**
    * Creates a coordinate for use in this sequence.
-   * <p>
-   * The coordinate is created supporting the same number of {@link #getDimension()} and {@link #getMeasures()}
-   * as this sequence and is suitable for use with {@link #getCoordinate(int, Coordinate)}.
-   * </p>
+   * 
+   * The coordinate is created supporting the same number of [getDimension] and [getMeasures]
+   * as this sequence and is suitable for use with [getCoordinate].
+   * 
    * @return coordinate for use with this sequence
    */
   fun createCoordinate(): Coordinate {
@@ -107,7 +106,7 @@ interface CoordinateSequence {
    * Returns (possibly a copy of) the i'th coordinate in this sequence.
    * Whether or not the Coordinate returned is the actual underlying
    * Coordinate or merely a copy depends on the implementation.
-   * <p>
+   * 
    * Note that in the future the semantics of this method may change
    * to guarantee that the Coordinate returned is always a copy.
    * Callers should not to assume that they can modify a CoordinateSequence by
@@ -131,10 +130,10 @@ interface CoordinateSequence {
 
   /**
    * Copies the i'th coordinate in the sequence to the supplied
-   * {@link Coordinate}.  Only the first two dimensions are copied.
+   * [Coordinate].  Only the first two dimensions are copied.
    *
    * @param index the index of the coordinate to copy
-   * @param coord a {@link Coordinate} to receive the value
+   * @param coord a [Coordinate] to receive the value
    */
   fun getCoordinate(index: Int, coord: Coordinate)
 
@@ -186,10 +185,10 @@ interface CoordinateSequence {
   /**
    * Returns the ordinate of a coordinate in this sequence.
    * Ordinate indices 0 and 1 are assumed to be X and Y.
-   * <p>
+   * 
    * Ordinates indices greater than 1 have user-defined semantics
    * (for instance, they may contain other dimensions or measure
-   * values as described by {@link #getDimension()} and {@link #getMeasures()}).
+   * values as described by [getDimension] and [getMeasures]).
    *
    * @param index  the coordinate index in the sequence
    * @param ordinateIndex the ordinate index in the coordinate (in range [0, dimension-1])
@@ -225,7 +224,7 @@ interface CoordinateSequence {
   fun toCoordinateArray(): Array<Coordinate>
 
   /**
-   * Expands the given {@link Envelope} to include the coordinates in the sequence.
+   * Expands the given [Envelope] to include the coordinates in the sequence.
    * Allows implementing classes to optimize access to coordinate values.
    *
    * @param env the envelope to expand
@@ -238,7 +237,7 @@ interface CoordinateSequence {
    * Called by Geometry#clone.
    *
    * @return a copy of the coordinate sequence containing copies of all points
-   * @deprecated Recommend {@link #copy()}
+   * @deprecated Recommend [copy]
    */
   fun clone(): Any
 
@@ -259,8 +258,8 @@ interface CoordinateSequence {
     /**
      * Standard ordinate index value for, where Z is 2.
      *
-     * <p>This constant assumes XYZM coordinate sequence definition, please check this assumption
-     * using {@link #getDimension()} and {@link #getMeasures()} before use.
+     * This constant assumes XYZM coordinate sequence definition, please check this assumption
+     * using [getDimension] and [getMeasures] before use.
      */
     /** Standard z-ordinate index */
     const val Z = 2
@@ -268,8 +267,8 @@ interface CoordinateSequence {
     /**
      * Standard ordinate index value for, where M is 3.
      *
-     * <p>This constant assumes XYZM coordinate sequence definition, please check this assumption
-     * using {@link #getDimension()} and {@link #getMeasures()} before use.
+     * This constant assumes XYZM coordinate sequence definition, please check this assumption
+     * using [getDimension] and [getMeasures] before use.
      */
     const val M = 3
   }

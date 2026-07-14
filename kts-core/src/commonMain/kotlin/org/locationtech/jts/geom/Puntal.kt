@@ -13,8 +13,8 @@
 package org.locationtech.jts.geom
 
 /**
- * Identifies {@link Geometry} subclasses which
- * are 0-dimensional and with components which are {@link Point}s.
+ * Identifies [Geometry] subclasses which
+ * are 0-dimensional and with components which are [Point]s.
  *
  * @author Martin Davis
  *

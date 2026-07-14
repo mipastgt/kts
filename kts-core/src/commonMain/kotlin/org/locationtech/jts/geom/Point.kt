@@ -16,29 +16,28 @@ import org.locationtech.jts.util.Assert
 /**
  * Represents a single point.
  *
- * A <code>Point</code> is topologically valid if and only if:
- * <ul>
- * <li>the coordinate which defines it (if any) is a valid coordinate
- * (i.e. does not have an <code>NaN</code> X or Y ordinate)
- * </ul>
+ * A `Point` is topologically valid if and only if:
+ * 
+ * - the coordinate which defines it (if any) is a valid coordinate
+ * (i.e. does not have an `NaN` X or Y ordinate)
+ * 
  *
- * @version 1.7
  */
 open class Point : Geometry, Puntal {
   /**
-   *  The <code>Coordinate</code> wrapped by this <code>Point</code>.
+   *  The `Coordinate` wrapped by this `Point`.
    */
   private lateinit var coordinates: CoordinateSequence
 
   /**
-   *  Constructs a <code>Point</code> with the given coordinate.
+   *  Constructs a `Point` with the given coordinate.
    *
-   * @param  coordinate      the coordinate on which to base this <code>Point</code>
-   *      , or <code>null</code> to create the empty geometry.
+   * @param  coordinate      the coordinate on which to base this `Point`
+   *      , or `null` to create the empty geometry.
    * @param  precisionModel  the specification of the grid of allowable points
-   *      for this <code>Point</code>
+   *      for this `Point`
    * @param  SRID            the ID of the Spatial Reference System used by this
-   *      <code>Point</code>
+   *      `Point`
    * @deprecated Use GeometryFactory instead
    */
   constructor(coordinate: Coordinate?, precisionModel: PrecisionModel, SRID: Int) : super(GeometryFactory(precisionModel, SRID)) {
@@ -50,8 +49,8 @@ open class Point : Geometry, Puntal {
   }
 
   /**
-   * @param  coordinates      contains the single coordinate on which to base this <code>Point</code>
-   *      , or <code>null</code> to create the empty geometry.
+   * @param  coordinates      contains the single coordinate on which to base this `Point`
+   *      , or `null` to create the empty geometry.
    */
   constructor(coordinates: CoordinateSequence?, factory: GeometryFactory) : super(factory) {
     init(coordinates)
@@ -170,7 +169,7 @@ open class Point : Geometry, Puntal {
   }
 
   /**
-   * Creates and returns a full copy of this {@link Point} object.
+   * Creates and returns a full copy of this [Point] object.
    * (including all coordinates contained by it).
    *
    * @return a clone of this instance

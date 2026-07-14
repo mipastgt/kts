@@ -15,23 +15,22 @@ import org.locationtech.jts.algorithm.Length
 import org.locationtech.jts.operation.BoundaryOp
 
 /**
- *  Models an OGC-style <code>LineString</code>.
+ *  Models an OGC-style `LineString`.
  *  A LineString consists of a sequence of two or more vertices,
  *  along with all points along the linearly-interpolated curves
  *  (line segments) between each
  *  pair of consecutive vertices.
  *
- * @version 1.7
  */
 open class LineString : Geometry, Lineal {
 
   /**
-   *  The points of this <code>LineString</code>.
+   *  The points of this `LineString`.
    */
   protected lateinit var points: CoordinateSequence
 
   /**
-   *  Constructs a <code>LineString</code> with the given points.
+   *  Constructs a `LineString` with the given points.
    *
    * @throws IllegalArgumentException if too few points are provided
    */
@@ -41,7 +40,7 @@ open class LineString : Geometry, Lineal {
   }
 
   /**
-   * Constructs a <code>LineString</code> with the given points.
+   * Constructs a `LineString` with the given points.
    *
    * @throws IllegalArgumentException if too few points are provided
    */
@@ -133,7 +132,7 @@ open class LineString : Geometry, Lineal {
   }
 
   /**
-   *  Returns the length of this <code>LineString</code>
+   *  Returns the length of this `LineString`
    *
    * @return the length of the linestring
    */
@@ -153,10 +152,10 @@ open class LineString : Geometry, Lineal {
   }
 
   /**
-   * Creates a {@link LineString} whose coordinates are in the reverse
+   * Creates a [LineString] whose coordinates are in the reverse
    * order of this objects
    *
-   * @return a {@link LineString} with coordinates in the reverse order
+   * @return a [LineString] with coordinates in the reverse order
    */
   override fun reverse(): LineString {
     return super.reverse() as LineString
@@ -169,10 +168,10 @@ open class LineString : Geometry, Lineal {
   }
 
   /**
-   *  Returns true if the given point is a vertex of this <code>LineString</code>.
+   *  Returns true if the given point is a vertex of this `LineString`.
    *
-   * @param  pt  the <code>Coordinate</code> to check
-   * @return     <code>true</code> if <code>pt</code> is one of this <code>LineString</code>
+   * @param  pt  the `Coordinate` to check
+   * @return     `true` if `pt` is one of this `LineString`
    *      's vertices
    */
   open fun isCoordinate(pt: Coordinate): Boolean {
@@ -234,7 +233,7 @@ open class LineString : Geometry, Lineal {
   }
 
   /**
-   * Creates and returns a full copy of this {@link LineString} object.
+   * Creates and returns a full copy of this [LineString] object.
    * (including all coordinates contained by it).
    *
    * @return a clone of this instance

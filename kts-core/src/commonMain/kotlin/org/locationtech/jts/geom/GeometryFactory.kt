@@ -22,10 +22,9 @@ import kotlin.reflect.KClass
 /**
  * Supplies a set of utility methods for building Geometry objects from lists
  * of Coordinates.
- * <p>
+ * 
  * Instances of this class are thread-safe.
  *
- * @version 1.7
  */
 open class GeometryFactory(
   precisionModel: PrecisionModel,
@@ -48,7 +47,7 @@ open class GeometryFactory(
 
   /**
    * Constructs a GeometryFactory that generates Geometries having the given
-   * {@link PrecisionModel} and the default CoordinateSequence
+   * [PrecisionModel] and the default CoordinateSequence
    * implementation.
    *
    * @param precisionModel the PrecisionModel to use
@@ -57,7 +56,7 @@ open class GeometryFactory(
 
   /**
    * Constructs a GeometryFactory that generates Geometries having the given
-   * {@link PrecisionModel} and spatial-reference ID, and the default CoordinateSequence
+   * [PrecisionModel] and spatial-reference ID, and the default CoordinateSequence
    * implementation.
    *
    * @param precisionModel the PrecisionModel to use
@@ -72,12 +71,12 @@ open class GeometryFactory(
   constructor() : this(PrecisionModel(), 0)
 
   /**
-   * Creates a {@link Geometry} with the same extent as the given envelope.
+   * Creates a [Geometry] with the same extent as the given envelope.
    *
-   * @param  envelope the <code>Envelope</code> to convert
-   * @return an empty <code>Point</code> (for null <code>Envelope</code>s),
-   *	a <code>Point</code> (when min x = max x and min y = max y) or a
-   *      <code>Polygon</code> (in all other cases)
+   * @param  envelope the `Envelope` to convert
+   * @return an empty `Point` (for null `Envelope`s),
+   *	a `Point` (when min x = max x and min y = max y) or a
+   *      `Polygon` (in all other cases)
    */
   fun toGeometry(envelope: Envelope): Geometry {
     // null envelope - return empty point geometry
@@ -125,7 +124,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Constructs an empty {@link Point} geometry.
+   * Constructs an empty [Point] geometry.
    *
    * @return an empty Point
    */
@@ -156,7 +155,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Constructs an empty {@link MultiLineString} geometry.
+   * Constructs an empty [MultiLineString] geometry.
    *
    * @return an empty MultiLineString
    */
@@ -176,7 +175,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Constructs an empty {@link GeometryCollection} geometry.
+   * Constructs an empty [GeometryCollection] geometry.
    *
    * @return an empty GeometryCollection
    */
@@ -196,7 +195,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Constructs an empty {@link MultiPolygon} geometry.
+   * Constructs an empty [MultiPolygon] geometry.
    *
    * @return an empty MultiPolygon
    */
@@ -217,7 +216,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Constructs an empty {@link LinearRing} geometry.
+   * Constructs an empty [LinearRing] geometry.
    *
    * @return an empty LinearRing
    */
@@ -226,7 +225,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Creates a {@link LinearRing} using the given {@link Coordinate}s.
+   * Creates a [LinearRing] using the given [Coordinate]s.
    * A null or empty array creates an empty LinearRing.
    *
    * @param coordinates an array without null elements, or an empty array, or null
@@ -238,7 +237,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Creates a {@link LinearRing} using the given {@link CoordinateSequence}.
+   * Creates a [LinearRing] using the given [CoordinateSequence].
    * A null or empty array creates an empty LinearRing.
    *
    * @param coordinates a CoordinateSequence (possibly empty), or null
@@ -250,7 +249,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Constructs an empty {@link MultiPoint} geometry.
+   * Constructs an empty [MultiPoint] geometry.
    *
    * @return an empty MultiPoint
    */
@@ -259,10 +258,10 @@ open class GeometryFactory(
   }
 
   /**
-   * Creates a {@link MultiPoint} using the given {@link Point}s.
+   * Creates a [MultiPoint] using the given [Point]s.
    * A null or empty array will create an empty MultiPoint.
    *
-   * @param point an array of Points (without null elements), or an empty array, or <code>null</code>
+   * @param point an array of Points (without null elements), or an empty array, or `null`
    * @return a MultiPoint object
    */
   fun createMultiPoint(point: Array<Point>?): MultiPoint {
@@ -270,12 +269,12 @@ open class GeometryFactory(
   }
 
   /**
-   * Creates a {@link MultiPoint} using the given {@link Coordinate}s.
+   * Creates a [MultiPoint] using the given [Coordinate]s.
    * A null or empty array will create an empty MultiPoint.
    *
-   * @param coordinates an array (without null elements), or an empty array, or <code>null</code>
+   * @param coordinates an array (without null elements), or an empty array, or `null`
    * @return a MultiPoint object
-   * @deprecated Use {@link GeometryFactory#createMultiPointFromCoords} instead
+   * @deprecated Use [GeometryFactory.createMultiPointFromCoords] instead
    */
   fun createMultiPoint(coordinates: Array<Coordinate>?): MultiPoint {
     return createMultiPoint(
@@ -284,10 +283,10 @@ open class GeometryFactory(
   }
 
   /**
-   * Creates a {@link MultiPoint} using the given {@link Coordinate}s.
+   * Creates a [MultiPoint] using the given [Coordinate]s.
    * A null or empty array will create an empty MultiPoint.
    *
-   * @param coordinates an array (without null elements), or an empty array, or <code>null</code>
+   * @param coordinates an array (without null elements), or an empty array, or `null`
    * @return a MultiPoint object
    */
   fun createMultiPointFromCoords(coordinates: Array<Coordinate>?): MultiPoint {
@@ -297,11 +296,11 @@ open class GeometryFactory(
   }
 
   /**
-   * Creates a {@link MultiPoint} using the
-   * points in the given {@link CoordinateSequence}.
-   * A <code>null</code> or empty CoordinateSequence creates an empty MultiPoint.
+   * Creates a [MultiPoint] using the
+   * points in the given [CoordinateSequence].
+   * A `null` or empty CoordinateSequence creates an empty MultiPoint.
    *
-   * @param coordinates a CoordinateSequence (possibly empty), or <code>null</code>
+   * @param coordinates a CoordinateSequence (possibly empty), or `null`
    * @return a MultiPoint geometry
    */
   fun createMultiPoint(coordinates: CoordinateSequence?): MultiPoint {
@@ -320,7 +319,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Constructs a <code>Polygon</code> with the given exterior boundary and
+   * Constructs a `Polygon` with the given exterior boundary and
    * interior boundaries.
    *
    * @throws IllegalArgumentException if a ring is invalid
@@ -330,7 +329,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Constructs a <code>Polygon</code> with the given exterior boundary.
+   * Constructs a `Polygon` with the given exterior boundary.
    *
    * @throws IllegalArgumentException if the boundary ring is invalid
    */
@@ -339,7 +338,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Constructs a <code>Polygon</code> with the given exterior boundary.
+   * Constructs a `Polygon` with the given exterior boundary.
    *
    * @throws IllegalArgumentException if the boundary ring is invalid
    */
@@ -348,7 +347,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Constructs a <code>Polygon</code> with the given exterior boundary.
+   * Constructs a `Polygon` with the given exterior boundary.
    *
    * @throws IllegalArgumentException if the boundary ring is invalid
    */
@@ -357,7 +356,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Constructs an empty {@link Polygon} geometry.
+   * Constructs an empty [Polygon] geometry.
    *
    * @return an empty polygon
    */
@@ -366,13 +365,13 @@ open class GeometryFactory(
   }
 
   /**
-   *  Build an appropriate <code>Geometry</code>, <code>MultiGeometry</code>, or
-   *  <code>GeometryCollection</code> to contain the <code>Geometry</code>s in
+   *  Build an appropriate `Geometry`, `MultiGeometry`, or
+   *  `GeometryCollection` to contain the `Geometry`s in
    *  it.
    *
-   * @param  geomList  the <code>Geometry</code>s to combine
-   * @return           a <code>Geometry</code> of the "smallest", "most
-   *      type-specific" class that can contain the elements of <code>geomList</code>
+   * @param  geomList  the `Geometry`s to combine
+   * @return           a `Geometry` of the "smallest", "most
+   *      type-specific" class that can contain the elements of `geomList`
    *      .
    */
   fun buildGeometry(geomList: Collection<*>): Geometry {
@@ -424,7 +423,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Constructs an empty {@link LineString} geometry.
+   * Constructs an empty [LineString] geometry.
    *
    * @return an empty LineString
    */
@@ -454,7 +453,7 @@ open class GeometryFactory(
 
   /**
    * Creates an empty atomic geometry of the given dimension.
-   * If passed a dimension of -1 will create an empty {@link GeometryCollection}.
+   * If passed a dimension of -1 will create an empty [GeometryCollection].
    *
    * @param dimension the required dimension (-1, 0, 1 or 2)
    * @return an empty atomic geometry of given dimension
@@ -470,7 +469,7 @@ open class GeometryFactory(
   }
 
   /**
-   * Creates a deep copy of the input {@link Geometry}.
+   * Creates a deep copy of the input [Geometry].
    *
    * @return a deep copy of the input geometry, using the CoordinateSequence type of this factory
    *
@@ -513,7 +512,7 @@ open class GeometryFactory(
     }
 
     /**
-     *  Converts the <code>List</code> to an array.
+     *  Converts the `List` to an array.
      */
     @JvmStatic
     fun toPointArray(points: Collection<*>): Array<Point> {
@@ -522,7 +521,7 @@ open class GeometryFactory(
     }
 
     /**
-     *  Converts the <code>List</code> to an array.
+     *  Converts the `List` to an array.
      */
     @JvmStatic
     fun toGeometryArray(geometries: Collection<*>?): Array<Geometry>? {
@@ -532,7 +531,7 @@ open class GeometryFactory(
     }
 
     /**
-     *  Converts the <code>List</code> to an array.
+     *  Converts the `List` to an array.
      */
     @JvmStatic
     fun toLinearRingArray(linearRings: Collection<*>): Array<LinearRing> {
@@ -541,7 +540,7 @@ open class GeometryFactory(
     }
 
     /**
-     *  Converts the <code>List</code> to an array.
+     *  Converts the `List` to an array.
      */
     @JvmStatic
     fun toLineStringArray(lineStrings: Collection<*>): Array<LineString> {
@@ -550,7 +549,7 @@ open class GeometryFactory(
     }
 
     /**
-     *  Converts the <code>List</code> to an array.
+     *  Converts the `List` to an array.
      */
     @JvmStatic
     fun toPolygonArray(polygons: Collection<*>): Array<Polygon> {
@@ -559,7 +558,7 @@ open class GeometryFactory(
     }
 
     /**
-     *  Converts the <code>List</code> to an array.
+     *  Converts the `List` to an array.
      */
     @JvmStatic
     fun toMultiPolygonArray(multiPolygons: Collection<*>): Array<MultiPolygon> {
@@ -568,7 +567,7 @@ open class GeometryFactory(
     }
 
     /**
-     *  Converts the <code>List</code> to an array.
+     *  Converts the `List` to an array.
      */
     @JvmStatic
     fun toMultiLineStringArray(multiLineStrings: Collection<*>): Array<MultiLineString> {
@@ -577,7 +576,7 @@ open class GeometryFactory(
     }
 
     /**
-     *  Converts the <code>List</code> to an array.
+     *  Converts the `List` to an array.
      */
     @JvmStatic
     fun toMultiPointArray(multiPoints: Collection<*>): Array<MultiPoint> {

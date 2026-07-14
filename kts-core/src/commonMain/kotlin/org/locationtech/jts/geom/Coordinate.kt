@@ -21,31 +21,30 @@ import org.locationtech.jts.util.NumberUtil
 
 /**
  * A lightweight class used to store coordinates on the 2-dimensional Cartesian plane.
- * <p>
- * It is distinct from {@link Point}, which is a subclass of {@link Geometry}.
- * Unlike objects of type {@link Point} (which contain additional
+ * 
+ * It is distinct from [Point], which is a subclass of [Geometry].
+ * Unlike objects of type [Point] (which contain additional
  * information such as an envelope, a precision model, and spatial reference
- * system information), a <code>Coordinate</code> only contains ordinate values
- * and accessor methods. </p>
- * <p>
- * <code>Coordinate</code>s are two-dimensional points, with an additional Z-ordinate.
+ * system information), a `Coordinate` only contains ordinate values
+ * and accessor methods. 
+ * 
+ * `Coordinate`s are two-dimensional points, with an additional Z-ordinate.
  * If an Z-ordinate value is not specified or not defined,
- * constructed coordinates have a Z-ordinate of <code>NaN</code>
- * (which is also the value of <code>NULL_ORDINATE</code>).
+ * constructed coordinates have a Z-ordinate of `NaN`
+ * (which is also the value of `NULL_ORDINATE`).
  * The standard comparison functions ignore the Z-ordinate.
  * Apart from the basic accessor functions, JTS supports
- * only specific operations involving the Z-ordinate.</p>
- * <p>
+ * only specific operations involving the Z-ordinate.
+ * 
  * Implementations may optionally support Z-ordinate and M-measure values
- * as appropriate for a {@link CoordinateSequence}.
- * Use of {@link #getZ()} and {@link #getM()}
- * accessors, or {@link #getOrdinate(int)} are recommended.</p>
+ * as appropriate for a [CoordinateSequence].
+ * Use of [getZ] and [getM]
+ * accessors, or [getOrdinate] are recommended.
  *
- * @version 1.16
  */
 open class Coordinate
 /**
- *  Constructs a <code>Coordinate</code> at (x,y,z).
+ *  Constructs a `Coordinate` at (x,y,z).
  *
  * @param  x  the x-ordinate
  * @param  y  the y-ordinate
@@ -62,27 +61,27 @@ open class Coordinate
   @JvmField var y: Double,
   /**
    * The z-ordinate.
-   * <p>
-   * Direct access to this field is discouraged; use {@link #getZ()}.
+   * 
+   * Direct access to this field is discouraged; use [getZ].
    */
   @JvmField var z: Double
 ) : Comparable<Coordinate> {
 
   /**
-   *  Constructs a <code>Coordinate</code> at (0,0,NaN).
+   *  Constructs a `Coordinate` at (0,0,NaN).
    */
   constructor() : this(0.0, 0.0)
 
   /**
-   *  Constructs a <code>Coordinate</code> having the same (x,y,z) values as
-   *  <code>other</code>.
+   *  Constructs a `Coordinate` having the same (x,y,z) values as
+   *  `other`.
    *
-   * @param  c  the <code>Coordinate</code> to copy.
+   * @param  c  the `Coordinate` to copy.
    */
   constructor(c: Coordinate) : this(c.x, c.y, c.getZ())
 
   /**
-   *  Constructs a <code>Coordinate</code> at (x,y,NaN).
+   *  Constructs a `Coordinate` at (x,y,NaN).
    *
    * @param  x  the x-value
    * @param  y  the y-value
@@ -90,9 +89,9 @@ open class Coordinate
   constructor(x: Double, y: Double) : this(x, y, NULL_ORDINATE)
 
   /**
-   *  Sets this <code>Coordinate</code>s (x,y,z) values to that of <code>other</code>.
+   *  Sets this `Coordinate`s (x,y,z) values to that of `other`.
    *
-   * @param  other  the <code>Coordinate</code> to copy
+   * @param  other  the `Coordinate` to copy
    */
   open fun setCoordinate(other: Coordinate) {
     x = other.x
@@ -138,9 +137,9 @@ open class Coordinate
 
   /**
    *  Retrieves the value of the Z ordinate, if present.
-   *  If no Z value is present returns <tt>NaN</tt>.
+   *  If no Z value is present returns `NaN`.
    *
-   *  @return the value of the Z ordinate, or <tt>NaN</tt>
+   *  @return the value of the Z ordinate, or `NaN`
    */
   open fun getZ(): Double {
     return z
@@ -157,9 +156,9 @@ open class Coordinate
 
   /**
    *  Retrieves the value of the measure, if present.
-   *  If no measure value is present returns <tt>NaN</tt>.
+   *  If no measure value is present returns `NaN`.
    *
-   *  @return the value of the measure, or <tt>NaN</tt>
+   *  @return the value of the measure, or `NaN`
    */
   open fun getM(): Double {
     return Double.NaN
@@ -178,7 +177,7 @@ open class Coordinate
    * Gets the ordinate value for the given index.
    *
    * The base implementation supports values for the index are
-   * {@link #X}, {@link #Y}, and {@link #Z}.
+   * [X], [Y], and [Z].
    *
    * @param ordinateIndex the ordinate index
    * @return the value of the ordinate
@@ -198,7 +197,7 @@ open class Coordinate
    * to a given value.
    *
    * The base implementation supported values for the index are
-   * {@link #X}, {@link #Y}, and {@link #Z}.
+   * [X], [Y], and [Z].
    *
    * @param ordinateIndex the ordinate index
    * @param value the value to set
@@ -227,11 +226,11 @@ open class Coordinate
   }
 
   /**
-   *  Returns whether the planar projections of the two <code>Coordinate</code>s
+   *  Returns whether the planar projections of the two `Coordinate`s
    *  are equal.
    *
-   * @param  other  a <code>Coordinate</code> with which to do the 2D comparison.
-   * @return        <code>true</code> if the x- and y-coordinates are equal; the
+   * @param  other  a `Coordinate` with which to do the 2D comparison.
+   * @return        `true` if the x- and y-coordinates are equal; the
    *      z-coordinates do not have to be equal.
    */
   open fun equals2D(other: Coordinate): Boolean {
@@ -249,9 +248,9 @@ open class Coordinate
    * within a specified tolerance value.
    * The Z ordinate is ignored.
    *
-   * @param c a <code>Coordinate</code> with which to do the 2D comparison.
+   * @param c a `Coordinate` with which to do the 2D comparison.
    * @param tolerance the tolerance value to use
-   * @return true if <code>other</code> is a <code>Coordinate</code>
+   * @return true if `other` is a `Coordinate`
    *      with the same values for X and Y.
    */
   open fun equals2D(c: Coordinate, tolerance: Double): Boolean {
@@ -267,8 +266,8 @@ open class Coordinate
   /**
    * Tests if another coordinate has the same values for the X, Y and Z ordinates.
    *
-   * @param other a <code>Coordinate</code> with which to do the 3D comparison.
-   * @return true if <code>other</code> is a <code>Coordinate</code>
+   * @param other a `Coordinate` with which to do the 3D comparison.
+   * @return true if `other` is a `Coordinate`
    *      with the same values for X, Y and Z.
    */
   open fun equals3D(other: Coordinate): Boolean {
@@ -289,12 +288,12 @@ open class Coordinate
   }
 
   /**
-   *  Returns <code>true</code> if <code>other</code> has the same values for
+   *  Returns `true` if `other` has the same values for
    *  the x and y ordinates.
    *  Since Coordinates are 2.5D, this routine ignores the z value when making the comparison.
    *
-   * @param  other  a <code>Coordinate</code> with which to do the comparison.
-   * @return        <code>true</code> if <code>other</code> is a <code>Coordinate</code>
+   * @param  other  a `Coordinate` with which to do the comparison.
+   * @return        `true` if `other` is a `Coordinate`
    *      with the same values for the x and y ordinates.
    */
   override fun equals(other: Any?): Boolean {
@@ -305,22 +304,22 @@ open class Coordinate
   }
 
   /**
-   *  Compares this {@link Coordinate} with the specified {@link Coordinate} for order.
+   *  Compares this [Coordinate] with the specified [Coordinate] for order.
    *  This method ignores the z value when making the comparison.
    *  Returns:
    *  <UL>
-   *    <LI> -1 : this.x &lt; other.x || ((this.x == other.x) &amp;&amp; (this.y &lt; other.y))
-   *    <LI> 0 : this.x == other.x &amp;&amp; this.y = other.y
-   *    <LI> 1 : this.x &gt; other.x || ((this.x == other.x) &amp;&amp; (this.y &gt; other.y))
+   *    <LI> -1 : this.x < other.x || ((this.x == other.x) && (this.y < other.y))
+   *    <LI> 0 : this.x == other.x && this.y = other.y
+   *    <LI> 1 : this.x > other.x || ((this.x == other.x) && (this.y > other.y))
    *
    *  </UL>
    *  Note: This method assumes that ordinate values
    * are valid numbers.  NaN values are not handled correctly.
    *
-   * @param  o  the <code>Coordinate</code> with which this <code>Coordinate</code>
+   * @param  o  the `Coordinate` with which this `Coordinate`
    *      is being compared
-   * @return    -1, zero, or 1 as this <code>Coordinate</code>
-   *      is less than, equal to, or greater than the specified <code>Coordinate</code>
+   * @return    -1, zero, or 1 as this `Coordinate`
+   *      is less than, equal to, or greater than the specified `Coordinate`
    */
   override fun compareTo(o: Coordinate): Int {
     val other = o
@@ -333,9 +332,9 @@ open class Coordinate
   }
 
   /**
-   *  Returns a <code>String</code> of the form <I>(x,y,z)</I> .
+   *  Returns a `String` of the form <I>(x,y,z)</I> .
    *
-   * @return    a <code>String</code> of the form <I>(x,y,z)</I>
+   * @return    a `String` of the form <I>(x,y,z)</I>
    */
   override fun toString(): String {
     return "(" + x + ", " + y + ", " + getZ() + ")"
@@ -403,7 +402,7 @@ open class Coordinate
   }
 
   /**
-   * Compares two {@link Coordinate}s, allowing for either a 2-dimensional
+   * Compares two [Coordinate]s, allowing for either a 2-dimensional
    * or 3-dimensional comparison, and handling NaN values correctly.
    */
   class DimensionalComparator : Comparator<Coordinate> {
@@ -428,10 +427,10 @@ open class Coordinate
     }
 
     /**
-     * Compares two {@link Coordinate}s along to the number of
+     * Compares two [Coordinate]s along to the number of
      * dimensions specified.
      *
-     * @param c1 a {@link Coordinate}
+     * @param c1 a [Coordinate]
      * @param c2 a {link Coordinate}
      * @return -1, 0, or 1 depending on whether o1 is less than,
      * equal to, or greater than 02
@@ -452,11 +451,11 @@ open class Coordinate
 
     companion object {
       /**
-       * Compare two <code>double</code>s, allowing for NaN values.
+       * Compare two `double`s, allowing for NaN values.
        * NaN is treated as being less than any valid number.
        *
-       * @param a a <code>double</code>
-       * @param b a <code>double</code>
+       * @param a a `double`
+       * @param b a `double`
        * @return -1, 0, or 1 depending on whether a is less than, equal to or greater than b
        */
       @JvmStatic
@@ -494,8 +493,8 @@ open class Coordinate
     /**
      * Standard ordinate index value for, where Z is 2.
      *
-     * <p>This constant assumes XYZM coordinate sequence definition, please check this assumption
-     * using {@link CoordinateSequence#getDimension()} and {@link CoordinateSequence#getMeasures()}
+     * This constant assumes XYZM coordinate sequence definition, please check this assumption
+     * using [CoordinateSequence.getDimension] and [CoordinateSequence.getMeasures]
      * before use.
      */
     const val Z = 2
@@ -503,8 +502,8 @@ open class Coordinate
     /**
      * Standard ordinate index value for, where M is 3.
      *
-     * <p>This constant assumes XYZM coordinate sequence definition, please check this assumption
-     * using {@link CoordinateSequence#getDimension()} and {@link CoordinateSequence#getMeasures()}
+     * This constant assumes XYZM coordinate sequence definition, please check this assumption
+     * using [CoordinateSequence.getDimension] and [CoordinateSequence.getMeasures]
      * before use.
      */
     const val M = 3

@@ -16,12 +16,12 @@ import kotlin.jvm.JvmStatic
 import kotlin.jvm.JvmField
 
 /**
- * Compares two {@link CoordinateSequence}s.
+ * Compares two [CoordinateSequence]s.
  * For sequences of the same dimension, the ordering is lexicographic.
  * Otherwise, lower dimensions are sorted before higher.
  * The dimensions compared can be limited; if this is done
  * ordinate dimensions above the limit will not be compared.
- * <p>
+ * 
  * If different behaviour is required for comparing size, dimension, or
  * coordinate values, any or all methods can be overridden.
  *
@@ -46,10 +46,10 @@ open class CoordinateSequenceComparator
   constructor() : this(Int.MAX_VALUE)
 
   /**
-   * Compares two {@link CoordinateSequence}s for relative order.
+   * Compares two [CoordinateSequence]s for relative order.
    *
-   * @param o1 a {@link CoordinateSequence}
-   * @param o2 a {@link CoordinateSequence}
+   * @param o1 a [CoordinateSequence]
+   * @param o2 a [CoordinateSequence]
    * @return -1, 0, or 1 depending on whether o1 is less than, equal to, or greater than o2
    */
   override fun compare(o1: Any?, o2: Any?): Int {
@@ -91,11 +91,11 @@ open class CoordinateSequenceComparator
   }
 
   /**
-   * Compares the same coordinate of two {@link CoordinateSequence}s
+   * Compares the same coordinate of two [CoordinateSequence]s
    * along the given number of dimensions.
    *
-   * @param s1 a {@link CoordinateSequence}
-   * @param s2 a {@link CoordinateSequence}
+   * @param s1 a [CoordinateSequence]
+   * @param s2 a [CoordinateSequence]
    * @param i the index of the coordinate to test
    * @param dimension the number of dimensions to test
    * @return -1, 0, or 1 depending on whether s1[i] is less than, equal to, or greater than s2[i]
@@ -112,11 +112,11 @@ open class CoordinateSequenceComparator
 
   companion object {
     /**
-     * Compare two <code>double</code>s, allowing for NaN values.
+     * Compare two `double`s, allowing for NaN values.
      * NaN is treated as being less than any valid number.
      *
-     * @param a a <code>double</code>
-     * @param b a <code>double</code>
+     * @param a a `double`
+     * @param b a `double`
      * @return -1, 0, or 1 depending on whether a is less than, equal to or greater than b
      */
     @JvmStatic

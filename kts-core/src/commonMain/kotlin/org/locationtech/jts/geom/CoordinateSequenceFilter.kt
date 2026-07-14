@@ -12,25 +12,25 @@
 package org.locationtech.jts.geom
 
 /**
- *  An interface for classes which process the coordinates in a {@link CoordinateSequence}.
+ *  An interface for classes which process the coordinates in a [CoordinateSequence].
  *  A filter can either record information about each coordinate,
  *  or change the value of the coordinate.
  *  Filters can be
  *  used to implement operations such as coordinate transformations, centroid and
  *  envelope computation, and many other functions.
- *  {@link Geometry} classes support the concept of applying a
- *  <code>CoordinateSequenceFilter</code> to each
- *  {@link CoordinateSequence}s they contain.
- *  <p>
- *  For maximum efficiency, the execution of filters can be short-circuited by using the {@link #isDone} method.
- *  <p>
- *  <code>CoordinateSequenceFilter</code> is
+ *  [Geometry] classes support the concept of applying a
+ *  `CoordinateSequenceFilter` to each
+ *  [CoordinateSequence]s they contain.
+ *  
+ *  For maximum efficiency, the execution of filters can be short-circuited by using the [isDone] method.
+ *  
+ *  `CoordinateSequenceFilter` is
  *  an example of the Gang-of-Four Visitor pattern.
- *  <p>
+ *  
  * <b>Note</b>: In general, it is preferable to treat Geometrys as immutable.
- * Mutation should be performed by creating a new Geometry object (see {@link GeometryEditor}
- * and {@link GeometryTransformer} for convenient ways to do this).
- * An exception to this rule is when a new Geometry has been created via {@link Geometry#copy()}.
+ * Mutation should be performed by creating a new Geometry object (see [GeometryEditor]
+ * and [GeometryTransformer] for convenient ways to do this).
+ * An exception to this rule is when a new Geometry has been created via [Geometry.copy].
  * In this case mutating the Geometry will not cause aliasing issues,
  * and a filter is a convenient way to implement coordinate transformation.
  *
@@ -40,21 +40,20 @@ package org.locationtech.jts.geom
  *
  * @see Geometry#apply(CoordinateSequenceFilter)
  * @author Martin Davis
- * @version 1.7
  */
 interface CoordinateSequenceFilter {
   /**
-   * Performs an operation on a coordinate in a {@link CoordinateSequence}.
+   * Performs an operation on a coordinate in a [CoordinateSequence].
    *
-   * @param seq  the <code>CoordinateSequence</code> to which the filter is applied
+   * @param seq  the `CoordinateSequence` to which the filter is applied
    * @param i the index of the coordinate to apply the filter to
    */
   fun filter(seq: CoordinateSequence, i: Int)
 
   /**
    * Reports whether the application of this filter can be terminated.
-   * Once this method returns <tt>true</tt>, it must
-   * continue to return <tt>true</tt> on every subsequent call.
+   * Once this method returns `true`, it must
+   * continue to return `true` on every subsequent call.
    *
    * @return true if the application of this filter can be terminated.
    */
@@ -63,9 +62,9 @@ interface CoordinateSequenceFilter {
   /**
    * Reports whether the execution of this filter
    * has modified the coordinates of the geometry.
-   * If so, {@link Geometry#geometryChanged} will be executed
+   * If so, [Geometry.geometryChanged] will be executed
    * after this filter has finished being executed.
-   * <p>
+   * 
    * Most filters can simply return a constant value reflecting
    * whether they are able to change the coordinates.
    *

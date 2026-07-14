@@ -17,9 +17,8 @@ import kotlin.math.min
 import org.locationtech.jts.io.OrdinateFormat
 
 /**
- * Utility functions for manipulating {@link CoordinateSequence}s
+ * Utility functions for manipulating [CoordinateSequence]s
  *
- * @version 1.7
  */
 class CoordinateSequences {
   companion object {
@@ -58,7 +57,7 @@ class CoordinateSequences {
     }
 
     /**
-     * Copies a section of a {@link CoordinateSequence} to another {@link CoordinateSequence}.
+     * Copies a section of a [CoordinateSequence] to another [CoordinateSequence].
      * The sequences may have different dimensions;
      * in this case only the common dimensions are copied.
      *
@@ -76,7 +75,7 @@ class CoordinateSequences {
     }
 
     /**
-     * Copies a coordinate of a {@link CoordinateSequence} to another {@link CoordinateSequence}.
+     * Copies a coordinate of a [CoordinateSequence] to another [CoordinateSequence].
      * The sequences may have different dimensions;
      * in this case only the common dimensions are copied.
      *
@@ -94,7 +93,7 @@ class CoordinateSequences {
     }
 
     /**
-     * Tests whether a {@link CoordinateSequence} forms a valid {@link LinearRing},
+     * Tests whether a [CoordinateSequence] forms a valid [LinearRing],
      * by checking the sequence length and closure
      * (whether the first and last points are identical in 2D).
      * Self-intersection is not checked.
@@ -167,12 +166,12 @@ class CoordinateSequences {
     }
 
     /**
-     * Tests whether two {@link CoordinateSequence}s are equal.
+     * Tests whether two [CoordinateSequence]s are equal.
      * To be equal, the sequences must be the same length.
      * They do not need to be of the same dimension,
      * but the ordinate values for the smallest dimension of the two
      * must be equal.
-     * Two <code>NaN</code> ordinates values are considered to be equal.
+     * Two `NaN` ordinates values are considered to be equal.
      *
      * @param cs1 a CoordinateSequence
      * @param cs2 a CoordinateSequence
@@ -202,11 +201,11 @@ class CoordinateSequences {
     }
 
     /**
-     * Creates a string representation of a {@link CoordinateSequence}.
+     * Creates a string representation of a [CoordinateSequence].
      * The format is:
-     * <pre>
+     * ```
      *   ( ord0,ord1.. ord0,ord1,...  ... )
-     * </pre>
+     * ```
      *
      * @param cs the sequence to output
      * @return the string representation of the sequence
@@ -234,7 +233,7 @@ class CoordinateSequences {
      *  Returns the minimum coordinate, using the usual lexicographic comparison.
      *
      * @param  seq  the coordinate sequence to search
-     * @return  the minimum coordinate in the sequence, found using <code>compareTo</code>
+     * @return  the minimum coordinate in the sequence, found using `compareTo`
      * @see Coordinate#compareTo(Object)
      */
     @JvmStatic
@@ -254,7 +253,7 @@ class CoordinateSequences {
      *  coordinate sequence, using the usual lexicographic comparison.
      *
      * @param  seq  the coordinate sequence to search
-     * @return  the index of the minimum coordinate in the sequence, found using <code>compareTo</code>
+     * @return  the index of the minimum coordinate in the sequence, found using `compareTo`
      * @see Coordinate#compareTo(Object)
      */
     @JvmStatic
@@ -264,13 +263,13 @@ class CoordinateSequences {
 
     /**
      *  Returns the index of the minimum coordinate of a part of
-     *  the coordinate sequence (defined by {@code from} and {@code to},
+     *  the coordinate sequence (defined by `from` and `to`,
      *  using the usual lexicographic comparison.
      *
      * @param  seq   the coordinate sequence to search
      * @param  from  the lower search index
      * @param  to    the upper search index
-     * @return  the index of the minimum coordinate in the sequence, found using <code>compareTo</code>
+     * @return  the index of the minimum coordinate in the sequence, found using `compareTo`
      * @see Coordinate#compareTo(Object)
      */
     @JvmStatic
@@ -288,7 +287,7 @@ class CoordinateSequences {
     }
 
     /**
-     *  Shifts the positions of the coordinates until <code>firstCoordinate</code>
+     *  Shifts the positions of the coordinates until `firstCoordinate`
      *  is first.
      *
      * @param  seq      the coordinate sequence to rearrange
@@ -302,7 +301,7 @@ class CoordinateSequences {
     }
 
     /**
-     *  Shifts the positions of the coordinates until the coordinate at  <code>firstCoordinateIndex</code>
+     *  Shifts the positions of the coordinates until the coordinate at  `firstCoordinateIndex`
      *  is first.
      *
      * @param  seq      the coordinate sequence to rearrange
@@ -314,7 +313,7 @@ class CoordinateSequences {
     }
 
     /**
-     *  Shifts the positions of the coordinates until the coordinate at  <code>firstCoordinateIndex</code>
+     *  Shifts the positions of the coordinates until the coordinate at  `firstCoordinateIndex`
      *  is first.
      *
      * @param  seq      the coordinate sequence to rearrange
@@ -348,12 +347,12 @@ class CoordinateSequences {
     }
 
     /**
-     *  Returns the index of <code>coordinate</code> in a {@link CoordinateSequence}
+     *  Returns the index of `coordinate` in a [CoordinateSequence]
      *  The first position is 0; the second, 1; etc.
      *
-     * @param  coordinate   the <code>Coordinate</code> to search for
+     * @param  coordinate   the `Coordinate` to search for
      * @param  seq  the coordinate sequence to search
-     * @return              the position of <code>coordinate</code>, or -1 if it is
+     * @return              the position of `coordinate`, or -1 if it is
      *      not found
      */
     @JvmStatic

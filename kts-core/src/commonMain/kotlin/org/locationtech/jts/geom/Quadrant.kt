@@ -15,15 +15,14 @@ import kotlin.jvm.JvmStatic
 
 /**
  * Utility functions for working with quadrants of the Euclidean plane.
- * <p>
+ * 
  * Quadrants are referenced and numbered as follows:
- * <pre>
+ * ```
  * 1 - NW | 0 - NE
  * -------+-------
  * 2 - SW | 3 - SE
- * </pre>
+ * ```
  *
- * @version 1.7
  */
 class Quadrant {
   companion object {

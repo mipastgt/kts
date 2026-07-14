@@ -25,7 +25,6 @@ import org.locationtech.jts.math.DD
  * Represents a planar triangle, and provides methods for calculating various
  * properties of triangles.
  *
- * @version 1.7
  */
 open class Triangle(
   /**
@@ -52,8 +51,8 @@ open class Triangle(
   /**
    * Tests whether this triangle is acute. A triangle is acute if all interior
    * angles are acute. This is a strict test - right triangles will return
-   * <tt>false</tt>. A triangle which is not acute is either right or obtuse.
-   * <p>
+   * `false`. A triangle which is not acute is either right or obtuse.
+   * 
    * Note: this implementation is not robust for angles very close to 90
    * degrees.
    *
@@ -78,9 +77,9 @@ open class Triangle(
    * It is also the common intersection point of the perpendicular bisectors of the
    * sides of the triangle, and is the only point which has equal distance to
    * all three vertices of the triangle.
-   * <p>
+   * 
    * The circumcentre does not necessarily lie within the triangle.
-   * <p>
+   * 
    * This method uses an algorithm due to J.R.Shewchuk which uses normalization
    * to the origin to improve the accuracy of computation. (See <i>Lecture Notes
    * on Geometric Robustness</i>, Jonathan Richard Shewchuk, 1999).
@@ -105,7 +104,7 @@ open class Triangle(
    * point at which the triangle's three medians intersect (a triangle median is
    * the segment from a vertex of the triangle to the midpoint of the opposite
    * side). The centroid divides each median in a ratio of 2:1.
-   * <p>
+   * 
    * The centroid always lies within the triangle.
    *
    * @return the centroid of this triangle
@@ -147,10 +146,10 @@ open class Triangle(
   /**
    * Computes the signed 2D area of this triangle. The area value is positive if
    * the triangle is oriented CW, and negative if it is oriented CCW.
-   * <p>
+   * 
    * The signed area value can be used to determine point orientation, but the
    * implementation in this method is susceptible to round-off errors. Use
-   * {@link Orientation#index(Coordinate, Coordinate, Coordinate)}
+   * [Orientation.index]
    * for robust orientation calculation.
    *
    * @return the signed 2D area of this triangle
@@ -176,7 +175,7 @@ open class Triangle(
    * plane defined by this triangle (whose vertices must have Z-values). This
    * triangle must not be degenerate (in other words, the triangle must enclose
    * a non-zero area), and must not be parallel to the Z-axis.
-   * <p>
+   * 
    * This method can be used to interpolate the Z-value of a point inside this
    * triangle (for example, of a TIN facet with elevations on the vertices).
    *
@@ -194,8 +193,8 @@ open class Triangle(
     /**
      * Tests whether a triangle is acute. A triangle is acute if all interior
      * angles are acute. This is a strict test - right triangles will return
-     * <tt>false</tt>. A triangle which is not acute is either right or obtuse.
-     * <p>
+     * `false`. A triangle which is not acute is either right or obtuse.
+     * 
      * Note: this implementation is not robust for angles very close to 90
      * degrees.
      *
@@ -274,7 +273,7 @@ open class Triangle(
 
     /**
      * Computes the radius of the circumcircle of a triangle.
-     * <p>
+     * 
      * Formula is as per https://math.stackexchange.com/a/3610959
      *
      * @param a a vertex of the triangle
@@ -299,10 +298,10 @@ open class Triangle(
      * also the common intersection point of the perpendicular bisectors of the
      * sides of the triangle, and is the only point which has equal distance to
      * all three vertices of the triangle.
-     * <p>
+     * 
      * The circumcentre does not necessarily lie within the triangle. For example,
      * the circumcentre of an obtuse isosceles triangle lies outside the triangle.
-     * <p>
+     * 
      * This method uses an algorithm due to J.R.Shewchuk which uses normalization
      * to the origin to improve the accuracy of computation. (See <i>Lecture Notes
      * on Geometric Robustness</i>, Jonathan Richard Shewchuk, 1999).
@@ -340,12 +339,12 @@ open class Triangle(
      * also the common intersection point of the perpendicular bisectors of the
      * sides of the triangle, and is the only point which has equal distance to
      * all three vertices of the triangle.
-     * <p>
+     * 
      * The circumcentre does not necessarily lie within the triangle. For example,
      * the circumcentre of an obtuse isosceles triangle lies outside the triangle.
-     * <p>
-     * This method uses {@link DD} extended-precision arithmetic to
-     * provide more accurate results than {@link #circumcentre(Coordinate, Coordinate, Coordinate)}
+     * 
+     * This method uses [DD] extended-precision arithmetic to
+     * provide more accurate results than [circumcentre]
      *
      * @param a
      *          a vertex of the triangle
@@ -398,7 +397,7 @@ open class Triangle(
      * the point at which the bisectors of the triangle's angles meet. It is the
      * centre of the triangle's <i>incircle</i>, which is the unique circle that
      * is tangent to each of the triangle's three sides.
-     * <p>
+     * 
      * The incentre always lies within the triangle.
      *
      * @param a
@@ -427,7 +426,7 @@ open class Triangle(
      * point at which the triangle's three medians intersect (a triangle median is
      * the segment from a vertex of the triangle to the midpoint of the opposite
      * side). The centroid divides each median in a ratio of 2:1.
-     * <p>
+     * 
      * The centroid always lies within the triangle.
      *
      *
@@ -538,10 +537,10 @@ open class Triangle(
     /**
      * Computes the signed 2D area of a triangle. The area value is positive if
      * the triangle is oriented CW, and negative if it is oriented CCW.
-     * <p>
+     * 
      * The signed area value can be used to determine point orientation, but the
      * implementation in this method is susceptible to round-off errors. Use
-     * {@link Orientation#index(Coordinate, Coordinate, Coordinate)}
+     * [Orientation.index]
      * for robust orientation calculation.
      *
      * @param a
@@ -608,7 +607,7 @@ open class Triangle(
      * plane defined by a triangle whose vertices have Z-values. The defining
      * triangle must not be degenerate (in other words, the triangle must enclose
      * a non-zero area), and must not be parallel to the Z-axis.
-     * <p>
+     * 
      * This method can be used to interpolate the Z-value of a point inside a
      * triangle (for example, of a TIN facet with elevations on the vertices).
      *

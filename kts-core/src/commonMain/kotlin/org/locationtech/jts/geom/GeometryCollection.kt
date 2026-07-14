@@ -17,16 +17,15 @@ import org.locationtech.jts.util.TreeSet
 import org.locationtech.jts.util.Assert
 
 /**
- * Models a collection of {@link Geometry}s of
+ * Models a collection of [Geometry]s of
  * arbitrary type and dimension.
  *
  *
- * @version 1.7
  */
 open class GeometryCollection : Geometry {
 
   /**
-   *  Internal representation of this <code>GeometryCollection</code>.
+   *  Internal representation of this `GeometryCollection`.
    */
   protected lateinit var geometries: Array<Geometry>
 
@@ -35,10 +34,10 @@ open class GeometryCollection : Geometry {
 
   /**
    * @param geometries
-   *            the <code>Geometry</code>s for this <code>GeometryCollection</code>,
-   *            or <code>null</code> or an empty array to create the empty
-   *            geometry. Elements may be empty <code>Geometry</code>s,
-   *            but not <code>null</code>s.
+   *            the `Geometry`s for this `GeometryCollection`,
+   *            or `null` or an empty array to create the empty
+   *            geometry. Elements may be empty `Geometry`s,
+   *            but not `null`s.
    */
   constructor(geometries: Array<Geometry>?, factory: GeometryFactory) : super(factory) {
     var geometries = geometries
@@ -139,7 +138,7 @@ open class GeometryCollection : Geometry {
   }
 
   /**
-   *  Returns the area of this <code>GeometryCollection</code>
+   *  Returns the area of this `GeometryCollection`
    *
    * @return the area of the polygon
    */
@@ -209,7 +208,7 @@ open class GeometryCollection : Geometry {
   }
 
   /**
-   * Creates and returns a full copy of this {@link GeometryCollection} object.
+   * Creates and returns a full copy of this [GeometryCollection] object.
    * (including all coordinates contained by it).
    *
    * @return a clone of this instance
@@ -272,11 +271,11 @@ open class GeometryCollection : Geometry {
   }
 
   /**
-   * Creates a {@link GeometryCollection} with
+   * Creates a [GeometryCollection] with
    * every component reversed.
    * The order of the components in the collection are not reversed.
    *
-   * @return a {@link GeometryCollection} in the reverse order
+   * @return a [GeometryCollection] in the reverse order
    */
   override fun reverse(): GeometryCollection {
     return super.reverse() as GeometryCollection

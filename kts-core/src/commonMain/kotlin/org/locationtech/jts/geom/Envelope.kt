@@ -19,17 +19,16 @@ import kotlin.math.min
 
 /**
  *  Defines a rectangular region of the 2D coordinate plane.
- *  It is often used to represent the bounding box of a {@link Geometry},
- *  e.g. the minimum and maximum x and y values of the {@link Coordinate}s.
- *  <p>
+ *  It is often used to represent the bounding box of a [Geometry],
+ *  e.g. the minimum and maximum x and y values of the [Coordinate]s.
+ *  
  *  Envelopes support infinite or half-infinite regions, by using the values of
- *  <code>Double.POSITIVE_INFINITY</code> and <code>Double.NEGATIVE_INFINITY</code>.
+ *  `Double.POSITIVE_INFINITY` and `Double.NEGATIVE_INFINITY`.
  *  Envelope objects may have a null value.
- *  <p>
+ *  
  *  When Envelope objects are created or initialized,
  *  the supplies extent values are automatically sorted into the correct order.
  *
- * @version 1.7
  */
 open class Envelope : Comparable<Any?> {
 
@@ -54,14 +53,14 @@ open class Envelope : Comparable<Any?> {
   private var maxy = 0.0
 
   /**
-   *  Creates a null <code>Envelope</code>.
+   *  Creates a null `Envelope`.
    */
   constructor() {
     init()
   }
 
   /**
-   *  Creates an <code>Envelope</code> for a region defined by maximum and minimum values.
+   *  Creates an `Envelope` for a region defined by maximum and minimum values.
    *
    * @param  x1  the first x-value
    * @param  x2  the second x-value
@@ -73,7 +72,7 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Creates an <code>Envelope</code> for a region defined by two Coordinates.
+   *  Creates an `Envelope` for a region defined by two Coordinates.
    *
    * @param  p1  the first Coordinate
    * @param  p2  the second Coordinate
@@ -83,7 +82,7 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Creates an <code>Envelope</code> for a region defined by a single Coordinate.
+   *  Creates an `Envelope` for a region defined by a single Coordinate.
    *
    * @param  p  the Coordinate
    */
@@ -92,7 +91,7 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Create an <code>Envelope</code> from an existing Envelope.
+   *  Create an `Envelope` from an existing Envelope.
    *
    * @param  env  the Envelope to initialize from
    */
@@ -111,14 +110,14 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Initialize to a null <code>Envelope</code>.
+   *  Initialize to a null `Envelope`.
    */
   fun init() {
     setToNull()
   }
 
   /**
-   *  Initialize an <code>Envelope</code> for a region defined by maximum and minimum values.
+   *  Initialize an `Envelope` for a region defined by maximum and minimum values.
    *
    * @param  x1  the first x-value
    * @param  x2  the second x-value
@@ -152,7 +151,7 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Initialize an <code>Envelope</code> to a region defined by two Coordinates.
+   *  Initialize an `Envelope` to a region defined by two Coordinates.
    *
    * @param  p1  the first Coordinate
    * @param  p2  the second Coordinate
@@ -162,7 +161,7 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Initialize an <code>Envelope</code> to a region defined by a single Coordinate.
+   *  Initialize an `Envelope` to a region defined by a single Coordinate.
    *
    * @param  p  the coordinate
    */
@@ -171,7 +170,7 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Initialize an <code>Envelope</code> from an existing Envelope.
+   *  Initialize an `Envelope` from an existing Envelope.
    *
    * @param  env  the Envelope to initialize from
    */
@@ -183,7 +182,7 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Makes this <code>Envelope</code> a "null" envelope, that is, the envelope
+   *  Makes this `Envelope` a "null" envelope, that is, the envelope
    *  of the empty geometry.
    */
   fun setToNull() {
@@ -194,10 +193,10 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Returns <code>true</code> if this <code>Envelope</code> is a "null"
+   *  Returns `true` if this `Envelope` is a "null"
    *  envelope.
    *
-   * @return    <code>true</code> if this <code>Envelope</code> is uninitialized
+   * @return    `true` if this `Envelope` is uninitialized
    *      or is the envelope of the empty geometry.
    */
   fun isNull(): Boolean {
@@ -207,7 +206,7 @@ open class Envelope : Comparable<Any?> {
   /**
    *  Returns the difference between the maximum and minimum x values.
    *
-   * @return    max x - min x, or 0 if this is a null <code>Envelope</code>
+   * @return    max x - min x, or 0 if this is a null `Envelope`
    */
   fun getWidth(): Double {
     if (isNull()) {
@@ -219,7 +218,7 @@ open class Envelope : Comparable<Any?> {
   /**
    *  Returns the difference between the maximum and minimum y values.
    *
-   * @return    max y - min y, or 0 if this is a null <code>Envelope</code>
+   * @return    max y - min y, or 0 if this is a null `Envelope`
    */
   fun getHeight(): Double {
     if (isNull()) {
@@ -243,8 +242,8 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Returns the <code>Envelope</code>s minimum x-value. min x &gt; max x
-   *  indicates that this is a null <code>Envelope</code>.
+   *  Returns the `Envelope`s minimum x-value. min x > max x
+   *  indicates that this is a null `Envelope`.
    *
    * @return    the minimum x-coordinate
    */
@@ -253,8 +252,8 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Returns the <code>Envelope</code>s maximum x-value. min x &gt; max x
-   *  indicates that this is a null <code>Envelope</code>.
+   *  Returns the `Envelope`s maximum x-value. min x > max x
+   *  indicates that this is a null `Envelope`.
    *
    * @return    the maximum x-coordinate
    */
@@ -263,8 +262,8 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Returns the <code>Envelope</code>s minimum y-value. min y &gt; max y
-   *  indicates that this is a null <code>Envelope</code>.
+   *  Returns the `Envelope`s minimum y-value. min y > max y
+   *  indicates that this is a null `Envelope`.
    *
    * @return    the minimum y-coordinate
    */
@@ -273,8 +272,8 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Returns the <code>Envelope</code>s maximum y-value. min y &gt; max y
-   *  indicates that this is a null <code>Envelope</code>.
+   *  Returns the `Envelope`s maximum y-value. min y > max y
+   *  indicates that this is a null `Envelope`.
    *
    * @return    the maximum y-coordinate
    */
@@ -319,8 +318,8 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Enlarges this <code>Envelope</code> so that it contains
-   *  the given {@link Coordinate}.
+   *  Enlarges this `Envelope` so that it contains
+   *  the given [Coordinate].
    *  Has no effect if the point is already on or within the envelope.
    *
    * @param  p  the Coordinate to expand to include
@@ -360,7 +359,7 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Enlarges this <code>Envelope</code> so that it contains
+   *  Enlarges this `Envelope` so that it contains
    *  the given point.
    *  Has no effect if the point is already on or within the envelope.
    *
@@ -390,12 +389,12 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Enlarges this <code>Envelope</code> so that it contains
-   *  the <code>other</code> Envelope.
-   *  Has no effect if <code>other</code> is wholly on or
+   *  Enlarges this `Envelope` so that it contains
+   *  the `other` Envelope.
+   *  Has no effect if `other` is wholly on or
    *  within the envelope.
    *
-   * @param  other  the <code>Envelope</code> to expand to include
+   * @param  other  the `Envelope` to expand to include
    */
   fun expandToInclude(other: Envelope) {
     if (other.isNull()) {
@@ -442,7 +441,7 @@ open class Envelope : Comparable<Any?> {
    * Computes the coordinate of the centre of this envelope (as long as it is non-null
    *
    * @return the centre coordinate of this envelope
-   * <code>null</code> if the envelope is null
+   * `null` if the envelope is null
    */
   fun centre(): Coordinate? {
     if (isNull()) return null
@@ -453,7 +452,7 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   * Computes the intersection of two {@link Envelope}s.
+   * Computes the intersection of two [Envelope]s.
    *
    * @param env the envelope to intersect with
    * @return a new Envelope representing the intersection of the envelopes (this will be
@@ -470,14 +469,14 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   * Tests if the region defined by <code>other</code>
-   * intersects the region of this <code>Envelope</code>.
-   * <p>
+   * Tests if the region defined by `other`
+   * intersects the region of this `Envelope`.
+   * 
    * A null envelope never intersects.
    *
-   * @param  other  the <code>Envelope</code> which this <code>Envelope</code> is
+   * @param  other  the `Envelope` which this `Envelope` is
    *          being checked for intersecting
-   * @return        <code>true</code> if the <code>Envelope</code>s intersect
+   * @return        `true` if the `Envelope`s intersect
    */
   fun intersects(other: Envelope): Boolean {
     if (isNull() || other.isNull()) {
@@ -491,11 +490,11 @@ open class Envelope : Comparable<Any?> {
 
   /**
    * Tests if the extent defined by two extremal points
-   * intersects the extent of this <code>Envelope</code>.
+   * intersects the extent of this `Envelope`.
    *
    * @param a a point
    * @param b another point
-   * @return   <code>true</code> if the extents intersect
+   * @return   `true` if the extents intersect
    */
   fun intersects(a: Coordinate, b: Coordinate): Boolean {
     if (isNull()) {
@@ -518,13 +517,13 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   * Tests if the region defined by <code>other</code>
-   * is disjoint from the region of this <code>Envelope</code>.
-   * <p>
+   * Tests if the region defined by `other`
+   * is disjoint from the region of this `Envelope`.
+   * 
    * A null envelope is always disjoint.
    *
-   * @param  other  the <code>Envelope</code> being checked for disjointness
-   * @return        <code>true</code> if the <code>Envelope</code>s are disjoint
+   * @param  other  the `Envelope` being checked for disjointness
+   * @return        `true` if the `Envelope`s are disjoint
    *
    * @see #intersects(Envelope)
    */
@@ -542,11 +541,11 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   * Tests if the point <code>p</code>
-   * intersects (lies inside) the region of this <code>Envelope</code>.
+   * Tests if the point `p`
+   * intersects (lies inside) the region of this `Envelope`.
    *
-   * @param  p  the <code>Coordinate</code> to be tested
-   * @return <code>true</code> if the point intersects this <code>Envelope</code>
+   * @param  p  the `Coordinate` to be tested
+   * @return `true` if the point intersects this `Envelope`
    */
   fun intersects(p: Coordinate): Boolean {
     return intersects(p.x, p.y)
@@ -560,12 +559,12 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   *  Check if the point <code>(x, y)</code>
-   *  intersects (lies inside) the region of this <code>Envelope</code>.
+   *  Check if the point `(x, y)`
+   *  intersects (lies inside) the region of this `Envelope`.
    *
    * @param  x  the x-ordinate of the point
    * @param  y  the y-ordinate of the point
-   * @return        <code>true</code> if the point overlaps this <code>Envelope</code>
+   * @return        `true` if the point overlaps this `Envelope`
    */
   fun intersects(x: Double, y: Double): Boolean {
     if (isNull()) return false
@@ -583,14 +582,14 @@ open class Envelope : Comparable<Any?> {
   }
 
   /**
-   * Tests if the <code>Envelope other</code>
-   * lies wholely inside this <code>Envelope</code> (inclusive of the boundary).
-   * <p>
-   * Note that this is <b>not</b> the same definition as the SFS <tt>contains</tt>,
+   * Tests if the `Envelope other`
+   * lies wholely inside this `Envelope` (inclusive of the boundary).
+   * 
+   * Note that this is <b>not</b> the same definition as the SFS `contains`,
    * which would exclude the envelope boundary.
    *
-   * @param  other the <code>Envelope</code> to check
-   * @return true if <code>other</code> is contained in this <code>Envelope</code>
+   * @param  other the `Envelope` to check
+   * @return true if `other` is contained in this `Envelope`
    *
    * @see #covers(Envelope)
    */
@@ -600,14 +599,14 @@ open class Envelope : Comparable<Any?> {
 
   /**
    * Tests if the given point lies in or on the envelope.
-   * <p>
-   * Note that this is <b>not</b> the same definition as the SFS <tt>contains</tt>,
+   * 
+   * Note that this is <b>not</b> the same definition as the SFS `contains`,
    * which would exclude the envelope boundary.
    *
-   * @param  p  the point which this <code>Envelope</code> is
+   * @param  p  the point which this `Envelope` is
    *      being checked for containing
-   * @return    <code>true</code> if the point lies in the interior or
-   *      on the boundary of this <code>Envelope</code>.
+   * @return    `true` if the point lies in the interior or
+   *      on the boundary of this `Envelope`.
    *
    * @see #covers(Coordinate)
    */
@@ -617,16 +616,16 @@ open class Envelope : Comparable<Any?> {
 
   /**
    * Tests if the given point lies in or on the envelope.
-   * <p>
-   * Note that this is <b>not</b> the same definition as the SFS <tt>contains</tt>,
+   * 
+   * Note that this is <b>not</b> the same definition as the SFS `contains`,
    * which would exclude the envelope boundary.
    *
-   * @param  x  the x-coordinate of the point which this <code>Envelope</code> is
+   * @param  x  the x-coordinate of the point which this `Envelope` is
    *      being checked for containing
-   * @param  y  the y-coordinate of the point which this <code>Envelope</code> is
+   * @param  y  the y-coordinate of the point which this `Envelope` is
    *      being checked for containing
-   * @return    <code>true</code> if <code>(x, y)</code> lies in the interior or
-   *      on the boundary of this <code>Envelope</code>.
+   * @return    `true` if `(x, y)` lies in the interior or
+   *      on the boundary of this `Envelope`.
    *
    * @see #covers(double, double)
    */
@@ -651,12 +650,12 @@ open class Envelope : Comparable<Any?> {
   /**
    * Tests if the given point lies in or on the envelope.
    *
-   * @param  x  the x-coordinate of the point which this <code>Envelope</code> is
+   * @param  x  the x-coordinate of the point which this `Envelope` is
    *      being checked for containing
-   * @param  y  the y-coordinate of the point which this <code>Envelope</code> is
+   * @param  y  the y-coordinate of the point which this `Envelope` is
    *      being checked for containing
-   * @return    <code>true</code> if <code>(x, y)</code> lies in the interior or
-   *      on the boundary of this <code>Envelope</code>.
+   * @return    `true` if `(x, y)` lies in the interior or
+   *      on the boundary of this `Envelope`.
    */
   fun covers(x: Double, y: Double): Boolean {
     if (isNull()) return false
@@ -669,21 +668,21 @@ open class Envelope : Comparable<Any?> {
   /**
    * Tests if the given point lies in or on the envelope.
    *
-   * @param  p  the point which this <code>Envelope</code> is
+   * @param  p  the point which this `Envelope` is
    *      being checked for containing
-   * @return    <code>true</code> if the point lies in the interior or
-   *      on the boundary of this <code>Envelope</code>.
+   * @return    `true` if the point lies in the interior or
+   *      on the boundary of this `Envelope`.
    */
   fun covers(p: Coordinate): Boolean {
     return covers(p.x, p.y)
   }
 
   /**
-   * Tests if the <code>Envelope other</code>
-   * lies wholely inside this <code>Envelope</code> (inclusive of the boundary).
+   * Tests if the `Envelope other`
+   * lies wholely inside this `Envelope` (inclusive of the boundary).
    *
-   * @param  other the <code>Envelope</code> to check
-   * @return true if this <code>Envelope</code> covers the <code>other</code>
+   * @param  other the `Envelope` to check
+   * @return true if this `Envelope` covers the `other`
    */
   fun covers(other: Envelope): Boolean {
     if (isNull() || other.isNull()) {
@@ -697,7 +696,7 @@ open class Envelope : Comparable<Any?> {
 
   /**
    * Computes the distance between this and another
-   * <code>Envelope</code>.
+   * `Envelope`.
    * The distance between overlapping Envelopes is 0.  Otherwise, the
    * distance is the Euclidean distance between the closest points.
    */
@@ -775,7 +774,7 @@ open class Envelope : Comparable<Any?> {
      * @param p1 one extremal point of the envelope
      * @param p2 another extremal point of the envelope
      * @param q the point to test for intersection
-     * @return <code>true</code> if q intersects the envelope p1-p2
+     * @return `true` if q intersects the envelope p1-p2
      */
     @JvmStatic
     fun intersects(p1: Coordinate, p2: Coordinate, q: Coordinate): Boolean {
@@ -797,7 +796,7 @@ open class Envelope : Comparable<Any?> {
      * @param p2 another extremal point of the envelope P
      * @param q1 one extremal point of the envelope Q
      * @param q2 another extremal point of the envelope Q
-     * @return <code>true</code> if Q intersects P
+     * @return `true` if Q intersects P
      */
     @JvmStatic
     fun intersects(p1: Coordinate, p2: Coordinate, q1: Coordinate, q2: Coordinate): Boolean {

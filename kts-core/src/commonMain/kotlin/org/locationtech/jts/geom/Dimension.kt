@@ -16,10 +16,9 @@ import kotlin.jvm.JvmStatic
 /**
  * Provides constants representing the dimensions of a point, a curve and a surface.
  * Also provides constants representing the dimensions of the empty geometry and
- * non-empty geometries, and the wildcard constant {@link #DONTCARE} meaning "any dimension".
- * These constants are used as the entries in {@link IntersectionMatrix}s.
+ * non-empty geometries, and the wildcard constant [DONTCARE] meaning "any dimension".
+ * These constants are used as the entries in [IntersectionMatrix]s.
  *
- * @version 1.7
  */
 class Dimension {
   companion object {
@@ -84,13 +83,13 @@ class Dimension {
     const val SYM_A = '2'
 
     /**
-     *  Converts the dimension value to a dimension symbol, for example, <code>TRUE =&gt; 'T'</code>
+     *  Converts the dimension value to a dimension symbol, for example, `TRUE => 'T'`
      *  .
      *
-     * @param  dimensionValue  a number that can be stored in the <code>IntersectionMatrix</code>
-     *      . Possible values are <code>{TRUE, FALSE, DONTCARE, 0, 1, 2}</code>.
+     * @param  dimensionValue  a number that can be stored in the `IntersectionMatrix`
+     *      . Possible values are `{TRUE, FALSE, DONTCARE, 0, 1, 2}`.
      * @return                 a character for use in the string representation of
-     *      an <code>IntersectionMatrix</code>. Possible values are <code>{T, F, * , 0, 1, 2}</code>
+     *      an `IntersectionMatrix`. Possible values are `{T, F, * , 0, 1, 2}`
      *      .
      */
     @JvmStatic
@@ -107,14 +106,14 @@ class Dimension {
     }
 
     /**
-     *  Converts the dimension symbol to a dimension value, for example, <code>'*' =&gt; DONTCARE</code>
+     *  Converts the dimension symbol to a dimension value, for example, `'*' => DONTCARE`
      *  .
      *
      * @param  dimensionSymbol  a character for use in the string representation of
-     *      an <code>IntersectionMatrix</code>. Possible values are <code>{T, F, * , 0, 1, 2}</code>
+     *      an `IntersectionMatrix`. Possible values are `{T, F, * , 0, 1, 2}`
      *      .
-     * @return a number that can be stored in the <code>IntersectionMatrix</code>
-     *      . Possible values are <code>{TRUE, FALSE, DONTCARE, 0, 1, 2}</code>.
+     * @return a number that can be stored in the `IntersectionMatrix`
+     *      . Possible values are `{TRUE, FALSE, DONTCARE, 0, 1, 2}`.
      */
     @JvmStatic
     fun toDimensionValue(dimensionSymbol: Char): Int {

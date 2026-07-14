@@ -12,16 +12,15 @@
 package org.locationtech.jts.geom
 
 /**
- * A factory to create concrete instances of {@link CoordinateSequence}s.
- * Used to configure {@link GeometryFactory}s
+ * A factory to create concrete instances of [CoordinateSequence]s.
+ * Used to configure [GeometryFactory]s
  * to provide specific kinds of CoordinateSequences.
  *
- * @version 1.7
  */
 interface CoordinateSequenceFactory {
 
   /**
-   * Returns a {@link CoordinateSequence} based on the given array.
+   * Returns a [CoordinateSequence] based on the given array.
    * Whether the array is copied or simply referenced
    * is implementation-dependent.
    * This method must handle null arguments by creating an empty sequence.
@@ -31,8 +30,8 @@ interface CoordinateSequenceFactory {
   fun create(coordinates: Array<Coordinate>?): CoordinateSequence
 
   /**
-   * Creates a {@link CoordinateSequence} which is a copy
-   * of the given {@link CoordinateSequence}.
+   * Creates a [CoordinateSequence] which is a copy
+   * of the given [CoordinateSequence].
    * This method must handle null arguments by creating an empty sequence.
    *
    * @param coordSeq the coordinate sequence to copy
@@ -40,10 +39,10 @@ interface CoordinateSequenceFactory {
   fun create(coordSeq: CoordinateSequence?): CoordinateSequence
 
   /**
-   * Creates a {@link CoordinateSequence} of the specified size and dimension.
-   * For this to be useful, the {@link CoordinateSequence} implementation must
+   * Creates a [CoordinateSequence] of the specified size and dimension.
+   * For this to be useful, the [CoordinateSequence] implementation must
    * be mutable.
-   * <p>
+   * 
    * If the requested dimension is larger than the CoordinateSequence implementation
    * can provide, then a sequence of maximum possible dimension should be created.
    * An error should not be thrown.
@@ -55,10 +54,10 @@ interface CoordinateSequenceFactory {
   fun create(size: Int, dimension: Int): CoordinateSequence
 
   /**
-   * Creates a {@link CoordinateSequence} of the specified size and dimension with measure support.
-   * For this to be useful, the {@link CoordinateSequence} implementation must
+   * Creates a [CoordinateSequence] of the specified size and dimension with measure support.
+   * For this to be useful, the [CoordinateSequence] implementation must
    * be mutable.
-   * <p>
+   * 
    * If the requested dimension or measures are larger than the CoordinateSequence implementation
    * can provide, then a sequence of maximum possible dimension should be created.
    * An error should not be thrown.
