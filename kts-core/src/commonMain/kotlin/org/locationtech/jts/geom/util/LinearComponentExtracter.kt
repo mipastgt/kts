@@ -23,7 +23,6 @@ import org.locationtech.jts.geom.LinearRing
  * For polygonal geometries, this will extract all the component [LinearRing]s.
  * If desired, `LinearRing`s can be forced to be returned as `LineString`s.
  *
- * @version 1.7
  */
 open class LinearComponentExtracter : GeometryComponentFilter {
 

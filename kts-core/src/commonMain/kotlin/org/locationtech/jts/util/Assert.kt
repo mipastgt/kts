@@ -16,12 +16,11 @@ import kotlin.jvm.JvmStatic
 /**
  *  A utility for making programming assertions.
  *
- * @version 1.7
  */
 class Assert {
   companion object {
     /**
-     *  Throws an <code>AssertionFailedException</code> if the given assertion is
+     *  Throws an `AssertionFailedException` if the given assertion is
      *  not true.
      *
      * @param  assertion                  a condition that is supposed to be true
@@ -33,7 +32,7 @@ class Assert {
     }
 
     /**
-     *  Throws an <code>AssertionFailedException</code> with the given message if
+     *  Throws an `AssertionFailedException` with the given message if
      *  the given assertion is not true.
      *
      * @param  assertion                  a condition that is supposed to be true
@@ -52,8 +51,8 @@ class Assert {
     }
 
     /**
-     *  Throws an <code>AssertionFailedException</code> if the given objects are
-     *  not equal, according to the <code>equals</code> method.
+     *  Throws an `AssertionFailedException` if the given objects are
+     *  not equal, according to the `equals` method.
      *
      * @param  expectedValue              the correct value
      * @param  actualValue                the value being checked
@@ -65,8 +64,8 @@ class Assert {
     }
 
     /**
-     *  Throws an <code>AssertionFailedException</code> with the given message if
-     *  the given objects are not equal, according to the <code>equals</code>
+     *  Throws an `AssertionFailedException` with the given message if
+     *  the given objects are not equal, according to the `equals`
      *  method.
      *
      * @param  expectedValue              the correct value
@@ -85,7 +84,7 @@ class Assert {
     }
 
     /**
-     *  Always throws an <code>AssertionFailedException</code>.
+     *  Always throws an `AssertionFailedException`.
      *
      * @throws  AssertionFailedException  thrown always
      */
@@ -95,7 +94,7 @@ class Assert {
     }
 
     /**
-     *  Always throws an <code>AssertionFailedException</code> with the given
+     *  Always throws an `AssertionFailedException` with the given
      *  message.
      *
      * @param  message                    a description of the assertion

@@ -21,7 +21,7 @@ import org.locationtech.jts.geom.Triangle
 import org.locationtech.jts.util.Assert
 
 /**
- * Computes the <b>Minimum Bounding Circle</b> (MBC)
+ * Computes the **Minimum Bounding Circle** (MBC)
  * for the points in a [Geometry].
  *
  * @author Martin Davis
@@ -32,7 +32,7 @@ import org.locationtech.jts.util.Assert
 class MinimumBoundingCircle(private val input: Geometry) {
   /*
    * The algorithm used is based on the one by Jon Rokne in
-   * the article "An Easy Bounding Circle" in <i>Graphic Gems II</i>.
+   * the article "An Easy Bounding Circle" in *Graphic Gems II*.
    */
 
   private var extremalPts: Array<Coordinate>? = null

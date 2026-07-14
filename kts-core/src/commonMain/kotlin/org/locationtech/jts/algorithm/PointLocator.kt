@@ -29,11 +29,10 @@ import org.locationtech.jts.geom.Polygon
  * of a single point to a [Geometry].
  * A [BoundaryNodeRule] may be specified
  * to control the evaluation of whether the point lies on the boundary or not
- * The default rule is to use the the <i>SFS Boundary Determination Rule</i>
+ * The default rule is to use the the *SFS Boundary Determination Rule*
  *
  * Instances of this class are not reentrant.
  *
- * @version 1.7
  */
 class PointLocator {
   // default is to use OGC SFS rule
@@ -55,7 +54,7 @@ class PointLocator {
    * a Geometry
    * @param p the coordinate to test
    * @param geom the Geometry to test
-   * @return <code>true</code> if the point is in the interior or boundary of the Geometry
+   * @return `true` if the point is in the interior or boundary of the Geometry
    */
   fun intersects(p: Coordinate, geom: Geometry): Boolean {
     return locate(p, geom) != Location.EXTERIOR

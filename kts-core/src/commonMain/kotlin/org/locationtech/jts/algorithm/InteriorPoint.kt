@@ -19,10 +19,10 @@ import org.locationtech.jts.geom.GeometryCollection
 import org.locationtech.jts.geom.GeometryFilter
 
 /**
- * Computes an interior point of a <code>[Geometry]</code>.
+ * Computes an interior point of a `[Geometry]`.
  * An interior point is guaranteed to lie in the interior of the Geometry,
  * if it possible to calculate such a point exactly.
- * The interior point of an empty geometry is <code>null</code>.
+ * The interior point of an empty geometry is `null`.
  *
  * @see Centroid
  */
@@ -35,7 +35,7 @@ class InteriorPoint {
      *
      * @param geom a geometry in which to find an interior point
      * @return the location of an interior point,
-     *  or <code>null</code> if the input is empty
+     *  or `null` if the input is empty
      */
     @JvmStatic
     fun getInteriorPoint(geom: Geometry): Coordinate? {

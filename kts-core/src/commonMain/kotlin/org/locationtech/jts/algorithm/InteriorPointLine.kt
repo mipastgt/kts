@@ -21,14 +21,13 @@ import org.locationtech.jts.geom.LineString
 /**
  * Computes a point in the interior of an linear geometry.
  * <h2>Algorithm</h2>
- * <ul>
- * <li>Find an interior vertex which is closest to
+ * 
+ * - Find an interior vertex which is closest to
  * the centroid of the linestring.
- * <li>If there is no interior vertex, find the endpoint which is
+ * - If there is no interior vertex, find the endpoint which is
  * closest to the centroid.
- * </ul>
+ * 
  *
- * @version 1.7
  */
 class InteriorPointLine(g: Geometry) {
 
@@ -111,7 +110,7 @@ class InteriorPointLine(g: Geometry) {
      *
      * @param geom the geometry to compute
      * @return the computed interior point,
-     * or <code>null</code> if the geometry has no linear components
+     * or `null` if the geometry has no linear components
      */
     @JvmStatic
     fun getInteriorPoint(geom: Geometry): Coordinate? {

@@ -15,7 +15,6 @@ package org.locationtech.jts.algorithm
  * Indicates that a [HCoordinate] has been computed which is
  * not representable on the Cartesian plane.
  *
- * @version 1.7
  * @see HCoordinate
  */
 class NotRepresentableException : Exception("Projective point not representable on the Cartesian plane.")

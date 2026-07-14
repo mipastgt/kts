@@ -28,7 +28,6 @@ import kotlin.reflect.KClass
 /**
  * Extracts the components of a given type from a [Geometry].
  *
- * @version 1.7
  */
 open class GeometryExtracter : GeometryFilter {
 
@@ -64,7 +63,7 @@ open class GeometryExtracter : GeometryFilter {
 
   companion object {
     /**
-     * Extracts the components of type <tt>clz</tt> from a [Geometry]
+     * Extracts the components of type `clz` from a [Geometry]
      * and adds them to the provided [List].
      *
      * @param geom the geometry from which to extract
@@ -98,7 +97,7 @@ open class GeometryExtracter : GeometryFilter {
     }
 
     /**
-     * Extracts the components of <tt>geometryType</tt> from a [Geometry]
+     * Extracts the components of `geometryType` from a [Geometry]
      * and adds them to the provided [List].
      *
      * @param geom the geometry from which to extract
@@ -118,7 +117,7 @@ open class GeometryExtracter : GeometryFilter {
     }
 
     /**
-     * Extracts the components of type <tt>clz</tt> from a [Geometry]
+     * Extracts the components of type `clz` from a [Geometry]
      * and returns them in a [List].
      *
      * @param geom the geometry from which to extract

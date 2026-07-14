@@ -22,7 +22,6 @@ import org.locationtech.jts.geom.Position
 import org.locationtech.jts.geomgraph.index.MonotoneChainEdge
 
 /**
- * @version 1.7
  */
 open class Edge(pts: Array<Coordinate>, label: Label?) : GraphComponent(label) {
 

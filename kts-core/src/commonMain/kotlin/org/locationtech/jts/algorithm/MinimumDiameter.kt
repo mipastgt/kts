@@ -32,7 +32,6 @@ import org.locationtech.jts.geom.Polygon
  * @see ConvexHull
  * @see MinimumAreaRectangle
  *
- * @version 1.7
  */
 class MinimumDiameter {
 
@@ -57,7 +56,7 @@ class MinimumDiameter {
    * with a hint if the Geometry is convex.
    *
    * @param inputGeom a Geometry which is convex
-   * @param isConvex <code>true</code> if the input geometry is convex
+   * @param isConvex `true` if the input geometry is convex
    */
   constructor(inputGeom: Geometry, isConvex: Boolean) {
     this.inputGeom = inputGeom

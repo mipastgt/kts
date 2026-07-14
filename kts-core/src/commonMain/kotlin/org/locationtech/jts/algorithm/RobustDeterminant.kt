@@ -21,7 +21,6 @@ import org.locationtech.jts.geom.Coordinate
  * sign of a 2x2 determinant for double precision values robustly.
  * It is a direct translation of code developed by Olivier Devillers.
  *
- * @version 1.7
  */
 class RobustDeterminant {
 
@@ -268,8 +267,8 @@ class RobustDeterminant {
     }
 
     /**
-     * Returns the index of the direction of the point <code>q</code> relative to
-     * a vector specified by <code>p1-p2</code>.
+     * Returns the index of the direction of the point `q` relative to
+     * a vector specified by `p1-p2`.
      *
      * @param p1 the origin point of the vector
      * @param p2 the final point of the vector

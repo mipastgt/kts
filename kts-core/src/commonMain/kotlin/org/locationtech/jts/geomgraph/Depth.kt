@@ -19,7 +19,6 @@ import org.locationtech.jts.geom.Position
 /**
  * A Depth object records the topological depth of the sides
  * of an Edge for up to two Geometries.
- * @version 1.7
  */
 class Depth {
 
@@ -100,7 +99,7 @@ class Depth {
    * has depth values in the set { 0, 1 }.
    * Normalizing the depths
    * involves reducing the depths by the same amount so that at least
-   * one of them is 0.  If the remaining value is &gt; 0, it is set to 1.
+   * one of them is 0.  If the remaining value is > 0, it is set to 1.
    */
   fun normalize() {
     for (i in 0..1) {

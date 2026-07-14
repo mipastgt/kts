@@ -12,7 +12,7 @@
 package org.locationtech.jts.util
 
 /**
- * A priority queue over a set of {@link Comparable} objects.
+ * A priority queue over a set of [Comparable] objects.
  *
  * @author Martin Davis
  */

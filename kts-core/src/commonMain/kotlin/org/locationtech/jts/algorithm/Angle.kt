@@ -208,7 +208,7 @@ class Angle private constructor() {
      * @param p0 a point of the ring
      * @param p1 the next point of the ring
      * @param p2 the next point of the ring
-     * @return the interior angle based at {@code p1}
+     * @return the interior angle based at `p1`
      */
     @JvmStatic
     fun interiorAngle(p0: Coordinate, p1: Coordinate, p2: Coordinate): Double {

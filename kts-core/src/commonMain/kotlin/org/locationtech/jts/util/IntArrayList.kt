@@ -13,7 +13,7 @@ package org.locationtech.jts.util
 import kotlin.math.max
 
 /**
- * An extendable array of primitive <code>int</code> values.
+ * An extendable array of primitive `int` values.
  *
  * @author Martin Davis
  *

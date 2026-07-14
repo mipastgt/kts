@@ -25,11 +25,10 @@ import org.locationtech.jts.geom.Polygon
  * Computes the centroid of a [Geometry] of any dimension.
  * For collections the centroid is computed for the collection of
  * non-empty elements of highest dimension.
- * The centroid of an empty geometry is {@code null}.
+ * The centroid of an empty geometry is `null`.
  *
  * @see InteriorPoint
  *
- * @version 1.7
  */
 class Centroid(geom: Geometry) {
 

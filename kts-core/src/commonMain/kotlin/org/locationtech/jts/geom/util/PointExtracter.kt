@@ -21,7 +21,6 @@ import org.locationtech.jts.geom.Point
 /**
  * Extracts all the 0-dimensional ([Point]) components from a [Geometry].
  *
- * @version 1.7
  * @see GeometryExtracter
  */
 open class PointExtracter(private val pts: MutableList<in Point>) : GeometryFilter {

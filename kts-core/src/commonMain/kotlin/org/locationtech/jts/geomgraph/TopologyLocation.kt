@@ -36,7 +36,6 @@ import org.locationtech.jts.geom.Position
  *
  * The labelling is stored in an array location[j] where
  * where j has the values ON, LEFT, RIGHT
- * @version 1.7
  */
 class TopologyLocation {
 

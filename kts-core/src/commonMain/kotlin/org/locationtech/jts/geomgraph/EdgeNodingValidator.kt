@@ -22,7 +22,6 @@ import org.locationtech.jts.noding.SegmentString
  * Throws an appropriate exception if an noding error is found.
  * Uses [FastNodingValidator] to perform the validation.
  *
- * @version 1.7
  *
  * @see FastNodingValidator
  */

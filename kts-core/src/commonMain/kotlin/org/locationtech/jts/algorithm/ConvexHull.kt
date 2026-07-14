@@ -32,7 +32,6 @@ import org.locationtech.jts.util.Assert
  *
  * Uses the Graham Scan algorithm.
  *
- *@version 1.7
  */
 open class ConvexHull {
 
@@ -292,8 +291,8 @@ open class ConvexHull {
   /**
    *@param  coordinates  the vertices of a linear ring, which may or may not be
    *      flattened (i.e. vertices collinear)
-   *@return           a 2-vertex <code>LineString</code> if the vertices are
-   *      collinear; otherwise, a <code>Polygon</code> with unnecessary
+   *@return           a 2-vertex `LineString` if the vertices are
+   *      collinear; otherwise, a `Polygon` with unnecessary
    *      (collinear) vertices removed
    */
   private fun lineOrPolygon(coordinates: Array<Coordinate>): Geometry {
@@ -338,7 +337,6 @@ open class ConvexHull {
    * relative to an origin.
    *
    * @author Martin Davis
-   * @version 1.7
    */
   private class RadialComparator(private val origin: Coordinate) : Comparator<Coordinate> {
 

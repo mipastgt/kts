@@ -82,7 +82,7 @@ class CGAlgorithms3D private constructor() {
       /*
         This calculation is susceptible to round off errors when
         passed large ordinate values.
-        It may be possible to improve this by using {@link DD} arithmetic.
+        It may be possible to improve this by using [DD] arithmetic.
        */
       if (A.equals3D(B))
         return distancePointSegment(A, C, D)

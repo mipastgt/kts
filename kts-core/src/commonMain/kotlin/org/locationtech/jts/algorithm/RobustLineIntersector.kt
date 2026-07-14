@@ -19,7 +19,6 @@ import org.locationtech.jts.geom.Envelope
 /**
  * A robust version of [LineIntersector].
  *
- * @version 1.7
  */
 open class RobustLineIntersector : LineIntersector() {
 
@@ -197,7 +196,7 @@ open class RobustLineIntersector : LineIntersector() {
   /**
    * Tests whether a point lies in the envelopes of both input segments.
    *
-   * @return <code>true</code> if the input point lies within both input segment envelopes
+   * @return `true` if the input point lies within both input segment envelopes
    */
   private fun isInSegmentEnvelopes(intPt: Coordinate): Boolean {
     val env0 = Envelope(inputLines[0][0]!!, inputLines[0][1]!!)

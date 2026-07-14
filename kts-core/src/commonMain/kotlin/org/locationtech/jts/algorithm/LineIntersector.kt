@@ -23,11 +23,10 @@ import org.locationtech.jts.io.WKTWriter
 import org.locationtech.jts.util.Assert
 
 /**
- * A <code>LineIntersector</code> is an algorithm that can both test whether
+ * A `LineIntersector` is an algorithm that can both test whether
  * two line segments intersect and compute the intersection point(s)
  * if they do.
  *
- * @version 1.7
  */
 abstract class LineIntersector {
 
@@ -73,7 +72,7 @@ abstract class LineIntersector {
   /**
    * Force computed intersection to be rounded to a given precision model
    * @param precisionModel
-   * @deprecated use <code>setPrecisionModel</code> instead
+   * @deprecated use `setPrecisionModel` instead
    */
   open fun setMakePrecise(precisionModel: PrecisionModel?) {
     this.precisionModel = precisionModel
@@ -192,7 +191,7 @@ abstract class LineIntersector {
   /**
    * Tests whether either intersection point is an interior point of one of the input segments.
    *
-   * @return <code>true</code> if either intersection point is in the interior of one of the input segments
+   * @return `true` if either intersection point is in the interior of one of the input segments
    */
   open fun isInteriorIntersection(): Boolean {
     if (isInteriorIntersection(0)) return true
@@ -203,7 +202,7 @@ abstract class LineIntersector {
   /**
    * Tests whether either intersection point is an interior point of the specified input segment.
    *
-   * @return <code>true</code> if either intersection point is in the interior of the input segment
+   * @return `true` if either intersection point is in the interior of the input segment
    */
   open fun isInteriorIntersection(inputLineIndex: Int): Boolean {
     for (i in 0 until result) {

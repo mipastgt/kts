@@ -28,7 +28,6 @@ import org.locationtech.jts.util.Assert
  * They are maintained in CCW order (starting with the positive x-axis) around the node
  * for efficient lookup and topology building.
  *
- * @version 1.7
  */
 abstract class EdgeEndStar {
 

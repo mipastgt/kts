@@ -17,7 +17,7 @@ import kotlin.jvm.JvmStatic
 import org.locationtech.jts.io.OrdinateFormat
 
 /**
- * Utility methods for working with {@link String}s.
+ * Utility methods for working with [String]s.
  *
  * @author Martin Davis
  *
@@ -25,7 +25,7 @@ import org.locationtech.jts.io.OrdinateFormat
 class StringUtil {
   companion object {
     /**
-     * Mimics the the Java SE {@link String#split(String)} method.
+     * Mimics the the Java SE [String.split] method.
      *
      * @param s the string to split.
      * @param separator the separator to use.
@@ -81,7 +81,7 @@ class StringUtil {
      * @param d a number
      * @return a string
      *
-     * @deprecated use {@link OrdinateFormat}
+     * @deprecated use [OrdinateFormat]
      */
     @JvmStatic
     fun toString(d: Double): String {
