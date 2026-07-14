@@ -6,7 +6,9 @@ import org.gradle.api.publish.maven.MavenPublication
 // the plugins without repeating a version.
 plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
-    alias(libs.plugins.dokka) apply false
+    // Applied (not `apply false`) at the root so the root project can aggregate the subprojects'
+    // Dokka output into a single multi-module site. See the `dokka`/`dependencies` block below.
+    alias(libs.plugins.dokka)
 }
 
 // Maven coordinates for all modules. The group is `de.mpmediasoft.kts` so these Kotlin artifacts
@@ -56,6 +58,33 @@ val moduleDescriptions = mapOf(
     "kts-io-geojson" to "GeoJSON reader and writer (kotlinx-serialization) for the JTS Kotlin Multiplatform port.",
     "kts-io-files" to "File-based WKT/WKB geometry readers (kotlinx-io) for the JTS Kotlin Multiplatform port.",
 )
+
+// ---------------------------------------------------------------------------------------------
+// Aggregated multi-module Dokka site.
+//
+// The root applies the Dokka plugin and depends on each documented module through the `dokka`
+// configuration. Running `./gradlew dokkaGenerate` (or `dokkaGenerateHtml`) at the root produces a
+// single combined HTML site — one navigation tree and one search across all modules — under
+// `build/dokka/html`. The per-module sites and the `-javadoc.jar` publications are unaffected.
+// ---------------------------------------------------------------------------------------------
+// The root now runs a Dokka task, so it needs a repository to resolve Dokka's own plugin
+// artifacts (dokka-base, templating-plugin). Subprojects declare their own repositories.
+repositories {
+    mavenCentral()
+}
+
+dokka {
+    moduleName.set("JTS Kotlin Multiplatform")
+}
+
+dependencies {
+    dokka(project(":kts-core"))
+    dokka(project(":kts-io-wkt"))
+    dokka(project(":kts-io-gml"))
+    dokka(project(":kts-io-kml"))
+    dokka(project(":kts-io-geojson"))
+    dokka(project(":kts-io-files"))
+}
 
 subprojects {
     // POM metadata for every Maven publication the module produces (root/metadata + per-target).
