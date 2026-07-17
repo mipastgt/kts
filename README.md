@@ -2,6 +2,7 @@ JTS Topology Suite — Kotlin Multiplatform Port
 ==============================================
 
 [![Maven Central](https://img.shields.io/maven-central/v/de.mpmediasoft.kts/kts-core?label=Maven%20Central)](https://central.sonatype.com/artifact/de.mpmediasoft.kts/kts-core)
+[![GitHub release](https://img.shields.io/github/v/release/mipastgt/kts?label=GitHub%20release)](https://github.com/mipastgt/kts/releases/latest)
 [![License: EPL 2.0 / EDL 1.0](https://img.shields.io/badge/license-EPL--2.0%20%2F%20EDL--1.0-blue)](#license)
 
 The JTS Topology Suite is a library for creating and manipulating vector geometry.
@@ -58,6 +59,10 @@ dependencies {
 > The artifacts are published to **[Maven Central](https://central.sonatype.com/artifact/de.mpmediasoft.kts/kts-core)** —
 > just make sure `mavenCentral()` is in your `repositories { }`. (To build against an unreleased
 > local change instead, run `./gradlew publishToMavenLocal` and add `mavenLocal()`.)
+
+> **Release notes & API docs.** See the **[v1.20.0.0 GitHub release](https://github.com/mipastgt/kts/releases/tag/v1.20.0.0)**
+> for the changelog and a downloadable bundle of the aggregated [Dokka](https://kotlinlang.org/docs/dokka-introduction.html)
+> API documentation (`kts-1.20.0.0-docs.zip`).
 
 **Example (Kotlin):**
 
