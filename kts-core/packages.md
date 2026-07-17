@@ -17,7 +17,7 @@ Classes to compute distance metrics between geometries.
 Contains classes implementing algorithms to compute hulls
 of geometry objects.
 
-See also [ConvexHull].
+See also [ConvexHull][org.locationtech.jts.algorithm.ConvexHull].
 
 # Package org.locationtech.jts.algorithm.locate
 
@@ -69,7 +69,7 @@ OpenGIS Simple Features Specification for SQL](http://www.opengis.org/techno/spe
 Classes that operate on polygonal coverages.
 
 A polygonal coverage is a set of polygonal geometries which is non-overlapping and edge-matched.
-([Polygon]s or [MultiPolygon]s).
+([Polygon][org.locationtech.jts.geom.Polygon]s or [MultiPolygon][org.locationtech.jts.geom.MultiPolygon]s).
 A set of polygonal geometries is a valid coverage if:
 - Each geometry is valid
 - The interiors of all polygons are disjoint (they are non-overlapping).
@@ -275,7 +275,7 @@ The requirements for overlay input are:
 - Input geometries may have different dimension.
 - Collections must be homogeneous
 (all elements must have the same dimension).
-- Inputs may be **simple** [GeometryCollection]s.
+- Inputs may be **simple** [GeometryCollection][org.locationtech.jts.geom.GeometryCollection]s.
 A GeometryCollection is simple if it can be flattened into a valid Multi-geometry;
 i.e. it is homogeneous and does not contain any overlapping Polygons.
 - In general, inputs must be valid geometries.
@@ -470,14 +470,14 @@ OpenGIS Simple Features Specification for SQL](http://www.opengis.org/techno/spe
 # Package org.locationtech.jts.operation.relateng
 
 Provides classes to implement the RelateNG algorithm
-computes topological relationships of [Geometry]s.
+computes topological relationships of [Geometry][org.locationtech.jts.geom.Geometry]s.
 Topology is evaluated based on the
 [Dimensionally-Extended 9-Intersection Model](https://en.wikipedia.org/wiki/DE-9IM) (DE-9IM).
 The [RelateNG] class supports computing the value of boolean topological predicates.
 Standard OGC named predicates are provided by the [RelatePredicate] functions.
 Custom relationships can be specified via testing against DE-9IM matrix patterns
 (see [IntersectionMatrixPattern] for examples).
-The full DE-9IM [IntersectionMatrix] can also be computed.
+The full DE-9IM [IntersectionMatrix][org.locationtech.jts.geom.IntersectionMatrix] can also be computed.
 
 The algorithm has the following capabilities:
 - Efficient short-circuited evaluation of topological predicates
@@ -486,9 +486,9 @@ The algorithm has the following capabilities:
     via cached spatial indexes (AKA "prepared mode")
 - Robust computation (since only point-local topology is required,
     so that invalid geometry topology cannot cause failures)
-- Support for mixed-type and overlapping [GeometryCollection] inputs
+- Support for mixed-type and overlapping [GeometryCollection][org.locationtech.jts.geom.GeometryCollection] inputs
     (using *union semantics*)
-- Support for [BoundaryNodeRule]
+- Support for [BoundaryNodeRule][org.locationtech.jts.algorithm.BoundaryNodeRule]
 
 RelateNG operates in 2D only; it ignores any Z ordinates.
 
@@ -530,7 +530,7 @@ in order to provide consistent evaluation of the topological structure.
 
 **GeometryCollection Handling**
 
-[GeometryCollection]s may contain geometries of different dimensions, nested to any level.
+[GeometryCollection][org.locationtech.jts.geom.GeometryCollection]s may contain geometries of different dimensions, nested to any level.
 The element geometries may overlap in any combination.
 The OGC specification did not provide a definition for the topology
 of GeometryCollections, or how they behave under the DE-9IM model.

@@ -163,7 +163,7 @@ open class PrecisionModel : Comparable<Any?> {
    * Returns the maximum number of significant digits provided by this
    * precision model.
    * Intended for use by routines which need to print out
-   * decimal representations of precise values (such as [WKTWriter]).
+   * decimal representations of precise values (such as [WKTWriter][org.locationtech.jts.io.WKTWriter]).
    * 
    * This method would be more correctly called
    * `getMinimumDecimalPlaces`,

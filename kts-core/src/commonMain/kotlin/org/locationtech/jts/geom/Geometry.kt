@@ -692,7 +692,7 @@ abstract class Geometry(
    *           if a robustness error occurs
    * @throws IllegalArgumentException
    *           if either input is a non-empty GeometryCollection
-   * @see LineMerger
+   * @see org.locationtech.jts.operation.linemerge.LineMerger
    */
   open fun union(other: Geometry): Geometry {
     return GeometryOverlay.union(this, other)
@@ -738,7 +738,7 @@ abstract class Geometry(
    * @return the union geometry
    * @throws TopologyException if a robustness error occurs
    *
-   * @see UnaryUnionOp
+   * @see org.locationtech.jts.operation.union.UnaryUnionOp
    */
   open fun union(): Geometry {
     return GeometryOverlay.union(this)

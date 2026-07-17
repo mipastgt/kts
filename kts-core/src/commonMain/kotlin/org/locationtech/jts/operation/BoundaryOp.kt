@@ -32,7 +32,7 @@ import org.locationtech.jts.geom.Point
  * This operation will always return a [Geometry] of the appropriate
  * dimension for the boundary (even if the input geometry is empty).
  * The boundary of zero-dimensional geometries (Points) is
- * always the empty [GeometryCollection].
+ * always the empty [GeometryCollection][org.locationtech.jts.geom.GeometryCollection].
  *
  * @author Martin Davis
  */

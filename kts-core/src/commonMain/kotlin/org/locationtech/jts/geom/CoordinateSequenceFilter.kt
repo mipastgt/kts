@@ -11,6 +11,11 @@
  */
 package org.locationtech.jts.geom
 
+// Imported so the KDoc links [GeometryEditor] / [GeometryTransformer] below resolve to these
+// classes in the geom.util subpackage (they are referenced only from documentation).
+import org.locationtech.jts.geom.util.GeometryEditor
+import org.locationtech.jts.geom.util.GeometryTransformer
+
 /**
  *  An interface for classes which process the coordinates in a [CoordinateSequence].
  *  A filter can either record information about each coordinate,

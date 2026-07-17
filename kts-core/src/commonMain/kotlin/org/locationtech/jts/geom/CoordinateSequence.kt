@@ -32,8 +32,8 @@ package org.locationtech.jts.geom
  * 
  * For an example, see the code for ExtendedCoordinateExample.
  *
- * @see CoordinateArraySequenceFactory
- * @see PackedCoordinateSequenceFactory
+ * @see org.locationtech.jts.geom.impl.CoordinateArraySequenceFactory
+ * @see org.locationtech.jts.geom.impl.PackedCoordinateSequenceFactory
  *
  */
 interface CoordinateSequence {

@@ -13,6 +13,7 @@ package org.locationtech.jts.geomgraph
 
 import kotlin.jvm.JvmStatic
 
+import org.locationtech.jts.geom.TopologyException
 import org.locationtech.jts.noding.BasicSegmentString
 import org.locationtech.jts.noding.FastNodingValidator
 import org.locationtech.jts.noding.SegmentString

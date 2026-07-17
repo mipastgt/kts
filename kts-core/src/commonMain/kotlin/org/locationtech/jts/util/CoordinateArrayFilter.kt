@@ -16,7 +16,7 @@ import org.locationtech.jts.geom.CoordinateFilter
 
 /**
  *  A [CoordinateFilter] that creates an array containing every
- *  coordinate in a [Geometry].
+ *  coordinate in a [Geometry][org.locationtech.jts.geom.Geometry].
  *
  */
 class CoordinateArrayFilter
