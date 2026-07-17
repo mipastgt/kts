@@ -176,5 +176,34 @@ subprojects {
                 }
             }
         }
+
+        // Regression guard for the empty-javadoc-jar bug (see the JavadocJar.Dokka note above):
+        // build the primary KMP `-javadoc.jar` (the one published as the module's main artifact and
+        // read by javadoc.io) and assert it actually contains rendered Dokka HTML, not just a
+        // manifest. Wired into `check`, so `./gradlew check` (and CI) fails if the jar ever reverts
+        // to a stub. Cheap relative to the Dokka generation it depends on — it only reads the zip.
+        val verifyJavadocJar = tasks.register("verifyJavadocJar") {
+            group = "verification"
+            description = "Fails if the published Dokka -javadoc.jar contains no HTML."
+            val javadocJar = tasks.named(
+                "kotlinMultiplatformDokkaJavadocJar",
+                org.gradle.api.tasks.bundling.AbstractArchiveTask::class.java,
+            )
+            val jarFile = javadocJar.flatMap { it.archiveFile }
+            inputs.file(jarFile)
+            doLast {
+                val file = jarFile.get().asFile
+                val htmlCount = java.util.zip.ZipFile(file).use { zip ->
+                    zip.entries().asSequence().count { it.name.endsWith(".html") }
+                }
+                require(htmlCount > 0) {
+                    "javadoc jar ${file.name} contains no HTML — Dokka output was not packaged " +
+                        "(the jar is a manifest-only stub). Check the JavadocJar.Dokka(\"…\") task " +
+                        "wiring in the root build.gradle.kts."
+                }
+                logger.lifecycle("verifyJavadocJar: ${file.name} contains $htmlCount HTML file(s).")
+            }
+        }
+        tasks.named("check") { dependsOn(verifyJavadocJar) }
     }
 }
