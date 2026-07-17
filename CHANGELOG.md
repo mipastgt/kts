@@ -10,6 +10,29 @@ JTS `1.20.0`. The `portRevision` (4th component) is bumped for changes to the Ko
 
 ## [Unreleased]
 
+These are build, CI, and tooling changes only — the published library API is unchanged. The
+javadoc-jar fix below takes effect with the next release (`1.20.0.0` artifacts on Maven Central are
+immutable).
+
+### Added
+- **Continuous integration.** A GitHub Actions workflow (`.github/workflows/ci.yml`) that builds and
+  runs the test suite across the full target matrix on **Linux, macOS, and Windows** runners, so the
+  union covers JVM, JS, Wasm/JS, and every Kotlin/Native target. It is manual-dispatch only
+  (`workflow_dispatch`).
+- **`verifyJavadocJar` build check** (wired into `check`) that fails if a module's published
+  `-javadoc.jar` contains no HTML, guarding against the empty-javadoc-jar regression fixed below.
+- README badges: CI status, Kotlin version, Kotlin Multiplatform targets, Java 8+, and JTS base
+  version.
+
+### Fixed
+- The published `-javadoc.jar` now bundles the full **Dokka HTML API documentation** instead of a
+  manifest-only stub. The jar had been wired to Dokka Gradle Plugin v2's empty `dokkaGenerate`
+  lifecycle task; it now uses `dokkaGeneratePublicationHtml`, which owns the generated HTML.
+
+### Changed
+- Build: raised the Gradle daemon heap and Metaspace (`org.gradle.jvmargs`) so a full parallel
+  Kotlin/Native build of all six modules no longer exhausts Metaspace.
+
 ## [1.20.0.0] — 2026-07-17
 
 First public release: a faithful Kotlin Multiplatform port of
