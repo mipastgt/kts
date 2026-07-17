@@ -127,7 +127,7 @@ class SegmentIntersector(
 
     li.computeIntersection(p00, p01, p10, p11)
 //if (li.hasIntersection() && li.isProper()) Debug.println(li);
-    /**
+    /*
      *  Always record any non-proper intersections.
      *  If includeProper is true, record any proper intersections as well.
      */

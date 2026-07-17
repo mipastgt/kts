@@ -60,7 +60,7 @@ internal class PolygonTopologyAnalyzer(geom: Geometry, private val isInvertedRin
      * @return true if the interior is disconnected
      */
     fun isInteriorDisconnected(): Boolean {
-        /**
+        /*
          * May already be set by a double-touching hole
          */
         if (disconnectionPt != null) {
@@ -94,7 +94,7 @@ internal class PolygonTopologyAnalyzer(geom: Geometry, private val isInvertedRin
      * by virtue of the holes (and possibly shell) forming a hole cycle.
      */
     fun checkInteriorDisconnectedByHoleCycle() {
-        /**
+        /*
          * PolyRings will be null for empty, no hole or LinearRing inputs
          */
         if (polyRings != null) {

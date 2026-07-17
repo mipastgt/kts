@@ -263,7 +263,7 @@ open class HalfEdge
         var ePrev = this
         do {
             val eNext = ePrev.oNext()
-            /**
+            /*
              * Case 1: General case,
              * with eNext higher than ePrev.
              *
@@ -274,7 +274,7 @@ open class HalfEdge
                 eAdd.compareTo(eNext) <= 0) {
                 return ePrev
             }
-            /**
+            /*
              * Case 2: Origin-crossing case,
              * indicated by eNext <= ePrev.
              *
@@ -394,7 +394,7 @@ open class HalfEdge
         val quadrant = Quadrant.quadrant(dx, dy)
         val quadrant2 = Quadrant.quadrant(dx2, dy2)
 
-        /**
+        /*
          * If the direction vectors are in different quadrants,
          * that determines the ordering
          */

@@ -34,7 +34,7 @@ class EdgeConnectedTriangleTraversal {
         triQueue.addAll(tris)
     }
 
-    /**
+    /*
      * Subclasses can call this method to add a triangle to the end of the queue. This is useful for
      * initializing the queue to a chosen set of triangles.
      *

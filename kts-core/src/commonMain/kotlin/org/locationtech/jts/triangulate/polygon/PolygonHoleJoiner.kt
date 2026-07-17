@@ -46,9 +46,8 @@ import org.locationtech.jts.noding.SegmentString
  * The class does not require the input polygon to have normal
  * orientation (shell CW and rings CCW).
  * The output ring is always CW.
- */
-/**
- * Creates a new hole joiner.
+ *
+ * @constructor Creates a new hole joiner.
  *
  * @param inputPolygon the polygon to join
  */
@@ -296,7 +295,7 @@ class PolygonHoleJoiner(private val inputPolygon: Polygon) {
         val section = ArrayList<Coordinate>()
 
         val isNonTouchingHole = joinPt != null
-        /**
+        /*
          * Add all hole vertices, including duplicate at hole join vertex
          * Except if hole DOES touch, join vertex is already in shell ring
          */
@@ -309,7 +308,7 @@ class PolygonHoleJoiner(private val inputPolygon: Polygon) {
             index = (index + 1) % holeSize
             section.add(holeCoords[index].copy())
         }
-        /**
+        /*
          * Add duplicate shell vertex at end of the return join line.
          * Except if hole DOES touch, join line is zero-length so do not need dup vertex
          */

@@ -176,7 +176,7 @@ class RelateNG private constructor(inputA: Geometry, isPrepared: Boolean, bnRule
                 return
             }
         }
-        /**
+        /*
          * If number of matched B points is less than size of A,
          * there must be at least one A point in the exterior of B
          */

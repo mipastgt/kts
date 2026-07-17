@@ -60,7 +60,7 @@ internal class EdgeSetIntersector(
             @Suppress("UNCHECKED_CAST")
             val overlapChains = index.query(queryChain.getEnvelope()) as List<MonotoneChain>
             for (testChain in overlapChains) {
-                /**
+                /*
                  * following test makes sure we only compare each pair of chains once
                  * and that we don't compare a chain to itself
                  */

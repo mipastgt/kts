@@ -51,9 +51,8 @@ import org.locationtech.jts.io.WKTWriter
  *
  * @author David Skea
  * @author Martin Davis
- */
-/**
- * Creates a new instance of a quad-edge subdivision based on a frame triangle
+ *
+ * @constructor Creates a new instance of a quad-edge subdivision based on a frame triangle
  * that encloses a supplied bounding box. A new super-bounding box that
  * contains the triangle is computed and stored.
  *
@@ -248,7 +247,7 @@ class QuadEdgeSubdivision(env: Envelope, tolerance: Double) {
         while (true) {
             iter++
 
-            /**
+            /*
              * So far it has always been the case that failure to locate indicates an
              * invalid subdivision. So just fail completely. (An alternative would be
              * to perform an exhaustive search for the containing triangle, but this

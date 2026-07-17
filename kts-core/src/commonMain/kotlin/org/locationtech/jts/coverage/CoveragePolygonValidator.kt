@@ -74,13 +74,13 @@ class CoveragePolygonValidator(geom: Geometry, private val adjGeoms: Array<Geome
   private fun checkTargetRings(targetRings: List<CoverageRing>, adjRings: List<CoverageRing>, targetEnv: Envelope) {
     markMatchedSegments(targetRings, adjRings, targetEnv)
 
-    /**
+    /*
      * Short-circuit if target is fully known (matched or invalid).
      */
     if (CoverageRing.isKnown(targetRings))
       return
 
-    /**
+    /*
      * Here target has at least one unmatched segment.
      */
     markInvalidInteractingSegments(targetRings, adjRings, gapWidth)

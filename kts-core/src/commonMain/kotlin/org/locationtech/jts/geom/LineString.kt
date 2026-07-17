@@ -33,8 +33,8 @@ open class LineString : Geometry, Lineal {
    *  Constructs a `LineString` with the given points.
    *
    * @throws IllegalArgumentException if too few points are provided
+   * @deprecated Use GeometryFactory instead
    */
-  /** @deprecated Use GeometryFactory instead */
   constructor(points: Array<Coordinate>?, precisionModel: PrecisionModel, SRID: Int) : super(GeometryFactory(precisionModel, SRID)) {
     init(getFactory().getCoordinateSequenceFactory().create(points))
   }

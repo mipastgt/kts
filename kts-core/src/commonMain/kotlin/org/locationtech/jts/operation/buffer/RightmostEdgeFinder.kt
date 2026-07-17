@@ -50,7 +50,7 @@ internal class RightmostEdgeFinder {
       checkForRightmostCoordinate(de)
     }
 
-    /**
+    /*
      * If the rightmost point is a node, we need to identify which of
      * the incident edges is rightmost.
      */
@@ -60,7 +60,7 @@ internal class RightmostEdgeFinder {
     } else {
       findRightmostEdgeAtVertex()
     }
-    /**
+    /*
      * now check that the extreme side is the R side.
      * If not, use the sym instead.
      */

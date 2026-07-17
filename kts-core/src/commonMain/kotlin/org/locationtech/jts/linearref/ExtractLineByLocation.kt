@@ -81,7 +81,7 @@ internal class ExtractLineByLocation(private val line: Geometry) {
       newCoordinates.add(start.getCoordinate(line))
 
     var newCoordinateArray = newCoordinates.toCoordinateArray()
-    /**
+    /*
      * Ensure there is enough coordinates to build a valid line.
      * Make a 2-point line with duplicate coordinates, if necessary.
      * There will always be at least one coordinate in the coordList.

@@ -132,7 +132,7 @@ class PolygonNodeTopology {
       val quadrantP = quadrant(origin, p)
       val quadrantQ = quadrant(origin, q)
 
-      /**
+      /*
        * If the vectors are in different quadrants,
        * that determines the ordering
        */
@@ -161,7 +161,7 @@ class PolygonNodeTopology {
       val quadrantP = quadrant(origin, p)
       val quadrantQ = quadrant(origin, q)
 
-      /**
+      /*
        * If the vectors are in different quadrants,
        * that determines the ordering
        */

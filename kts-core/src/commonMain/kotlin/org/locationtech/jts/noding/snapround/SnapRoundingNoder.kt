@@ -57,7 +57,7 @@ class SnapRoundingNoder(private val pm: PrecisionModel) : Noder {
   }
 
   private fun snapRound(segStrings: Collection<*>): MutableList<NodedSegmentString> {
-    /**
+    /*
      * Determine hot pixels for intersections and vertices.
      * This is done BEFORE the input lines are rounded,
      * to avoid distorting the line arrangement
@@ -145,7 +145,7 @@ class SnapRoundingNoder(private val pm: PrecisionModel) : Noder {
       if (snappedSS != null)
         snapped.add(snappedSS)
     }
-    /**
+    /*
      * Some intersection hot pixels may have been marked as nodes in the previous
      * loop, so add nodes for them.
      */
@@ -194,7 +194,7 @@ class SnapRoundingNoder(private val pm: PrecisionModel) : Noder {
 
       val p0 = pts[i]
 
-      /**
+      /*
        * Add any Hot Pixel intersections with *original* segment to rounded segment.
        * (It is important to check original segment because rounding can
        * move it enough to intersect other hot pixels not intersecting original segment)
@@ -219,7 +219,7 @@ class SnapRoundingNoder(private val pm: PrecisionModel) : Noder {
       override fun visit(node: KdNode) {
         val hp = node.getData() as HotPixel
 
-        /**
+        /*
          * If the hot pixel is not a node, and it contains one of the segment vertices,
          * then that vertex is the source for the hot pixel.
          * To avoid over-noding a node is not added at this point.
@@ -230,7 +230,7 @@ class SnapRoundingNoder(private val pm: PrecisionModel) : Noder {
           if (hp.intersects(p0) || hp.intersects(p1))
             return
         }
-        /**
+        /*
          * Add a node if the segment intersects the pixel.
          * Mark the HotPixel as a node (since it may not have been one before).
          * This ensures the vertex for it is added as a node during the final vertex noding phase.
@@ -263,7 +263,7 @@ class SnapRoundingNoder(private val pm: PrecisionModel) : Noder {
 
       override fun visit(node: KdNode) {
         val hp = node.getData() as HotPixel
-        /**
+        /*
          * If vertex pixel is a node, add it.
          */
         if (hp.isNode() && hp.getCoordinate().equals2D(p0)) {

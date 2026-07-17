@@ -60,7 +60,7 @@ internal class LengthIndexOfPoint(private val linearGeom: Geometry) {
       return endIndex
 
     val closestAfter = indexOfFromStart(inputPt, minIndex)
-    /**
+    /*
      * Return the minDistanceLocation found.
      */
     Assert.isTrue(closestAfter >= minIndex,

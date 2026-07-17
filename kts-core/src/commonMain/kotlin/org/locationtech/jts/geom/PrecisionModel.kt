@@ -237,7 +237,7 @@ open class PrecisionModel : Comparable<Any?> {
    * This method is private because PrecisionModel is an immutable (value) type.
    */
   private fun setScale(scale: Double) {
-    /**
+    /*
      * A negative scale indicates the grid size is being set.
      * The scale is set as well, as the reciprocal.
      */
@@ -246,7 +246,7 @@ open class PrecisionModel : Comparable<Any?> {
       this.scale = 1.0 / gridSize
     } else {
       this.scale = abs(scale)
-      /**
+      /*
        * Leave gridSize as 0, to ensure it is computed using scale
        */
       gridSize = 0.0

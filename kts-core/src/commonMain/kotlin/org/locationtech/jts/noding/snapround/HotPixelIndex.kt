@@ -98,7 +98,7 @@ internal class HotPixelIndex(pm: PrecisionModel) {
    * @param pts the points to add
    */
   fun addNodes(pts: List<Coordinate>) {
-    /**
+    /*
      * Node points are not shuffled, since they are
      * added after the vertex points, and hence the KD-tree should
      * be reasonably balanced already.
@@ -121,7 +121,7 @@ internal class HotPixelIndex(pm: PrecisionModel) {
     val pRound = round(p)
 
     var hp = find(pRound)
-    /**
+    /*
      * Hot Pixels which are added more than once
      * must have more than one vertex in them
      * and thus must be nodes.
@@ -131,7 +131,7 @@ internal class HotPixelIndex(pm: PrecisionModel) {
       return hp
     }
 
-    /**
+    /*
      * A pixel containing the point was not found, so create a new one.
      * It is initially set to NOT be a node
      * (but may become one later on).

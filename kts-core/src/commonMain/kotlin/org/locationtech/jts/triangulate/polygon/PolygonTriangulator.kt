@@ -35,9 +35,8 @@ import org.locationtech.jts.triangulate.tri.Tri
  * @see ConstrainedDelaunayTriangulator
  *
  * @author Martin Davis
- */
-/**
- * Constructs a new triangulator.
+ *
+ * @constructor Constructs a new triangulator.
  *
  * @param inputGeom the input geometry
  */

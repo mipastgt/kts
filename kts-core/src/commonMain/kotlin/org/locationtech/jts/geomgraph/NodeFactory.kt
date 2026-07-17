@@ -13,8 +13,6 @@ package org.locationtech.jts.geomgraph
 
 import org.locationtech.jts.geom.Coordinate
 
-/**
- */
 open class NodeFactory {
   /**
    * The basic node constructor does not allow for incident edges

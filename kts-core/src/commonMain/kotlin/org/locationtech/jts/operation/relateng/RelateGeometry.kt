@@ -172,7 +172,7 @@ class RelateGeometry(input: Geometry, isPrepared: Boolean, bnRule: BoundaryNodeR
      * @return the location of the vertex
      */
     fun locateAreaVertex(pt: Coordinate): Int {
-        /**
+        /*
          * Can pass a null polygon, because the point is an exact vertex,
          * which will be detected as being on the boundary of its polygon
          */

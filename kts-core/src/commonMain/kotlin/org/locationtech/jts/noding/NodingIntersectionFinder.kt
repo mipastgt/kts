@@ -161,7 +161,7 @@ class NodingIntersectionFinder
     val isSameSegment = isSameSegString && segIndex0 == segIndex1
     if (isSameSegment) return
 
-    /**
+    /*
      * If enabled, only test end segments (on either segString).
      *
      */

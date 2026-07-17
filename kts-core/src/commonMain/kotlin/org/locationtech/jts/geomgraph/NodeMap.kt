@@ -24,7 +24,7 @@ class NodeMap(private val nodeFact: NodeFactory) {
   //Map nodeMap = new HashMap();
   private val nodeMap: MutableMap<Coordinate, Node> = TreeMap()
 
-  /**
+  /*
    * Factory function - subclasses can override to create their own types of nodes
    */
   /*

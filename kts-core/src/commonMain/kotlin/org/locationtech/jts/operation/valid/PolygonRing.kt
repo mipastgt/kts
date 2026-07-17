@@ -182,13 +182,13 @@ internal class PolygonRing {
         val ring = currentTouch.getRing()
         val currentPt = currentTouch.getCoordinate()
 
-        /**
+        /*
          * Scan the touched rings
          * Either they form a hole cycle, or they are added to the touch set
          * and pushed on the stack for scanning
          */
         for (touch in ring.getTouches()) {
-            /**
+            /*
              * Don't check touches at the entry point
              * to avoid trivial cycles.
              */

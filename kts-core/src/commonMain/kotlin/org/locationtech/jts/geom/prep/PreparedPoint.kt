@@ -33,7 +33,7 @@ open class PreparedPoint(point: Puntal) : BasicPreparedGeometry(point as Geometr
   override fun intersects(g: Geometry): Boolean {
     if (!envelopesIntersect(g)) return false
 
-    /**
+    /*
      * This avoids computing topology for the test geometry
      */
     return isAnyTargetComponentInTest(g)

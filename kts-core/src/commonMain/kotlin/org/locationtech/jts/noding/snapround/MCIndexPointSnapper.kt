@@ -93,7 +93,7 @@ class MCIndexPointSnapper(private val index: SpatialIndex) {
      */
     override fun select(mc: MonotoneChain, startIndex: Int) {
       val ss = mc.getContext() as NodedSegmentString
-      /**
+      /*
        * Check to avoid snapping a hotPixel vertex to the its orginal vertex.
        */
       if (parentEdge != null && ss === parentEdge) {

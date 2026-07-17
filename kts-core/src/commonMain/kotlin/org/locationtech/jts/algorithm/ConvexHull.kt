@@ -133,7 +133,7 @@ open class ConvexHull {
     for (i in innerPolyPts.indices) {
       reducedSet.add(innerPolyPts[i])
     }
-    /**
+    /*
      * Add all unique points not in the interior poly.
      */
     for (i in inputPts.indices) {
@@ -164,7 +164,7 @@ open class ConvexHull {
   private fun preSort(pts: Array<Coordinate>): Array<Coordinate> {
     var t: Coordinate
 
-    /**
+    /*
      * find the lowest point in the set. If two or more points have
      * the same minimum Y coordinate choose the one with the minimum X.
      * This focal point is put in array location pts[0].
@@ -361,14 +361,14 @@ open class ConvexHull {
         if (orient == Orientation.COUNTERCLOCKWISE) return 1
         if (orient == Orientation.CLOCKWISE) return -1
 
-        /**
+        /*
          * The points are collinear,
          * so compare based on distance from the origin.
          */
         if (p.y > q.y) return 1
         if (p.y < q.y) return -1
 
-        /**
+        /*
          * The points lie in a horizontal line.
          * Use the X ordinate to determine distance.
          */

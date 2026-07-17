@@ -555,7 +555,7 @@ open class Triangle(
      */
     @JvmStatic
     fun signedArea(a: Coordinate, b: Coordinate, c: Coordinate): Double {
-      /**
+      /*
        * Uses the formula 1/2 * | u x v | where u,v are the side vectors of the
        * triangle x is the vector cross-product For 2D vectors, this formula
        * simplifies to the expression below
@@ -577,7 +577,7 @@ open class Triangle(
      */
     @JvmStatic
     fun area3D(a: Coordinate, b: Coordinate, c: Coordinate): Double {
-      /**
+      /*
        * Uses the formula 1/2 * | u x v | where u,v are the side vectors of the
        * triangle x is the vector cross-product
        */

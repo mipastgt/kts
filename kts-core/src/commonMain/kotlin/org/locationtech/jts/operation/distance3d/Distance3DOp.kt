@@ -322,7 +322,7 @@ class Distance3DOp
       seq.getCoordinate(i + 1, p1)
       val d1 = poly.getPlane().orientedDistance(p1)
 
-      /**
+      /*
        * If the oriented distances of the segment endpoints have the same sign,
        * the segment does not cross the plane, and is skipped.
        */

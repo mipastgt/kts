@@ -253,11 +253,11 @@ class ConcaveHull(geom: Geometry) {
   }
 
   private fun isRemovableBorder(tri: HullTri): Boolean {
-    /**
+    /*
      * Tri must have exactly 2 adjacent tris (i.e. a single boundary edge).
      */
     if (tri.numAdjacent() != 2) return false
-    /**
+    /*
      * The tri cannot be removed if it is connecting, because
      * this would create more than one result polygon.
      */
@@ -265,11 +265,11 @@ class ConcaveHull(geom: Geometry) {
   }
 
   private fun isRemovableHole(tri: HullTri): Boolean {
-    /**
+    /*
      * Tri must have exactly 2 adjacent tris (i.e. a single boundary edge).
      */
     if (tri.numAdjacent() != 2) return false
-    /**
+    /*
      * Ensure removal does not disconnect hull area.
      */
     return !tri.hasBoundaryTouch()

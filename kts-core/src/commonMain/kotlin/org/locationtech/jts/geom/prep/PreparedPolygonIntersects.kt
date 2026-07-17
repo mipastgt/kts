@@ -43,7 +43,7 @@ class PreparedPolygonIntersects(prepPoly: PreparedPolygon) : PreparedPolygonPred
     val isInPrepGeomArea = isAnyTestComponentInTarget(geom)
     if (isInPrepGeomArea)
       return true
-    /**
+    /*
      * If input contains only points, then at
      * this point it is known that none of them are contained in the target
      */
@@ -61,7 +61,7 @@ class PreparedPolygonIntersects(prepPoly: PreparedPolygon) : PreparedPolygonPred
         return true
     }
 
-    /**
+    /*
      * If the test has dimension = 2 as well, it is necessary to test for proper
      * inclusion of the target. Since no segments intersect, it is sufficient to
      * test representative points.

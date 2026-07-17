@@ -43,9 +43,8 @@ import org.locationtech.jts.geom.util.GeometryTransformer
  * offer a variety of densification strategies.
  *
  * @author Martin Davis
- */
-/**
- * Creates a new densifier instance.
+ *
+ * @constructor Creates a new densifier instance.
  *
  * @param inputGeom
  */

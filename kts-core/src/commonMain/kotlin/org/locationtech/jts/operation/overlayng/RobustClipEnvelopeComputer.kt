@@ -96,7 +96,7 @@ class RobustClipEnvelopeComputer(private val targetEnv: Envelope) {
     }
 
     private fun intersectsSegment(env: Envelope, p1: Coordinate, p2: Coordinate): Boolean {
-      /**
+      /*
        * This is a crude test of whether segment intersects envelope.
        * It could be refined by checking exact intersection.
        * This could be based on the algorithm in the HotPixel.intersectsScaled method.

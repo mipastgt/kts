@@ -121,12 +121,12 @@ class InteriorPointArea(g: Geometry) {
      * Compute the interior point.
      */
     fun process() {
-      /**
+      /*
        * This results in returning a null Coordinate
        */
       if (polygon.isEmpty()) return
 
-      /**
+      /*
        * set default interior point in case polygon has zero area
        */
       interiorPoint = Coordinate(polygon.getCoordinate()!!)

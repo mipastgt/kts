@@ -85,7 +85,7 @@ class PolygonNoder(shellRing: Array<Coordinate>, holeRings: Array<Array<Coordina
             val p11 = ss1.getCoordinate(segIndex1 + 1)
 
             li.computeIntersection(p00, p01, p10, p11)
-            /**
+            /*
              * There should never be 2 intersection points, since
              * that would imply collinear segments, and an invalid polygon
              */

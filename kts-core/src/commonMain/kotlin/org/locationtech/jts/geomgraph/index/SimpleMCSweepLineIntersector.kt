@@ -103,7 +103,7 @@ class SimpleMCSweepLineIntersector : EdgeSetIntersector() {
 
   private fun processOverlaps(start: Int, end: Int, ev0: SweepLineEvent, si: SegmentIntersector) {
     val mc0 = ev0.getObject() as MonotoneChain
-    /**
+    /*
      * Since we might need to test for self-intersections,
      * include current INSERT event object in list of event objects to test.
      * Last index can be skipped, because it must be a Delete event.

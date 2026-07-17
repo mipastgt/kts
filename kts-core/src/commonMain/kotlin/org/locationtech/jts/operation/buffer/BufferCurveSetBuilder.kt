@@ -140,7 +140,7 @@ class BufferCurveSetBuilder(
 
     val coord = clean(line.getCoordinates())
 
-    /**
+    /*
      * Rings (closed lines) are generated with a continuous curve,
      * with no end arcs.
      */
@@ -230,7 +230,7 @@ class BufferCurveSetBuilder(
     }
     val curve = curveBuilder.getRingCurve(coord, localSide, offsetDistance)
 
-    /**
+    /*
      * If the offset curve has inverted completely it will produce
      * an unwanted artifact in the result, so skip it.
      */
@@ -258,21 +258,21 @@ class BufferCurveSetBuilder(
      */
     private fun isRingCurveInverted(inputRing: Array<Coordinate>, distance: Double, curveRing: Array<Coordinate>?): Boolean {
       if (distance == 0.0) return false
-      /**
+      /*
        * Only proper rings can invert.
        */
       if (inputRing.size <= 3) return false
-      /**
+      /*
        * Heuristic based on low chance that a ring with many vertices will invert.
        */
       if (inputRing.size >= MAX_INVERTED_RING_SIZE) return false
 
-      /**
+      /*
        * Don't check curves which are much larger than the input.
        */
       if (curveRing!!.size > INVERTED_CURVE_VERTEX_FACTOR * inputRing.size) return false
 
-      /**
+      /*
        * If curve contains points which are on the buffer,
        * it is not inverted and can be included in the raw curves.
        */

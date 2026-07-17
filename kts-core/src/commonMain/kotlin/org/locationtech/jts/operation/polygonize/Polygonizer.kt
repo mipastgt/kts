@@ -230,7 +230,7 @@ class Polygonizer
    * @return the invalid ring lines
    */
   private fun extractInvalidLines(invalidRings: MutableList<EdgeRing>): MutableList<LineString> {
-    /**
+    /*
      * Sort rings by increasing envelope area.
      */
     invalidRings.sortWith(EdgeRing.EnvelopeAreaComparator())

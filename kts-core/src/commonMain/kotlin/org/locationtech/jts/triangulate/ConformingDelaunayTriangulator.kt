@@ -43,9 +43,8 @@ import org.locationtech.jts.triangulate.quadedge.Vertex
  *
  * @author David Skea
  * @author Martin Davis
- */
-/**
- * Creates a Conforming Delaunay Triangulation based on the given
+ *
+ * @constructor Creates a Conforming Delaunay Triangulation based on the given
  * unconstrained initial vertices. The initial vertex set should not contain
  * any vertices which appear in the constraint set.
  *
@@ -333,7 +332,7 @@ class ConformingDelaunayTriangulator(initialVertices: Collection<*>, private val
         var splits = 0
         val segsToRemove = ArrayList<Segment>()
 
-        /**
+        /*
          * On each iteration must always scan all constraint (sub)segments, since
          * some constraints may be rebroken by Delaunay triangle flipping caused by
          * insertion of another constraint. However, this process must converge

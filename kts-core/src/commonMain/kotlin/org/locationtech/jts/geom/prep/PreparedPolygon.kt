@@ -44,7 +44,7 @@ open class PreparedPolygon(poly: Polygonal) : BasicPreparedGeometry(poly as Geom
    * @return the intersection finder
    */
   fun getIntersectionFinder(): FastSegmentSetIntersectionFinder {
-    /**
+    /*
      * MD - Another option would be to use a simple scan for
      * segment testing for small geometries.
      * However, testing indicates that there is no particular advantage

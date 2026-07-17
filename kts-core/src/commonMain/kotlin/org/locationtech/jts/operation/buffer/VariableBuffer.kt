@@ -89,12 +89,12 @@ class VariableBuffer(line: Geometry, private val distance: DoubleArray) {
    * @return the segment buffer, or null if void
    */
   private fun segmentBuffer(p0: Coordinate, p1: Coordinate, dist0: Double, dist1: Double): Polygon? {
-    /**
+    /*
      * Skip buffer polygon if both distances are zero
      */
     if (dist0 <= 0 && dist1 <= 0) return null
 
-    /**
+    /*
      * Generation algorithm requires increasing distance, so flip if needed
      */
     if (dist0 > dist1) {
@@ -193,7 +193,7 @@ class VariableBuffer(line: Geometry, private val distance: DoubleArray) {
       val capPt = projectPolar(p, r, ang)
 
       var isCapPointHighQuality = true
-      /**
+      /*
        * Due to the fixed locations of the cap points,
        * a start or end cap point might create
        * a "reversed" segment to the next tangent point.
@@ -204,7 +204,7 @@ class VariableBuffer(line: Geometry, private val distance: DoubleArray) {
         isCapPointHighQuality = false
       }
 
-      /**
+      /*
        * Remove short segments between the cap and the tangent segments.
        */
       if (capPt.distance(t1) < minSegLen) {
@@ -382,7 +382,7 @@ class VariableBuffer(line: Geometry, private val distance: DoubleArray) {
      * @return the outer tangent line segment, or null if none exists
      */
     private fun outerTangent(c1: Coordinate, r1: Double, c2: Coordinate, r2: Double): LineSegment? {
-      /**
+      /*
        * If distances are inverted then flip to compute and flip result back.
        */
       if (r1 > r2) {

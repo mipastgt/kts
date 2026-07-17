@@ -339,7 +339,7 @@ class IsSimpleOp {
             val hasInteriorVertexInt = !(isIntersectionEndpt0 && isIntersectionEndpt1)
             if (hasInteriorVertexInt) return true
 
-            /**
+            /*
              * Both intersection vertices must be endpoints.
              * Final check is if one or both of them is interior due
              * to being endpoint of a closed ring.
@@ -373,7 +373,7 @@ class IsSimpleOp {
                 liSegmentIndex: Int
             ): Boolean {
                 val vertexIndex = intersectionVertexIndex(li, liSegmentIndex)
-                /**
+                /*
                  * If the vertex is the first one of the segment, check if it is the start endpoint.
                  * Otherwise check if it is the end endpoint.
                  */

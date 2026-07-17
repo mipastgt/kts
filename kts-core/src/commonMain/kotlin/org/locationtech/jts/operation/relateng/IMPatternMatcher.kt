@@ -43,7 +43,7 @@ internal class IMPatternMatcher(private val imPattern: String) : IMPredicate() {
     }
 
     override fun isDetermined(): Boolean {
-        /**
+        /*
          * Matrix entries only increase in dimension as topology is computed.
          * The predicate can be short-circuited (as false) if
          * any computed entry is greater than the mask value.

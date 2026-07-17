@@ -235,14 +235,14 @@ open class STRtree : AbstractSTRtree, SpatialIndex {
       val bndPair = priQ.poll()!!
       val pairDistance = bndPair.getDistance()
 
-      /**
+      /*
        * If the distance for the first pair in the queue
        * is >= current minimum distance, other nodes
        * in the queue must also have a greater distance.
        */
       if (pairDistance >= distanceLowerBound) break
 
-      /**
+      /*
        * If the pair members are leaves
        * then their distance is the exact lower bound.
        */
@@ -251,7 +251,7 @@ open class STRtree : AbstractSTRtree, SpatialIndex {
         distanceLowerBound = pairDistance
         minPair = bndPair
       } else {
-        /**
+        /*
          * Otherwise, expand one side of the pair,
          * and insert the expanded pairs into the queue.
          */
@@ -296,21 +296,21 @@ open class STRtree : AbstractSTRtree, SpatialIndex {
       val bndPair = priQ.poll()!!
       val pairDistance = bndPair.getDistance()
 
-      /**
+      /*
        * If the distance for the first pair in the queue
        * is > maxDistance, all other pairs
        * in the queue must have a greater distance as well.
        */
       if (pairDistance > maxDistance) return false
 
-      /**
+      /*
        * If the maximum distance between the nodes
        * is less than the maxDistance,
        * than all items in the nodes must be
        * closer than the max distance.
        */
       if (bndPair.maximumDistance() <= maxDistance) return true
-      /**
+      /*
        * If the pair items are leaves
        * then their actual distance is an upper bound.
        */
@@ -318,13 +318,13 @@ open class STRtree : AbstractSTRtree, SpatialIndex {
         // assert: currentDistance < minimumDistanceFound
         distanceUpperBound = pairDistance
 
-        /**
+        /*
          * If the items are closer than maxDistance
          * can terminate with result = true.
          */
         if (distanceUpperBound <= maxDistance) return true
       } else {
-        /**
+        /*
          * Otherwise, expand one side of the pair,
          * and insert the expanded pairs into the queue.
          */
@@ -368,7 +368,7 @@ open class STRtree : AbstractSTRtree, SpatialIndex {
       val bndPair = priQ.poll()!!
       val pairDistance = bndPair.getDistance()
 
-      /**
+      /*
        * If the distance for the first node in the queue
        * is >= the current maximum distance in the k queue , all other nodes
        * in the queue must also have a greater distance.
@@ -376,7 +376,7 @@ open class STRtree : AbstractSTRtree, SpatialIndex {
       if (pairDistance >= distanceLowerBound) {
         break
       }
-      /**
+      /*
        * If the pair members are leaves
        * then their distance is the exact lower bound.
        */
@@ -397,7 +397,7 @@ open class STRtree : AbstractSTRtree, SpatialIndex {
           distanceLowerBound = bp2.getDistance()
         }
       } else {
-        /**
+        /*
          * Otherwise, expand one side of the pair,
          * and insert the new expanded pairs into the queue
          */

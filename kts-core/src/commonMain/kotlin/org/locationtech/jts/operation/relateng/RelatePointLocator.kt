@@ -173,7 +173,7 @@ class RelatePointLocator(
     private fun locateWithDim(p: Coordinate, isNode: Boolean, parentPolygonal: Geometry?): Int {
         if (isEmpty) return DimensionLocation.EXTERIOR
 
-        /**
+        /*
          * In a polygonal geometry a node must be on the boundary.
          */
         if (isNode && (geom is Polygon || geom is MultiPolygon))

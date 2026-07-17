@@ -153,7 +153,7 @@ class OverlayEdgeRing(start: OverlayEdge, geometryFactory: GeometryFactory) {
   }
 
   fun locate(pt: Coordinate): Int {
-    /**
+    /*
      * Use an indexed point-in-polygon for performance
      */
     return getLocator().locate(pt)

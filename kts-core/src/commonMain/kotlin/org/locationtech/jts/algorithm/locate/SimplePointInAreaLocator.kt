@@ -60,7 +60,7 @@ class SimplePointInAreaLocator(private val geom: Geometry) : PointOnGeometryLoca
     @JvmStatic
     fun locate(p: Coordinate, geom: Geometry): Int {
       if (geom.isEmpty()) return Location.EXTERIOR
-      /**
+      /*
        * Do a fast check against the geometry envelope first
        */
       if (!geom.getEnvelopeInternal().intersects(p))

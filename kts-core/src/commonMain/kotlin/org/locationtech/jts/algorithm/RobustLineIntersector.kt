@@ -80,7 +80,7 @@ open class RobustLineIntersector : LineIntersector() {
     if (Pq1 == 0 || Pq2 == 0 || Qp1 == 0 || Qp2 == 0) {
       isProper = false
 
-      /**
+      /*
        * Check for two equal endpoints.
        */
       if (p1.equals2D(q1)) {

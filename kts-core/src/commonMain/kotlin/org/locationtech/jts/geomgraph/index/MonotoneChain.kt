@@ -11,8 +11,6 @@
  */
 package org.locationtech.jts.geomgraph.index
 
-/**
- */
 class MonotoneChain(private val mce: MonotoneChainEdge, private val chainIndex: Int) {
 
   fun computeIntersections(mc: MonotoneChain, si: SegmentIntersector) {

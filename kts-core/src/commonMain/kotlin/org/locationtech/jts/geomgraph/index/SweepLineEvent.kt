@@ -11,8 +11,6 @@
  */
 package org.locationtech.jts.geomgraph.index
 
-/**
- */
 class SweepLineEvent : Comparable<Any?> {
 
   private var label: Any? = null    // used for red-blue intersection detection

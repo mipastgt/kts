@@ -190,7 +190,7 @@ class EdgeNodingBuilder(private val pm: PrecisionModel?, private val customNoder
 
     val pts = clip(ring)
 
-    /**
+    /*
      * Don't add edges that collapse to a point
      */
     if (pts.size < 2) {
@@ -226,7 +226,7 @@ class EdgeNodingBuilder(private val pm: PrecisionModel?, private val customNoder
     val pts = ring.getCoordinates()
     val env = ring.getEnvelopeInternal()
 
-    /**
+    /*
      * If no clipper or ring is completely contained then no need to clip.
      * But repeated points must be removed to ensure correct noding.
      */
@@ -263,7 +263,7 @@ class EdgeNodingBuilder(private val pm: PrecisionModel?, private val customNoder
   }
 
   private fun addLine(pts: Array<Coordinate>, geomIndex: Int) {
-    /**
+    /*
      * Don't add edges that collapse to a point
      */
     if (pts.size < 2) {
@@ -291,7 +291,7 @@ class EdgeNodingBuilder(private val pm: PrecisionModel?, private val customNoder
       return false
     }
     val env = line.getEnvelopeInternal()
-    /**
+    /*
      * If line is completely contained then no need to limit
      */
     if (clipEnv!!.covers(env)) {

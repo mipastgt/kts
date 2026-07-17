@@ -131,7 +131,7 @@ class Intersection {
       val orientS2 = Orientation.index(line1, line2, seg2)
       if (orientS2 == 0) return seg2.copy()
 
-      /**
+      /*
        * If segment lies completely on one side of the line, it does not intersect
        */
       if ((orientS1 > 0 && orientS2 > 0) || (orientS1 < 0 && orientS2 < 0)) {

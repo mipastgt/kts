@@ -23,9 +23,8 @@ import org.locationtech.jts.triangulate.quadedge.Vertex
  * incremental insertion algorithm.
  *
  * @author Martin Davis
- */
-/**
- * Creates a new triangulator using the given [QuadEdgeSubdivision].
+ *
+ * @constructor Creates a new triangulator using the given [QuadEdgeSubdivision].
  * The triangulator uses the tolerance of the supplied subdivision.
  *
  * @param subdiv a subdivision in which to build the TIN
@@ -111,7 +110,7 @@ class IncrementalDelaunayTriangulator(private val subdiv: QuadEdgeSubdivision) {
             e = base.oPrev()
         } while (e.lNext() !== startEdge)
 
-        /**
+        /*
          * Examine suspect edges to ensure that the Delaunay condition is satisfied.
          * If it is not, flip the edge and continue scanning.
          *

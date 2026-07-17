@@ -67,7 +67,7 @@ internal class IndexedNestedHoleTester(private val polygon: Polygon) {
                 if (hole === testHole)
                     continue
 
-                /**
+                /*
                  * Hole is not fully covered by test hole, so cannot be nested
                  */
                 if (!testHole.getEnvelopeInternal().covers(hole.getEnvelopeInternal()))

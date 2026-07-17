@@ -121,7 +121,7 @@ internal class RingHull(ring: LinearRing, isOuter: Boolean) {
         continue
       if (isAtTarget(corner))
         return
-      /**
+      /*
        * Corner is concave or flat - remove it if possible.
        */
       if (isRemovable(corner, hullIndex)) {

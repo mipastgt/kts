@@ -270,7 +270,7 @@ class PrecisionUtil {
     }
 
     private fun robustScale(inherentScale: Double, safeScale: Double): Double {
-      /**
+      /*
        * Use safe scale if lower,
        * since it is important to preserve some precision for robustness
        */

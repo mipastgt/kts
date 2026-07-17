@@ -87,7 +87,7 @@ class KdTree(private val tolerance: Double) {
       return node
     }
 
-    /**
+    /*
      * Check if the point is already in the tree, up to tolerance.
      * If tolerance is zero, this phase of the insertion can be skipped.
      */
@@ -164,7 +164,7 @@ class KdTree(private val tolerance: Double) {
     var isXLevel = true
     var isLessThan = true
 
-    /**
+    /*
      * Traverse the tree, first cutting the plane left-right (by X ordinate)
      * then top-bottom (by Y ordinate)
      */

@@ -200,7 +200,7 @@ internal class BufferBuilder(private val bufParams: BufferParameters) {
         subgraphList.add(subgraph)
       }
     }
-    /**
+    /*
      * Sort the subgraphs in descending order of their rightmost coordinate.
      * This ensures that when the Polygons for the subgraphs are built,
      * subgraphs for shells will have been built before the subgraphs for

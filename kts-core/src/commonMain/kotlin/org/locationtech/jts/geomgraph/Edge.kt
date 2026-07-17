@@ -21,8 +21,6 @@ import org.locationtech.jts.geom.IntersectionMatrix
 import org.locationtech.jts.geom.Position
 import org.locationtech.jts.geomgraph.index.MonotoneChainEdge
 
-/**
- */
 open class Edge(pts: Array<Coordinate>, label: Label?) : GraphComponent(label) {
 
   @JvmField

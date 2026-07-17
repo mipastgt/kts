@@ -47,7 +47,7 @@ internal class RelateNodeGraph {
   fun build(geomGraph: GeometryGraph) {
     // compute nodes for intersections between previously noded edges
     computeIntersectionNodes(geomGraph, 0)
-    /**
+    /*
      * Copy the labelling for the nodes in the parent Geometry.  These override
      * any labels determined by intersections.
      */

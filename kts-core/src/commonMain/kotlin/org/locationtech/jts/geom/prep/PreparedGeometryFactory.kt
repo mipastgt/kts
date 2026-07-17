@@ -44,7 +44,7 @@ open class PreparedGeometryFactory {
     if (geom is Puntal)
       return PreparedPoint(geom)
 
-    /**
+    /*
      * Default representation.
      */
     return BasicPreparedGeometry(geom)

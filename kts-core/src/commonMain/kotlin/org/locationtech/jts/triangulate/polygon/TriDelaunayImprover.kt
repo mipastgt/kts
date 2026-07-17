@@ -88,7 +88,7 @@ class TriDelaunayImprover private constructor(private val triList: List<Tri>) {
         val opp0 = tri.getCoordinate(Tri.oppVertex(index))
         val opp1 = tri1.getCoordinate(Tri.oppVertex(index1))
 
-        /**
+        /*
          * The candidate new edge is opp0 - opp1.
          * Check if it is inside the quadrilateral formed by the two triangles.
          * This is the case if the quadrilateral is convex.
@@ -97,7 +97,7 @@ class TriDelaunayImprover private constructor(private val triList: List<Tri>) {
             return false
         }
 
-        /**
+        /*
          * The candidate edge is inside the quadrilateral. Check to see if the flipping
          * criteria is met. The flipping criteria is to flip if the two triangles are
          * not Delaunay (i.e. one of the opposite vertices is in the circumcircle of the

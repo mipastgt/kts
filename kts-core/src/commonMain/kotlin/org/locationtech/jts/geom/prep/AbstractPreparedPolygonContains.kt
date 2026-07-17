@@ -73,7 +73,7 @@ abstract class AbstractPreparedPolygonContains(prepPoly: PreparedPolygon) : Prep
     if (properIntersectionImpliesNotContained && hasProperIntersection)
       return false
 
-    /**
+    /*
      * If all intersections are proper
      * (i.e. no non-proper intersections occur)
      * we can conclude that the test geometry is not contained in the target area.
@@ -81,7 +81,7 @@ abstract class AbstractPreparedPolygonContains(prepPoly: PreparedPolygon) : Prep
     if (hasSegmentIntersection && !hasNonProperIntersection)
       return false
 
-    /**
+    /*
      * If there is a segment intersection and the situation is not one
      * of the ones above, the only choice is to compute the full topological
      * relationship.
@@ -90,7 +90,7 @@ abstract class AbstractPreparedPolygonContains(prepPoly: PreparedPolygon) : Prep
       return fullTopologicalPredicate(geom)
     }
 
-    /**
+    /*
      * This tests for the case where a ring of the target lies inside
      * a test polygon - which implies the exterior of the Target
      * intersects the interior of the Test, and hence the result is false
@@ -120,7 +120,7 @@ abstract class AbstractPreparedPolygonContains(prepPoly: PreparedPolygon) : Prep
     val isAllInTargetArea = isAllTestPointsInTarget(geom)
     if (!isAllInTargetArea) return false
 
-    /**
+    /*
      * If the test geometry consists of only Points,
      * then it is now sufficient to test if any of those
      * points lie in the interior of the target geometry.
@@ -133,11 +133,11 @@ abstract class AbstractPreparedPolygonContains(prepPoly: PreparedPolygon) : Prep
   }
 
   private fun isProperIntersectionImpliesNotContainedSituation(testGeom: Geometry): Boolean {
-    /**
+    /*
      * If the test geometry is polygonal we have the A/A situation.
      */
     if (testGeom is Polygonal) return true
-    /**
+    /*
      * A single shell with no holes allows concluding that
      * a proper intersection implies not contained
      */

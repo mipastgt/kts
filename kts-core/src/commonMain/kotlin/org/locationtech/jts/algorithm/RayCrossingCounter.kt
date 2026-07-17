@@ -39,7 +39,7 @@ class RayCrossingCounter(private val p: Coordinate) {
    * @param p2 another endpoint of the segment
    */
   fun countSegment(p1: Coordinate, p2: Coordinate) {
-    /**
+    /*
      * For each segment, check if it crosses
      * a horizontal ray running from the test point in the positive x direction.
      */
@@ -53,7 +53,7 @@ class RayCrossingCounter(private val p: Coordinate) {
       isPointOnSegment = true
       return
     }
-    /**
+    /*
      * For horizontal segments, check if the point is on the segment.
      * Otherwise, horizontal segments are not counted.
      */
@@ -69,7 +69,7 @@ class RayCrossingCounter(private val p: Coordinate) {
       }
       return
     }
-    /**
+    /*
      * Evaluate all non-horizontal segments which cross a horizontal ray to the
      * right of the test pt.
      */

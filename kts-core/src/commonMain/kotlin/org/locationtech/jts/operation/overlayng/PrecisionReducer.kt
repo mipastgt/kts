@@ -42,7 +42,7 @@ class PrecisionReducer private constructor() {
     @JvmStatic
     fun reducePrecision(geom: Geometry, pm: PrecisionModel): Geometry {
       val ov = OverlayNG(geom, pm)
-      /**
+      /*
        * Ensure reducing a area only produces polygonal result.
        * (I.e. collapse lines are not output)
        */

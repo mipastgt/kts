@@ -50,7 +50,7 @@ class PreparedPolygonContainsProperly(prepPoly: PreparedPolygon) : PreparedPolyg
     if (segsIntersect)
       return false
 
-    /**
+    /*
      * Given that no segments intersect, if any vertex of the target
      * is contained in some test component.
      * the test is NOT properly contained.

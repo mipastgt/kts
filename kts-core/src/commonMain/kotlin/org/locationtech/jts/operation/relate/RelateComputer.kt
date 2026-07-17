@@ -79,7 +79,7 @@ internal class RelateComputer(private val arg: Array<GeometryGraph>) {
 //System.out.println("computeIM: # segment intersection tests: " + intersector.numTests);
     computeIntersectionNodes(0)
     computeIntersectionNodes(1)
-    /**
+    /*
      * Copy the labelling for the nodes in the parent Geometries.  These override
      * any labels determined by intersections between the geometries.
      */
@@ -95,7 +95,7 @@ internal class RelateComputer(private val arg: Array<GeometryGraph>) {
     // If a proper intersection was found, we can set a lower bound on the IM.
     computeProperIntersectionIM(intersector, im)
 
-    /**
+    /*
      * Now process improper intersections
      * (eg where one or other of the geometries has a vertex at the intersection point)
      * We need to compute the edge graph at all nodes to determine the IM.
@@ -113,7 +113,7 @@ internal class RelateComputer(private val arg: Array<GeometryGraph>) {
 
     labelNodeEdges()
 
-    /**
+    /*
      * Compute the labeling for isolated components
      *
      * Isolated components are components that do not touch any other components in the graph.
@@ -149,7 +149,7 @@ internal class RelateComputer(private val arg: Array<GeometryGraph>) {
 
     // For Geometry's of dim 0 there can never be proper intersections.
 
-    /**
+    /*
      * If edge segments of Areas properly intersect, the areas must properly overlap.
      */
     if (dimA == 2 && dimB == 2) {
@@ -368,12 +368,12 @@ internal class RelateComputer(private val arg: Array<GeometryGraph>) {
      * @return the IM dimension entry
      */
     private fun getBoundaryDim(geom: Geometry, boundaryNodeRule: BoundaryNodeRule): Int {
-      /**
+      /*
        * If the geometry has a non-empty boundary
        * the intersection is the nominal dimension.
        */
       if (BoundaryOp.hasBoundary(geom, boundaryNodeRule)) {
-        /**
+        /*
          * special case for lines, since Geometry.getBoundaryDimension is not aware
          * of Boundary Node Rule.
          */
@@ -381,7 +381,7 @@ internal class RelateComputer(private val arg: Array<GeometryGraph>) {
           return Dimension.P
         return geom.getBoundaryDimension()
       }
-      /**
+      /*
        * Otherwise intersection is F
        */
       return Dimension.FALSE

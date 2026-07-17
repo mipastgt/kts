@@ -49,7 +49,7 @@ class RectangleContains
     if (!rectEnv.contains(geom.getEnvelopeInternal()))
       return false
 
-    /**
+    /*
      * Check that geom is not contained entirely in the rectangle boundary.
      * According to the somewhat odd spec of the SFS, if this
      * is the case the geometry is NOT contained.
@@ -84,7 +84,7 @@ class RectangleContains
    * @return true if the point is contained in the boundary
    */
   private fun isPointContainedInBoundary(pt: Coordinate): Boolean {
-    /**
+    /*
      * contains = false if the point is properly contained in the rectangle.
      *
      * This code assumes that the point lies in the rectangle envelope
@@ -136,7 +136,7 @@ class RectangleContains
       )
         return true
     }
-    /**
+    /*
      * Either
      *   both x and y values are different
      * or

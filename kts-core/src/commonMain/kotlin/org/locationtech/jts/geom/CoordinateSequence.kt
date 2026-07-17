@@ -261,7 +261,6 @@ interface CoordinateSequence {
      * This constant assumes XYZM coordinate sequence definition, please check this assumption
      * using [getDimension] and [getMeasures] before use.
      */
-    /** Standard z-ordinate index */
     const val Z = 2
 
     /**

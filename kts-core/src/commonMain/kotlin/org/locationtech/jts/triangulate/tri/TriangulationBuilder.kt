@@ -53,7 +53,7 @@ class TriangulationBuilder private constructor(triList: List<Tri>) {
   }
 
   private fun addAdjacent(tri: Tri, adj: Tri?, p0: Coordinate, p1: Coordinate) {
-    /**
+    /*
      * If adjacent is null, this tri is first one to be recorded for edge
      */
     if (adj == null) {

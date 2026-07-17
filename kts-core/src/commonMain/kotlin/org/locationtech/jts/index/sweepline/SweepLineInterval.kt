@@ -11,8 +11,6 @@
  */
 package org.locationtech.jts.index.sweepline
 
-/**
- */
 class SweepLineInterval {
 
   private val min: Double

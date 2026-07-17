@@ -51,7 +51,7 @@ internal class PrecisionReducerTransformer(
     if (parent is LinearRing)
       minSize = LinearRing.MINIMUM_VALID_SIZE
 
-    /**
+    /*
      * Handle collapse. If specified return null so parent geometry is removed or empty,
      * otherwise extend to required length.
      */

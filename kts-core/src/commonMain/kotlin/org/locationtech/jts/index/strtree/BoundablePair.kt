@@ -111,7 +111,7 @@ internal class BoundablePair(
     val isComp1 = isComposite(boundable1)
     val isComp2 = isComposite(boundable2)
 
-    /**
+    /*
      * HEURISTIC: If both boundable are composite,
      * choose the one with largest area to expand.
      * Otherwise, simply expand whichever is composite.

@@ -90,7 +90,7 @@ class SnapRoundingIntersectionAdder
       }
     }
 
-    /**
+    /*
      * Segments did not actually intersect, within the limits of orientation index robustness.
      *
      * To avoid certain robustness issues in snap-rounding,
@@ -109,7 +109,7 @@ class SnapRoundingIntersectionAdder
    * (since this can introduce "zigs" in the linework).
    */
   private fun processNearVertex(p: Coordinate, edge: SegmentString, segIndex: Int, p0: Coordinate, p1: Coordinate) {
-    /**
+    /*
      * Don't add intersection if candidate vertex is near endpoints of segment.
      * This avoids creating "zig-zag" linework
      * (since the vertex could actually be outside the segment envelope).

@@ -134,7 +134,7 @@ class Edge(pts: Array<Coordinate>, info: EdgeSourceInfo) {
    * updating the topology info accordingly.
    */
   fun merge(edge: Edge) {
-    /**
+    /*
      * Marks this
      * as a shell edge if any contributing edge is a shell.
      * Update hole status first, since it depends on edge dim

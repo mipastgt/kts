@@ -81,7 +81,7 @@ internal class OffsetSegmentGenerator(
     if (quadSegs < 1) quadSegs = 1
     filletAngleQuantum = Angle.PI_OVER_2 / quadSegs
 
-    /**
+    /*
      * Non-round joins cause issues with short closing segments, so don't use
      * them. In any case, non-round joins only really make sense for relatively
      * small buffer distances.
@@ -106,7 +106,7 @@ internal class OffsetSegmentGenerator(
     maxCurveSegmentError = this.distance * (1 - cos(filletAngleQuantum / 2.0))
     segList = OffsetSegmentString()
     segList.setPrecisionModel(precisionModel)
-    /**
+    /*
      * Choose the min vertex separation as a small fraction of the offset distance.
      */
     segList.setMinimumVertexDistance(this.distance * CURVE_VERTEX_SNAP_DISTANCE_FACTOR)
@@ -171,19 +171,19 @@ internal class OffsetSegmentGenerator(
   }
 
   private fun addCollinear(addStartPoint: Boolean) {
-    /**
+    /*
      * This test could probably be done more efficiently,
      * but the situation of exact collinearity should be fairly rare.
      */
     li.computeIntersection(s0, s1, s1, s2)
     val numInt = li.getIntersectionNum()
-    /**
+    /*
      * if numInt is < 2, the lines are parallel and in the same direction. In
      * this case the point can be ignored, since the offset lines will also be
      * parallel.
      */
     if (numInt >= 2) {
-      /**
+      /*
        * segments are collinear but reversing.
        * Add an "end-cap" fillet
        * all the way around to other direction This case should ONLY happen
@@ -204,7 +204,7 @@ internal class OffsetSegmentGenerator(
    * Adds the offset points for an outside (convex) turn
    */
   private fun addOutsideTurn(orientation: Int, addStartPoint: Boolean) {
-    /**
+    /*
      * Heuristic: If offset endpoints are very close together,
      * (which happens for nearly-parallel segments),
      * use an endpoint as the single offset corner vertex.
@@ -236,14 +236,14 @@ internal class OffsetSegmentGenerator(
    * Adds the offset points for an inside (concave) turn.
    */
   private fun addInsideTurn(orientation: Int, addStartPoint: Boolean) {
-    /**
+    /*
      * add intersection point of offset segments (if any)
      */
     li.computeIntersection(offset0.p0, offset0.p1, offset1.p0, offset1.p1)
     if (li.hasIntersection()) {
       segList.addPt(li.getIntersection(0))
     } else {
-      /**
+      /*
        * If no intersection is detected,
        * it means the angle is so small and/or the offset so
        * large that the offsets segments don't intersect.
@@ -256,7 +256,7 @@ internal class OffsetSegmentGenerator(
         // add endpoint of this segment offset
         segList.addPt(offset0.p1)
 
-        /**
+        /*
          * Add "closing segment" of required length.
          */
         if (closingSegLengthFactor > 0) {
@@ -271,7 +271,7 @@ internal class OffsetSegmentGenerator(
           )
           segList.addPt(mid1)
         } else {
-          /**
+          /*
            * This branch is not expected to be used except for testing purposes.
            */
           segList.addPt(s1)
@@ -356,7 +356,7 @@ internal class OffsetSegmentGenerator(
       addBevelJoin(offset0, offset1)
       return
     }
-    /**
+    /*
      * Have to construct a limited mitre bevel.
      */
     addLimitedMitreJoin(offset0, offset1, distance, mitreLimitDistance)
@@ -401,7 +401,7 @@ internal class OffsetSegmentGenerator(
       segList.addPt(bevelInt1)
       return
     }
-    /**
+    /*
      * If the corner is very flat or the mitre limit is very small
      * the limited bevel segment may not intersect the offsets.
      */

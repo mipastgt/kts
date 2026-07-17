@@ -114,12 +114,12 @@ internal class PolygonEarClipper
         val corner = arrayOfNulls<Coordinate>(3) as Array<Coordinate>
         fetchCorner(corner)
 
-        /**
+        /*
          * Scan continuously around vertex ring,
          * until all ears have been found.
          */
         while (true) {
-            /**
+            /*
              * Non-convex corner- remove if flat, or skip
              * (a concave corner will turn into a convex corner
              * after enough ears are removed)
@@ -139,7 +139,7 @@ internal class PolygonEarClipper
                     throw IllegalStateException("Unable to find a convex corner")
                 }
             } else if (isValidEar(cornerIndex[1], corner)) {
-                /**
+                /*
                  * Convex corner - check if it is a valid ear
                  */
                 triList.add(Tri.create(corner))
@@ -156,7 +156,7 @@ internal class PolygonEarClipper
                 return triList
             }
 
-            /**
+            /*
              * Skip to next corner.
              * This is done even after an ear is removed,
              * since that creates fewer skinny triangles.
@@ -206,7 +206,7 @@ internal class PolygonEarClipper
                 continue
 
             val v = vertex[vertIndex]
-            /**
+            /*
              * If the vertex is equal to the corner apex, record it.
              * This can happen where the polygon ring self-touches,
              * usually due to hole joining.
@@ -248,7 +248,7 @@ internal class PolygonEarClipper
         var vPrev = vertex[prevIndex]
         for (i in 0 until vertexSize) {
             val v = vertex[currIndex]
-            /**
+            /*
              * Because of hole-joining vertices can occur more than once.
              * If vertex is same as corner[1],
              * check whether either adjacent edge lies inside the ear corner.

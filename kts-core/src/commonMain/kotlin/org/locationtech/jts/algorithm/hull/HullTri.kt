@@ -171,7 +171,7 @@ internal class HullTri(p0: Coordinate, p1: Coordinate, p2: Coordinate) :
    * smaller sizes must compare as greater than larger sizes.
    */
   override fun compareTo(o: HullTri): Int {
-    /**
+    /*
      * If size is identical compare areas to ensure a (more) deterministic ordering.
      * Larger areas sort before smaller ones.
      */

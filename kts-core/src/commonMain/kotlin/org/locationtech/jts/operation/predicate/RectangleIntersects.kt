@@ -139,7 +139,7 @@ internal class EnvelopeIntersectsVisitor(private val rectEnv: Envelope) : ShortC
       intersectsFlag = true
       return
     }
-    /**
+    /*
      * Since the envelopes intersect and the test element is connected, if the
      * test envelope is completely bisected by an edge of the rectangle the
      * element and the rectangle must touch (This is basically an application of

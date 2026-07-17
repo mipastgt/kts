@@ -1037,14 +1037,14 @@ class DD : Comparable<Any?> {
       val digit = y.hi.toInt()
 //      System.out.println("printDump: [" + i + "] digit: " + digit + "  y: " + y.dump() + "  buf: " + buf);
 
-      /**
+      /*
        * This should never happen, due to heuristic checks on remainder below
        */
       if (digit < 0 || digit > 9) {
 //        System.out.println("digit > 10 : " + digit);
 //        throw new IllegalStateException("Internal errror: found digit = " + digit);
       }
-      /**
+      /*
        * If a negative remainder is encountered, simply terminate the extraction.
        * This is robust, but maybe slightly inaccurate.
        * My current hypothesis is that negative remainders only occur for very small lo components,
@@ -1071,7 +1071,7 @@ class DD : Comparable<Any?> {
         y.selfAdd(TEN)
 
       var continueExtractingDigits = true
-      /**
+      /*
        * Heuristic check: if the remaining portion of
        * y is non-positive, assume that output is complete
        */

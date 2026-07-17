@@ -91,7 +91,7 @@ open class VoronoiDiagramBuilder {
 
         var env = clipEnv
         if (env == null) {
-            /**
+            /*
              * If no user-provided clip envelope,
              * use one which encloses all the sites,
              * with a 50% buffer around the edges.
@@ -107,7 +107,7 @@ open class VoronoiDiagramBuilder {
         val sd = QuadEdgeSubdivision(env, tolerance)
         subdiv = sd
         val triangulator = IncrementalDelaunayTriangulator(sd)
-        /**
+        /*
          * Avoid creating very narrow triangles along triangulation boundary.
          * These otherwise can cause malformed Voronoi cells.
          */

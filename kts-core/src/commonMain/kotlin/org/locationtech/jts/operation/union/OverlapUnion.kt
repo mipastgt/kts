@@ -71,7 +71,7 @@ class OverlapUnion {
     fun union(): Geometry? {
         val overlapEnv = overlapEnvelope(g0, g1)
 
-        /**
+        /*
          * If no overlap, can just combine the geometries
          */
         if (overlapEnv.isNull()) {

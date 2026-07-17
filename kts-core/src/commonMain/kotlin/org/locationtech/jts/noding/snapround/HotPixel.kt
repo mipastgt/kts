@@ -188,7 +188,7 @@ class HotPixel
       qx = p0x
       qy = p0y
     }
-    /**
+    /*
      * Report false if segment env does not intersect pixel env.
      * This check reflects the fact that the pixel Top and Right sides
      * are open (not part of the pixel).
@@ -210,7 +210,7 @@ class HotPixel
     val segMaxy = max(py, qy)
     if (segMaxy < miny) return false
 
-    /**
+    /*
      * Vertical or horizontal segments must now intersect
      * the segment interior or Left or Bottom sides.
      */

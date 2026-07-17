@@ -264,7 +264,7 @@ abstract class EdgeEndStar {
           }
           currLoc = leftLoc
         } else {
-          /** RHS is null - LHS must be null too.
+          /* RHS is null - LHS must be null too.
            * This must be an edge from the other geometry, which has no location
            * labelling for this geometry.  This edge must lie wholly inside or outside
            * the other geometry (which is determined by the current location).

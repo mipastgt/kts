@@ -204,7 +204,7 @@ class LargestEmptyCircle {
         farthestCell = farthest
       }
 
-      /**
+      /*
        * If this cell may contain a better approximation to the center
        * of the empty circle, then refine it (partition into subcells
        * which are added into the queue for further processing).
@@ -241,14 +241,14 @@ class LargestEmptyCircle {
    * @return true if the cell might contain the circle center
    */
   private fun mayContainCircleCenter(cell: Cell): Boolean {
-    /**
+    /*
      * Every point in the cell lies outside the boundary,
      * so they cannot be the center point
      */
     if (cell.isFullyOutside())
       return false
 
-    /**
+    /*
      * The cell is outside, but overlaps the boundary
      * so it may contain a point which should be checked.
      */

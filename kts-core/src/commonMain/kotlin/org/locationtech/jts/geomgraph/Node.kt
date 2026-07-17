@@ -17,8 +17,6 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.IntersectionMatrix
 import org.locationtech.jts.geom.Location
 
-/**
- */
 open class Node(coord: Coordinate?, edges: EdgeEndStar?) : GraphComponent() {
 
   protected var coord: Coordinate? = coord // only non-null if this node is precise

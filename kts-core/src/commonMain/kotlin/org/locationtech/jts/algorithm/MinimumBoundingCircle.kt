@@ -182,7 +182,7 @@ class MinimumBoundingCircle(private val input: Geometry) {
       CoordinateArrays.copyDeep(hullPts, 0, pts, 0, hullPts.size - 1)
     }
 
-    /**
+    /*
      * Optimization for the trivial case where the CH has fewer than 3 points
      */
     if (pts.size <= 2) {
@@ -196,7 +196,7 @@ class MinimumBoundingCircle(private val input: Geometry) {
     // find a point Q such that the angle that PQ makes with the x-axis is minimal
     var Q = pointWitMinAngleWithX(pts, P)!!
 
-    /**
+    /*
      * Iterate over the remaining points to find
      * a pair or triplet of points which determine the minimal circle.
      */

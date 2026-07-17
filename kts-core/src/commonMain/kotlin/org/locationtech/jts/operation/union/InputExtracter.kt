@@ -109,7 +109,7 @@ internal class InputExtracter : GeometryFilter {
         if (geom is GeometryCollection) {
             return
         }
-        /**
+        /*
          * Don't keep empty geometries
          */
         if (geom.isEmpty())

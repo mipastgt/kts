@@ -13,9 +13,6 @@ package org.locationtech.jts.geomgraph
 
 import kotlin.jvm.JvmStatic
 
-/**
- */
-
 import org.locationtech.jts.algorithm.Orientation
 import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.Location

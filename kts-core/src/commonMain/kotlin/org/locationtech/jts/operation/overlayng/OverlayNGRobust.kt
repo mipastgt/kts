@@ -106,7 +106,7 @@ class OverlayNGRobust {
       var result: Geometry?
       val exOriginal: RuntimeException
 
-      /**
+      /*
        * First try overlay with a FLOAT noder, which is fast and causes least
        * change to geometry coordinates
        */
@@ -114,28 +114,28 @@ class OverlayNGRobust {
         result = OverlayNG.overlay(geom0, geom1, opCode)
         return result
       } catch (ex: RuntimeException) {
-        /**
+        /*
          * Capture original exception,
          * so it can be rethrown if the remaining strategies all fail.
          */
         exOriginal = ex
       }
 
-      /**
+      /*
        * On failure retry using snapping noding with a "safe" tolerance.
        */
       result = overlaySnapTries(geom0, geom1, opCode)
       if (result != null)
         return result
 
-      /**
+      /*
        * On failure retry using snap-rounding with a heuristic scale factor (grid size).
        */
       result = overlaySR(geom0, geom1, opCode)
       if (result != null)
         return result
 
-      /**
+      /*
        * Just can't get overlay to work, so throw original error.
        */
       throw exOriginal
@@ -157,7 +157,7 @@ class OverlayNGRobust {
         result = overlaySnapping(geom0, geom1, opCode, snapTol)
         if (result != null) return result
 
-        /**
+        /*
          * Now try snapping each input individually,
          * and then doing the overlay.
          */
@@ -213,7 +213,7 @@ class OverlayNGRobust {
       val ov = OverlayNG(geom, null)
       val snapNoder = SnappingNoder(snapTol)
       ov.setNoder(snapNoder)
-      /**
+      /*
        * Ensure the result is not mixed-dimension,
        * since it will be used in further overlay computation.
        */

@@ -60,7 +60,7 @@ internal class EdgeSegmentIntersector(topoBuilder: TopologyComputer) : SegmentIn
 
         for (i in 0 until li.getIntersectionNum()) {
             val intPt = li.getIntersection(i)
-            /**
+            /*
              * Ensure endpoint intersections are added once only, for their canonical segments.
              */
             if (li.isProper() ||

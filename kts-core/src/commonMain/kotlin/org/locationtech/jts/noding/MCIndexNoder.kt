@@ -79,7 +79,7 @@ class MCIndexNoder : SinglePassNoder {
       val j = overlapChains.iterator()
       while (j.hasNext()) {
         val testChain = j.next() as MonotoneChain
-        /**
+        /*
          * following test makes sure we only compare each pair of chains once
          * and that we don't compare a chain to itself
          */

@@ -36,7 +36,7 @@ class PointBuilder(
    */
   fun build(opCode: Int): MutableList<Point> {
     extractNonCoveredResultNodes(opCode)
-    /**
+    /*
      * It can happen that connected result nodes are still covered by
      * result geometries, so must perform this filter.
      * (For instance, this can happen during topology collapse).

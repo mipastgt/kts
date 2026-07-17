@@ -99,7 +99,7 @@ class Quadtree : SpatialIndex {
    * @param visitor a visitor object which is passed the visited items
    */
   override fun query(searchEnv: Envelope?, visitor: ItemVisitor) {
-    /**
+    /*
      * the items that are matched are the items in quads which
      * overlap the search envelope
      */

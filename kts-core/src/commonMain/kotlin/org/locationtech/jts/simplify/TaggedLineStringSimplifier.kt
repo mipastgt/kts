@@ -66,7 +66,7 @@ internal class TaggedLineStringSimplifier(
 
     var isValidToSimplify = true
 
-    /**
+    /*
      * Following logic ensures that there is enough points in the output line.
      */
     if (line.getResultSize() < line.getMinimumSize()) {
@@ -215,7 +215,7 @@ internal class TaggedLineStringSimplifier(
     for (o in querySegs) {
       val querySeg = o as TaggedLineSegment
       if (hasInvalidIntersection(querySeg, flatSeg)) {
-        /**
+        /*
          * Ignore the intersection if the intersecting segment is part of the section being collapsed
          * to the candidate segment
          */

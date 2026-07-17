@@ -59,7 +59,7 @@ class SnappingIntersectionAdder
     val p10 = seg1.getCoordinate(segIndex1)
     val p11 = seg1.getCoordinate(segIndex1 + 1)
 
-    /**
+    /*
      * Don't node intersections which are just
      * due to the shared vertex of adjacent segments.
      */
@@ -67,7 +67,7 @@ class SnappingIntersectionAdder
       li.computeIntersection(p00, p01, p10, p11)
       //if (li.hasIntersection() && li.isProper()) Debug.println(li);
 
-      /**
+      /*
        * Process single point intersections only.
        * Two-point (collinear) ones are handled by the near-vertex code
        */
@@ -81,7 +81,7 @@ class SnappingIntersectionAdder
       }
     }
 
-    /**
+    /*
      * The segments must also be snapped to the other segment endpoints.
      */
     processNearVertex(seg0, segIndex0, p00, seg1, segIndex1, p10, p11)
@@ -100,7 +100,7 @@ class SnappingIntersectionAdder
     srcSS: SegmentString, srcIndex: Int, p: Coordinate,
     ss: SegmentString, segIndex: Int, p0: Coordinate, p1: Coordinate
   ) {
-    /**
+    /*
      * Don't add intersection if candidate vertex is near endpoints of segment.
      * This avoids creating "zig-zag" linework
      * (since the vertex could actually be outside the segment envelope).

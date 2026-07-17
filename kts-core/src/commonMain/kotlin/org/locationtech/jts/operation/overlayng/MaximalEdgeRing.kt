@@ -118,7 +118,7 @@ class MaximalEdgeRing(e: OverlayEdge) {
       var state = STATE_FIND_INCOMING
       var currResultIn: OverlayEdge? = null
       do {
-        /**
+        /*
          * If an edge is linked this node has already been processed
          * so can skip further processing
          */

@@ -25,8 +25,6 @@ import org.locationtech.jts.geom.Position
 import org.locationtech.jts.geom.TopologyException
 import org.locationtech.jts.util.Assert
 
-/**
- */
 abstract class EdgeRing(
   start: DirectedEdge,
   @JvmField protected val geometryFactory: GeometryFactory

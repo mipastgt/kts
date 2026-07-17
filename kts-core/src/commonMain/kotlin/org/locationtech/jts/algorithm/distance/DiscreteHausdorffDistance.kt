@@ -119,7 +119,7 @@ class DiscreteHausdorffDistance(private val g0: Geometry, private val g1: Geomet
     private val numSubSegs = round(1.0 / fraction).toInt()
 
     override fun filter(seq: CoordinateSequence, index: Int) {
-      /**
+      /*
        * This logic also handles skipping Point geometries
        */
       if (index == 0)

@@ -116,7 +116,7 @@ class OverlayPoints(
 
         val pt = geom
         val p = roundCoord(pt, pm)
-        /**
+        /*
          * Only add first occurrence of a point.
          * This provides the merging semantics of overlay
          */

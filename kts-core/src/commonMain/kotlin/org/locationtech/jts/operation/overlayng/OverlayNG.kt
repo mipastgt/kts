@@ -151,7 +151,7 @@ class OverlayNG(
       // handle case where both inputs are formed of edges (Lines and Polygons)
       result = computeEdgeOverlay()
     }
-    /**
+    /*
      * This is a no-op if the elevation model was not computed due to Z not present
      */
     elevModel.populateZ(result)
@@ -175,7 +175,7 @@ class OverlayNG(
 
     val result = extractResult(opCode, graph)
 
-    /**
+    /*
      * Heuristic check on result area.
      * Catches cases where noding causes vertex to move
      * and make topology graph area "invert".
@@ -194,7 +194,7 @@ class OverlayNG(
      */
     val nodingBuilder = EdgeNodingBuilder(pm, noder)
 
-    /**
+    /*
      * Optimize Intersection and Difference by clipping to the
      * result extent, if enabled.
      */
@@ -209,7 +209,7 @@ class OverlayNG(
       inputGeom.getGeometry(1)
     )
 
-    /**
+    /*
      * Record if an input geometry has collapsed.
      */
     inputGeom.setCollapsed(0, !nodingBuilder.hasEdgesFor(0))

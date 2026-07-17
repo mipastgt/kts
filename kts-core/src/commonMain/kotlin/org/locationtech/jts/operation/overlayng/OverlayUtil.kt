@@ -223,7 +223,7 @@ class OverlayUtil {
         OverlayNG.UNION -> resultDimension = max(dim0, dim1)
         OverlayNG.DIFFERENCE -> resultDimension = dim0
         OverlayNG.SYMDIFFERENCE ->
-          /**
+          /*
            * This result is chosen because
            * SymDiff = Union( Diff(A, B), Diff(B, A) )
            * and Union has the dimension of the highest-dimension argument.

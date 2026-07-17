@@ -327,7 +327,7 @@ class LineSequencer {
         val startNode = line.getCoordinateN(0)
         val endNode = line.getCoordinateN(line.getNumPoints() - 1)
 
-        /**
+        /*
          * If this linestring is connected to a previous subgraph, geom is not sequenced
          */
         if (prevSubgraphNodes.contains(startNode)) return false

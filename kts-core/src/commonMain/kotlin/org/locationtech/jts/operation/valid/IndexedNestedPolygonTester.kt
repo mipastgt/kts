@@ -84,7 +84,7 @@ internal class IndexedNestedPolygonTester(private val multiPoly: MultiPolygon) {
 
                 if (poly === possibleOuterPoly)
                     continue
-                /**
+                /*
                  * If polygon is not fully covered by candidate polygon it cannot be nested
                  */
                 if (!possibleOuterPoly.getEnvelopeInternal().covers(poly.getEnvelopeInternal()))
@@ -128,7 +128,7 @@ internal class IndexedNestedPolygonTester(private val multiPoly: MultiPolygon) {
             return shellPt1
         }
 
-        /**
+        /*
          * The shell points both lie on the boundary of
          * the polygon.
          * Nesting can be checked via the topology of the incident edges.
@@ -153,7 +153,7 @@ internal class IndexedNestedPolygonTester(private val multiPoly: MultiPolygon) {
             if (!PolygonTopologyAnalyzer.isRingNested(shell, polyShell))
                 return null
 
-            /**
+            /*
              * Check if the shell is inside a hole (if there are any).
              * If so this is valid.
              */
@@ -166,7 +166,7 @@ internal class IndexedNestedPolygonTester(private val multiPoly: MultiPolygon) {
                 }
             }
 
-            /**
+            /*
              * The shell is contained in the polygon, but is not contained in a hole.
              * This is invalid.
              */

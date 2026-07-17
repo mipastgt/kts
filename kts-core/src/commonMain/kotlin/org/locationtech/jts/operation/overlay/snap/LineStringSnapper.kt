@@ -142,7 +142,7 @@ class LineStringSnapper {
     for (i in 0 until distinctPtCount) {
       val snapPt = snapPts[i]
       val index = findSegmentIndexToSnap(snapPt, srcCoords)
-      /**
+      /*
        * If a segment to snap to was found, "crack" it at the snap pt.
        * The new pt is inserted immediately into the src segment list,
        * so that subsequent snapping will take place on the modified segments.
@@ -179,7 +179,7 @@ class LineStringSnapper {
       seg.p0 = srcCoords[i]
       seg.p1 = srcCoords[i + 1]
 
-      /**
+      /*
        * Check if the snap pt is equal to one of the segment endpoints.
        *
        * If the snap pt is already in the src list, don't snap at all.

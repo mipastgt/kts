@@ -28,9 +28,8 @@ import org.locationtech.jts.triangulate.tri.TriangulationBuilder
  * of the polygon.
  *
  * Holes are supported.
- */
-/**
- * Constructs a new Constrained Delaunay triangulator.
+ *
+ * @constructor Constructs a new Constrained Delaunay triangulator.
  *
  * @param inputGeom the input geometry
  */

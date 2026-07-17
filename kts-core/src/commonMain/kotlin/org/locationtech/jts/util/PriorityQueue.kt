@@ -20,7 +20,7 @@ class PriorityQueue<E> {
   private var size: Int // Number of elements in queue
   private var items: ArrayList<Any?> // The queue binary heap array
 
-  /**
+  /*
    * Creates a new empty priority queue
    */
   init {
@@ -56,7 +56,7 @@ class PriorityQueue<E> {
     items.set(hole, x)
   }
 
-  /**
+  /*
    * Establish heap from an arbitrary arrangement of items.
    */
   /*

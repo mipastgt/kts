@@ -29,7 +29,7 @@ open class PreparedLineString(line: Lineal) : BasicPreparedGeometry(line as Geom
   private var segIntFinder: FastSegmentSetIntersectionFinder? = null
 
   fun getIntersectionFinder(): FastSegmentSetIntersectionFinder {
-    /**
+    /*
      * MD - Another option would be to use a simple scan for
      * segment testing for small geometries.
      * However, testing indicates that there is no particular advantage
@@ -45,7 +45,7 @@ open class PreparedLineString(line: Lineal) : BasicPreparedGeometry(line as Geom
     return PreparedLineStringIntersects.intersects(this, g)
   }
 
-  /**
+  /*
    * There's not much point in trying to optimize contains, since
    * contains for linear targets requires the entire test geometry
    * to exactly match the target linework.

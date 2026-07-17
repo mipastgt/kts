@@ -78,7 +78,7 @@ class OverlayResultValidator(a: Geometry, b: Geometry, result: Geometry) {
     location[1] = locFinder[1].getLocation(pt)
     location[2] = locFinder[2].getLocation(pt)
 
-    /**
+    /*
      * If any location is on the Boundary, can't deduce anything, so just return true
      */
     if (hasLocation(location, Location.BOUNDARY))

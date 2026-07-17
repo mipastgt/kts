@@ -142,7 +142,7 @@ class SubgraphDepthLocater internal constructor(private val subgraphs: List<Buff
     override fun compareTo(obj: Any?): Int {
       val other = obj as DepthSegment
 
-      /**
+      /*
        * If segment envelopes do not overlap, then
        * can use standard segment lexicographic ordering.
        */
@@ -162,7 +162,7 @@ class SubgraphDepthLocater internal constructor(private val subgraphs: List<Buff
       var orientIndex = upwardSeg.orientationIndex(other.upwardSeg)
       if (orientIndex != 0) return orientIndex
 
-      /**
+      /*
        * If comparison between this and other is indeterminate,
        * try the opposite call order.
        * The sign of the result needs to be flipped.
@@ -170,7 +170,7 @@ class SubgraphDepthLocater internal constructor(private val subgraphs: List<Buff
       orientIndex = -1 * other.upwardSeg.orientationIndex(upwardSeg)
       if (orientIndex != 0) return orientIndex
 
-      /**
+      /*
        * If segment envelopes overlap and they are collinear,
        * since segments do not cross they must be equal.
        */
@@ -192,7 +192,7 @@ class SubgraphDepthLocater internal constructor(private val subgraphs: List<Buff
       var orientIndex = upwardSeg.orientationIndex(other.upwardSeg)
       if (orientIndex != 0) return orientIndex
 
-      /**
+      /*
        * If comparison between this and other is indeterminate,
        * try the opposite call order.
        * The sign of the result needs to be flipped.

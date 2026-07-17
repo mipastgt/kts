@@ -40,7 +40,7 @@ class OverlayLabeller(private val graph: OverlayGraph, private val inputGeometry
     labelAreaNodeEdges(nodes)
     labelConnectedLinearEdges()
 
-    /**
+    /*
      * At this point collapsed edges labeled with location UNKNOWN
      * must be disconnected from the area edges of the parent.
      */
@@ -73,11 +73,11 @@ class OverlayLabeller(private val graph: OverlayGraph, private val inputGeometry
    * @param geomIndex the geometry to propagate locations for
    */
   fun propagateAreaLocations(nodeEdge: OverlayEdge, geomIndex: Int) {
-    /**
+    /*
      * Only propagate for area geometries
      */
     if (!inputGeometry.isArea(geomIndex)) return
-    /**
+    /*
      * No need to propagate if node has only one edge.
      * This handles dangling edges created by overlap limiting.
      */
@@ -95,7 +95,7 @@ class OverlayLabeller(private val graph: OverlayGraph, private val inputGeometry
     do {
       val label = e.getLabel()
       if (!label.isBoundary(geomIndex)) {
-        /**
+        /*
          * If this is not a Boundary edge for this input area,
          * its location is now known relative to this input area
          */
@@ -136,7 +136,7 @@ class OverlayLabeller(private val graph: OverlayGraph, private val inputGeometry
   private fun labelCollapsedEdge(edge: OverlayEdge, geomIndex: Int) {
     val label = edge.getLabel()
     if (!label.isCollapse(geomIndex)) return
-    /**
+    /*
      * This must be a collapsed edge which is disconnected
      * from any area edges (e.g. a fully collapsed shell or hole).
      * It can be labeled according to its parent source ring role.
@@ -203,7 +203,7 @@ class OverlayLabeller(private val graph: OverlayGraph, private val inputGeometry
   private fun labelDisconnectedEdge(edge: OverlayEdge, geomIndex: Int) {
     val label = edge.getLabel()
 
-    /**
+    /*
      * if target geom is not an area then
      * edge must be EXTERIOR, since to be
      * INTERIOR it would have been labelled
@@ -323,7 +323,7 @@ class OverlayLabeller(private val graph: OverlayGraph, private val inputGeometry
       edgeStack: ArrayDeque<OverlayEdge>
     ) {
       val lineLoc = eNode.getLabel().getLineLocation(geomIndex)
-      /**
+      /*
        * If the parent geom is a Line
        * then only propagate EXTERIOR locations.
        */
@@ -333,13 +333,13 @@ class OverlayLabeller(private val graph: OverlayGraph, private val inputGeometry
       do {
         val label = e.getLabel()
         if (label.isLineLocationUnknown(geomIndex)) {
-          /**
+          /*
            * If edge is not a boundary edge,
            * its location is now known for this area
            */
           label.setLocationLine(geomIndex, lineLoc)
 
-          /**
+          /*
            * Add sym edge to stack for graph traversal
            * (Don't add e itself, since e origin node has now been scanned)
            */

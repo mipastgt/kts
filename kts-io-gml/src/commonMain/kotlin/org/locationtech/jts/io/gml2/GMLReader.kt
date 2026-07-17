@@ -39,7 +39,7 @@ import org.locationtech.jts.io.ParseException
  */
 class GMLReader {
 
-    /**
+    /*
      * Reads a GML2 Geometry from a `String` into a single [Geometry].
      *
      * If a collection of geometries is found, a [GeometryCollection] is returned.

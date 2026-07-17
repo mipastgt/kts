@@ -170,7 +170,7 @@ class BoundaryOp(private val geom: Geometry, private val bnRule: BoundaryNodeRul
       if (geom.isEmpty()) return false
       when (geom.getDimension()) {
         Dimension.P -> return false
-        /**
+        /*
          * Linear geometries might have an empty boundary due to boundary node rule.
          */
         Dimension.L -> {

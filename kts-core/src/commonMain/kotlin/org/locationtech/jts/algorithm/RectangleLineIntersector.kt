@@ -30,7 +30,7 @@ class RectangleLineIntersector(private val rectEnv: Envelope) {
   private val diagDown1: Coordinate
 
   init {
-    /**
+    /*
      * Up and Down are the diagonal orientations
      * relative to the Left side of the rectangle.
      * Index 0 is the left side, 1 is the right side.
@@ -62,14 +62,14 @@ class RectangleLineIntersector(private val rectEnv: Envelope) {
     if (!rectEnv.intersects(segEnv))
       return false
 
-    /**
+    /*
      * If either segment endpoint lies in the rectangle,
      * there is an intersection.
      */
     if (rectEnv.intersects(p0)) return true
     if (rectEnv.intersects(p1)) return true
 
-    /**
+    /*
      * Normalize segment.
      * This makes p0 less than p1,
      * so that the segment runs to the right,
@@ -90,7 +90,7 @@ class RectangleLineIntersector(private val rectEnv: Envelope) {
     if (p1.y > p0.y)
       isSegUpwards = true
 
-    /**
+    /*
      * To distinguish disjoint vs crossing cases, it is sufficient
      * to test intersection with a single diagonal of the rectangle,
      * namely the one with slope "opposite" to the slope of the segment.

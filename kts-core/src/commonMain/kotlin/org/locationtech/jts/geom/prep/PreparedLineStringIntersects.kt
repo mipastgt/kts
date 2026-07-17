@@ -47,13 +47,13 @@ class PreparedLineStringIntersects(private val prepLine: PreparedLineString) {
         return true
     }
 
-    /**
+    /*
      * For L/A case, need to check for proper inclusion of the target in the test
      */
     if (geom.getDimension() == 2 &&
         prepLine.isAnyTargetComponentInTest(geom)) return true
 
-    /**
+    /*
      * For L/P case, need to check if any points lie on line(s)
      */
     if (geom.hasDimension(0))

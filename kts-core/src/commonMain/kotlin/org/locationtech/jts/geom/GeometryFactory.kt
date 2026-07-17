@@ -396,7 +396,7 @@ open class GeometryFactory(
         hasGeometryCollection = true
     }
 
-    /**
+    /*
      * Now construct an appropriate geometry to return
      */
     // for the empty geometry, return an empty GeometryCollection

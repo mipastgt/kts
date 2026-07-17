@@ -36,7 +36,7 @@ internal class TopologyComputer(
         val dimRealA = geomA.getDimensionReal()
         val dimRealB = geomB.getDimensionReal()
 
-        /**
+        /*
          * For P/L case, P exterior intersects L interior
          */
         if (dimRealA == Dimension.P && dimRealB == Dimension.L) {
@@ -44,7 +44,7 @@ internal class TopologyComputer(
         } else if (dimRealA == Dimension.L && dimRealB == Dimension.P) {
             updateDim(Location.INTERIOR, Location.EXTERIOR, Dimension.L)
         } else if (dimRealA == Dimension.P && dimRealB == Dimension.A) {
-            /**
+            /*
              * For P/A case, the Area Int and Bdy intersect the Point exterior.
              */
             updateDim(Location.EXTERIOR, Location.INTERIOR, Dimension.A)
@@ -224,7 +224,7 @@ internal class TopologyComputer(
         when (dimTarget) {
             Dimension.P -> return
             Dimension.L -> {
-                /**
+                /*
                  * Because zero-length lines are handled,
                  * a point lying in the exterior of the line target
                  * may imply either P or L for the Exterior interaction
@@ -232,7 +232,7 @@ internal class TopologyComputer(
                 return
             }
             Dimension.A -> {
-                /**
+                /*
                  * If a point intersects an area target, then the area interior and boundary
                  * must extend beyond the point and thus interact with its exterior.
                  */
@@ -273,7 +273,7 @@ internal class TopologyComputer(
     }
 
     private fun addLineEndOnLine(isLineA: Boolean, locLineEnd: Int, locLine: Int, pt: Coordinate?) {
-        /**
+        /*
          * When a line end is in the EXTERIOR of a Line,
          * some length of the source Line INTERIOR
          * is also in the target Line EXTERIOR.
@@ -285,7 +285,7 @@ internal class TopologyComputer(
 
     private fun addLineEndOnArea(isLineA: Boolean, locLineEnd: Int, locArea: Int, pt: Coordinate?) {
         if (locArea != Location.BOUNDARY) {
-            /**
+            /*
              * When a line end is in an Area INTERIOR or EXTERIOR
              * some length of the source Line Interior
              * AND the Exterior of the line
@@ -308,7 +308,7 @@ internal class TopologyComputer(
     fun addAreaVertex(isAreaA: Boolean, locArea: Int, locTarget: Int, dimTarget: Int, pt: Coordinate?) {
         if (locTarget == Location.EXTERIOR) {
             updateDim(isAreaA, Location.INTERIOR, Location.EXTERIOR, Dimension.A)
-            /**
+            /*
              * If area vertex is on Boundary further topology can be deduced
              * from the neighbourhood around the boundary vertex.
              */
@@ -346,15 +346,15 @@ internal class TopologyComputer(
     private fun addAreaVertexOnPoint(isAreaA: Boolean, locArea: Int, pt: Coordinate?) {
         //-- Assert: locArea != EXTERIOR
         //-- Assert: locTarget == INTERIOR
-        /**
+        /*
          * The vertex location intersects the Point.
          */
         updateDim(isAreaA, locArea, Location.INTERIOR, Dimension.P)
-        /**
+        /*
          * The area interior intersects the point's exterior neighbourhood.
          */
         updateDim(isAreaA, Location.INTERIOR, Location.EXTERIOR, Dimension.A)
-        /**
+        /*
          * If the area vertex is on the boundary,
          * the area boundary and exterior intersect the point's exterior neighbourhood
          */
@@ -366,13 +366,13 @@ internal class TopologyComputer(
 
     private fun addAreaVertexOnLine(isAreaA: Boolean, locArea: Int, locTarget: Int, pt: Coordinate?) {
         //-- Assert: locArea != EXTERIOR
-        /**
+        /*
          * If an area vertex intersects a line, all we know is the
          * intersection at that point.
          */
         updateDim(isAreaA, locArea, locTarget, Dimension.P)
         if (locArea == Location.INTERIOR) {
-            /**
+            /*
              * The area interior intersects the line's exterior neighbourhood.
              */
             updateDim(isAreaA, Location.INTERIOR, Location.EXTERIOR, Dimension.A)
@@ -393,7 +393,7 @@ internal class TopologyComputer(
         } else {
             //-- locTarget is INTERIOR or EXTERIOR
             updateDim(isAreaA, Location.INTERIOR, locTarget, Dimension.A)
-            /**
+            /*
              * If area vertex is on Boundary further topology can be deduced
              * from the neighbourhood around the boundary vertex.
              */

@@ -115,7 +115,7 @@ internal class BufferSubgraph : Comparable<Any?> {
       dirEdgeList.add(de)
       val sym = de.getSym()!!
       val symNode = sym.getNode()!!
-      /**
+      /*
        * NOTE: this is a depth-first traversal of the graph.
        * This will cause a large depth of recursion.
        * It might be better to do a breadth-first traversal.
@@ -223,7 +223,7 @@ internal class BufferSubgraph : Comparable<Any?> {
     val it = dirEdgeList.iterator()
     while (it.hasNext()) {
       val de = it.next()
-      /**
+      /*
        * Select edges which have an interior depth on the RHS
        * and an exterior depth on the LHS.
        * Note that because of weird rounding effects there may be

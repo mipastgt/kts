@@ -60,7 +60,7 @@ class LineBuilder(
   private fun markResultLines() {
     val edges = graph.getEdges()
     for (edge in edges) {
-      /**
+      /*
        * If the edge linework is already marked as in the result,
        * it is not included as a line.
        */
@@ -80,40 +80,40 @@ class LineBuilder(
    * @return true if the edge should be included in the result
    */
   private fun isResultLine(lbl: OverlayLabel): Boolean {
-    /**
+    /*
      * Omit edge which is a boundary of a single geometry
      * (i.e. not a collapse or line edge as well).
      */
     if (lbl.isBoundarySingleton()) return false
 
-    /**
+    /*
      * Omit edge which is a collapse along a boundary.
      */
     if (!isAllowCollapseLines && lbl.isBoundaryCollapse()) return false
 
-    /**
+    /*
      * Omit edge which is a collapse interior to its parent area.
      */
     if (lbl.isInteriorCollapse()) return false
 
-    /**
+    /*
      * For ops other than Intersection, omit a line edge
      * if it is interior to the other area.
      */
     if (opCode != OverlayNG.INTERSECTION) {
-      /**
+      /*
        * Omit collapsed edge in other area interior.
        */
       if (lbl.isCollapseAndNotPartInterior()) return false
 
-      /**
+      /*
        * If there is a result area, omit line edge inside it.
        */
       if (hasResultArea && lbl.isLineInArea(inputAreaIndex))
         return false
     }
 
-    /**
+    /*
      * Include line edge formed by touching area boundaries,
      * if enabled.
      */
@@ -173,7 +173,7 @@ class LineBuilder(
       if (!edge.isInResultLine()) continue
       if (edge.isVisited()) continue
 
-      /**
+      /*
        * Choose line start point as a node.
        * Nodes in the line graph are degree-1 or degree >= 3 edges.
        */

@@ -100,7 +100,7 @@ class OverlayOp(g0: Geometry, g1: Geometry) : GeometryGraphOperation(g0, g1) {
 
 //Debug.println(edgeList);
 
-    /**
+    /*
      * Check that the noding completed correctly.
      *
      * This test is slow, but necessary in order to catch robustness failure
@@ -118,7 +118,7 @@ class OverlayOp(g0: Geometry, g1: Geometry) : GeometryGraphOperation(g0, g1) {
 //Debug.printWatch();
 //nodeMap.print(System.out);
 
-    /**
+    /*
      * The ordering of building the result Geometries is important.
      * Areas must be built before lines, which must be built before points.
      * This is so that lines which are covered by areas are not included
@@ -207,7 +207,7 @@ class OverlayOp(g0: Geometry, g1: Geometry) : GeometryGraphOperation(g0, g1) {
       val e = it.next()
       val lbl = e.getLabel()!!
       val depth = e.getDepth()
-      /**
+      /*
        * Only check edges for which there were duplicates,
        * since these are the only ones which might
        * be the result of dimensional collapses.
@@ -216,7 +216,7 @@ class OverlayOp(g0: Geometry, g1: Geometry) : GeometryGraphOperation(g0, g1) {
         depth.normalize()
         for (i in 0..1) {
           if (!lbl.isNull(i) && lbl.isArea() && !depth.isNull(i)) {
-            /**
+            /*
              * if the depths are equal, this edge is the result of
              * the dimensional collapse of two or more edges.
              * It has the same location on both sides of the edge,
@@ -225,7 +225,7 @@ class OverlayOp(g0: Geometry, g1: Geometry) : GeometryGraphOperation(g0, g1) {
             if (depth.getDelta(i) == 0) {
               lbl.toLine(i)
             } else {
-              /**
+              /*
                * This edge may be the result of a dimensional collapse,
                * but it still has different locations on both sides.  The
                * label of the edge must be updated to reflect the resultant
@@ -562,7 +562,7 @@ class OverlayOp(g0: Geometry, g1: Geometry) : GeometryGraphOperation(g0, g1) {
     fun createEmptyResult(overlayOpCode: Int, a: Geometry, b: Geometry, geomFact: GeometryFactory): Geometry {
       val resultDim = resultDimension(overlayOpCode, a, b)
 
-      /**
+      /*
        * Handles resultSDim = -1, although should not happen
        */
       return geomFact.createEmpty(resultDim)
@@ -581,7 +581,7 @@ class OverlayOp(g0: Geometry, g1: Geometry) : GeometryGraphOperation(g0, g1) {
         DIFFERENCE ->
           resultDimension = dim0
         SYMDIFFERENCE ->
-          /**
+          /*
            * This result is chosen because
            * SymDiff = Union(Diff(A, B), Diff(B, A)
            * and Union has the dimension of the highest-dimension argument.

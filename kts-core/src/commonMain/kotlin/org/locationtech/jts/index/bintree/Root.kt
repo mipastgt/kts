@@ -37,7 +37,7 @@ class Root : NodeBase() {
      * tree for that interval (which may not yet exist)
      */
     val node = subnode[index]
-    /**
+    /*
      *  If the subnode doesn't exist or this item is not contained in it,
      *  have to expand the tree upward to contain the item.
      */
@@ -45,7 +45,7 @@ class Root : NodeBase() {
       val largerNode = Node.createExpanded(node, itemInterval)
       subnode[index] = largerNode
     }
-    /**
+    /*
      * At this point we have a subnode which exists and must contain
      * contains the env for the item.  Insert the item into the tree.
      */

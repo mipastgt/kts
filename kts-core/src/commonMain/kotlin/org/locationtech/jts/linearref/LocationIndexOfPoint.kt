@@ -62,7 +62,7 @@ class LocationIndexOfPoint(private val linearGeom: Geometry) {
       return endLoc
 
     val closestAfter = indexOfFromStart(inputPt, minIndex)
-    /**
+    /*
      * Return the minDistanceLocation found.
      * This will not be null, since it was initialized to minLocation
      */

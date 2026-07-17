@@ -54,7 +54,7 @@ class SortedPackedIntervalRTree {
     // already built
     if (root != null) return
 
-    /**
+    /*
      * if leaves is empty then nothing has been inserted.
      * In this case it is safe to leave the tree in an open state
      */

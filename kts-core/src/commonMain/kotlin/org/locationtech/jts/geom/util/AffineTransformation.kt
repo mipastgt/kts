@@ -291,7 +291,7 @@ open class AffineTransformation : CoordinateSequenceFilter {
       throw IllegalArgumentException("Reflection vector must be non-zero")
     }
 
-    /**
+    /*
      * Handle special case - x = y.
      * This case is specified explicitly to avoid roundoff error.
      */

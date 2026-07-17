@@ -65,7 +65,7 @@ internal class PolygonIntersectionAnalyzer(private val isInvertedRingValid: Bool
         if (isSameSegment) return
 
         val code = findInvalidIntersection(ss0, segIndex0, ss1, segIndex1)
-        /**
+        /*
          * Ensure that invalidCode is only set once,
          * since the short-circuiting in [SegmentIntersector] is not guaranteed
          * to happen immediately.
@@ -95,7 +95,7 @@ internal class PolygonIntersectionAnalyzer(private val isInvertedRingValid: Bool
 
         val isSameSegString = ss0 === ss1
 
-        /**
+        /*
          * Check for an intersection in the interior of both segments.
          * Collinear intersections by definition contain an interior intersection.
          */
@@ -118,7 +118,7 @@ internal class PolygonIntersectionAnalyzer(private val isInvertedRingValid: Bool
         // Assert: intersection is an endpoint of both segs
         if (isAdjacentSegments) return NO_INVALID_INTERSECTION
 
-        /**
+        /*
          * Under OGC semantics, rings cannot self-intersect.
          * So the intersection is invalid.
          *
@@ -128,7 +128,7 @@ internal class PolygonIntersectionAnalyzer(private val isInvertedRingValid: Bool
             return TopologyValidationError.RING_SELF_INTERSECTION
         }
 
-        /**
+        /*
          * Optimization: don't analyze intPts at the endpoint of a segment.
          */
         if (intPt.equals2D(p01) || intPt.equals2D(p11))
@@ -155,7 +155,7 @@ internal class PolygonIntersectionAnalyzer(private val isInvertedRingValid: Bool
             return TopologyValidationError.SELF_INTERSECTION
         }
 
-        /**
+        /*
          * If allowing inverted rings, record a self-touch to support later checking
          * that it does not disconnect the interior.
          */
@@ -224,7 +224,7 @@ internal class PolygonIntersectionAnalyzer(private val isInvertedRingValid: Bool
         private fun isAdjacentInRing(ringSS: SegmentString, segIndex0: Int, segIndex1: Int): Boolean {
             val delta = abs(segIndex1 - segIndex0)
             if (delta <= 1) return true
-            /**
+            /*
              * A string with N vertices has maximum segment index of N-2.
              * If the delta is at least N-2, the segments must be
              * at the start and end of the string and thus adjacent.

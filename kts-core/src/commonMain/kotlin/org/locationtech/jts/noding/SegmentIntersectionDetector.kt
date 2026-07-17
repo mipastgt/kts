@@ -173,7 +173,7 @@ class SegmentIntersectionDetector
    * @return true if processing can terminate
    */
   override fun isDone(): Boolean {
-    /**
+    /*
      * If finding all types, we can stop
      * when both possible types have been found.
      */
@@ -181,7 +181,7 @@ class SegmentIntersectionDetector
       return properIntersectionFound && nonProperIntersectionFound
     }
 
-    /**
+    /*
      * If searching for a proper intersection, only stop if one is found
      */
     if (findProper) {

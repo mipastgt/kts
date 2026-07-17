@@ -113,7 +113,7 @@ class Orientation {
       var iUpHi = 0
       for (i in 1..nPts) {
         val py = ring.getOrdinate(i, Coordinate.Y)
-        /**
+        /*
          * If segment is upwards and endpoint is higher, record it
          */
         if (py > prevY && py >= upHiPt.y) {
@@ -123,7 +123,7 @@ class Orientation {
         }
         prevY = py
       }
-      /**
+      /*
        * Check if ring is flat and return default value if so
        */
       if (iUpHi == 0) return false
@@ -142,13 +142,13 @@ class Orientation {
       val iDownHi = if (iDownLow > 0) iDownLow - 1 else nPts - 1
       val downHiPt = ring.getCoordinate(iDownHi)
 
-      /**
+      /*
        * Two cases can occur:
        * 1) the hiPt and the downPrevPt are the same.
        * 2) The hiPt and the downPrevPt are different.
        */
       if (upHiPt.equals2D(downHiPt)) {
-        /**
+        /*
          * Check for the case where the cap has configuration A-B-A.
          */
         if (upLowPt!!.equals2D(upHiPt) || downLowPt.equals2D(upHiPt) || upLowPt.equals2D(downLowPt))

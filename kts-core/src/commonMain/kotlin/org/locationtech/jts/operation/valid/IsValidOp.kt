@@ -376,7 +376,7 @@ class IsValidOp(
      */
     private fun findHoleOutsideShellPoint(hole: LinearRing, shell: LinearRing): Coordinate? {
         val holePt0 = hole.getCoordinateN(0)
-        /**
+        /*
          * If hole envelope is not covered by shell, it must be outside
          */
         if (!shell.getEnvelopeInternal().covers(hole.getEnvelopeInternal()))

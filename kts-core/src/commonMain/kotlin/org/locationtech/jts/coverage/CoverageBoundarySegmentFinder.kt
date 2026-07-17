@@ -28,7 +28,7 @@ internal class CoverageBoundarySegmentFinder(private val boundarySegs: MutableSe
     if (i >= seq.size() - 1)
       return
     val seg = createSegment(seq, i)
-    /**
+    /*
      * Records segments with an odd number of occurrences.
      */
     if (boundarySegs.contains(seg)) {

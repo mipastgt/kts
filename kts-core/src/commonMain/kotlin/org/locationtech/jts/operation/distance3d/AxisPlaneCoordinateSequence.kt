@@ -102,7 +102,7 @@ class AxisPlaneCoordinateSequence private constructor(
      */
     @JvmStatic
     fun projectToXY(seq: CoordinateSequence): CoordinateSequence {
-      /**
+      /*
        * This is just a no-op, but return a wrapper
        * to allow better testing
        */
