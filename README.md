@@ -3,8 +3,10 @@ JTS Topology Suite — Kotlin Multiplatform Port
 
 [![Maven Central](https://img.shields.io/maven-central/v/de.mpmediasoft.kts/kts-core?label=Maven%20Central)](https://central.sonatype.com/artifact/de.mpmediasoft.kts/kts-core)
 [![GitHub release](https://img.shields.io/github/v/release/mipastgt/kts?label=GitHub%20release)](https://github.com/mipastgt/kts/releases/latest)
+[![API docs](https://javadoc.io/badge2/de.mpmediasoft.kts/kts-core/javadoc.svg?label=API%20docs)](https://javadoc.io/doc/de.mpmediasoft.kts/kts-core)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.4.10-blue?logo=kotlin)](https://kotlinlang.org)
 [![Kotlin Multiplatform](https://img.shields.io/badge/Kotlin%20Multiplatform-JVM%20%7C%20JS%20%7C%20Wasm%20%7C%20Native-blue?logo=kotlin)](https://kotlinlang.org/docs/multiplatform.html)
+[![Java](https://img.shields.io/badge/Java-8%2B-blue?logo=openjdk)](#using-it)
 [![Based on JTS](https://img.shields.io/badge/based%20on-JTS%201.20.0-blue)](https://github.com/locationtech/jts)
 [![License: EPL 2.0 / EDL 1.0](https://img.shields.io/badge/license-EPL--2.0%20%2F%20EDL--1.0-blue)](#license)
 
