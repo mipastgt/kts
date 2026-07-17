@@ -8,7 +8,10 @@ build/
 # IDE / tooling
 .idea/
 *.iml
-.claude/
+# Ignore local Claude Code config (settings.local.json etc.), but keep committed skills —
+# e.g. .claude/skills/jts-rebase, the workflow for re-basing this port onto a newer JTS release.
+.claude/*
+!.claude/skills/
 
 # Build / run output
 *.class
