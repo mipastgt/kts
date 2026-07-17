@@ -1,6 +1,7 @@
 JTS Topology Suite — Kotlin Multiplatform Port
 ==============================================
 
+[![CI](https://github.com/mipastgt/kts/actions/workflows/ci.yml/badge.svg)](https://github.com/mipastgt/kts/actions/workflows/ci.yml)
 [![Maven Central](https://img.shields.io/maven-central/v/de.mpmediasoft.kts/kts-core?label=Maven%20Central)](https://central.sonatype.com/artifact/de.mpmediasoft.kts/kts-core)
 [![GitHub release](https://img.shields.io/github/v/release/mipastgt/kts?label=GitHub%20release)](https://github.com/mipastgt/kts/releases/latest)
 [![API docs](https://javadoc.io/badge2/de.mpmediasoft.kts/kts-core/javadoc.svg?label=API%20docs)](https://javadoc.io/doc/de.mpmediasoft.kts/kts-core)
