@@ -17,6 +17,13 @@ replacement is owed.
 
 **Status legend:** `DONE` · `PLANNED` (Phase 2 / decided, not yet implemented) · `PROPOSED`.
 
+**Release milestone.** The port was first published as **v1.20.0.0** — port revision `0` of upstream
+JTS `1.20.0` — to **Maven Central** (group `de.mpmediasoft.kts`) on **2026-07-17**, with a matching
+[GitHub release](https://github.com/mipastgt/kts/releases/tag/v1.20.0.0) (aggregated Dokka API-docs
+bundle attached) and a [CHANGELOG](../../CHANGELOG.md) entry. Every deviation recorded below is `DONE`
+as of this release. Re-basing onto a future upstream JTS release (bumping `jtsBaseVersion`) is
+described by the `jts-rebase` skill in [`.claude/skills/jts-rebase`](../../.claude/skills/jts-rebase).
+
 ---
 
 ## 1. Module structure
