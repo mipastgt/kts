@@ -184,12 +184,12 @@ class MathUtil {
 
     /**
      * Generates a quasi-random sequence of numbers in the range [0,1].
-     * They are produced by an additive recurrence with constant &alpha;.
+     * They are produced by an additive recurrence with constant α.
      * ```
-     *     R(&alpha;) :  t<sub>n</sub> = { t<sub>0</sub> + n&alpha; },  n = 1,2,3,...
+     *     R(α) :  tₙ = { t₀ + nα },  n = 1,2,3,...
      * ```
-     * When &alpha; is irrational this produces a
-     * <a href='https://en.wikipedia.org/wiki/Low-discrepancy_sequence#Additive_recurrence'>Low discrepancy sequence</a>
+     * When α is irrational this produces a
+     * [Low discrepancy sequence](https://en.wikipedia.org/wiki/Low-discrepancy_sequence#Additive_recurrence)
      *  which is more evenly
      * distributed than random numbers.
      * 

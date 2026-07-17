@@ -66,14 +66,14 @@ import kotlin.math.pow
  * For example, the following code example constructs three DD instances:
  * two to hold the input values and one to hold the result of the addition.
  * ```
- *     DD a = new DD(2.0);
- *     DD b = new DD(3.0);
- *     DD c = a.add(b);
+ *     val a = DD(2.0)
+ *     val b = DD(3.0)
+ *     val c = a.add(b)
  * ```
  * In contrast, the following approach uses only one object:
  * ```
- *     DD a = new DD(2.0);
- *     a.selfAdd(3.0);
+ *     val a = DD(2.0)
+ *     a.selfAdd(3.0)
  * ```
  * 
  * This implementation uses algorithms originally designed variously by
@@ -921,7 +921,7 @@ class DD : Comparable<Any?> {
 
   /**
    * Returns a string representation of this number, in either standard or scientific notation.
-   * If the magnitude of the number is in the range [ 10<sup>-3</sup>, 10<sup>8</sup> ]
+   * If the magnitude of the number is in the range [ 10^-3, 10^8 ]
    * standard notation will be used.  Otherwise, scientific notation will be used.
    *
    * @return a string representation of this number

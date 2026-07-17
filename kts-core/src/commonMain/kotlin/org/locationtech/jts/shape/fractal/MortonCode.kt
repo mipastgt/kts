@@ -35,7 +35,7 @@ class MortonCode {
 
     /**
      * The number of points in the curve for the given level.
-     * The number of points is 2<sup>2 * level</sup>.
+     * The number of points is 2^(2 * level).
      *
      * @param level the level of the curve
      * @return the number of points
@@ -49,7 +49,7 @@ class MortonCode {
     /**
      * The maximum ordinate value for points
      * in the curve for the given level.
-     * The maximum ordinate is 2<sup>level</sup> - 1.
+     * The maximum ordinate is 2^level - 1.
      *
      * @param level the level of the curve
      * @return the maximum ordinate value

@@ -35,12 +35,12 @@ import org.locationtech.jts.geom.util.AffineTransformation
  * 
  * **Example of usage:**
  * ```
- *  GeometricShapeFactory gsf = new GeometricShapeFactory();
- *  gsf.setSize(100);
- *  gsf.setNumPoints(100);
- *  gsf.setBase(new Coordinate(100, 100));
- *  gsf.setRotation(0.5);
- *  Polygon rect = gsf.createRectangle();
+ *  val gsf = GeometricShapeFactory()
+ *  gsf.setSize(100.0)
+ *  gsf.setNumPoints(100)
+ *  gsf.setBase(Coordinate(100.0, 100.0))
+ *  gsf.setRotation(0.5)
+ *  val rect = gsf.createRectangle()
  * ```
  *
  */

@@ -35,7 +35,7 @@ class HilbertCode {
 
     /**
      * The number of points in the curve for the given level.
-     * The number of points is 2<sup>2 * level</sup>.
+     * The number of points is 2^(2 * level).
      *
      * @param level the level of the curve
      * @return the number of points
@@ -49,7 +49,7 @@ class HilbertCode {
     /**
      * The maximum ordinate value for points
      * in the curve for the given level.
-     * The maximum ordinate is 2<sup>level</sup> - 1.
+     * The maximum ordinate is 2^level - 1.
      *
      * @param level the level of the curve
      * @return the maximum ordinate value
@@ -86,7 +86,7 @@ class HilbertCode {
      * Encodes a point (x,y)
      * in the range of the the Hilbert curve at a given level
      * as the index of the point along the curve.
-     * The index will lie in the range [0, 2<sup>level + 1</sup>].
+     * The index will lie in the range [0, 2^(level + 1)].
      *
      * @param level the level of the Hilbert curve
      * @param x the x ordinate of the point
@@ -176,7 +176,7 @@ class HilbertCode {
     /**
      * Computes the point on a Hilbert curve
      * of given level for a given code index.
-     * The point ordinates will lie in the range [0, 2<sup>level</sup>* - 1].
+     * The point ordinates will lie in the range [0, 2^level - 1].
      *
      * @param level the Hilbert curve level
      * @param index the index of the point on the curve
