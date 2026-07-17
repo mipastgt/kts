@@ -4,6 +4,7 @@
 [versions]
 kotlin = "2.4.10"
 dokka = "2.2.0"
+vanniktechPublish = "0.36.0"
 junit = "4.13.2"
 kotlinx-io = "0.9.1"
 kotlinx-serialization = "1.11.0"
@@ -19,3 +20,5 @@ xmlutil-core = { module = "io.github.pdvrieze.xmlutil:core", version.ref = "xmlu
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+# Central Portal publishing + GPG signing + KMP-aware publications (JetBrains-recommended).
+vanniktech-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechPublish" }

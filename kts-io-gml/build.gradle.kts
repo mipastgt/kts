@@ -8,8 +8,8 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 // and GMLReader.read no longer throws SAXException/ParserConfigurationException (see the compat doc).
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
-    `maven-publish`
     alias(libs.plugins.dokka)
+    alias(libs.plugins.vanniktech.publish)
 }
 
 // group and version are set for all modules in the root build.gradle.kts (allprojects).

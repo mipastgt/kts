@@ -5,8 +5,8 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 // `jvmMain/java`. Depends on :kts-core only.
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
-    `maven-publish`
     alias(libs.plugins.dokka)
+    alias(libs.plugins.vanniktech.publish)
 }
 
 // group and version are set for all modules in the root build.gradle.kts (allprojects).

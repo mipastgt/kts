@@ -1,11 +1,16 @@
-import org.gradle.api.publish.PublishingExtension
-import org.gradle.api.publish.maven.MavenPublication
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.KotlinMultiplatform
+import com.vanniktech.maven.publish.MavenPublishBaseExtension
 
 // Root build for the JTS Kotlin Multiplatform Gradle build.
 // Plugin versions come from the version catalog (gradle/libs.versions.toml); subprojects apply
 // the plugins without repeating a version.
 plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
+    // Declared `apply false` so the plugin's classes are on the root build-script classpath — the
+    // `subprojects {}` block below configures its `MavenPublishBaseExtension`, but the root project
+    // itself publishes nothing.
+    alias(libs.plugins.vanniktech.publish) apply false
     // Applied (not `apply false`) at the root so the root project can aggregate the subprojects'
     // Dokka output into a single multi-module site. See the `dokka`/`dependencies` block below.
     alias(libs.plugins.dokka)
@@ -30,15 +35,21 @@ allprojects {
 }
 
 // ---------------------------------------------------------------------------------------------
-// Publication metadata (POM) + a Dokka-HTML `-javadoc.jar` for every publication.
+// Publication metadata (POM) + a Dokka-HTML `-javadoc.jar` + GPG signing + Central Portal upload.
 //
-// Maven Central requires each published artifact to carry POM name/description/url/licenses/
-// developers/scm and a javadoc jar. These are configured centrally for all modules here; the
-// only per-module values are the human-readable title and description maps below.
+// Publishing is handled by the `com.vanniktech.maven.publish` plugin (applied per module). It wires
+// the Central Portal endpoint, signs all publications, and — via `configure(KotlinMultiplatform(…))`
+// — attaches a sources jar and a Dokka-HTML javadoc jar to every KMP publication (Central requires
+// both). Coordinates default to `group:<module dir>:version`, which is exactly the scheme we want,
+// so no explicit `coordinates(...)` call is needed.
 //
-// NOT configured yet (intentionally, until the user finishes local testing): artifact SIGNING
-// (the `signing` plugin + GPG key) and the Central Portal / Sonatype publishing endpoint. Local
-// `publishToMavenLocal` needs neither.
+// POM name/description/url/licenses/developers/scm are configured centrally for all modules here;
+// the only per-module values are the human-readable title and description maps below.
+//
+// Credentials live OUTSIDE the repo (~/.gradle/gradle.properties or env), never here:
+//   mavenCentralUsername / mavenCentralPassword         — Central Portal user token
+//   signingInMemoryKey / signingInMemoryKeyPassword     — ASCII-armored GPG secret key + passphrase
+// `publishToMavenLocal` needs none of these — vanniktech does not sign local installs.
 // ---------------------------------------------------------------------------------------------
 val projectUrl = "https://github.com/mipastgt/kts"
 
@@ -87,61 +98,59 @@ dependencies {
 }
 
 subprojects {
-    // POM metadata for every Maven publication the module produces (root/metadata + per-target).
-    pluginManager.withPlugin("maven-publish") {
-        extensions.configure<PublishingExtension> {
-            publications.withType<MavenPublication>().configureEach {
-                pom {
-                    name.set(moduleTitles[project.name] ?: project.name)
-                    description.set(
-                        moduleDescriptions[project.name]
-                            ?: "Kotlin Multiplatform port of the JTS Topology Suite.",
-                    )
-                    url.set(projectUrl)
-                    licenses {
-                        license {
-                            name.set("Eclipse Public License 2.0")
-                            url.set("https://www.eclipse.org/legal/epl-2.0/")
-                            distribution.set("repo")
-                        }
-                        license {
-                            name.set("Eclipse Distribution License 1.0")
-                            url.set("https://www.eclipse.org/org/documents/edl-v10.php")
-                            distribution.set("repo")
-                        }
+    pluginManager.withPlugin("com.vanniktech.maven.publish") {
+        extensions.configure<MavenPublishBaseExtension> {
+            // Upload to the Central Portal (central.sonatype.com).
+            publishToMavenCentral()
+
+            // Sign every artifact — but only when a GPG key is actually configured (via the
+            // `signingInMemoryKey` Gradle property / `ORG_GRADLE_PROJECT_signingInMemoryKey` env
+            // var, e.g. in ~/.gradle/gradle.properties or CI). Without this guard the `sign…`
+            // tasks run for `publishToMavenLocal` too and fail with "no configured signatory",
+            // breaking key-free local testing. The Central upload always has the key, so it signs.
+            if (providers.gradleProperty("signingInMemoryKey").isPresent) {
+                signAllPublications()
+            }
+
+            // KMP publication layout: a Dokka-HTML javadoc jar (built from each module's
+            // `dokkaGenerate` task) on every target + the root metadata publication. Sources jars
+            // are published by default. Dokka is applied before this plugin (see each module's
+            // `plugins {}` order) so the `dokkaGenerate` task exists when this javadoc jar is wired.
+            configure(KotlinMultiplatform(javadocJar = JavadocJar.Dokka("dokkaGenerate")))
+
+            // POM metadata Central requires (name/description/url/licenses/developers/scm).
+            pom {
+                name.set(moduleTitles[project.name] ?: project.name)
+                description.set(
+                    moduleDescriptions[project.name]
+                        ?: "Kotlin Multiplatform port of the JTS Topology Suite.",
+                )
+                url.set(projectUrl)
+                licenses {
+                    license {
+                        name.set("Eclipse Public License 2.0")
+                        url.set("https://www.eclipse.org/legal/epl-2.0/")
+                        distribution.set("repo")
                     }
-                    developers {
-                        developer {
-                            id.set("mipastgt")
-                            name.set("Michael Paus")
-                            email.set("michael.paus@mpmediasoft.de")
-                            organization.set("mpMediaSoft")
-                            organizationUrl.set("https://www.mpmediasoft.de")
-                        }
-                    }
-                    scm {
-                        connection.set("scm:git:$projectUrl.git")
-                        developerConnection.set("scm:git:ssh://git@github.com/mipastgt/kts.git")
-                        url.set(projectUrl)
+                    license {
+                        name.set("Eclipse Distribution License 1.0")
+                        url.set("https://www.eclipse.org/org/documents/edl-v10.php")
+                        distribution.set("repo")
                     }
                 }
-            }
-        }
-    }
-
-    // A Dokka-HTML `-javadoc.jar`, attached to every publication (Central requires a javadoc jar).
-    // Every module applies the Dokka plugin, so its `dokkaGenerate` output (build/dokka/html) is
-    // packaged with the conventional `javadoc` classifier.
-    pluginManager.withPlugin("org.jetbrains.dokka") {
-        val dokkaHtmlJar = tasks.register<Jar>("dokkaHtmlJar") {
-            dependsOn("dokkaGenerate")
-            from(layout.buildDirectory.dir("dokka/html"))
-            archiveClassifier.set("javadoc")
-        }
-        pluginManager.withPlugin("maven-publish") {
-            extensions.configure<PublishingExtension> {
-                publications.withType<MavenPublication>().configureEach {
-                    artifact(dokkaHtmlJar)
+                developers {
+                    developer {
+                        id.set("mipastgt")
+                        name.set("Michael Paus")
+                        email.set("michael.paus@mpmediasoft.de")
+                        organization.set("mpMediaSoft")
+                        organizationUrl.set("https://www.mpmediasoft.de")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:$projectUrl.git")
+                    developerConnection.set("scm:git:ssh://git@github.com/mipastgt/kts.git")
+                    url.set(projectUrl)
                 }
             }
         }
