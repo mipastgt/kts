@@ -128,11 +128,17 @@ subprojects {
                 signAllPublications()
             }
 
-            // KMP publication layout: a Dokka-HTML javadoc jar (built from each module's
-            // `dokkaGenerate` task) on every target + the root metadata publication. Sources jars
-            // are published by default. Dokka is applied before this plugin (see each module's
-            // `plugins {}` order) so the `dokkaGenerate` task exists when this javadoc jar is wired.
-            configure(KotlinMultiplatform(javadocJar = JavadocJar.Dokka("dokkaGenerate")))
+            // KMP publication layout: a Dokka-HTML javadoc jar (built from each module's Dokka
+            // HTML output) on every target + the root metadata publication. Sources jars are
+            // published by default. Dokka is applied before this plugin (see each module's
+            // `plugins {}` order) so the Dokka task exists when this javadoc jar is wired.
+            //
+            // NOTE: use `dokkaGeneratePublicationHtml`, NOT the `dokkaGenerate` lifecycle task.
+            // Under Dokka Gradle Plugin v2, `dokkaGenerate` is an empty aggregator whose own
+            // outputs are the HTML directory of NOTHING, so wiring the jar to it produces an empty
+            // (manifest-only) javadoc jar. `dokkaGeneratePublicationHtml` is the task that actually
+            // owns the generated `build/dokka/html` directory.
+            configure(KotlinMultiplatform(javadocJar = JavadocJar.Dokka("dokkaGeneratePublicationHtml")))
 
             // POM metadata Central requires (name/description/url/licenses/developers/scm).
             pom {
