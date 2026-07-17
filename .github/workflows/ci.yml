@@ -1,13 +1,11 @@
 name: CI
 
+# Manual only: run from the Actions tab (or `gh workflow run ci.yml`) after a
+# change that actually affects the build — not on every push/PR to main.
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
   workflow_dispatch:
 
-# Cancel superseded runs on the same branch/PR.
+# Cancel superseded runs on the same ref.
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
