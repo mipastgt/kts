@@ -1,6 +1,7 @@
 import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.KotlinMultiplatform
 import com.vanniktech.maven.publish.MavenPublishBaseExtension
+import org.jetbrains.dokka.gradle.DokkaExtension
 
 // Root build for the JTS Kotlin Multiplatform Gradle build.
 // Plugin versions come from the version catalog (gradle/libs.versions.toml); subprojects apply
@@ -86,6 +87,11 @@ repositories {
 
 dokka {
     moduleName.set("JTS Kotlin Multiplatform")
+    // Treat any Dokka warning (e.g. an unresolvable KDoc link) as a build failure for the
+    // aggregated site, so doc-reference regressions can't slip in unnoticed.
+    dokkaPublications.configureEach {
+        failOnWarning.set(true)
+    }
 }
 
 dependencies {
@@ -98,6 +104,16 @@ dependencies {
 }
 
 subprojects {
+    // Fail each module's Dokka generation on any warning (unresolvable KDoc links, etc.), matching
+    // the aggregated site's setting above. Warnings surface at the per-module stage too.
+    pluginManager.withPlugin("org.jetbrains.dokka") {
+        extensions.configure<DokkaExtension> {
+            dokkaPublications.configureEach {
+                failOnWarning.set(true)
+            }
+        }
+    }
+
     pluginManager.withPlugin("com.vanniktech.maven.publish") {
         extensions.configure<MavenPublishBaseExtension> {
             // Upload to the Central Portal (central.sonatype.com).
