@@ -51,6 +51,7 @@ immutable).
 - Dokka (2.2.0), JUnit (4.13.2), kotlinx-io (0.9.1) and kotlinx-serialization (1.11.0) are already
   current; the newer Dokka and kotlinx-serialization releases are a Beta and an RC, so they were
   left alone.
+- Gradle **9.7.1** (was 9.6.1, via the wrapper).
 
 ## [1.20.0.0] — 2026-07-17
 
