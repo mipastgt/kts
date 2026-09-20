@@ -52,6 +52,7 @@ immutable).
   current; the newer Dokka and kotlinx-serialization releases are a Beta and an RC, so they were
   left alone.
 - Gradle **9.7.1** (was 9.6.1, via the wrapper).
+- CI: `actions/setup-java` **v6** (was v5).
 
 ## [1.20.0.0] — 2026-07-17
 
