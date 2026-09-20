@@ -41,6 +41,9 @@ immutable).
 - CI: build and test on **JDK 25** (Temurin) instead of 21, matching the JDK the port is developed
   on. The published artifacts are unaffected — they are pinned to Java 8 by `jvmTarget` and
   `-Xjdk-release` — so this only changes the JVM the `jvmTest` suite runs on.
+- Kotlin **2.4.20** (was 2.4.10); the README badge follows. The full JVM suite (2207 tests) is
+  green, and the JS, Wasm/JS and Kotlin/Native compilations are unaffected, as are the
+  `kotlin-js-store` lock files.
 
 ## [1.20.0.0] — 2026-07-17
 
