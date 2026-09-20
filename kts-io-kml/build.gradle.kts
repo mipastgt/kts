@@ -19,6 +19,8 @@ kotlin {
     jvm {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_1_8)
+            // Resolve against the Java 8 API, not just emit Java 8 bytecode. See :kts-core.
+            freeCompilerArgs.add("-Xjdk-release=1.8")
         }
     }
     js {

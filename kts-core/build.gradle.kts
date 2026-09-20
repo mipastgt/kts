@@ -22,6 +22,15 @@ kotlin {
             // already generates real default methods, so no explicit flag is needed. Do NOT set
             // `-jvm-default=disable` (that reverts to the DefaultImpls behavior and breaks Java
             // implementors).
+
+            // The Java 8 floor is a contract (the README badge, the 1.20.0.0 changelog), and
+            // jvmTarget alone does not hold it: it fixes the class-file version at 52 but leaves
+            // the API surface to whichever JDK runs Gradle — 21 on CI, 25 locally. A call to a
+            // method added after 8 would compile cleanly into class-file 52 and then fail with
+            // NoSuchMethodError on a real Java 8 JVM. -Xjdk-release is the Kotlin counterpart of
+            // javac's --release, which the Java test sources already get through options.release,
+            // and makes the compiler resolve against the Java 8 signatures.
+            freeCompilerArgs.add("-Xjdk-release=1.8")
         }
     }
 

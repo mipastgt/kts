@@ -23,6 +23,12 @@ immutable).
   `-javadoc.jar` contains no HTML, guarding against the empty-javadoc-jar regression fixed below.
 - README badges: CI status, Kotlin version, Kotlin Multiplatform targets, Java 8+, and JTS base
   version.
+- **Java 8 API guardrail.** Every module's JVM compilation now passes `-Xjdk-release=1.8`
+  alongside `jvmTarget = JVM_1_8`. `jvmTarget` fixes only the class-file version; the API surface
+  came from whichever JDK ran Gradle, so a call to a method added after Java 8 would have compiled
+  into class-file 52 and then failed with `NoSuchMethodError` on a real Java 8 JVM. This is the
+  Kotlin counterpart of the `options.release = 8` the Java test sources already had, and it makes
+  the advertised Java 8 floor enforced rather than asserted.
 
 ### Fixed
 - The published `-javadoc.jar` now bundles the full **Dokka HTML API documentation** instead of a
