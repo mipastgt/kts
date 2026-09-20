@@ -44,6 +44,13 @@ immutable).
 - Kotlin **2.4.20** (was 2.4.10); the README badge follows. The full JVM suite (2207 tests) is
   green, and the JS, Wasm/JS and Kotlin/Native compilations are unaffected, as are the
   `kotlin-js-store` lock files.
+- `com.vanniktech.maven.publish` **0.37.0** (was 0.36.0). Its one behavioural change is on the
+  Maven Central publish path: redundant checksums (`.asc` signature checksums and `sha256`/`sha512`)
+  are excluded by default, configurable through `checksums(...)` or `mavenCentralChecksums`.
+- xmlutil **1.0.2** (was 1.0.1), behind the GML and KML readers/writers.
+- Dokka (2.2.0), JUnit (4.13.2), kotlinx-io (0.9.1) and kotlinx-serialization (1.11.0) are already
+  current; the newer Dokka and kotlinx-serialization releases are a Beta and an RC, so they were
+  left alone.
 
 ## [1.20.0.0] — 2026-07-17
 
