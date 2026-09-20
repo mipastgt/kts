@@ -32,11 +32,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Set up JDK 21
+      # 25, matching the JDK the port is developed on (see doc/kotlin/
+      # KOTLIN-MP-COMPATIBILITY.md §12). It does not decide what gets published: every
+      # module pins jvmTarget = JVM_1_8 and -Xjdk-release=1.8, so the artifacts are Java 8
+      # whatever builds them. What it does decide is the JVM the jvmTest suite runs on.
+      - name: Set up JDK 25
         uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: '25'
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6

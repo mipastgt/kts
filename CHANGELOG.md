@@ -38,6 +38,9 @@ immutable).
 ### Changed
 - Build: raised the Gradle daemon heap and Metaspace (`org.gradle.jvmargs`) so a full parallel
   Kotlin/Native build of all six modules no longer exhausts Metaspace.
+- CI: build and test on **JDK 25** (Temurin) instead of 21, matching the JDK the port is developed
+  on. The published artifacts are unaffected — they are pinned to Java 8 by `jvmTarget` and
+  `-Xjdk-release` — so this only changes the JVM the `jvmTest` suite runs on.
 
 ## [1.20.0.0] — 2026-07-17
 
